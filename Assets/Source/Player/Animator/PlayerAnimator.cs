@@ -1,0 +1,42 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UniRx;
+using UnityEngine;
+
+public class PlayerAnimator : MonoBehaviour
+{
+    [SerializeField] private Animator _animator;
+    [SerializeField] private float _speed;
+
+    [SerializeField] private PlayerCharacter _character;
+
+    private PlayerBinds _binds;
+
+    private Vector3 _inputVector;
+    private Vector3 _finalVector;
+
+    private CompositeDisposable _disposable = new CompositeDisposable();
+
+    private void Start()
+    {
+        _binds = _character.Binds;
+
+        Observable.EveryUpdate().Subscribe(_ =>
+        {
+            _inputVector = new Vector3(_binds.Character.Horizontal.ReadValue<float>(), 0,
+                _binds.Character.Vertical.ReadValue<float>());
+
+            _finalVector.x = Mathf.Lerp(_finalVector.x, _inputVector.x, _speed * Time.deltaTime);
+            _finalVector.z = Mathf.Lerp(_finalVector.z, _inputVector.z, _speed * Time.deltaTime);
+            
+            _animator.SetFloat("XVelocity", _finalVector.x);
+            _animator.SetFloat("YVelocity", _finalVector.z);
+        }).AddTo(_disposable);
+    }
+
+    private void OnDisable()
+    {
+        _disposable?.Clear();
+    }
+}
