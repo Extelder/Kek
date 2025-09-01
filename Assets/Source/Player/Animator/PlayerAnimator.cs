@@ -18,8 +18,16 @@ public class PlayerAnimator : MonoBehaviour
 
     private CompositeDisposable _disposable = new CompositeDisposable();
 
-    private void Start()
+    private void OnEnable()
     {
+        _character.ClientStarted += OnClienStarted;
+    }
+
+    private void OnClienStarted()
+    {
+        if(!_character.IsOwner)
+            return;
+        
         _binds = _character.Binds;
 
         Observable.EveryUpdate().Subscribe(_ =>
@@ -37,6 +45,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void OnDisable()
     {
+        _character.ClientStarted -= OnClienStarted;
         _disposable?.Clear();
     }
 }

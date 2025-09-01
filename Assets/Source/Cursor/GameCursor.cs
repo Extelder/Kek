@@ -23,10 +23,8 @@ public class GameCursor : MonoBehaviour
             Instance = this;
             return;
         }
-
-        Debug.LogError("There`s one more GameCursor");
-        Debug.Log(gameObject);
-        Debug.Break();
+        
+        Destroy(gameObject);
     }
 
     private void Start()

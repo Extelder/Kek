@@ -1,35 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : NetworkBehaviour
 {
     [field: SerializeField] public Rigidbody Rigidbody;
     [field: SerializeField] public PlayerBinds Binds;
     [field: SerializeField] public Transform PlayerTransform;
-    
+
     public static PlayerCharacter Instance { get; private set; }
 
-    
-    private void Awake()
+    public event Action ClientStarted;
+
+    public override void OnStartClient()
     {
-        if (!Instance)
+        base.OnStartClient();
+        if (base.IsOwner)
         {
             Binds = new PlayerBinds();
 
             Binds.Enable();
 
             Instance = this;
-            return;
         }
-
-        Destroy(this);
+        
+        ClientStarted?.Invoke();
     }
 
     private void OnDisable()
     {
-        Binds.Dispose();
-        Binds.Disable();
+        if (!base.IsOwner)
+            return;
+        Binds?.Disable();
     }
 }

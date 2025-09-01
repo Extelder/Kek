@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerJump : MonoBehaviour
+public class PlayerJump : NetworkBehaviour
 {
     [SerializeField] private PlayerCharacter _character;
     [SerializeField] private float _jumpForce;
@@ -15,8 +16,11 @@ public class PlayerJump : MonoBehaviour
 
     private bool _jumping;
 
-    private void Start()
+    public override void OnStartClient()
     {
+        base.OnStartClient();
+        if(!base.IsOwner)
+            return;
         _binds = _character.Binds;
         _rigidbody = _character.Rigidbody;
 
@@ -25,6 +29,8 @@ public class PlayerJump : MonoBehaviour
 
     private void OnDisable()
     {
+        if(!base.IsOwner)
+            return;
         StopAllCoroutines();
         _binds.Character.Jump.started -= JumpKeyDowned;
     }

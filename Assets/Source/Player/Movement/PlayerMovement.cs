@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UniRx;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private PlayerCharacter _character;
     
@@ -23,8 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool Moving { get; private set; }
 
-    private void Start()
+    public override void OnStartClient()
     {
+        base.OnStartClient();
+        if(!base.IsOwner)
+            return;
+        
         _rigidbody = _character.Rigidbody;
         _binds = _character.Binds;
 
@@ -38,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
         Observable.EveryFixedUpdate().Subscribe(_ =>
         {
+            if(!IsOwner)
+                return;
             inputVector = transform.TransformDirection(inputVector);
 
             inputVector.Normalize();
@@ -61,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         }).AddTo(_disposable);
     }
 
+  
     private void OnDisable()
     {
         _disposable?.Clear();
