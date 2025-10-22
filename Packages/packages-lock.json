@@ -23,11 +23,25 @@
       "dependencies": {},
       "hash": "eb0f4beeb7af1188b475602269b253dd2ec4aaed"
     },
-    "com.smkplus.custom-toolbar": {
-      "version": "file:C:/Рабочий стол/CustomToolbar-master",
+    "com.unity.animation.rigging": {
+      "version": "1.2.1",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.4.1",
+        "com.unity.test-framework": "1.1.24"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.burst": {
+      "version": "1.8.21",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.cinemachine": {
       "version": "2.10.3",
