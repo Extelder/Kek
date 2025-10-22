@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Managing;
+using FishNet.Managing.Scened;
+using FishNet.Object;
 using Steamworks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using SceneManager = UnityEngine.SceneManagement.SceneManager;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -22,6 +26,11 @@ public class MainMenuManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    public void StartGame()
+    {
+        BootstrapNetworkManager.ChangeNetowrkScene("SampleScene", new[] {"Menu"});
     }
 
     private void Start()
@@ -52,7 +61,7 @@ public class MainMenuManager : MonoBehaviour
     public void JoinLobby()
     {
         CSteamID steamId = new CSteamID(Convert.ToUInt64(_lobbyInput.text));
-        BootstrapManager.JoinById(steamId);   
+        BootstrapManager.JoinById(steamId);
     }
 
     public void LeaveLobby()
@@ -60,7 +69,7 @@ public class MainMenuManager : MonoBehaviour
         BootstrapManager.LeaveLobby();
         OpenMainMenu();
     }
-    
+
     public void CloseAllScreens()
     {
         _menuScreen.SetActive(false);
