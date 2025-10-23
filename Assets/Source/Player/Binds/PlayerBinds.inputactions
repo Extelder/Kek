@@ -27,7 +27,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "418d6c6f-dd7f-42a3-a746-7044cc4aed27",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -36,7 +36,7 @@
                     "name": "MainShoot",
                     "type": "Button",
                     "id": "93216df0-892c-4c03-b7f7-72b9ed9a75b5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -45,7 +45,16 @@
                     "name": "SecondaryShoot",
                     "type": "Button",
                     "id": "ed09258c-c916-4574-9046-7dbe5f940165",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "e043c90b-a1ba-45db-8cb4-576075822fe9",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -148,6 +157,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SecondaryShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "562db317-a935-48c9-acb9-b82959e6facc",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -3081,12 +3081,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3156388276c1374a825cd014fd92ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
   _raycastSettings:
     <Origin>k__BackingField: {fileID: 4387599489495877655}
     <MaxDistance>k__BackingField: 100
     <LayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 2
   _checkCooldown: 0.1
 --- !u!114 &6464001380552801192
 MonoBehaviour:
