@@ -2,20 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using FishNet.Object;
 using UniRx;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-public class PlayerInteract : MonoBehaviour
+public class PlayerInteract : NetworkBehaviour
 {
     [SerializeField] private RaycastSettings _raycastSettings;
-    
+
     [SerializeField] private float _checkCooldown;
     private CompositeDisposable _disposable = new CompositeDisposable();
     private RaycastHit _hit;
-    private void Start()
+
+    public override void OnStartClient()
     {
-        CheckInteractable();
+        base.OnStartClient();
+        if (base.IsOwner)
+            CheckInteractable();
     }
 
     private void CheckInteractable()
@@ -36,6 +40,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnDisable()
     {
-        _disposable.Clear();
+        if (base.IsOwner)
+            _disposable.Clear();
     }
 }

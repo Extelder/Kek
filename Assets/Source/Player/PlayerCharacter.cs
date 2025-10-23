@@ -15,6 +15,18 @@ public class PlayerCharacter : NetworkBehaviour
 
     public event Action ClientStarted;
 
+    [ServerRpc(RequireOwnership = false)]
+    public void DestroyServer(GameObject gameObject)
+    {
+        DestroyObserver(gameObject);
+    }
+
+    [ObserversRpc]
+    public void DestroyObserver(GameObject gameObject)
+    {
+        Destroy(gameObject);
+    }
+    
     public override void OnStartClient()
     {
         base.OnStartClient();

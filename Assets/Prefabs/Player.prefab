@@ -2911,6 +2911,7 @@ GameObject:
   - component: {fileID: 2346307380554849957}
   - component: {fileID: 6846853085322839939}
   - component: {fileID: 953327120620694847}
+  - component: {fileID: 2031704261568184446}
   - component: {fileID: 6464001380552801192}
   - component: {fileID: 1996624997028827962}
   - component: {fileID: 5141690507351948461}
@@ -3068,6 +3069,25 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 1996624997028827962}
   _character: {fileID: 9153910927864380487}
   _camera: {fileID: 4387599489495877655}
+--- !u!114 &2031704261568184446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3156388276c1374a825cd014fd92ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 4387599489495877655}
+    <MaxDistance>k__BackingField: 100
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 1
+  _checkCooldown: 0.1
 --- !u!114 &6464001380552801192
 MonoBehaviour:
   m_ObjectHideFlags: 0
