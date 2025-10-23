@@ -144,6 +144,15 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenPanel"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d271238-8f13-4cda-9f08-f9fb07bbd7d0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -256,6 +265,17 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43555e58-0968-4c54-a293-1b39ab15c5f6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenPanel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -276,6 +296,7 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
         m_Character_MainShoot = m_Character.FindAction("MainShoot", throwIfNotFound: true);
         m_Character_SecondaryShoot = m_Character.FindAction("SecondaryShoot", throwIfNotFound: true);
         m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
+        m_Character_OpenPanel = m_Character.FindAction("OpenPanel", throwIfNotFound: true);
     }
 
     ~@PlayerBinds()
@@ -362,6 +383,7 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_MainShoot;
     private readonly InputAction m_Character_SecondaryShoot;
     private readonly InputAction m_Character_Interact;
+    private readonly InputAction m_Character_OpenPanel;
     /// <summary>
     /// Provides access to input actions defined in input action map "Character".
     /// </summary>
@@ -397,6 +419,10 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Character_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/OpenPanel".
+        /// </summary>
+        public InputAction @OpenPanel => m_Wrapper.m_Character_OpenPanel;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -441,6 +467,9 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @OpenPanel.started += instance.OnOpenPanel;
+            @OpenPanel.performed += instance.OnOpenPanel;
+            @OpenPanel.canceled += instance.OnOpenPanel;
         }
 
         /// <summary>
@@ -470,6 +499,9 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @OpenPanel.started -= instance.OnOpenPanel;
+            @OpenPanel.performed -= instance.OnOpenPanel;
+            @OpenPanel.canceled -= instance.OnOpenPanel;
         }
 
         /// <summary>
@@ -565,5 +597,12 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenPanel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenPanel(InputAction.CallbackContext context);
     }
 }
