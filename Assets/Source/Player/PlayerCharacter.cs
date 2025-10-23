@@ -20,7 +20,7 @@ public class PlayerCharacter : NetworkBehaviour
         base.OnStartClient();
         if (base.IsOwner)
         {
-            Binds = new PlayerBinds();
+            Binds = InputManager.inputActions;
 
             Binds.Enable();
 
