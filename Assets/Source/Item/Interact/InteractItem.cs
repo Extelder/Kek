@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public class InteractItem : MonoBehaviour, IInteractable
+public class InteractItem : NetworkBehaviour, IInteractable
 {
     [SerializeReference] [SerializeReferenceButton]
     public Item Item;
 
-    private bool _detected;
-
-    public void Interact()
+    public virtual void Interact()
     {
         Item.Interact();
     }
 
-    public void Detected()
+    public virtual void Detected()
     {
+        Debug.Log("Detected");
     }
 
-    public void Lost()
+    public virtual void Lost()
     {
+        Debug.Log("Lost");
     }
 }
