@@ -6,48 +6,41 @@ using UnityEngine.UI;
 
 public class ReBindUI : MonoBehaviour
 {
-    [SerializeField]
-    private InputActionReference inputActionReference; //this is on the SO
+    [SerializeField] private InputActionReference inputActionReference; //this is on the SO
 
-    [SerializeField]
-    private bool excludeMouse = true;
-    [Range(0, 10)]
-    [SerializeField]
-    private int selectedBinding;
-    [SerializeField]
-    private InputBinding.DisplayStringOptions displayStringOptions;
-    [Header("Binding Info - DO NOT EDIT")]
-    [SerializeField]
+    [SerializeField] private bool excludeMouse = true;
+    [Range(0, 10)] [SerializeField] private int selectedBinding;
+    [SerializeField] private InputBinding.DisplayStringOptions displayStringOptions;
+
+    [Header("Binding Info - DO NOT EDIT")] [SerializeField]
     private InputBinding inputBinding;
+
     private int bindingIndex;
 
     private string actionName;
 
-    [Header("UI Fields")]
-    [SerializeField]
-    private Text actionText;
-    [SerializeField]
-    private Button rebindButton;
-    [SerializeField]
-    private Text rebindText;
-    [SerializeField]
-    private Button resetButton;
+    [Header("UI Fields")] [SerializeField] private Text actionText;
+    [SerializeField] private Button rebindButton;
+    [SerializeField] private Text rebindText;
+    [SerializeField] private Button resetButton;
+
 
     private void OnEnable()
     {
         rebindButton.onClick.AddListener(() => DoRebind());
         resetButton.onClick.AddListener(() => ResetBinding());
 
-        if(inputActionReference != null)
+        if (inputActionReference != null)
         {
-            InputManager.LoadBindingOverride(actionName);
             GetBindingInfo();
+            InputManager.LoadBindingOverride(actionName);
             UpdateUI();
         }
 
         InputManager.rebindComplete += UpdateUI;
         InputManager.rebindCanceled += UpdateUI;
     }
+
 
     private void OnDisable()
     {
@@ -58,7 +51,7 @@ public class ReBindUI : MonoBehaviour
     private void OnValidate()
     {
         if (inputActionReference == null)
-            return; 
+            return;
 
         GetBindingInfo();
         UpdateUI();
@@ -69,7 +62,7 @@ public class ReBindUI : MonoBehaviour
         if (inputActionReference.action != null)
             actionName = inputActionReference.action.name;
 
-        if(inputActionReference.action.bindings.Count > selectedBinding)
+        if (inputActionReference.action.bindings.Count > selectedBinding)
         {
             inputBinding = inputActionReference.action.bindings[selectedBinding];
             bindingIndex = selectedBinding;
@@ -81,7 +74,7 @@ public class ReBindUI : MonoBehaviour
         if (actionText != null)
             actionText.text = actionName;
 
-        if(rebindText != null)
+        if (rebindText != null)
         {
             if (Application.isPlaying)
             {

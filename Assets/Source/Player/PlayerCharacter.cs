@@ -40,7 +40,6 @@ public class PlayerCharacter : NetworkBehaviour
                 _thirdPerson[i].SetActive(false);
             }
 
-
             Instance = this;
         }
         else
@@ -69,6 +68,7 @@ public class PlayerCharacter : NetworkBehaviour
     {
         if (!base.IsOwner)
             return;
+        Binds?.Dispose();
         Binds?.Disable();
     }
 }
