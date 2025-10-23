@@ -22,4 +22,11 @@ public class InteractItem : NetworkBehaviour, IInteractable
     {
         Debug.Log("Lost");
     }
+
+
+    [ServerRpc(RequireOwnership = false)]
+    public void DespawnObject()
+    {
+        Despawn();
+    }
 }
