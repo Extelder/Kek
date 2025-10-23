@@ -9,7 +9,7 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public Rigidbody Rigidbody;
     [field: SerializeField] public PlayerBinds Binds;
     [field: SerializeField] public Transform PlayerTransform;
-    [field: SerializeField] public GameObject _thirdPerson;
+    [field: SerializeField] public GameObject[] _thirdPerson;
 
     public static PlayerCharacter Instance { get; private set; }
 
@@ -24,7 +24,11 @@ public class PlayerCharacter : NetworkBehaviour
 
             Binds.Enable();
 
-            _thirdPerson.SetActive(false);
+            for (int i = 0; i < _thirdPerson.Length; i++)
+            {
+                _thirdPerson[i].SetActive(false);
+            }
+
             Instance = this;
         }
 

@@ -25,9 +25,9 @@ public class PlayerAnimator : MonoBehaviour
 
     private void OnClienStarted()
     {
-        if(!_character.IsOwner)
+        if (!_character.IsOwner)
             return;
-        
+
         _binds = _character.Binds;
 
         Observable.EveryUpdate().Subscribe(_ =>
@@ -37,13 +37,13 @@ public class PlayerAnimator : MonoBehaviour
 
             _finalVector.x = Mathf.Lerp(_finalVector.x, _inputVector.x, _speed * Time.deltaTime);
             _finalVector.z = Mathf.Lerp(_finalVector.z, _inputVector.z, _speed * Time.deltaTime);
-            
+
             _animator.SetFloat("XVelocity", _finalVector.x);
             _animator.SetFloat("YVelocity", _finalVector.z);
         }).AddTo(_disposable);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _character.ClientStarted -= OnClienStarted;
         _disposable?.Clear();
