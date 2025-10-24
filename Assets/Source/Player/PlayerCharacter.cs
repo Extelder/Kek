@@ -23,7 +23,7 @@ public class PlayerCharacter : NetworkBehaviour
     {
         GameObject instance = Instantiate(spawnedObject, position, rotation);
 
-        ServerManager.Spawn(spawnedObject);
+        ServerManager.Spawn(instance);
     }
 
     public override void OnStartClient()

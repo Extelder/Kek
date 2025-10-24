@@ -153,6 +153,51 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchItem1"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fc9a042-97b7-4f1a-8339-64f9bff5ea71"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchItem2"",
+                    ""type"": ""Button"",
+                    ""id"": ""55da60a8-7cb0-4737-821b-935ecf724c38"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchItem3"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f443e17-ab88-445a-afee-d12b4c26fc7c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchItem4"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb3232ef-0e2c-4ca1-a505-16341f3b3ea5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""55d85ff1-78cb-4b69-9e10-09e5e3b168f3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -276,6 +321,61 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
                     ""action"": ""OpenPanel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e952abb5-8fdd-4733-be66-3e8fdacd1e6a"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchItem1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6e66dfc-833d-456a-8441-d454fa40ce86"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchItem2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""200af3c9-c347-4626-86b2-cf06ef0a91b4"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchItem3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c66963a-5416-4916-88f9-02898c3c6d12"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchItem4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30489b33-8351-4cac-aeda-eed5354c52c2"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -297,6 +397,11 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
         m_Character_SecondaryShoot = m_Character.FindAction("SecondaryShoot", throwIfNotFound: true);
         m_Character_Interact = m_Character.FindAction("Interact", throwIfNotFound: true);
         m_Character_OpenPanel = m_Character.FindAction("OpenPanel", throwIfNotFound: true);
+        m_Character_SwitchItem1 = m_Character.FindAction("SwitchItem1", throwIfNotFound: true);
+        m_Character_SwitchItem2 = m_Character.FindAction("SwitchItem2", throwIfNotFound: true);
+        m_Character_SwitchItem3 = m_Character.FindAction("SwitchItem3", throwIfNotFound: true);
+        m_Character_SwitchItem4 = m_Character.FindAction("SwitchItem4", throwIfNotFound: true);
+        m_Character_Drop = m_Character.FindAction("Drop", throwIfNotFound: true);
     }
 
     ~@PlayerBinds()
@@ -384,6 +489,11 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_SecondaryShoot;
     private readonly InputAction m_Character_Interact;
     private readonly InputAction m_Character_OpenPanel;
+    private readonly InputAction m_Character_SwitchItem1;
+    private readonly InputAction m_Character_SwitchItem2;
+    private readonly InputAction m_Character_SwitchItem3;
+    private readonly InputAction m_Character_SwitchItem4;
+    private readonly InputAction m_Character_Drop;
     /// <summary>
     /// Provides access to input actions defined in input action map "Character".
     /// </summary>
@@ -423,6 +533,26 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/OpenPanel".
         /// </summary>
         public InputAction @OpenPanel => m_Wrapper.m_Character_OpenPanel;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/SwitchItem1".
+        /// </summary>
+        public InputAction @SwitchItem1 => m_Wrapper.m_Character_SwitchItem1;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/SwitchItem2".
+        /// </summary>
+        public InputAction @SwitchItem2 => m_Wrapper.m_Character_SwitchItem2;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/SwitchItem3".
+        /// </summary>
+        public InputAction @SwitchItem3 => m_Wrapper.m_Character_SwitchItem3;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/SwitchItem4".
+        /// </summary>
+        public InputAction @SwitchItem4 => m_Wrapper.m_Character_SwitchItem4;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/Drop".
+        /// </summary>
+        public InputAction @Drop => m_Wrapper.m_Character_Drop;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -470,6 +600,21 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
             @OpenPanel.started += instance.OnOpenPanel;
             @OpenPanel.performed += instance.OnOpenPanel;
             @OpenPanel.canceled += instance.OnOpenPanel;
+            @SwitchItem1.started += instance.OnSwitchItem1;
+            @SwitchItem1.performed += instance.OnSwitchItem1;
+            @SwitchItem1.canceled += instance.OnSwitchItem1;
+            @SwitchItem2.started += instance.OnSwitchItem2;
+            @SwitchItem2.performed += instance.OnSwitchItem2;
+            @SwitchItem2.canceled += instance.OnSwitchItem2;
+            @SwitchItem3.started += instance.OnSwitchItem3;
+            @SwitchItem3.performed += instance.OnSwitchItem3;
+            @SwitchItem3.canceled += instance.OnSwitchItem3;
+            @SwitchItem4.started += instance.OnSwitchItem4;
+            @SwitchItem4.performed += instance.OnSwitchItem4;
+            @SwitchItem4.canceled += instance.OnSwitchItem4;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
         }
 
         /// <summary>
@@ -502,6 +647,21 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
             @OpenPanel.started -= instance.OnOpenPanel;
             @OpenPanel.performed -= instance.OnOpenPanel;
             @OpenPanel.canceled -= instance.OnOpenPanel;
+            @SwitchItem1.started -= instance.OnSwitchItem1;
+            @SwitchItem1.performed -= instance.OnSwitchItem1;
+            @SwitchItem1.canceled -= instance.OnSwitchItem1;
+            @SwitchItem2.started -= instance.OnSwitchItem2;
+            @SwitchItem2.performed -= instance.OnSwitchItem2;
+            @SwitchItem2.canceled -= instance.OnSwitchItem2;
+            @SwitchItem3.started -= instance.OnSwitchItem3;
+            @SwitchItem3.performed -= instance.OnSwitchItem3;
+            @SwitchItem3.canceled -= instance.OnSwitchItem3;
+            @SwitchItem4.started -= instance.OnSwitchItem4;
+            @SwitchItem4.performed -= instance.OnSwitchItem4;
+            @SwitchItem4.canceled -= instance.OnSwitchItem4;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
         }
 
         /// <summary>
@@ -604,5 +764,40 @@ public partial class @PlayerBinds: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenPanel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SwitchItem1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchItem1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SwitchItem2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchItem2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SwitchItem3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchItem3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SwitchItem4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchItem4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Drop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDrop(InputAction.CallbackContext context);
     }
 }
