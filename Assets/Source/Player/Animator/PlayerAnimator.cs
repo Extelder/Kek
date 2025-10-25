@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private string _attack;
+    [SerializeField] private string _throw;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _fpsAnimator;
@@ -51,6 +52,11 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBoolAndDisableOthers(_attack, true);
     }
 
+    public void ThrowAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_throw, true);
+    }
+
     public void SetAnimationBoolAndDisableOthers(string name, bool value)
     {
         DisableAllBools();
@@ -67,6 +73,7 @@ public class PlayerAnimator : MonoBehaviour
     public void DisableAllBools()
     {
         SetAnimationBool(_attack, false);
+        SetAnimationBool(_throw, false);
     }
 
     private void OnDestroy()
