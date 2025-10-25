@@ -53,9 +53,9 @@ public class PlayerAnimator : MonoBehaviour
 
     public void SetAnimationBoolAndDisableOthers(string name, bool value)
     {
+        DisableAllBools();
         _animator.SetBool(name, value);
         _fpsAnimator.SetBool(name, value);
-        DisableAllBools();
     }
 
     public void SetAnimationBool(string name, bool value)
