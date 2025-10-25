@@ -10,6 +10,8 @@ public class PlayerInventoryItem : MonoBehaviour
     [SerializeField] private GameObject _thirdPersonGameObject;
     [SerializeField] private ItemData _needItem;
 
+    public event Action<bool> ChangeEquipState;
+
     private void OnEnable()
     {
         InventoryItem.ItemEquiped += OnItemEquiped;
@@ -22,6 +24,7 @@ public class PlayerInventoryItem : MonoBehaviour
 
     private void OnItemEquiped(ItemData data)
     {
+        ChangeEquipState?.Invoke(data == _needItem);
         _gameObject.SetActive(data == _needItem);
         Debug.Log(PlayerCharacter.Instance);
         PlayerCharacter.Instance.SetObjectEnableServer(_thirdPersonGameObject, (data == _needItem));
