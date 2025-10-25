@@ -26,6 +26,12 @@ public class PlayerCharacter : NetworkBehaviour
         ServerManager.Spawn(instance);
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void DespawnObject(NetworkBehaviour spawnedObject)
+    {
+        spawnedObject.Despawn();
+    }
+
     public override void OnStartClient()
     {
         base.OnStartClient();
