@@ -35,7 +35,7 @@ public abstract class EquipItem : MonoBehaviour
     
     public virtual void OnAttackInputCanceled(InputAction.CallbackContext obj)
     {
-        PlayerAnimator.DisableAllBools();
+    //    PlayerAnimator.DisableAllBools();
     }
 
     private void OnDisable()
