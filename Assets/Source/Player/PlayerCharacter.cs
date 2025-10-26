@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerCharacter : NetworkBehaviour
 {
     [field: SerializeField] public Transform DropPoint { get; private set; }
+    [field: SerializeField] public Transform CameraTransform { get; private set; }
     [field: SerializeField] public Rigidbody Rigidbody;
     [field: SerializeField] public PlayerBinds Binds;
     [field: SerializeField] public Transform PlayerTransform;

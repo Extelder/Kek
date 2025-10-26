@@ -89,6 +89,11 @@ public class Generator : NetworkBehaviour
             }
 
             Instance.SpawnedGenerateParts++;
+            if (Instance.SpawnedGenerateParts <= 5 && !IsInstance)
+            {
+                GetComponent<Collider>().enabled = false;
+            }
+
             GameObject part = (_spawnableParts[Random.Range(0, _spawnableParts.Length)]);
 
             character.ServerSpawnObject(part, _spawnNextPoints[i].position,

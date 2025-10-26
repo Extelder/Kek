@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
+    [SerializeField] private string _attack;
+    [SerializeField] private string _throw;
+
     [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _fpsAnimator;
     [SerializeField] private float _speed;
 
     [SerializeField] private PlayerCharacter _character;
@@ -41,6 +45,35 @@ public class PlayerAnimator : MonoBehaviour
             _animator.SetFloat("XVelocity", _finalVector.x);
             _animator.SetFloat("YVelocity", _finalVector.z);
         }).AddTo(_disposable);
+    }
+
+    public void AttackAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_attack, true);
+    }
+
+    public void ThrowAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_throw, true);
+    }
+
+    public void SetAnimationBoolAndDisableOthers(string name, bool value)
+    {
+        DisableAllBools();
+        _animator.SetBool(name, value);
+        _fpsAnimator.SetBool(name, value);
+    }
+
+    public void SetAnimationBool(string name, bool value)
+    {
+        _animator.SetBool(name, value);
+        _fpsAnimator.SetBool(name, value);
+    }
+
+    public void DisableAllBools()
+    {
+        SetAnimationBool(_attack, false);
+        SetAnimationBool(_throw, false);
     }
 
     private void OnDestroy()
