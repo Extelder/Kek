@@ -1,15 +1,14 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TNT : MonoBehaviour
-{
+public abstract class EquipItem : MonoBehaviour
+{ 
+    [field :SerializeField] public PlayerAnimator PlayerAnimator { get; private set; }
+    [SerializeField] private ItemAnimatorEventHandler _animatorEventHandler;
+    [SerializeField] private ItemAnimator _animator;
     [SerializeField] private PlayerInventoryItem _inventoryItem;
-    [SerializeField] private PlayerAnimator _playerAnimator;
-
-    [SerializeField] private GameObject _tntThrowablePrefab;
 
     private void OnEnable()
     {
@@ -20,25 +19,23 @@ public class TNT : MonoBehaviour
     {
         if (equiped)
         {
+            _animatorEventHandler.ChooseItemAnimator(_animator);
             PlayerCharacter.Instance.Binds.Character.MainShoot.started += OnAttackInputReceived;
             PlayerCharacter.Instance.Binds.Character.MainShoot.canceled += OnAttackInputCanceled;
         }
         else
         {
+            PlayerAnimator.DisableAllBools();
             PlayerCharacter.Instance.Binds.Character.MainShoot.started -= OnAttackInputReceived;
             PlayerCharacter.Instance.Binds.Character.MainShoot.canceled -= OnAttackInputCanceled;
         }
     }
 
-    private void OnAttackInputReceived(InputAction.CallbackContext obj)
-    {
-        _playerAnimator.ThrowAnim();
-        PlayerCharacter.Instance.ServerSpawnObject(_tntThrowablePrefab, PlayerCharacter.Instance.DropPoint.position, PlayerCharacter.Instance.CameraTransform.rotation);
-    }
+    public abstract void OnAttackInputReceived(InputAction.CallbackContext obj);
     
-    private void OnAttackInputCanceled(InputAction.CallbackContext obj)
+    public virtual void OnAttackInputCanceled(InputAction.CallbackContext obj)
     {
-        _playerAnimator.DisableAllBools();
+        PlayerAnimator.DisableAllBools();
     }
 
     private void OnDisable()
