@@ -3108,6 +3108,7 @@ GameObject:
   - component: {fileID: 5129122528858913249}
   - component: {fileID: 571485214049924653}
   - component: {fileID: 8658937335675576837}
+  - component: {fileID: 6243548199128207076}
   m_Layer: 3
   m_Name: TNTItem
   m_TagString: Untagged
@@ -3158,9 +3159,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7c6b99b2c59e340bc726204b090e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerAnimator>k__BackingField: {fileID: 6499830973396402101}
+  _animatorEventHandler: {fileID: 8932035962717781213}
+  _animator: {fileID: 6243548199128207076}
   _inventoryItem: {fileID: 571485214049924653}
-  _playerAnimator: {fileID: 6499830973396402101}
   _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
+--- !u!114 &6243548199128207076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318283639597074855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce949c40d51873418e9cace82f49893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 6499830973396402101}
+  CanUse: 1
+  AlreadyUsing: 0
 --- !u!1 &2371270819665284983
 GameObject:
   m_ObjectHideFlags: 0
@@ -7401,6 +7419,7 @@ GameObject:
   - component: {fileID: 5197782389008065901}
   - component: {fileID: 1225629203006681363}
   - component: {fileID: 6499830973396402101}
+  - component: {fileID: 8932035962717781213}
   - component: {fileID: 6626394759318695960}
   - component: {fileID: 5440737559542215630}
   - component: {fileID: 2279830191536538982}
@@ -7469,6 +7488,18 @@ MonoBehaviour:
   _fpsAnimator: {fileID: 9079513319236140734}
   _speed: 5
   _character: {fileID: 9153910927864380487}
+--- !u!114 &8932035962717781213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462518773619068142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b805de03c6b331043883144aa8c76273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6626394759318695960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10314,6 +10345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1200219077871540597}
   - component: {fileID: 9079513319236140734}
+  - component: {fileID: 2530393198270458125}
   m_Layer: 3
   m_Name: Hands
   m_TagString: Untagged
@@ -10360,6 +10392,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2530393198270458125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619897411130093451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b805de03c6b331043883144aa8c76273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7680199802031891845
 GameObject:
   m_ObjectHideFlags: 0
@@ -12385,6 +12429,7 @@ GameObject:
   - component: {fileID: 1894416176632590681}
   - component: {fileID: 5357624642094703125}
   - component: {fileID: 5309658263975827797}
+  - component: {fileID: 8830144297548802997}
   m_Layer: 3
   m_Name: PickaxeItem
   m_TagString: Untagged
@@ -12435,8 +12480,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0851171b87e6a554392dc8711ef56a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 6499830973396402101}
+  <PlayerAnimator>k__BackingField: {fileID: 6499830973396402101}
+  _animatorEventHandler: {fileID: 8932035962717781213}
+  _animator: {fileID: 8830144297548802997}
   _inventoryItem: {fileID: 5357624642094703125}
+--- !u!114 &8830144297548802997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971234289735552014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fbfa032412b6342a24e657a6b80153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 6499830973396402101}
+  CanUse: 1
+  AlreadyUsing: 0
 --- !u!1 &8971601973604919328
 GameObject:
   m_ObjectHideFlags: 0
@@ -12909,7 +12971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: "\u0423"
+      value: E
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name

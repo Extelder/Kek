@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
@@ -5,12 +6,13 @@ using UnityEngine;
 
 public abstract class ItemAnimator : MonoBehaviour
 {
-    public bool CanShoot = true;
-    public ReactiveProperty<bool> AlreadyShooting = new ReactiveProperty<bool>();
+    [field: SerializeField] public PlayerAnimator Animator { get; private set; }
+    [HideInInspector] public bool CanUse = true;
+    [HideInInspector] public bool AlreadyUsing;
     
     public void AnimationEndStartChecking()
     {
-        AlreadyShooting.Value = false;
+        AlreadyUsing = false;
         StopAllCoroutines();
         StartCoroutine(AnimationEndChecking());
     }
@@ -19,37 +21,37 @@ public abstract class ItemAnimator : MonoBehaviour
     {
         StopAllCoroutines();
 
-        //CanChanged = true;
+        Animator.DisableAllBools();
+    }
+
+    private IEnumerator AnimationEndChecking()
+    {
+        while (true)
+        {
+            if (!CanUse)
+            {
+                Animator.DisableAllBools();
+                yield break;
+            }
+            if (PlayerCharacter.Instance.Binds.Character.MainShoot.inProgress)
+            {
+                AlreadyUsing = true;
+                AnimationEndCheck();
+                yield break;
+            }
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 
     public void AnimationEndStopChecking()
     {
         StopAllCoroutines();
 
-        if (AlreadyShooting.Value)
+        if (AlreadyUsing)
             return;
-
-        //CanChanged = true;
+        
+        Animator.DisableAllBools();
     }
 
-    public virtual IEnumerator AnimationEndChecking()
-    {
-        while (true)
-        {
-            if (!CanShoot)
-            {
-                //CanChanged = true;
-                yield break;
-            }
-
-            if (PlayerCharacter.Instance.Binds.Character.MainShoot.inProgress)
-            {
-                AlreadyShooting.Value = true;
-                //Animator.Shoot();
-                yield break;
-            }
-
-            yield return new WaitForSeconds(0.02f);
-        }
-    }
+    public abstract void AnimationEndCheck();
 }
