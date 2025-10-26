@@ -18,6 +18,7 @@ public class Pickaxe : MonoBehaviour
     {
         if (equiped)
         {
+            
             Debug.LogError("Subscribe");
             PlayerCharacter.Instance.Binds.Character.MainShoot.started += OnAttackInputStarted;
             PlayerCharacter.Instance.Binds.Character.MainShoot.canceled += OnAttackInputCanceled;
