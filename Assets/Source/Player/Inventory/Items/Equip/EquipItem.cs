@@ -8,11 +8,18 @@ public abstract class EquipItem : MonoBehaviour
     [field :SerializeField] public PlayerAnimator PlayerAnimator { get; private set; }
     [SerializeField] private ItemAnimatorEventHandler _animatorEventHandler;
     [SerializeField] private ItemAnimator _animator;
-    [SerializeField] private PlayerInventoryItem _inventoryItem;
+    [SerializeField] private PlayerInventoryItem _playerInventoryItem;
+    [SerializeField] private string _actionName;
 
     private void OnEnable()
     {
-        _inventoryItem.ChangeEquipState += OnChangeEquipState;
+        _playerInventoryItem.ChangeEquipState += OnChangeEquipState;
+        _playerInventoryItem.EquipmentNull += OnEquipmentNull;
+    }
+
+    private void OnEquipmentNull()
+    { 
+        _animatorEventHandler.ChooseItemAnimator(null);
     }
 
     private void OnChangeEquipState(bool equiped)
@@ -20,28 +27,26 @@ public abstract class EquipItem : MonoBehaviour
         if (equiped)
         {
             _animatorEventHandler.ChooseItemAnimator(_animator);
-            PlayerCharacter.Instance.Binds.Character.MainShoot.started += OnAttackInputReceived;
-            PlayerCharacter.Instance.Binds.Character.MainShoot.canceled += OnAttackInputCanceled;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started += OnAttackInputReceived;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled += OnAttackInputCanceled;
         }
         else
         {
-            PlayerAnimator.DisableAllBools();
-            PlayerCharacter.Instance.Binds.Character.MainShoot.started -= OnAttackInputReceived;
-            PlayerCharacter.Instance.Binds.Character.MainShoot.canceled -= OnAttackInputCanceled;
+            PlayerAnimator.DisableAll();
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnAttackInputReceived;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnAttackInputCanceled;
         }
     }
 
     public abstract void OnAttackInputReceived(InputAction.CallbackContext obj);
-    
-    public virtual void OnAttackInputCanceled(InputAction.CallbackContext obj)
-    {
-    //    PlayerAnimator.DisableAllBools();
-    }
+
+    public abstract void OnAttackInputCanceled(InputAction.CallbackContext obj);
 
     private void OnDisable()
     {
-        _inventoryItem.ChangeEquipState -= OnChangeEquipState;
-        PlayerCharacter.Instance.Binds.Character.MainShoot.started -= OnAttackInputReceived;
-        PlayerCharacter.Instance.Binds.Character.MainShoot.canceled -= OnAttackInputCanceled;
+        _playerInventoryItem.ChangeEquipState -= OnChangeEquipState;
+        _playerInventoryItem.EquipmentNull -= OnEquipmentNull;
+        PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnAttackInputReceived;
+        PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnAttackInputCanceled;
     }
 }

@@ -2245,6 +2245,75 @@ Transform:
   - {fileID: 631945642848858040}
   m_Father: {fileID: 4332312760377733581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1807785119034212917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3047999094876804755}
+  - component: {fileID: 4939536552562877852}
+  - component: {fileID: 2496645462554928936}
+  m_Layer: 0
+  m_Name: TakeUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3047999094876804755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807785119034212917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1200219077871540597}
+  m_Father: {fileID: 7846923085116732579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4939536552562877852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807785119034212917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da38773efed55246a4a1b439fb59fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2496645462554928936}
+  _takeUp: TakeUp
+--- !u!95 &2496645462554928936
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807785119034212917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9d54a21b5a4d214d8d592650511f2b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1807877903678489041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,8 +3231,8 @@ MonoBehaviour:
   <PlayerAnimator>k__BackingField: {fileID: 6499830973396402101}
   _animatorEventHandler: {fileID: 8932035962717781213}
   _animator: {fileID: 6243548199128207076}
-  _inventoryItem: {fileID: 571485214049924653}
-  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
+  _playerInventoryItem: {fileID: 571485214049924653}
+  _actionName: MainShoot
 --- !u!114 &6243548199128207076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,6 +3246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 6499830973396402101}
+  _actionName: MainShoot
   CanUse: 1
   AlreadyUsing: 0
 --- !u!1 &2371270819665284983
@@ -7484,6 +7554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attack: Attack
   _throw: Throw
+  _reset: Reset
   _animator: {fileID: 1225629203006681363}
   _fpsAnimator: {fileID: 9079513319236140734}
   _speed: 5
@@ -7500,6 +7571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b805de03c6b331043883144aa8c76273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _takeUp: {fileID: 4939536552562877852}
+  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
 --- !u!114 &6626394759318695960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9098,7 +9171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1200219077871540597}
+  - {fileID: 3047999094876804755}
   m_Father: {fileID: 4387599489495877655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1067356894709117499
@@ -10362,14 +10435,14 @@ Transform:
   m_GameObject: {fileID: 7619897411130093451}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.484, z: -0.027}
+  m_LocalPosition: {x: 0, y: -1.484, z: -0.02699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6622613030098651124}
   - {fileID: 251422110658371669}
   - {fileID: 3994484496248678643}
-  m_Father: {fileID: 7846923085116732579}
+  m_Father: {fileID: 3047999094876804755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9079513319236140734
 Animator:
@@ -10404,6 +10477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b805de03c6b331043883144aa8c76273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _takeUp: {fileID: 4939536552562877852}
+  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
 --- !u!1 &7680199802031891845
 GameObject:
   m_ObjectHideFlags: 0
@@ -12483,7 +12558,8 @@ MonoBehaviour:
   <PlayerAnimator>k__BackingField: {fileID: 6499830973396402101}
   _animatorEventHandler: {fileID: 8932035962717781213}
   _animator: {fileID: 8830144297548802997}
-  _inventoryItem: {fileID: 5357624642094703125}
+  _playerInventoryItem: {fileID: 5357624642094703125}
+  _actionName: MainShoot
 --- !u!114 &8830144297548802997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12497,6 +12573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 6499830973396402101}
+  _actionName: MainShoot
   CanUse: 1
   AlreadyUsing: 0
 --- !u!1 &8971601973604919328

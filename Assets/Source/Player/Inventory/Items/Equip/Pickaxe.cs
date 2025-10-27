@@ -10,4 +10,8 @@ public class Pickaxe : EquipItem
     {
         PlayerAnimator.AttackAnim();
     }
+
+    public override void OnAttackInputCanceled(InputAction.CallbackContext obj)
+    {
+    }
 }

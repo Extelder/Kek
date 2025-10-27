@@ -11,6 +11,7 @@ public class PlayerInventoryItem : MonoBehaviour
     [SerializeField] private ItemData _needItem;
 
     public event Action<bool> ChangeEquipState;
+    public event Action EquipmentNull;
 
     private void OnEnable()
     {
@@ -24,6 +25,8 @@ public class PlayerInventoryItem : MonoBehaviour
 
     private void OnItemEquiped(ItemData data)
     {
+        if (data == null)
+            EquipmentNull?.Invoke();
         ChangeEquipState?.Invoke(data == _needItem);
         _gameObject.SetActive(data == _needItem);
         Debug.Log(PlayerCharacter.Instance);

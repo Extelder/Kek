@@ -7,6 +7,9 @@ using UnityEngine;
 public abstract class ItemAnimator : MonoBehaviour
 {
     [field: SerializeField] public PlayerAnimator Animator { get; private set; }
+    
+    [SerializeField] private string _actionName;
+
     [HideInInspector] public bool CanUse = true;
     [HideInInspector] public bool AlreadyUsing;
     
@@ -20,8 +23,15 @@ public abstract class ItemAnimator : MonoBehaviour
     public void AnimationEndWithoutChecking()
     {
         StopAllCoroutines();
+        
+        Animator.DisableAll();
+    }
 
-        Animator.DisableAllBools();
+    public void AnimationReset()
+    {
+        StopAllCoroutines();
+        
+        Animator.ResetAnim();
     }
 
     private IEnumerator AnimationEndChecking()
@@ -30,10 +40,10 @@ public abstract class ItemAnimator : MonoBehaviour
         {
             if (!CanUse)
             {
-                Animator.DisableAllBools();
+                Animator.DisableAll();
                 yield break;
             }
-            if (PlayerCharacter.Instance.Binds.Character.MainShoot.inProgress)
+            if (PlayerCharacter.Instance.Binds.FindAction(_actionName, true).inProgress)
             {
                 AlreadyUsing = true;
                 AnimationEndCheck();
@@ -50,7 +60,7 @@ public abstract class ItemAnimator : MonoBehaviour
         if (AlreadyUsing)
             return;
         
-        Animator.DisableAllBools();
+        Animator.DisableAll();
     }
 
     public abstract void AnimationEndCheck();

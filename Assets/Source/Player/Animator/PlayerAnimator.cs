@@ -8,6 +8,7 @@ public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private string _attack;
     [SerializeField] private string _throw;
+    [SerializeField] private string _reset;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _fpsAnimator;
@@ -57,9 +58,14 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBoolAndDisableOthers(_throw, true);
     }
 
+    public void ResetAnim()
+    {
+        SetAnimationTrigger(_reset);
+    }
+
     public void SetAnimationBoolAndDisableOthers(string name, bool value)
     {
-        DisableAllBools();
+        DisableAll();
         _animator.SetBool(name, value);
         _fpsAnimator.SetBool(name, value);
     }
@@ -70,10 +76,30 @@ public class PlayerAnimator : MonoBehaviour
         _fpsAnimator.SetBool(name, value);
     }
 
-    public void DisableAllBools()
+    public void SetAnimationTrigger(string name)
+    {
+        _animator.SetTrigger(name);
+        _fpsAnimator.SetTrigger(name);
+    }
+
+    public void SetAnimationTriggerAndDisableOthers(string name)
+    {
+        _animator.SetTrigger(name);
+        _fpsAnimator.SetTrigger(name);
+        DisableAll();
+    }
+
+    public void ResetAnimationTrigger(string name)
+    {
+        _animator.ResetTrigger(name);
+        _fpsAnimator.ResetTrigger(name);
+    }
+
+    public void DisableAll()
     {
         SetAnimationBool(_attack, false);
         SetAnimationBool(_throw, false);
+        ResetAnimationTrigger(_reset);
     }
 
     private void OnDestroy()

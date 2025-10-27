@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ItemAnimatorEventHandler : MonoBehaviour
 {
+    [SerializeField] private ItemTakeUp _takeUp;
+    [SerializeField] private GameObject _tntThrowablePrefab;
     private ItemAnimator _currentItemAnimator;
 
     public void ChooseItemAnimator(ItemAnimator itemAnimator)
     {
+        AnimationEndWithoutChecking();
+        _takeUp.TakeUp();
+        _currentItemAnimator?.AnimationReset();
         _currentItemAnimator = itemAnimator;
     }
 
@@ -18,11 +23,17 @@ public class ItemAnimatorEventHandler : MonoBehaviour
     
     public void AnimationEndWithoutChecking()
     {
-        _currentItemAnimator?.AnimationEndStartChecking();
+        _currentItemAnimator?.AnimationEndWithoutChecking();
     }
 
     public void AnimationEndStopChecking()
     {
         _currentItemAnimator?.AnimationEndStopChecking();
+    }
+
+    public void ThrowTNT()
+    {
+        PlayerCharacter.Instance.ServerSpawnObject(_tntThrowablePrefab, PlayerCharacter.Instance.DropPoint.position, 
+            PlayerCharacter.Instance.CameraTransform.rotation);
     }
 }
