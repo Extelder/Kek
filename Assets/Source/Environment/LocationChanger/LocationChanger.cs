@@ -16,7 +16,7 @@ public class LocationChanger : MonoBehaviour
 
     private void OnAllPlayerInAction()
     {
-        _generator.Generate();
+        _generator.ReGenerate();
     }
 
     private void OnDisable()
