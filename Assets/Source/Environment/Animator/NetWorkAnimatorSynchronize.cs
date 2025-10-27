@@ -5,18 +5,34 @@ using JetBrains.Annotations;
 using UnityEngine;
 
 public class NetWorkAnimatorSynchronize : NetworkBehaviour
-
 {
-    [field: SerializeField] public Animator Animator { get; private set;}
+    private bool _blocked;
+
+    [field: SerializeField] public Animator Animator { get; private set; }
 
     [ServerRpc(RequireOwnership = false)]
     public void SetAnimatorBool(string name, bool value)
     {
-     SetAnimatorBoolMulticast(name, value);
+        if (_blocked)
+            return;
+        SetAnimatorBoolMulticast(name, value);
     }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetBlock(bool value)
+    {
+        SetBlockObservers(value);
+    }
+
+    [ObserversRpc]
+    private void SetBlockObservers(bool value)
+    {
+        _blocked = value;
+    }
+
     [ObserversRpc]
     public void SetAnimatorBoolMulticast(string name, bool value)
     {
-        Animator.SetBool(name,value);
+        Animator.SetBool(name, value);
     }
 }
