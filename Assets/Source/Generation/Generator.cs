@@ -49,6 +49,11 @@ public class Generator : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void Generate()
     {
+        if (IsServer)
+        {
+           
+        }
+
         GenerateMulticast();
     }
 
@@ -58,7 +63,6 @@ public class Generator : NetworkBehaviour
             return;
         if (other.TryGetComponent<Generator>(out Generator generator))
         {
-            Debug.LogError(gameObject.name);
             PlayerCharacter character = PlayerCharacter.Instance;
             character.ServerSpawnObject(_block, transform.position,
                 Quaternion.LookRotation(transform.forward));
@@ -83,6 +87,7 @@ public class Generator : NetworkBehaviour
             if (Instance.SpawnedGenerateParts >= Instance.MaxGenerateParts)
             {
                 GenerationEnd?.Invoke();
+
                 character.ServerSpawnObject(_block, _spawnNextPoints[i].position,
                     Quaternion.LookRotation(_spawnNextPoints[i].forward));
                 continue;
@@ -98,6 +103,7 @@ public class Generator : NetworkBehaviour
 
             character.ServerSpawnObject(part, _spawnNextPoints[i].position,
                 Quaternion.LookRotation(_spawnNextPoints[i].forward));
+
         }
     }
 

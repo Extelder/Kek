@@ -23,9 +23,9 @@ public class PlayerCharacter : NetworkBehaviour
     public void ServerSpawnObject(GameObject spawnedObject, Vector3 position, Quaternion rotation)
     {
         GameObject instance = Instantiate(spawnedObject, position, rotation);
-
         ServerManager.Spawn(instance);
     }
+
 
     [ServerRpc(RequireOwnership = false)]
     public void DespawnObject(NetworkBehaviour spawnedObject)
