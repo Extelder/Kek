@@ -16,11 +16,12 @@ public class Settings : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if(!base.IsOwner)
+        if (!base.IsOwner)
         {
             gameObject.SetActive(false);
             return;
         }
+
         _binds = PlayerCharacter.Instance.Binds;
         _binds.Character.OpenPanel.started += OnPanelOpened;
     }
@@ -43,6 +44,8 @@ public class Settings : NetworkBehaviour
 
     private void OnDisable()
     {
+        if (!base.IsOwner)
+            return;
         _binds.Character.OpenPanel.started -= OnPanelOpened;
     }
 }

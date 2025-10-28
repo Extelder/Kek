@@ -2113,7 +2113,7 @@ MonoBehaviour:
   <IsNested>k__BackingField: 1
   WasActiveDuringEdit: 1
   WasActiveDuringEdit_Set1: 1
-  <ComponentIndex>k__BackingField: 5
+  <ComponentIndex>k__BackingField: 6
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
@@ -2455,7 +2455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 14
+  _componentIndexCache: 15
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
 --- !u!1 &1886929333511671188
@@ -4978,7 +4978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 16
+  _componentIndexCache: 18
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
 --- !u!1 &4019366543721557017
@@ -6312,6 +6312,8 @@ GameObject:
   - component: {fileID: 1996624997028827962}
   - component: {fileID: 5141690507351948461}
   - component: {fileID: 4580442888730487172}
+  - component: {fileID: 2494708991081428712}
+  - component: {fileID: 7321759365842695773}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -6367,7 +6369,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
@@ -6567,6 +6569,7 @@ MonoBehaviour:
   - {fileID: 953327120620694847}
   - {fileID: 2031704261568184446}
   - {fileID: 6464001380552801192}
+  - {fileID: 2494708991081428712}
   - {fileID: 4009499950323168906}
   - {fileID: 75955980880755565}
   - {fileID: 8761471529127348081}
@@ -6577,8 +6580,8 @@ MonoBehaviour:
   - {fileID: 2998907187081770825}
   - {fileID: 4524908981351623866}
   - {fileID: -3989424722831297376}
-  - {fileID: -5049827992033416807}
   - {fileID: 5786365442291132025}
+  - {fileID: -5049827992033416807}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects:
   - {fileID: 0}
@@ -6586,6 +6589,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1028773267402328657}
+  - {fileID: 752501382651524348}
   RuntimeParentNetworkBehaviour: {fileID: 0}
   RuntimeChildNetworkBehaviours: []
   _isNetworked: 1
@@ -6608,7 +6612,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 6
+  <PrefabId>k__BackingField: 24
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 15634726765173328255
   <SceneId>k__BackingField: 0
@@ -6652,6 +6656,125 @@ MonoBehaviour:
     fullScreen: 1
     width: 0
     height: 0
+--- !u!114 &2494708991081428712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ed8226d477e144cb86620c8cf2d14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 6
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 1996624997028827962}
+  VoiceChatType: 1
+  VoiceDetectionType: 1
+  Activated: 1
+  PushToTalkKey: 118
+  source: {fileID: 7321759365842695773}
+  proximityRange: 10
+  voiceActivationThreshold: 0.002
+  sampleRate: 16000
+--- !u!82 &7321759365842695773
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 3
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4908910220154872521
 GameObject:
   m_ObjectHideFlags: 0
@@ -6781,7 +6904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5a8ed4a533849419208d95d2fa1463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 6
+  _componentIndexCache: 7
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <Mixer>k__BackingField: {fileID: 24100000, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
@@ -6799,7 +6922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc07d02f9a201548a37118c48d6c2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 7
+  _componentIndexCache: 8
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <Mixer>k__BackingField: {fileID: 24100000, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
@@ -6817,7 +6940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899b15034d001cc4a85d437bc18ce7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 8
+  _componentIndexCache: 9
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <Mixer>k__BackingField: {fileID: 24100000, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
@@ -6835,7 +6958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b31c9367facd4c8c64cc4f49dff0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 9
+  _componentIndexCache: 10
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
 --- !u!114 &409531856822178502
@@ -6850,7 +6973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc55634e0104e164daa92985367d1ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 10
+  _componentIndexCache: 11
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   _resolutionDropdown: {fileID: 1517750317940304216}
@@ -6866,7 +6989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6b63d436d4ecc4cad53cec3c86e280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 11
+  _componentIndexCache: 12
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   _settingsCanvas: {fileID: 8888148753964717771}
@@ -7585,7 +7708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 12
+  _componentIndexCache: 13
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   IgnoredParameters: []
@@ -8149,7 +8272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2836e36774ca1c4bbbee976e17b649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 13
+  _componentIndexCache: 14
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   _componentConfiguration: 0
@@ -9150,7 +9273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7846923085116732579}
   - component: {fileID: 1067356894709117499}
-  - component: {fileID: 1144872442165202648}
   m_Layer: 0
   m_Name: HandsCamera
   m_TagString: Untagged
@@ -9225,14 +9347,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1144872442165202648
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6541767915751262417}
-  m_Enabled: 1
 --- !u!1 &6551245470331541317
 GameObject:
   m_ObjectHideFlags: 0
@@ -10008,7 +10122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 15
+  _componentIndexCache: 16
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
 --- !u!1 &7178911881727343666
