@@ -8,6 +8,7 @@ public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private string _attack;
     [SerializeField] private string _throw;
+    [SerializeField] private string _pickUp;
     [SerializeField] private string _reset;
 
     [SerializeField] private Animator _animator;
@@ -58,6 +59,11 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBoolAndDisableOthers(_throw, true);
     }
 
+    public void PickUpAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_pickUp, true);
+    }
+
     public void ResetAnim()
     {
         SetAnimationTrigger(_reset);
@@ -99,6 +105,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         SetAnimationBool(_attack, false);
         SetAnimationBool(_throw, false);
+        SetAnimationBool(_pickUp, false);
         ResetAnimationTrigger(_reset);
     }
 

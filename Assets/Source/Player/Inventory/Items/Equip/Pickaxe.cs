@@ -6,12 +6,12 @@ using UnityEngine.InputSystem;
 
 public class Pickaxe : EquipItem
 {
-    public override void OnAttackInputReceived(InputAction.CallbackContext obj)
+    public override void OnInputReceived(InputAction.CallbackContext obj)
     {
         PlayerAnimator.AttackAnim();
     }
 
-    public override void OnAttackInputCanceled(InputAction.CallbackContext obj)
+    public override void OnInputCanceled(InputAction.CallbackContext obj)
     {
     }
 }
