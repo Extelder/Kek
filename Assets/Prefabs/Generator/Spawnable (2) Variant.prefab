@@ -80,7 +80,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: _spawnableParts.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: _spawnableParts.Array.data[0]
@@ -109,7 +109,7 @@ PrefabInstance:
     - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: _spawnableParts.Array.data[6]
       value: 
-      objectReference: {fileID: 7531668499008362695, guid: 3e072500c8b77714192625e12bd44fe2, type: 3}
+      objectReference: {fileID: 6268253527317012806, guid: 75c3f17e01670134ab0d9407d6637b50, type: 3}
     - target: {fileID: 1835804431254336472, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: m_Size.x
       value: 7.804579
@@ -140,12 +140,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: <PrefabId>k__BackingField
-      value: 18
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: NetworkBehaviours.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: <AssetPathHash>k__BackingField
       value: 14238623154316130725
       objectReference: {fileID: 0}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: NetworkBehaviours.Array.data[2]
+      value: 
+      objectReference: {fileID: 3201189028963613777}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: SerializedTransformProperties.Position.x
       value: -86.31
@@ -287,6 +295,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e56f5cf5c339a94bb388c9ffe01306e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 2
+  _addedNetworkObject: {fileID: 783000732365317635}
+  _networkObjectCache: {fileID: 783000732365317635}
+--- !u!114 &783000732365317635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+  m_PrefabInstance: {fileID: 2745840348701369546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595405949332666910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7441626627508402326 stripped
