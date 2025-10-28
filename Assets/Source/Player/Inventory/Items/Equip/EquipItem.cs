@@ -26,27 +26,29 @@ public abstract class EquipItem : MonoBehaviour
     {
         if (equiped)
         {
+            OnEquipStateChanged();
             _animatorEventHandler.ChooseItemAnimator(_animator);
-            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started += OnAttackInputReceived;
-            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled += OnAttackInputCanceled;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started += OnInputReceived;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled += OnInputCanceled;
         }
         else
         {
             PlayerAnimator.DisableAll();
-            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnAttackInputReceived;
-            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnAttackInputCanceled;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnInputReceived;
+            PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnInputCanceled;
         }
     }
 
-    public abstract void OnAttackInputReceived(InputAction.CallbackContext obj);
+    public virtual void OnEquipStateChanged(){}
+    public abstract void OnInputReceived(InputAction.CallbackContext obj);
 
-    public abstract void OnAttackInputCanceled(InputAction.CallbackContext obj);
+    public abstract void OnInputCanceled(InputAction.CallbackContext obj);
 
     private void OnDisable()
     {
         _playerInventoryItem.ChangeEquipState -= OnChangeEquipState;
         _playerInventoryItem.EquipmentNull -= OnEquipmentNull;
-        PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnAttackInputReceived;
-        PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnAttackInputCanceled;
+        PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnInputReceived;
+        PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnInputCanceled;
     }
 }
