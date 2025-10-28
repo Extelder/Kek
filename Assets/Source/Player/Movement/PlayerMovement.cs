@@ -23,7 +23,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private Vector3 _currentVelocity;
 
-    public bool Moving { get; private set; }
+    public ReactiveProperty<bool> Moving { get; private set; } = new ReactiveProperty<bool>(); 
 
     public override void OnStartClient()
     {
@@ -50,15 +50,15 @@ public class PlayerMovement : NetworkBehaviour
 
             inputVector.Normalize();
 
-            Moving = Mathf.Abs(inputVector.x) > 0 || Mathf.Abs(inputVector.z) > 0;
+            Moving.Value = Mathf.Abs(inputVector.x) > 0 || Mathf.Abs(inputVector.z) > 0;
 
             Vector3 desiredVelocityXZ = new Vector3(inputVector.x * _speed, 0,
                 inputVector.z * _speed);
 
-            if (Moving == true || _groundChecker.Detected == true)
+            if (Moving.Value == true || _groundChecker.Detected == true)
                 _currentVelocity =
                     Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, _acceleration * Time.fixedDeltaTime);
-            else if (Moving == false)
+            else if (Moving.Value == false)
             {
                 _currentVelocity =
                     Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, _decceleration * Time.fixedDeltaTime);
