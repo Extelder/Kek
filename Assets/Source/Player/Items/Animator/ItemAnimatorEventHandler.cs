@@ -12,7 +12,6 @@ public class ItemAnimatorEventHandler : MonoBehaviour
     {
         AnimationEndWithoutChecking();
         _takeUp.TakeUp();
-        _currentItemAnimator?.AnimationReset();
         _currentItemAnimator = itemAnimator;
     }
 
