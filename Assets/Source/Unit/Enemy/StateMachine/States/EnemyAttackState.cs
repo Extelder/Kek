@@ -1,45 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public abstract class EnemyAttackState : EnemyState
+public class EnemyAttackState : EnemyState
 {
+    [SerializeField] private NavMeshAgent _agent;
     [field: SerializeField] public EnemyDamage Damage { get; private set; }
-    [field: SerializeField] public EnemyPlayerCheck PlayerCheck { get; private set; }
-    
+
     public PlayerHitBox PlayerHitBox { get; private set; }
-    
-    public abstract override void Enter();
-    
-    private void OnEnable()
+
+    public override void Enter()
     {
-        PlayerCheck.PlayerDetected += OnPlayerDetected;
-        OnEnableVirtual();
+        CanChanged = false;
+        Animator.Attack();
+        _agent.isStopped = true;
     }
-    
-    public virtual void OnEnableVirtual()
-    {
-        
-    }
-    
-    public virtual void PerformAttack()
+
+    public void PerformAttack()
     {
         PlayerHitBox.TakeDamage(Damage.GetDamage());
     }
-    
+
     public virtual void OnPlayerDetected(PlayerHitBox hitBox)
     {
         PlayerHitBox = hitBox;
     }
-    
-    public virtual void OnDisableVirtual()
+
+    public void AttackAnimationEnd()
     {
-        
-    }
-    
-    protected virtual void OnDisable()
-    {
-        PlayerCheck.PlayerDetected -= OnPlayerDetected;
-        OnDisableVirtual();
+        _agent.isStopped = false;
+        CanChanged = true;
     }
 }

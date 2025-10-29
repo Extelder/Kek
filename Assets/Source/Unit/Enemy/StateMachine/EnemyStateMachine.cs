@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyStateMachine : StateMachine
 {
+    [SerializeField] private State _patrolState;
     [SerializeField] private State _attack;
-    [SerializeField] private State _chase;
-    
+    [SerializeField] private EnemyChaseState _chase;
+
     public void Attack()
     {
         ChangeState(_attack);
@@ -14,6 +15,7 @@ public class EnemyStateMachine : StateMachine
 
     public void Chase(Transform player)
     {
+        _chase.ChangeTarget(player);
         ChangeState(_chase);
     }
 }

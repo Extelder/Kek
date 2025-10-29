@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAnimator : UnitAnimator
 {
-    [SerializeField] private string _moveAnimationBoolName, _attackAnimationBoolName;
+    [SerializeField] private string _moveAnimationBoolName, _runAnimationBoolName, _attackAnimationBoolName;
 
     private void Start()
     {
@@ -16,11 +16,17 @@ public class EnemyAnimator : UnitAnimator
     {
         SetAnimationBool(_moveAnimationBoolName, false);
         SetAnimationBool(_attackAnimationBoolName, false);
+        SetAnimationBool(_runAnimationBoolName, false);
     }
 
     public void Move()
     {
         SetAnimationBoolAndDisableOther(_moveAnimationBoolName);
+    }
+
+    public void Run()
+    {
+        SetAnimationBoolAndDisableOther(_runAnimationBoolName);
     }
 
     public void Attack()
