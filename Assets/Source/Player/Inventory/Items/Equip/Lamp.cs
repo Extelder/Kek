@@ -16,6 +16,7 @@ public class Lamp : EquipItem
     public override void OnEquipStateChanged()
     {
         base.OnEquipStateChanged();
+        Debug.Log("PickUp");
         PlayerAnimator.PickUpAnim();
     }
 
