@@ -5,15 +5,15 @@ using UnityEngine;
 public class EnemyStateMachine : StateMachine
 {
     [SerializeField] private State _attack;
-    [SerializeField] private State _move;
+    [SerializeField] private State _chase;
     
     public void Attack()
     {
         ChangeState(_attack);
     }
 
-    public void Move()
+    public void Chase(Transform player)
     {
-        ChangeState(_move);
+        ChangeState(_chase);
     }
 }
