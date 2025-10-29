@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class EnemyOverlapPlayerCheck : EnemyPlayerCheck
 {
-    [field :SerializeField] public EnemyStateMachine StateMachine { get; private set; }
+    [SerializeField] private EnemyAttackState _enemyAttackState;
+
+    [field: SerializeField] public EnemyStateMachine StateMachine { get; private set; }
     [SerializeField] private OverlapSettings _overlappSettings;
     [SerializeField] private float _checkRate;
     [SerializeField] private int _colliderCount;
@@ -40,6 +42,7 @@ public class EnemyOverlapPlayerCheck : EnemyPlayerCheck
 
                 if (_others[i].TryGetComponent<PlayerHitBox>(out PlayerHitBox playerHitBox))
                 {
+                    _enemyAttackState.OnPlayerDetected(playerHitBox);
                     PlayerDetected?.Invoke(playerHitBox);
                     OnPlayerDetected();
                     return;

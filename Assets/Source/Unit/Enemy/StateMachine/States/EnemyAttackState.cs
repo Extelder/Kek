@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAttackState : EnemyState
 {
+    [SerializeField] private NavMeshAgent _agent;
     [field: SerializeField] public EnemyDamage Damage { get; private set; }
 
     public PlayerHitBox PlayerHitBox { get; private set; }
 
     public override void Enter()
     {
+        CanChanged = false;
         Animator.Attack();
+        _agent.isStopped = true;
     }
 
     public void PerformAttack()
@@ -23,8 +27,9 @@ public class EnemyAttackState : EnemyState
         PlayerHitBox = hitBox;
     }
 
-    protected virtual void OnDisable()
+    public void AttackAnimationEnd()
     {
-        
+        _agent.isStopped = false;
+        CanChanged = true;
     }
 }
