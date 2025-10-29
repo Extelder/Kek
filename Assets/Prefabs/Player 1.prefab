@@ -5470,7 +5470,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 90
     OrthographicSize: 5
-    NearClipPlane: 0.3
+    NearClipPlane: 0.03
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -6968,7 +6968,7 @@ GameObject:
   - component: {fileID: -5256358950320560399}
   - component: {fileID: 2611732306587144618}
   - component: {fileID: 8198702721160355421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8321,7 +8321,7 @@ Animator:
   m_GameObject: {fileID: 5462518773619068142}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8465a1c72be19054f9a32fe2596a0288, type: 3}
-  m_Controller: {fileID: 9100000, guid: 37f41d0d0e0c81b4488444345bbd8b9b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2a0912cdd12b0a540884f4b51113c341, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10806,7 +10806,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.03
   far clip plane: 1000
   field of view: 90
   orthographic: 0
@@ -11529,7 +11529,7 @@ Animator:
   m_GameObject: {fileID: 7619897411130093451}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8465a1c72be19054f9a32fe2596a0288, type: 3}
-  m_Controller: {fileID: 9100000, guid: 37f41d0d0e0c81b4488444345bbd8b9b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2a0912cdd12b0a540884f4b51113c341, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

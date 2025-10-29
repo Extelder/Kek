@@ -26,10 +26,10 @@ public abstract class EquipItem : MonoBehaviour
     {
         if (equiped)
         {
-            OnEquipStateChanged();
             _animatorEventHandler.ChooseItemAnimator(_animator);
             PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started += OnInputReceived;
             PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled += OnInputCanceled;
+            OnEquipStateChanged();
         }
         else
         {

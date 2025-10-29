@@ -90,9 +90,9 @@ public class PlayerAnimator : MonoBehaviour
 
     public void SetAnimationTriggerAndDisableOthers(string name)
     {
+        DisableAll();
         _animator.SetTrigger(name);
         _fpsAnimator.SetTrigger(name);
-        DisableAll();
     }
 
     public void ResetAnimationTrigger(string name)
@@ -106,6 +106,7 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBool(_attack, false);
         SetAnimationBool(_throw, false);
         SetAnimationBool(_pickUp, false);
+        ResetAnimationTrigger(_reset);
         ResetAnimationTrigger(_reset);
     }
 
