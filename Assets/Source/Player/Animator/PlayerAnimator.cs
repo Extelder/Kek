@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UniRx;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private string _throw;
     [SerializeField] private string _pickUp;
     [SerializeField] private string _reset;
+    [SerializeField] private string _drill;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _fpsAnimator;
@@ -64,6 +66,11 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBoolAndDisableOthers(_pickUp, true);
     }
 
+    public void DrillAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_drill, true);
+    }
+
     public void ResetAnim()
     {
         SetAnimationTrigger(_reset);
@@ -106,7 +113,7 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBool(_attack, false);
         SetAnimationBool(_throw, false);
         SetAnimationBool(_pickUp, false);
-        ResetAnimationTrigger(_reset);
+        SetAnimationBool(_drill, false);
         ResetAnimationTrigger(_reset);
     }
 
