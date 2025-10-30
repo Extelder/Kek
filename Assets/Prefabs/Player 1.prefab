@@ -8496,7 +8496,7 @@ MonoBehaviour:
   _throw: Throw
   _pickUp: PickingUp
   _reset: Reset
-  _drill: 
+  _drill: Drilling
   _animator: {fileID: 1225629203006681363}
   _fpsAnimator: {fileID: 9079513319236140734}
   _speed: 5
@@ -12980,7 +12980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 3772884881028524504}
-  _thirdPersonGameObject: {fileID: 1781450337846063167}
+  _thirdPersonGameObject: {fileID: 241580291620904116}
   _needItem: {fileID: 11400000, guid: 598da868718d4e34ca14f6e574203e2b, type: 2}
 --- !u!114 &4604447119282961588
 MonoBehaviour:
@@ -14502,6 +14502,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7251f6c0cc4dc5b44bc73e1a818c2164, type: 3}
       propertyPath: m_Name
       value: Drel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7251f6c0cc4dc5b44bc73e1a818c2164, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7251f6c0cc4dc5b44bc73e1a818c2164, type: 3}
       propertyPath: m_IsActive

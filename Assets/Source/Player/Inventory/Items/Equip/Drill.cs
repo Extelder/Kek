@@ -7,10 +7,12 @@ public class Drill : EquipItem
 {
     public override void OnInputReceived(InputAction.CallbackContext obj)
     {
+        Debug.Log("Drill");
         PlayerAnimator.DrillAnim();
     }
 
     public override void OnInputCanceled(InputAction.CallbackContext obj)
     {
+        PlayerAnimator.DisableAll();
     }
 }
