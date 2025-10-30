@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public abstract class EquipItem : MonoBehaviour
-{ 
-    [field :SerializeField] public PlayerAnimator PlayerAnimator { get; private set; }
+{
+    [field: SerializeField] public PlayerAnimator PlayerAnimator { get; private set; }
     [SerializeField] private ItemAnimatorEventHandler _animatorEventHandler;
     [SerializeField] private ItemAnimator _animator;
     [SerializeField] private PlayerInventoryItem _playerInventoryItem;
     [SerializeField] private string _actionName;
+
+    protected bool _equiped;
 
     private void OnEnable()
     {
@@ -18,12 +20,13 @@ public abstract class EquipItem : MonoBehaviour
     }
 
     private void OnEquipmentNull()
-    { 
+    {
         _animatorEventHandler.ChooseItemAnimator(null);
     }
 
     private void OnChangeEquipState(bool equiped)
     {
+        _equiped = equiped;
         if (equiped)
         {
             _animatorEventHandler.ChooseItemAnimator(_animator);
@@ -39,7 +42,10 @@ public abstract class EquipItem : MonoBehaviour
         }
     }
 
-    public virtual void OnEquipStateChanged(){}
+    public virtual void OnEquipStateChanged()
+    {
+    }
+
     public abstract void OnInputReceived(InputAction.CallbackContext obj);
 
     public abstract void OnInputCanceled(InputAction.CallbackContext obj);
