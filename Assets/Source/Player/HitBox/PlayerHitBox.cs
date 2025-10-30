@@ -7,17 +7,17 @@ using Random = UnityEngine.Random;
 
 public class PlayerHitBox : NetworkBehaviour
 {
+    [SerializeField] private PlayerHealth _health;
     [SerializeField] private float _notActiveDelayAfterSpawn;
 
     private bool _active;
-    private PlayerHealth _health;
 
-    private void Start()
+    public override void OnStartClient()
     {
-        _health = PlayerCharacter.Instance.PlayerHealth;
         StopAllCoroutines();
         StartCoroutine(WaitForDelay());
     }
+
 
     private IEnumerator WaitForDelay()
     {
