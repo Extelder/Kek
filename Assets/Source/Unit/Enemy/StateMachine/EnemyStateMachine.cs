@@ -8,6 +8,13 @@ public class EnemyStateMachine : StateMachine
     [SerializeField] private State _attack;
     [SerializeField] private EnemyChaseState _chase;
 
+    public void Patrol()
+    {
+        if (!base.IsServer)
+            return;
+        ChangeState(_patrolState);
+    }
+
     public void Attack()
     {
         if (!base.IsServer)

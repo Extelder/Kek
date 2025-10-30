@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public abstract class Health : MonoBehaviour
+public abstract class Health : NetworkBehaviour
 {
     [field: SerializeField] public float MaxValue { get; set; }
     protected float CurrentValue { get; set; }

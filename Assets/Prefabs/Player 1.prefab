@@ -7215,7 +7215,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   _character: {fileID: 9153910927864380487}
-  _speed: 3
+  _speed: 5
   _groundChecker: {fileID: 694033865345946828}
   _acceleration: 48
   _decceleration: 128
@@ -7448,6 +7448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6886e204aa5964983af99fc8dce466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
   <MaxValue>k__BackingField: 100
 --- !u!114 &2611732306587144618
 MonoBehaviour:
@@ -7580,6 +7583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98da81e194d9a840973acae544c9212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
   _notActiveDelayAfterSpawn: 0
 --- !u!1 &4908910220154872521
 GameObject:
@@ -14404,7 +14410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: E
+      value: "\u0423"
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name

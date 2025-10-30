@@ -6,6 +6,10 @@ using UnityEngine.AI;
 
 public class EnemyChaseState : EnemyState
 {
+    [SerializeField] private EnemyStateMachine _enemyStateMachine;
+
+    [SerializeField] private float _lostTime;
+
     [SerializeField] private EnemyAttackState _enemyAttackState;
 
     [SerializeField] private EnemyNavMeshMove _enemyNavMeshMove;
@@ -33,6 +37,7 @@ public class EnemyChaseState : EnemyState
             return;
         StopAllCoroutines();
         StartCoroutine(Chasing());
+        StartCoroutine(WaitingTimeForLost());
     }
 
     public override void Exit()
@@ -47,9 +52,15 @@ public class EnemyChaseState : EnemyState
     {
         if (!base.IsServer)
             return;
-        _enemyAttackState.AttackAnimationEnded += OnAttackAnimationEnded;
+        _enemyAttackState.AttackAnimationEnded -= OnAttackAnimationEnded;
 
         StopAllCoroutines();
+    }
+
+    private IEnumerator WaitingTimeForLost()
+    {
+        yield return new WaitForSeconds(_lostTime);
+        _enemyStateMachine.Patrol();
     }
 
     private IEnumerator Chasing()

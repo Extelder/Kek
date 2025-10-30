@@ -5,7 +5,7 @@ using FishNet.Object;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerHitBox : MonoBehaviour
+public class PlayerHitBox : NetworkBehaviour
 {
     [SerializeField] private float _notActiveDelayAfterSpawn;
 
