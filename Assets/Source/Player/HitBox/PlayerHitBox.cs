@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,10 +25,17 @@ public class PlayerHitBox : MonoBehaviour
         _active = true;
     }
 
+    [ServerRpc(RequireOwnership = false)]
     public virtual void TakeDamage(float damage)
     {
         if (!_active)
             return;
-        _health.TakeDamage(damage);
+        TakeDamageObserver(damage, _health);
+    }
+
+    [ObserversRpc]
+    public void TakeDamageObserver(float damage, PlayerHealth health)
+    {
+        health.TakeDamage(damage);
     }
 }

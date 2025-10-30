@@ -1,6 +1,7 @@
+using FishNet.Object;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine : NetworkBehaviour
 {
     [SerializeField] private bool _notStartOnEnable;
     [SerializeField] private State _startState;
@@ -8,11 +9,15 @@ public class StateMachine : MonoBehaviour
 
     public void DefaultState()
     {
+        if (!base.IsServer)
+            return;
         ChangeState(_startState);
     }
 
-    public virtual void OnEnable()
+    public override void OnStartClient()
     {
+        if (!base.IsServer)
+            return;
         if (_notStartOnEnable)
         {
             CurrentState = _startState;
@@ -24,8 +29,11 @@ public class StateMachine : MonoBehaviour
         CurrentState.Enter();
     }
 
+
     public void ChangeState(State state)
     {
+        if (!base.IsServer)
+            return;
         if (CurrentState.CanChanged && CurrentState != state)
         {
             CurrentState.Exit();

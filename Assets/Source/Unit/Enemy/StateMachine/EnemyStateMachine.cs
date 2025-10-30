@@ -10,11 +10,15 @@ public class EnemyStateMachine : StateMachine
 
     public void Attack()
     {
+        if (!base.IsServer)
+            return;
         ChangeState(_attack);
     }
 
     public void Chase(Transform player)
     {
+        if (!base.IsServer)
+            return;
         _chase.ChangeTarget(player);
         ChangeState(_chase);
     }

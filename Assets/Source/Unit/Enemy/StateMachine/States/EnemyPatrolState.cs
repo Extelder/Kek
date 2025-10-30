@@ -5,18 +5,23 @@ using UnityEngine.AI;
 
 public class EnemyPatrolState : EnemyState
 {
+    [SerializeField] private EnemyNavMeshMove _enemyNavMeshMove;
     [SerializeField] private float _randomPointRange;
     [SerializeField] private float _maxRandomWaitTime;
     [SerializeField] private NavMeshAgent _agent;
 
     public override void Enter()
     {
+        if (!base.IsServer)
+            return;
         StopAllCoroutines();
         StartCoroutine(Patroling());
     }
 
     public override void Exit()
     {
+        if (!base.IsServer)
+            return;
         StopAllCoroutines();
     }
 
@@ -27,7 +32,7 @@ public class EnemyPatrolState : EnemyState
             if (GetRandomPointOnNavMesh(transform.position, _randomPointRange, out Vector3 point))
             {
                 Animator.Move();
-                _agent.SetDestination(point);
+                _enemyNavMeshMove.SetDestinationServer(point);
             }
 
             yield return new WaitForSeconds(0.2f);

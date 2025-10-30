@@ -1,6 +1,7 @@
+using FishNet.Object;
 using UnityEngine;
 
-public abstract class State : MonoBehaviour
+public abstract class State : NetworkBehaviour
 {
    public bool CanChanged = true;
 

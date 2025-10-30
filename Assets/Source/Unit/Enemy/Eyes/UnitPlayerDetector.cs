@@ -1,8 +1,9 @@
 using System.Collections;
+using FishNet.Object;
 using UnityEngine;
 
 [ExecuteAlways]
-public class UnitPlayerDetector : MonoBehaviour
+public class UnitPlayerDetector : NetworkBehaviour
 {
     [Space(20)] [SerializeField] private int _horizontalRays = 25;
     [SerializeField] private int _verticalRays = 15;
@@ -38,8 +39,11 @@ public class UnitPlayerDetector : MonoBehaviour
             GenerateRayGrid();
     }
 
-    private void Start()
+    public override void OnStartClient()
     {
+        if (!base.IsServer)
+            return;
+
         var playerCharacter = PlayerCharacter.Instance;
         if (playerCharacter != null)
             _player = playerCharacter.PlayerTransform;

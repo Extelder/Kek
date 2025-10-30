@@ -20,8 +20,10 @@ public class EnemyOverlapPlayerCheck : EnemyPlayerCheck
     public override event Action<PlayerHitBox> PlayerDetected;
     public override event Action PlayerLost;
 
-    private void Start()
+    public override void OnStartClient()
     {
+        if (!base.IsServer)
+            return;
         StartChecking();
     }
 
@@ -70,6 +72,8 @@ public class EnemyOverlapPlayerCheck : EnemyPlayerCheck
 
     private void OnDisable()
     {
+        if (!base.IsServer)
+            return;
         StopChecking();
     }
 }
