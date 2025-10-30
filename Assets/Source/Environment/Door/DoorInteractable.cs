@@ -5,9 +5,11 @@ using UnityEngine;
 public class DoorInteractable : Item
 {
     [SerializeField] private NetWorkAnimatorSynchronize _netWorkAnimator;
+    [SerializeField] private AudioSource _audio;
 
     public override void Interact()
     {
         _netWorkAnimator.SetAnimatorBool("IsOpen", !_netWorkAnimator.Animator.GetBool("IsOpen"));
+        _audio.Play();
     }
 }
