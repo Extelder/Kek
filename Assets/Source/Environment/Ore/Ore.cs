@@ -6,6 +6,7 @@ using UnityEngine;
 public class Ore : NetworkBehaviour, IWeaponVisitor
 {
     [SerializeField] private GameObject _hitEffect;
+    [SerializeField] private GameObject _destroyedOre;
     [SerializeField] private Transform _modelsOrigin;
     [SerializeField] private float _scaleDifference;
     [SerializeField] private float _scaleThresholdToDestroy;
@@ -41,6 +42,7 @@ public class Ore : NetworkBehaviour, IWeaponVisitor
             _modelsOrigin.localScale.y <= _scaleThresholdToDestroy ||
             _modelsOrigin.localScale.z <= _scaleThresholdToDestroy)
         {
+            _destroyedOre.SetActive(true);
             Despawn();
             return;
         }

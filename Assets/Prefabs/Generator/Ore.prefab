@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1417452394339249529}
   - component: {fileID: 1105371848959994617}
   - component: {fileID: 6662985432892028640}
-  - component: {fileID: 5246651209064025976}
+  - component: {fileID: 5109376516557917122}
   m_Layer: 1
   m_Name: Ore
   m_TagString: Untagged
@@ -54,8 +54,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2938747, y: 1, z: 1.0843055}
-  m_Center: {x: -0.049101353, y: 0, z: 0.042152762}
+  m_Size: {x: 1.2938747, y: 0.56060636, z: 1.0843055}
+  m_Center: {x: -0.049101353, y: 0.2196968, z: 0.042152762}
 --- !u!114 &6662985432892028640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +74,8 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
-  NetworkBehaviours: []
+  NetworkBehaviours:
+  - {fileID: 0}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -99,16 +100,16 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 65535
+  <PrefabId>k__BackingField: 0
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 1472848496724955993
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    Scale: {x: 0, y: 0, z: 0}
-    IsValid: 0
---- !u!114 &5246651209064025976
+    Position: {x: -3.9902248, y: 0.15236473, z: -7.122835}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Scale: {x: 1, y: 1, z: 1}
+    IsValid: 1
+--- !u!114 &5109376516557917122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,10 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4994e42c73aea4c935955fc06f020d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 6662985432892028640}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 6662985432892028640}
   _hitEffect: {fileID: 1838092204657027631, guid: 7024ce8f3cb25724792c661db1c82dc2, type: 3}
+  _destroyedOre: {fileID: 0}
   _modelsOrigin: {fileID: 1417452394339249529}
   _scaleDifference: 0.01
   _scaleThresholdToDestroy: 0.95
@@ -137,7 +139,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 483f930f7cf5dca46a4974b3a5f3231a, type: 3}
       propertyPath: m_Name
-      value: Ore
+      value: OreModel
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 483f930f7cf5dca46a4974b3a5f3231a, type: 3}
       propertyPath: m_LocalScale.x
