@@ -7,12 +7,16 @@ using UnityEngine;
 public abstract class ItemAnimator : MonoBehaviour
 {
     [field: SerializeField] public PlayerAnimator Animator { get; private set; }
-    
+
     [SerializeField] private string _actionName;
 
     [HideInInspector] public bool CanUse = true;
     [HideInInspector] public bool AlreadyUsing;
-    
+
+    public virtual void Attack()
+    {
+    }
+
     public void AnimationEndStartChecking()
     {
         AlreadyUsing = false;
@@ -23,14 +27,14 @@ public abstract class ItemAnimator : MonoBehaviour
     public void AnimationEndWithoutChecking()
     {
         StopAllCoroutines();
-        
+
         Animator.DisableAll();
     }
 
     public void AnimationReset()
     {
         StopAllCoroutines();
-        
+
         Animator.ResetAnim();
     }
 
@@ -43,12 +47,14 @@ public abstract class ItemAnimator : MonoBehaviour
                 Animator.DisableAll();
                 yield break;
             }
+
             if (PlayerCharacter.Instance.Binds.FindAction(_actionName, true).inProgress)
             {
                 AlreadyUsing = true;
                 AnimationEndCheck();
                 yield break;
             }
+
             yield return new WaitForSeconds(0.02f);
         }
     }
@@ -59,7 +65,7 @@ public abstract class ItemAnimator : MonoBehaviour
 
         if (AlreadyUsing)
             return;
-        
+
         Animator.DisableAll();
     }
 
