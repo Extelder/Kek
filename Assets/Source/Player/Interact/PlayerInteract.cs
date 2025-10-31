@@ -10,6 +10,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerInteract : NetworkBehaviour
 {
+    [SerializeField] private PlayerCharacter _character;
     [SerializeField] private RaycastSettings _raycastSettings;
     private RaycastHit _hit;
 
@@ -37,6 +38,10 @@ public class PlayerInteract : NetworkBehaviour
             if (_hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
             {
                 interactable.Interact();
+            }
+            if (_hit.collider.TryGetComponent<PlayerCart>(out PlayerCart PlayerCart))
+            {
+                PlayerCart.Interact(_character);
             }
         }
     }
