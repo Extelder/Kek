@@ -12,6 +12,6 @@ public class Guitar : EquipItem
 
     public override void OnInputCanceled(InputAction.CallbackContext obj)
     {
-        //PlayerAnimator.DisableAll();
+        PlayerAnimator.DisableAll();
     }
 }
