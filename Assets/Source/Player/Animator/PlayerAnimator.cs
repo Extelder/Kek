@@ -12,6 +12,7 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private string _pickUp;
     [SerializeField] private string _reset;
     [SerializeField] private string _drill;
+    [SerializeField] private string _guitar;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _fpsAnimator;
@@ -71,6 +72,11 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBoolAndDisableOthers(_drill, true);
     }
 
+    public void GuitarAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_guitar, true);
+    }
+
     public void ResetAnim()
     {
         SetAnimationTrigger(_reset);
@@ -114,6 +120,7 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBool(_throw, false);
         SetAnimationBool(_pickUp, false);
         SetAnimationBool(_drill, false);
+        SetAnimationBool(_guitar, false);
         ResetAnimationTrigger(_reset);
     }
 
