@@ -1302,7 +1302,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 119344677}
   _networkObjectCache: {fileID: 0}
-  _cart: {fileID: 119344670}
   _rigidbody: {fileID: 119344671}
   _moveSpeed: 15
   _rotateSpeed: 15
@@ -3649,75 +3648,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4004468145395006, guid: a0ac4c6540ad663468d86b7d6bb07c9d, type: 3}
   m_PrefabInstance: {fileID: 602258704}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &613482410
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 191.85379
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 108.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 168
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.5147674
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.46400014
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.6963526
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.6998068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.6998068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.10134318
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.10134318
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -343.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
-      propertyPath: m_Name
-      value: Closet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: da576fc3a3f8a7b479ebea2539f966c5, type: 3}
 --- !u!1 &618175255
 GameObject:
   m_ObjectHideFlags: 0
@@ -8981,6 +8911,7 @@ MonoBehaviour:
       type: {class: ControlPanelInteracatble, ns: , asm: Assembly-CSharp}
       data:
         _netWorkAnimator: {fileID: 324447396}
+        _audio: {fileID: 0}
 --- !u!1 &1572586503
 GameObject:
   m_ObjectHideFlags: 0
@@ -13578,7 +13509,6 @@ SceneRoots:
   - {fileID: 1041161158}
   - {fileID: 755920963}
   - {fileID: 1005490901}
-  - {fileID: 613482410}
   - {fileID: 116834570}
   - {fileID: 2020459368}
   - {fileID: 119344670}
