@@ -8471,7 +8471,11 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:Spine'\n\tTransform
+    'mixamorig:Hips'\n\tTransform 'mixamorig:Spine'\n\tTransform 'mixamorig:Hips'\n\tTransform
+    'mixamorig:Spine'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -8511,6 +8515,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _takeUp: {fileID: 4939536552562877852}
   _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 4387599489495877655}
+    <MaxDistance>k__BackingField: 2
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 2
 --- !u!114 &6626394759318695960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11783,6 +11793,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _takeUp: {fileID: 4939536552562877852}
   _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 4387599489495877655}
+    <MaxDistance>k__BackingField: 2
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 2
 --- !u!1 &7680199802031891845
 GameObject:
   m_ObjectHideFlags: 0
@@ -13023,6 +13039,13 @@ MonoBehaviour:
   _animator: {fileID: 1961720257267050468}
   _playerInventoryItem: {fileID: 7120326263116549688}
   _actionName: MainShoot
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 4387599489495877655}
+    <MaxDistance>k__BackingField: 2
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 2
+  _checkRate: 0.2
 --- !u!114 &1961720257267050468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13947,6 +13970,12 @@ MonoBehaviour:
   _animator: {fileID: 8830144297548802997}
   _playerInventoryItem: {fileID: 5357624642094703125}
   _actionName: MainShoot
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 4387599489495877655}
+    <MaxDistance>k__BackingField: 2
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 2
 --- !u!114 &8830144297548802997
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,12 +15,10 @@ public class InteractItem : NetworkBehaviour, IInteractable
 
     public virtual void Detected()
     {
-        Debug.Log("Detected");
     }
 
     public virtual void Lost()
     {
-        Debug.Log("Lost");
     }
 
 

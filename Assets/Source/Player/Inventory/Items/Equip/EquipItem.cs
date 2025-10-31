@@ -56,5 +56,8 @@ public abstract class EquipItem : MonoBehaviour
         _playerInventoryItem.EquipmentNull -= OnEquipmentNull;
         PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnInputReceived;
         PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnInputCanceled;
+        OnDisableVirtual();
     }
+    
+    public virtual void OnDisableVirtual(){}
 }
