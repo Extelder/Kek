@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a90fb7abd346141bc0d06f52d634bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 1783739707808096950}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 1783739707808096950}
   Item:
     rid: 6921513229950910464
   references:
@@ -79,8 +79,8 @@ MonoBehaviour:
     - rid: 6921513229950910464
       type: {class: PickUpableItem, ns: , asm: Assembly-CSharp}
       data:
+        <InteractItem>k__BackingField: {fileID: 5368043848588155656}
         _item: {fileID: 11400000, guid: 598da868718d4e34ca14f6e574203e2b, type: 2}
-        _interactItem: {fileID: 5368043848588155656}
 --- !u!114 &1783739707808096950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +99,8 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
-  NetworkBehaviours: []
+  NetworkBehaviours:
+  - {fileID: 5368043848588155656}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -124,15 +125,15 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 65535
+  <PrefabId>k__BackingField: 30
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 16203672197543008185
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    Scale: {x: 0, y: 0, z: 0}
-    IsValid: 0
+    Position: {x: -0.9897591, y: 0.184, z: -7.5422235}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Scale: {x: 1, y: 1, z: 1}
+    IsValid: 1
 --- !u!1001 &1677353134983427746
 PrefabInstance:
   m_ObjectHideFlags: 0
