@@ -11,12 +11,11 @@ public class CollectTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<InteractItem>(out InteractItem interactItem))
         {
-            if (interactItem.Item is PickUpableItem)
+            if (interactItem.Item is PickUpableItem pickUpableItem)
             {
-                Debug.Log("Delivered");
+                PlayerCharacter.Instance.Wallet.Add(pickUpableItem.Price);
                 interactItem.Despawn();
                 ItemDelivered?.Invoke();
-                return;
             }
         }
     }
