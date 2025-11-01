@@ -79,8 +79,8 @@ MonoBehaviour:
     - rid: 6921513229950910464
       type: {class: PickUpableItem, ns: , asm: Assembly-CSharp}
       data:
+        <InteractItem>k__BackingField: {fileID: 4907174417883804821}
         _item: {fileID: 11400000, guid: 4dd31f2d0498b4841975356d104f9836, type: 2}
-        _interactItem: {fileID: 4907174417883804821}
 --- !u!114 &8297616799687401402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 28
+  <PrefabId>k__BackingField: 7
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 6474635839224841165
   <SceneId>k__BackingField: 0

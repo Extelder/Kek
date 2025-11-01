@@ -9,14 +9,15 @@ using UnityEngine;
 [Serializable]
 public class PickUpableItem : Item
 {
+    [field :SerializeField] public InteractItem InteractItem { get; private set; }
+
     [SerializeField] private ItemData _item;
-    [SerializeField] private InteractItem _interactItem;
 
     public override void Interact()
     {
         if (PlayerCharacter.Instance.PlayerInventory.TryAddItem(_item))
         {
-            _interactItem.DespawnObject();
+            InteractItem.DespawnObject();
         }
     }
 }
