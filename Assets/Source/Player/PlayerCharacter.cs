@@ -15,6 +15,7 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public GameObject[] _thirdPerson;
     [field: SerializeField] public GameObject _inventory;
     [field: SerializeField] public PlayerInventory PlayerInventory { get; private set; }
+    [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
     [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
 
     public static PlayerCharacter Instance { get; private set; }
