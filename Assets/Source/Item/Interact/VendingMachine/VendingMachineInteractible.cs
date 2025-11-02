@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
 
-public class VendingMachineInteractible : NetworkBehaviour, IInteractable
+public abstract class VendingMachineInteractible : NetworkBehaviour, IInteractable
 {
     [field: SerializeField] public BuyableItemData ItemData { get; private set; }
+    private bool _canInteract = true;
 
     public void Interact()
     {
-        InteractServer();
+        if (PlayerCharacter.Instance.Wallet.TryBuy(ItemData.Price) && _canInteract)
+        {
+            OnBought();
+            InteractServer();
+        }
     }
 
     [ServerRpc(RequireOwnership = false)]
     public void InteractServer()
     {
+        _canInteract = false;
         InteractObserver();
     }
 
@@ -22,5 +28,8 @@ public class VendingMachineInteractible : NetworkBehaviour, IInteractable
     public void InteractObserver()
     {
         PlayerCharacter.Instance.Wallet.SpendServer(ItemData.Price);
+        _canInteract = true;
     }
+
+    public abstract void OnBought();
 }

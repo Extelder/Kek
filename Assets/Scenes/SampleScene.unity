@@ -1306,6 +1306,10 @@ MonoBehaviour:
   _moveSpeed: 15
   _rotateSpeed: 15
   _maxMoveDelta: 0.3
+  _wheels: []
+  _wheelRadius: 0.2
+  _deadZone: 0.05
+  _smoothLerp: 12
 --- !u!114 &119344679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5885,6 +5889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1041161158}
   - component: {fileID: 1041161157}
+  - component: {fileID: 1041161159}
   m_Layer: 0
   m_Name: RustModel
   m_TagString: Untagged
@@ -5930,6 +5935,58 @@ Transform:
   - {fileID: 1224764096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -149.51, z: 0}
+--- !u!114 &1041161159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041161156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsNested>k__BackingField: 0
+  WasActiveDuringEdit: 1
+  WasActiveDuringEdit_Set1: 1
+  <ComponentIndex>k__BackingField: 0
+  <PredictedSpawn>k__BackingField: {fileID: 0}
+  <PredictedOwner>k__BackingField: {fileID: 0}
+  NetworkBehaviours: []
+  InitializedParentNetworkBehaviour: {fileID: 0}
+  InitializedNestedNetworkObjects: []
+  RuntimeParentNetworkBehaviour: {fileID: 0}
+  RuntimeChildNetworkBehaviours: []
+  _isNetworked: 1
+  _isSpawnable: 1
+  _isGlobal: 0
+  _initializeOrder: 0
+  _preventDespawnOnDisconnect: 0
+  _defaultDespawnType: 0
+  NetworkObserver: {fileID: 0}
+  _enablePrediction: 0
+  _predictionType: 0
+  _graphicalObject: {fileID: 0}
+  _detachGraphicalObject: 0
+  _enableStateForwarding: 1
+  _networkTransform: {fileID: 0}
+  _ownerInterpolation: 1
+  _ownerSmoothedProperties: 255
+  _adaptiveInterpolation: 3
+  _spectatorSmoothedProperties: 255
+  _spectatorInterpolation: 2
+  _enableTeleport: 0
+  _teleportThreshold: 1
+  <PrefabId>k__BackingField: 65535
+  <SpawnableCollectionId>k__BackingField: 0
+  <AssetPathHash>k__BackingField: 0
+  <SceneId>k__BackingField: 1006296446
+  SerializedTransformProperties:
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}
+    IsValid: 0
 --- !u!4 &1041426978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8952172330349078154, guid: a51564009a4f712409d3a2aa85a91fcc, type: 3}
@@ -6588,9 +6645,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168553674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947d72311f2826c4c80bb6f78510e652, type: 3}
+  m_Script: {fileID: 11500000, guid: d8668a7848622b64281c97cb989696ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1168553678}
+  _networkObjectCache: {fileID: 0}
   <ItemData>k__BackingField: {fileID: 11400000, guid: d45615c49b01ca24981236a5c13f3ea2, type: 2}
 --- !u!1001 &1187303676
 PrefabInstance:
@@ -6829,6 +6889,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a326db1e0f649fc4eb2820a16f62057c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1041161159}
+  _networkObjectCache: {fileID: 0}
 --- !u!54 &1224764099
 Rigidbody:
   m_ObjectHideFlags: 0
