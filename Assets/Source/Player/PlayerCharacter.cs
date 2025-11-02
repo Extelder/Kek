@@ -19,6 +19,8 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
     [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field: SerializeField] public PlayerWallet Wallet { get; private set; }
+    
+    public float Distance { get; set; }
 
     public static PlayerCharacter Instance { get; private set; }
 
