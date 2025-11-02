@@ -9,6 +9,7 @@ public class PlayerWallet : NetworkBehaviour
     [SerializeField] private int _minValue;
     [SerializeField] private int _startValue;
 
+    private int _maxValue = Int32.MaxValue;
     public int CurrentValue { get; private set; }
 
     public event Action<int> ValueChanged;
@@ -19,6 +20,11 @@ public class PlayerWallet : NetworkBehaviour
             return;
         CurrentValue += _startValue;
         ValueChanged?.Invoke(CurrentValue);
+    }
+
+    public bool TryBuy(int value)
+    {
+        return (CurrentValue - value >= _minValue);
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -33,21 +39,20 @@ public class PlayerWallet : NetworkBehaviour
         Add(value);
     }
 
-    private void Update()
+    public void Add(int value)
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (CurrentValue + value > _maxValue)
         {
-            SpendServer(1);
+            CurrentValue = _maxValue;
+            ValueChanged?.Invoke(CurrentValue);
+            return;
         }
-    }
 
-    private void Add(int value)
-    {
         CurrentValue += value;
         ValueChanged?.Invoke(CurrentValue);
     }
 
-    public void SpendBithc(int value)
+    public void SpendMoney(int value)
     {
         SpendServer(value);
     }
@@ -66,6 +71,11 @@ public class PlayerWallet : NetworkBehaviour
 
     private void Spend(int value)
     {
+        if (CurrentValue - value < _minValue)
+        {
+            return;
+        }
+
         CurrentValue -= value;
         ValueChanged?.Invoke(CurrentValue);
     }

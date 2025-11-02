@@ -8,7 +8,7 @@ public class VendingMachine : MonoBehaviour
     [SerializeField] private Transform _spawnOrigin;
     private void OnEnable()
     {
-        BuyableAndSpawnableItem.ItemBought += OnItemBought;
+        VendingMachineInteractableSpawnable.ItemBought += OnItemBought;
     }
 
     private void OnItemBought(BuyableItemData buyableItemData)
@@ -18,6 +18,6 @@ public class VendingMachine : MonoBehaviour
 
     private void OnDisable()
     {
-        BuyableAndSpawnableItem.ItemBought -= OnItemBought;
+        VendingMachineInteractableSpawnable.ItemBought -= OnItemBought;
     }
 }
