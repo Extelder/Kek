@@ -69,7 +69,7 @@ public class PlayerWallet : NetworkBehaviour
         Spend(value);
     }
 
-    private void Spend(int value)
+    public void Spend(int value)
     {
         if (CurrentValue - value < _minValue)
         {

@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class VendingMachine : MonoBehaviour
 {
+    [SerializeField] private VendingMachineInteractableSpawnable _vendingMachineInteractible;
+
     [SerializeField] private Transform _spawnOrigin;
+
     private void OnEnable()
     {
-        VendingMachineInteractableSpawnable.ItemBought += OnItemBought;
+        _vendingMachineInteractible.ItemBought += OnItemBought;
     }
 
     private void OnItemBought(BuyableItemData buyableItemData)
@@ -18,6 +21,6 @@ public class VendingMachine : MonoBehaviour
 
     private void OnDisable()
     {
-        VendingMachineInteractableSpawnable.ItemBought -= OnItemBought;
+        _vendingMachineInteractible.ItemBought -= OnItemBought;
     }
 }

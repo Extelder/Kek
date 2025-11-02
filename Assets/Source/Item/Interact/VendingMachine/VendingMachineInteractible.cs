@@ -27,7 +27,7 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IInteractab
     [ObserversRpc]
     public void InteractObserver()
     {
-        PlayerCharacter.Instance.Wallet.SpendServer(ItemData.Price);
+        PlayerCharacter.Instance.Wallet.Spend(ItemData.Price);
         _canInteract = true;
     }
 

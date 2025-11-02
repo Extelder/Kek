@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class VendingMachineInteractableSpawnable : VendingMachineInteractible
 {
-    public static event Action<BuyableItemData> ItemBought;
+    public event Action<BuyableItemData> ItemBought;
+
     public override void OnBought()
     {
         ItemBought?.Invoke(ItemData);
