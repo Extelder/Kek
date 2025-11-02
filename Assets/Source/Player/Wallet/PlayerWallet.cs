@@ -6,84 +6,67 @@ using UnityEngine;
 
 public class PlayerWallet : NetworkBehaviour
 {
-    [SerializeField] private int _startValue = 0;
-    [SerializeField] private int _minValue = 0;
+    [SerializeField] private int _minValue;
+    [SerializeField] private int _startValue;
 
-    public bool AlredySpend { get; set; }
-
-    [field: SerializeField] public int CurrentValue { get; private set; }
-
-    private const int maxValue = Int32.MaxValue;
+    public int CurrentValue { get; private set; }
 
     public event Action<int> ValueChanged;
-    public event Action<int> MoneyChanged;
 
     public override void OnStartClient()
     {
-        base.OnStartClient();
-        if (base.IsServer)
-        {
-            Add(_startValue);
+        if (!base.IsOwner)
             return;
-        }
-
-        AddSeparately(_startValue);
+        CurrentValue += _startValue;
+        ValueChanged?.Invoke(CurrentValue);
     }
-    
 
     [ServerRpc(RequireOwnership = false)]
-    public void Spend(int value)
+    public void AddServer(int value)
     {
-        if (CurrentValue - value < _minValue)
-        {
-            Debug.Log("NO MONEEEEEY");
-            AlredySpend = false;
-            return;
-        }
+        AddObserever(value);
+    }
 
+    [ObserversRpc]
+    public void AddObserever(int value)
+    {
+        Add(value);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SpendServer(1);
+        }
+    }
+
+    private void Add(int value)
+    {
+        CurrentValue += value;
+        ValueChanged?.Invoke(CurrentValue);
+    }
+
+    public void SpendBithc(int value)
+    {
+        SpendServer(value);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SpendServer(int value)
+    {
+        SpendObserever(value);
+    }
+
+    [ObserversRpc]
+    public void SpendObserever(int value)
+    {
+        Spend(value);
+    }
+
+    private void Spend(int value)
+    {
         CurrentValue -= value;
-        AlredySpend = true;
-        SpendObserver(value);
-    }
-
-    [ObserversRpc]
-    private void SpendObserver(int value)
-    {
-        MoneyChanged?.Invoke(-value);
         ValueChanged?.Invoke(CurrentValue);
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void Add(int value)
-    {
-        if (CurrentValue + value > maxValue)
-        {
-            CurrentValue = maxValue;
-            ValueChanged?.Invoke(CurrentValue);
-            return;
-        }
-
-        CurrentValue += value;
-        AddObserver(value);
-    }
-
-    [ObserversRpc]
-    private void AddObserver(int value)
-    {
-        MoneyChanged?.Invoke(value);
-        ValueChanged?.Invoke(CurrentValue);
-    }
-
-    private void AddSeparately(int value)
-    {
-        if (CurrentValue + value > maxValue)
-        {
-            CurrentValue = maxValue;
-            ValueChanged?.Invoke(CurrentValue);
-            return;
-        }
-
-        CurrentValue += value;
-        AddObserver(value);
     }
 }

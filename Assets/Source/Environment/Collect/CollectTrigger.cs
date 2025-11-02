@@ -13,7 +13,7 @@ public class CollectTrigger : MonoBehaviour
         {
             if (interactItem.Item is PickUpableItem pickUpableItem)
             {
-                PlayerCharacter.Instance.Wallet.Add(pickUpableItem.Price);
+                PlayerCharacter.Instance.Wallet.AddServer(pickUpableItem.Price);
                 interactItem.Despawn();
                 ItemDelivered?.Invoke();
             }

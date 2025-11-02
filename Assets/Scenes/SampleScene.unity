@@ -1625,12 +1625,16 @@ PrefabInstance:
       objectReference: {fileID: 1996624997028827962, guid: d871a17600fe32a46999f0bd69c819a4, type: 3}
     - target: {fileID: 7443408887813606060, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
       propertyPath: Spawns.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7443408887813606060, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
       propertyPath: Spawns.Array.data[0]
       value: 
       objectReference: {fileID: 1002233867}
+    - target: {fileID: 7443408887813606060, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
+      propertyPath: Spawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 1038707128}
     - target: {fileID: 8529726043905772423, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -5704,7 +5708,7 @@ Transform:
   m_GameObject: {fileID: 1002233866}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.52, y: 0.264, z: 2.02}
+  m_LocalPosition: {x: -1.065, y: 0.264, z: -2.339}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5865,7 +5869,7 @@ Transform:
   m_GameObject: {fileID: 1038707127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7072749, y: 1.25, z: 1.3532124}
+  m_LocalPosition: {x: -0.458, y: 0.739, z: -3.251}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6478,7 +6482,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1168553675}
   - component: {fileID: 1168553676}
-  - component: {fileID: 1168553677}
+  - component: {fileID: 1168553678}
+  - component: {fileID: 1168553679}
   m_Layer: 1
   m_Name: Buyable
   m_TagString: Untagged
@@ -6520,9 +6525,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3514392, y: 3.8594055, z: 0.7720822}
-  m_Center: {x: 0.004799478, y: -0.2974697, z: -0.113959365}
---- !u!114 &1168553677
+  m_Size: {x: 2.3514392, y: 4.399969, z: 1.3390169}
+  m_Center: {x: 0.004799474, y: -0.027191864, z: -0.39742646}
+--- !u!114 &1168553678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6531,21 +6536,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168553674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95a90fb7abd346141bc0d06f52d634bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 1331291840}
-  _networkObjectCache: {fileID: 0}
-  Item:
-    rid: 6779343539528794113
-  references:
-    version: 2
-    RefIds:
-    - rid: 6779343539528794113
-      type: {class: BuyableAndSpawnableItem, ns: , asm: Assembly-CSharp}
-      data:
-        <ItemData>k__BackingField: {fileID: 11400000, guid: d45615c49b01ca24981236a5c13f3ea2, type: 2}
+  <IsNested>k__BackingField: 0
+  WasActiveDuringEdit: 1
+  WasActiveDuringEdit_Set1: 1
+  <ComponentIndex>k__BackingField: 0
+  <PredictedSpawn>k__BackingField: {fileID: 0}
+  <PredictedOwner>k__BackingField: {fileID: 0}
+  NetworkBehaviours: []
+  InitializedParentNetworkBehaviour: {fileID: 0}
+  InitializedNestedNetworkObjects: []
+  RuntimeParentNetworkBehaviour: {fileID: 0}
+  RuntimeChildNetworkBehaviours: []
+  _isNetworked: 1
+  _isSpawnable: 1
+  _isGlobal: 0
+  _initializeOrder: 0
+  _preventDespawnOnDisconnect: 0
+  _defaultDespawnType: 0
+  NetworkObserver: {fileID: 0}
+  _enablePrediction: 0
+  _predictionType: 0
+  _graphicalObject: {fileID: 0}
+  _detachGraphicalObject: 0
+  _enableStateForwarding: 1
+  _networkTransform: {fileID: 0}
+  _ownerInterpolation: 1
+  _ownerSmoothedProperties: 255
+  _adaptiveInterpolation: 3
+  _spectatorSmoothedProperties: 255
+  _spectatorInterpolation: 2
+  _enableTeleport: 0
+  _teleportThreshold: 1
+  <PrefabId>k__BackingField: 65535
+  <SpawnableCollectionId>k__BackingField: 0
+  <AssetPathHash>k__BackingField: 0
+  <SceneId>k__BackingField: 1072422673
+  SerializedTransformProperties:
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}
+    IsValid: 0
+--- !u!114 &1168553679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168553674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947d72311f2826c4c80bb6f78510e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ItemData>k__BackingField: {fileID: 11400000, guid: d45615c49b01ca24981236a5c13f3ea2, type: 2}
 --- !u!1001 &1187303676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9342,42 +9388,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80e4857a010197d44a222c5be3c2b19b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1600614447}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e4857a010197d44a222c5be3c2b19b, type: 3}
 --- !u!4 &1600614445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 80e4857a010197d44a222c5be3c2b19b, type: 3}
   m_PrefabInstance: {fileID: 1600614444}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1600614446 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 80e4857a010197d44a222c5be3c2b19b, type: 3}
-  m_PrefabInstance: {fileID: 1600614444}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1600614447
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600614446}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4000003, y: 4.9999995, z: 1.4650513}
-  m_Center: {x: -0.000000003985679, y: 2.4999998, z: 0.2674744}
 --- !u!1001 &1602721239
 PrefabInstance:
   m_ObjectHideFlags: 0
