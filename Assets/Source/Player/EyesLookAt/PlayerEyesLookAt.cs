@@ -16,7 +16,11 @@ public class PlayerEyesLookAt : NetworkBehaviour
     [SerializeField] private List<PlayerCharacter> _characters;
     [SerializeField] private Collider[] _playerColliders;
 
+    [SerializeField] private Vector3 _offset;
+
     private CompositeDisposable _disposable = new CompositeDisposable();
+
+    private PlayerCharacter _currentPoint;
 
     public override void OnStartClient()
     {
@@ -29,6 +33,11 @@ public class PlayerEyesLookAt : NetworkBehaviour
             Debug.Log("NOTHING");
             Overlap();
         }).AddTo(_disposable);
+    }
+
+    private void Update()
+    {
+        LookAtPlayer(_currentPoint);
     }
 
     private void Overlap()
@@ -61,6 +70,7 @@ public class PlayerEyesLookAt : NetworkBehaviour
             {
                 return;
             }
+
             if (hit.collider.TryGetComponent<PlayerCharacter>(
                 out PlayerCharacter PlayerCharacter))
             {
@@ -81,7 +91,8 @@ public class PlayerEyesLookAt : NetworkBehaviour
             }
         }
 
-        LookAtPlayer(currentPlayerCharacter);
+        _currentPoint = currentPlayerCharacter;
+        //LookAtPlayer(currentPlayerCharacter);
     }
 
     private void OnDrawGizmosSelected()
@@ -94,7 +105,7 @@ public class PlayerEyesLookAt : NetworkBehaviour
         Debug.Log("Player Look At" + playerCharacter);
         if (playerCharacter == null)
             return;
-        transform.LookAt(playerCharacter.TargetPoint, transform.forward);
+        transform.LookAt(playerCharacter.TargetPoint, -transform.up);
     }
 
     private void OnDisable()

@@ -19,12 +19,14 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
     [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field: SerializeField] public PlayerWallet Wallet { get; private set; }
-    
+
     public float Distance { get; set; }
 
     public static PlayerCharacter Instance { get; private set; }
 
     public event Action ClientStarted;
+
+    public List<PlayerCharacter> Characters = new List<PlayerCharacter>();
 
     [ServerRpc(RequireOwnership = false)]
     public void ServerSpawnObject(GameObject spawnedObject, Vector3 position, Quaternion rotation)
@@ -39,6 +41,7 @@ public class PlayerCharacter : NetworkBehaviour
     {
         spawnedObject.Despawn();
     }
+
 
     public override void OnStartClient()
     {
@@ -61,6 +64,7 @@ public class PlayerCharacter : NetworkBehaviour
             _inventory.SetActive(false);
         }
 
+        Instance.Characters.Add(this);
         ClientStarted?.Invoke();
     }
 
