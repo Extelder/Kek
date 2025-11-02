@@ -21,6 +21,12 @@ public class PlayerWallet : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
+        if (base.IsServer)
+        {
+            Add(_startValue);
+            return;
+        }
+
         AddSeparately(_startValue);
     }
     
@@ -28,32 +34,27 @@ public class PlayerWallet : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void Spend(int value)
     {
-        SpendObserver(value);
-    }
-
-    [ObserversRpc]
-    private void SpendObserver(int value)
-    {
         if (CurrentValue - value < _minValue)
         {
+            Debug.Log("NO MONEEEEEY");
             AlredySpend = false;
             return;
         }
 
         CurrentValue -= value;
         AlredySpend = true;
+        SpendObserver(value);
+    }
+
+    [ObserversRpc]
+    private void SpendObserver(int value)
+    {
         MoneyChanged?.Invoke(-value);
         ValueChanged?.Invoke(CurrentValue);
     }
 
     [ServerRpc(RequireOwnership = false)]
     public void Add(int value)
-    {
-        AddObserver(value);
-    }
-
-    [ObserversRpc]
-    private void AddObserver(int value)
     {
         if (CurrentValue + value > maxValue)
         {
@@ -63,12 +64,26 @@ public class PlayerWallet : NetworkBehaviour
         }
 
         CurrentValue += value;
+        AddObserver(value);
+    }
+
+    [ObserversRpc]
+    private void AddObserver(int value)
+    {
         MoneyChanged?.Invoke(value);
         ValueChanged?.Invoke(CurrentValue);
     }
 
-    public void AddSeparately(int value)
+    private void AddSeparately(int value)
     {
+        if (CurrentValue + value > maxValue)
+        {
+            CurrentValue = maxValue;
+            ValueChanged?.Invoke(CurrentValue);
+            return;
+        }
+
+        CurrentValue += value;
         AddObserver(value);
     }
 }
