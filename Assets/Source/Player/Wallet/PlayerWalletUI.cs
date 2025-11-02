@@ -10,7 +10,7 @@ public class PlayerWalletUI : MonoBehaviour
 
     [SerializeField] private PlayerWallet _wallet;
 
-    private void OnEnable()
+    private void Awake()
     {
         _wallet.ValueChanged += OnValueChanged;
     }
