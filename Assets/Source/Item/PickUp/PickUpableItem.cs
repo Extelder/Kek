@@ -10,6 +10,7 @@ using UnityEngine;
 public class PickUpableItem : Item
 {
     [field :SerializeField] public InteractItem InteractItem { get; private set; }
+    [field :SerializeField] public int Price { get; private set; }
 
     [SerializeField] private ItemData _item;
 
