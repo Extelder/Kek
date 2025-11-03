@@ -16,7 +16,7 @@ public class MixSoundAndPlay : NetworkBehaviour
     {
         MixAndPlayObserver();
     }
-    
+
     [ObserversRpc]
     private void MixAndPlayObserver()
     {
