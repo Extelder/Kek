@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6647199920731359244}
   - component: {fileID: 2553075755286328003}
   - component: {fileID: 340059573413881578}
+  - component: {fileID: -5742216864982525921}
   m_Layer: 0
   m_Name: Room 1
   m_TagString: Untagged
@@ -166,7 +167,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 12
+  <PrefabId>k__BackingField: 21
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 13287580699765610301
   <SceneId>k__BackingField: 0
@@ -196,6 +197,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.81313, y: 5.222277, z: 8.1797695}
   m_Center: {x: -0.15273333, y: 2.1111395, z: 5.2032785}
+--- !u!114 &-5742216864982525921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268253527317012806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e56f5cf5c339a94bb388c9ffe01306e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 2553075755286328003}
+  _networkObjectCache: {fileID: 0}
 --- !u!1001 &154127887264452304
 PrefabInstance:
   m_ObjectHideFlags: 0
