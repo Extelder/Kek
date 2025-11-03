@@ -20,6 +20,7 @@ public class InventoryItemUI : MonoBehaviour
     private void OnItemDisabled()
     {
         transform.localScale = new Vector3(1f, 1f, 1f);
+        
     }
 
     private void OnItemEnabled()
