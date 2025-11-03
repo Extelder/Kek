@@ -12,8 +12,6 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public Transform CameraTransform { get; private set; }
     [field: SerializeField] public GameObject Hands { get; private set; }
     [field: SerializeField] public GameObject TransitHands { get; private set; }
-    [field: SerializeField] public GameObject InteractHands { get; private set; }
-    [field: SerializeField] public Animator TransitHandsAnimator { get; private set; }
     [field: SerializeField] public Rigidbody Rigidbody;
     [field: SerializeField] public PlayerBinds Binds;
     [field: SerializeField] public Transform PlayerTransform;

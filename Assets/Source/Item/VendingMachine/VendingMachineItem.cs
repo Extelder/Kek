@@ -6,8 +6,8 @@ using UnityEngine;
 public class VendingMachineItem : Item
 {
     [SerializeField] private Transform _targetPoint;
-
     public static event Action<Transform> Interacted;
+    
     public override void Interact()
     {
         PlayerCharacter.Instance.Hands.SetActive(false);
