@@ -550,7 +550,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -6139,6 +6139,13 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <DropPoint>k__BackingField: {fileID: 8950486551078518353}
+  <TargetPoint>k__BackingField: {fileID: 0}
+  <CartPoint>k__BackingField: {fileID: 0}
+  <CameraTransform>k__BackingField: {fileID: 0}
+  <Hands>k__BackingField: {fileID: 0}
+  <TransitHands>k__BackingField: {fileID: 0}
+  <InteractHands>k__BackingField: {fileID: 0}
+  <TransitHandsAnimator>k__BackingField: {fileID: 0}
   Rigidbody: {fileID: 2264126181945957770}
   PlayerTransform: {fileID: 3968811008505776637}
   _thirdPerson:
@@ -6147,6 +6154,10 @@ MonoBehaviour:
   - {fileID: 3195818219162732657}
   _inventory: {fileID: 382734339632686515}
   <PlayerInventory>k__BackingField: {fileID: 4425973244517120947}
+  <PlayerHatsEquip>k__BackingField: {fileID: 0}
+  <PlayerHealth>k__BackingField: {fileID: 0}
+  <Wallet>k__BackingField: {fileID: 0}
+  Characters: []
 --- !u!114 &2346307380554849957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6217,6 +6228,7 @@ MonoBehaviour:
   _componentIndexCache: 4
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
+  _character: {fileID: 0}
   _raycastSettings:
     <Origin>k__BackingField: {fileID: 4387599489495877655}
     <MaxDistance>k__BackingField: 100
@@ -7279,6 +7291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attack: Attack
+  _throw: 
+  _pickUp: 
+  _reset: 
+  _drill: 
+  _guitar: 
   _animator: {fileID: 1225629203006681363}
   _fpsAnimator: {fileID: 9079513319236140734}
   _speed: 5
@@ -12249,8 +12266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0851171b87e6a554392dc8711ef56a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 6499830973396402101}
-  _inventoryItem: {fileID: 5357624642094703125}
+  <PlayerAnimator>k__BackingField: {fileID: 0}
+  _animatorEventHandler: {fileID: 0}
+  _animator: {fileID: 0}
+  _playerInventoryItem: {fileID: 0}
+  _actionName: 
 --- !u!1 &8971601973604919328
 GameObject:
   m_ObjectHideFlags: 0
@@ -13528,6 +13548,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6233649093828991649, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8026511887588030027, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
       propertyPath: m_Name
       value: Item (3)
@@ -13752,6 +13776,10 @@ PrefabInstance:
     - target: {fileID: 4021080810715467179, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233649093828991649, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8026511887588030027, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
       propertyPath: m_Name
@@ -13978,6 +14006,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6233649093828991649, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8026511887588030027, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
       propertyPath: m_Name
       value: Item
@@ -14202,6 +14234,10 @@ PrefabInstance:
     - target: {fileID: 4021080810715467179, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233649093828991649, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8026511887588030027, guid: 430ef25b3af2ae94889cbe607d73e15d, type: 3}
       propertyPath: m_Name
