@@ -20,7 +20,7 @@ public class MixSoundAndPlay : NetworkBehaviour
     [ObserversRpc]
     private void MixAndPlayObserver()
     {
-        _audio.clip = _audioClips[Random.Range(0, _audioClips.Length - 1)];
+        _audio.clip = _audioClips[Random.Range(0, _audioClips.Length)];
         _audio.Play();
     }
 }
