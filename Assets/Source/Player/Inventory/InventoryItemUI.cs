@@ -20,7 +20,6 @@ public class InventoryItemUI : MonoBehaviour
     private void OnItemDisabled()
     {
         transform.localScale = new Vector3(1f, 1f, 1f);
-        
     }
 
     private void OnItemEnabled()
@@ -33,9 +32,10 @@ public class InventoryItemUI : MonoBehaviour
         if (itemData == null)
         {
             _itemImage.sprite = null;
+            _itemImage.color = new Color32(204, 204, 204, 0);
             return;
         }
-
+        _itemImage.color = new Color32(204, 204, 204, 208);
         _itemImage.sprite = itemData.Icon;
     }
 
