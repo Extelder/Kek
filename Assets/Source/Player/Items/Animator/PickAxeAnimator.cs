@@ -8,6 +8,7 @@ public class PickAxeAnimator : ItemAnimator
     [SerializeField] private Pickaxe _pickaxe;
     [SerializeField] private RaycastSettings _raycastSettings;
     [SerializeField] private MixSoundAndPlay _mixsound;
+    [SerializeField] private AudioSource _secondaryAudioSource;
     private RaycastHit _hit;
 
     public override void Attack()
@@ -22,6 +23,7 @@ public class PickAxeAnimator : ItemAnimator
             {
                 weaponVisitor.Visit(_pickaxe, _hit);
                 _mixsound.MixOnServer();
+                _secondaryAudioSource.Play();
             }
         }
     }
