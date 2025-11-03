@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyAttackState : EnemyState
 {
+    [SerializeField] private EnemyChaseState _chaseState;
+    [SerializeField] private bool _stopNavMesh = true;
     [SerializeField] private NavMeshAgent _agent;
     [field: SerializeField] public EnemyDamage Damage { get; private set; }
 
@@ -19,7 +21,16 @@ public class EnemyAttackState : EnemyState
             return;
         CanChanged = false;
         Animator.Attack();
-        _agent.isStopped = true;
+        _agent.isStopped = _stopNavMesh;
+        if (!_agent.isStopped)
+        {
+            StartCoroutine(_chaseState.ChasingWithoutAnimation());
+        }
+    }
+
+    public override void Exit()
+    {
+        _chaseState.StopAllCoroutines();
     }
 
     public void PerformAttack()
@@ -40,7 +51,8 @@ public class EnemyAttackState : EnemyState
     {
         if (!base.IsServer)
             return;
-        _agent.isStopped = false;
+        if (_stopNavMesh)
+            _agent.isStopped = false;
         CanChanged = true;
         AttackAnimationEnded?.Invoke();
     }

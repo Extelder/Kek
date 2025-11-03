@@ -72,4 +72,13 @@ public class EnemyChaseState : EnemyState
             yield return new WaitForSeconds(_updateTargetRate);
         }
     }
+
+    public IEnumerator ChasingWithoutAnimation()
+    {
+        while (true)
+        {
+            _enemyNavMeshMove.SetDestinationServer(Target.position);
+            yield return new WaitForSeconds(_updateTargetRate);
+        }
+    }
 }
