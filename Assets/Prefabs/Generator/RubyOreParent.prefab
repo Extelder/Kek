@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2067971349998566100
 Transform:
   m_ObjectHideFlags: 0
@@ -413,6 +413,10 @@ PrefabInstance:
     - target: {fileID: 276939688863981944, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276939688863981944, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
+      propertyPath: <PrefabId>k__BackingField
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4379315780189467794, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
       propertyPath: m_Name
@@ -483,6 +487,10 @@ PrefabInstance:
     - target: {fileID: 276939688863981944, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 276939688863981944, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
+      propertyPath: <PrefabId>k__BackingField
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4379315780189467794, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
       propertyPath: m_Name
