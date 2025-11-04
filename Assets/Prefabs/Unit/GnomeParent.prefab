@@ -94,7 +94,7 @@ MonoBehaviour:
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
     Position: {x: -5.24, y: -0.00000047683716, z: 4.18}
-    Rotation: {x: -0, y: -0.9659258, z: -0, w: 0.25881916}
+    Rotation: {x: 0, y: -0.9659258, z: 0, w: 0.2588191}
     Scale: {x: 1, y: 1, z: 1}
     IsValid: 1
 --- !u!114 &4195891192384177265
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 6446301062860950944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.089, z: 1.641}
+  m_LocalPosition: {x: -0.157, y: 0.586, z: 0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 8438387107030626433}
   - component: {fileID: 847549570573782971}
   - component: {fileID: 2864416154726154449}
+  - component: {fileID: 61326847796005970}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -430,6 +431,27 @@ MonoBehaviour:
     X: 0
     Y: 0
     Z: 0
+--- !u!65 &61326847796005970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820919100946353322}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 1.2704395, z: 0.48}
+  m_Center: {x: 0, y: 0.6197749, z: -0}
 --- !u!1001 &4714630397105965299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -819,6 +841,8 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 549270684482896193}
   CanChanged: 1
   <Animator>k__BackingField: {fileID: 3442421149067022237}
+  _chaseState: {fileID: 3507580206033813643}
+  _stopNavMesh: 0
   _agent: {fileID: 6784848595248029159}
   <Damage>k__BackingField: {fileID: 8984141797754028298}
 --- !u!114 &3442421149067022237
