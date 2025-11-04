@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 391919934225990955}
+  - component: {fileID: 1749664955615417747}
   m_Layer: 1
   m_Name: OreDestroyed
   m_TagString: Untagged
@@ -33,6 +34,22 @@ Transform:
   - {fileID: 3085743520208849421}
   m_Father: {fileID: 5256367058317253390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1749664955615417747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110883765397333833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb3bd76dc98d62438e1579eb28d10c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ore: {fileID: 9210489127364445355}
+  _rigidbodies:
+  - {fileID: 3689211852586949916}
+  - {fileID: 7789238268811293326}
 --- !u!1 &584860329868180686
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +258,6 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 7248504554749054922}
   _networkObjectCache: {fileID: 7248504554749054922}
   _hitEffect: {fileID: 1838092204657027631, guid: 7024ce8f3cb25724792c661db1c82dc2, type: 3}
-  _destroyedOre: {fileID: 110883765397333833}
   _modelsOrigin: {fileID: 8113628025518377029}
   _scaleDifference: 0.01
   _scaleThresholdToDestroy: 0.95
@@ -458,6 +474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldParent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8048510246735974463, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -466,6 +486,11 @@ PrefabInstance:
 --- !u!4 &3085743520208849421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2988174514080786620, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
+  m_PrefabInstance: {fileID: 264273677798482609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7789238268811293326 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8048510246735974463, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
   m_PrefabInstance: {fileID: 264273677798482609}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6665533946330156323
@@ -532,11 +557,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldParent
       objectReference: {fileID: 0}
+    - target: {fileID: 8048510246735974463, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
+--- !u!54 &3689211852586949916 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8048510246735974463, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
+  m_PrefabInstance: {fileID: 6665533946330156323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8500714911888319903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2988174514080786620, guid: ae1afae5d7f8b174bb68525286e6c075, type: 3}
