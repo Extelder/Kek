@@ -9,10 +9,19 @@ public class PlayerRotation : NetworkBehaviour
     [SerializeField] private PlayerCharacter _character;
     [SerializeField] private Transform _camera;
 
+    public bool CopyAllRotation;
+
     private void FixedUpdate()
     {
-        if(base.IsOwner == false)
+        if (base.IsOwner == false)
             return;
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _camera.localEulerAngles.y, transform.localEulerAngles.z); 
+        if (CopyAllRotation)
+        {
+            transform.localEulerAngles = _camera.localEulerAngles;
+            return;
+        }
+
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _camera.localEulerAngles.y,
+            transform.localEulerAngles.z);
     }
 }

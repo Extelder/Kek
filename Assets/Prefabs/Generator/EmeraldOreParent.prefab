@@ -125,7 +125,6 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6209154650104165607}
   _networkObjectCache: {fileID: 6209154650104165607}
   _hitEffect: {fileID: 1838092204657027631, guid: 7024ce8f3cb25724792c661db1c82dc2, type: 3}
-  _destroyedOre: {fileID: 6342905938328813546}
   _modelsOrigin: {fileID: 8487169054187484271}
   _scaleDifference: 0.01
   _scaleThresholdToDestroy: 0.95
@@ -287,6 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6153910102396146406}
+  - component: {fileID: 4473046434566750082}
   m_Layer: 1
   m_Name: OreDestroyed
   m_TagString: Untagged
@@ -311,6 +311,22 @@ Transform:
   - {fileID: 1030608136869856131}
   m_Father: {fileID: 3267429766319496062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4473046434566750082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342905938328813546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb3bd76dc98d62438e1579eb28d10c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ore: {fileID: 5930309885839876412}
+  _rigidbodies:
+  - {fileID: 5040134996475277272}
+  - {fileID: 6279522930822278056}
 --- !u!1 &9033943908353104678
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +470,10 @@ PrefabInstance:
       propertyPath: <PrefabId>k__BackingField
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6635623035759863628, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7616451857154556752, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
       propertyPath: m_Name
       value: EmeraldParent (1)
@@ -466,6 +486,11 @@ PrefabInstance:
 --- !u!4 &1030608136869856131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 395854459001376615, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
+  m_PrefabInstance: {fileID: 807040622766148836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6279522930822278056 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6635623035759863628, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
   m_PrefabInstance: {fileID: 807040622766148836}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1865721617707026580
@@ -528,6 +553,10 @@ PrefabInstance:
       propertyPath: <PrefabId>k__BackingField
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6635623035759863628, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7616451857154556752, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
       propertyPath: m_Name
       value: EmeraldParent
@@ -540,5 +569,10 @@ PrefabInstance:
 --- !u!4 &2060964612835756019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 395854459001376615, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
+  m_PrefabInstance: {fileID: 1865721617707026580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5040134996475277272 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6635623035759863628, guid: a06fbeb19d7d45b478e5e117152db06e, type: 3}
   m_PrefabInstance: {fileID: 1865721617707026580}
   m_PrefabAsset: {fileID: 0}

@@ -8,9 +8,9 @@ using UnityEngine;
 public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private PlayerCharacter _character;
-    
+
     [SerializeField] private float _speed;
-    
+
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _acceleration;
     [SerializeField] private float _decceleration;
@@ -23,14 +23,16 @@ public class PlayerMovement : NetworkBehaviour
 
     private Vector3 _currentVelocity;
 
-    public ReactiveProperty<bool> Moving { get; private set; } = new ReactiveProperty<bool>(); 
+    public bool CanFly;
+
+    public ReactiveProperty<bool> Moving { get; private set; } = new ReactiveProperty<bool>();
 
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if(!base.IsOwner)
+        if (!base.IsOwner)
             return;
-        
+
         _rigidbody = _character.Rigidbody;
         _binds = _character.Binds;
 
@@ -44,7 +46,7 @@ public class PlayerMovement : NetworkBehaviour
 
         Observable.EveryFixedUpdate().Subscribe(_ =>
         {
-            if(!IsOwner)
+            if (!IsOwner)
                 return;
             inputVector = transform.TransformDirection(inputVector);
 
@@ -64,12 +66,20 @@ public class PlayerMovement : NetworkBehaviour
                     Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, _decceleration * Time.fixedDeltaTime);
             }
 
+            if (CanFly)
+            {
+                float fly = _binds.Character.FlyUpDown.ReadValue<float>();
+                _rigidbody.velocity =
+                    new Vector3(_currentVelocity.x, fly * _speed, _currentVelocity.z);
+                return;
+            }
+
             _rigidbody.velocity =
                 new Vector3(_currentVelocity.x, _rigidbody.velocity.y, _currentVelocity.z);
         }).AddTo(_disposable);
     }
 
-  
+
     private void OnDisable()
     {
         _disposable?.Clear();

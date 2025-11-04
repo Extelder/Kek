@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
@@ -6,10 +7,11 @@ using UnityEngine;
 public class Ore : NetworkBehaviour, IWeaponVisitor
 {
     [SerializeField] private GameObject _hitEffect;
-    [SerializeField] private GameObject _destroyedOre;
     [SerializeField] private Transform _modelsOrigin;
     [SerializeField] private float _scaleDifference;
     [SerializeField] private float _scaleThresholdToDestroy;
+
+    public event Action Destroyed;
 
     public void Visit(TNTThrowable tntThrowable)
     {
@@ -42,9 +44,8 @@ public class Ore : NetworkBehaviour, IWeaponVisitor
             _modelsOrigin.localScale.y <= _scaleThresholdToDestroy ||
             _modelsOrigin.localScale.z <= _scaleThresholdToDestroy)
         {
-            _destroyedOre.SetActive(true);
+            Destroyed?.Invoke();
             Despawn();
-            return;
         }
     }
 }
