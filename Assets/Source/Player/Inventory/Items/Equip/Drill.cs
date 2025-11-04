@@ -11,15 +11,17 @@ public class Drill : EquipItem
 
     private PickUpableItem _pickUpableItem;
     private CompositeDisposable _disposable = new CompositeDisposable();
+    [SerializeField] private SoundPlayPause _music;
 
     public override void OnInputReceived(InputAction.CallbackContext obj)
     {
-        Debug.Log("Drill");
+        _music.Pause(false); 
         PlayerAnimator.DrillAnim();
     }
 
     public override void OnInputCanceled(InputAction.CallbackContext obj)
     {
+        _music.Pause(true); 
         PlayerAnimator.DisableAll();
         _disposable.Clear();
     }
