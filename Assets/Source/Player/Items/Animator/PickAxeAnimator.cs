@@ -8,6 +8,7 @@ public class PickAxeAnimator : ItemAnimator
     [SerializeField] private Pickaxe _pickaxe;
     [SerializeField] private RaycastSettings _raycastSettings;
     [SerializeField] private MixSoundAndPlay _mixsound;
+    [SerializeField] private MixSoundAndPlay _secondaryMixsound;
     [SerializeField] private AudioSource _secondaryAudioSource;
     private RaycastHit _hit;
 
@@ -25,6 +26,11 @@ public class PickAxeAnimator : ItemAnimator
                 _mixsound.MixOnServer();
                 _secondaryAudioSource.Play();
             }
+
+        }
+        else
+        {
+            _secondaryMixsound.MixOnServer();
         }
     }
 
