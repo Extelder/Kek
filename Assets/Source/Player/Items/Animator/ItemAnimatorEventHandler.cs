@@ -6,6 +6,7 @@ public class ItemAnimatorEventHandler : MonoBehaviour
 {
     [SerializeField] private ItemTakeUp _takeUp;
     [SerializeField] private GameObject _tntThrowablePrefab;
+    [SerializeField] private AudioSource _music;
 
 
     private ItemAnimator _currentItemAnimator;
@@ -36,6 +37,7 @@ public class ItemAnimatorEventHandler : MonoBehaviour
     {
         if (_currentItemAnimator == null)
             return;
+        _music.Play();
         PlayerCharacter.Instance.ServerSpawnObject(_tntThrowablePrefab, PlayerCharacter.Instance.DropPoint.position,
             PlayerCharacter.Instance.CameraTransform.rotation);
     }

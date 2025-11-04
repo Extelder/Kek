@@ -6,6 +6,8 @@ public class DrillAnimator : ItemAnimator
 {
     [SerializeField] private Drill _drill;
     [SerializeField] private RaycastSettings _raycastSettings;
+    [SerializeField] private SoundPlayPause _musicSecondary;
+    private bool _musicplay;
     private RaycastHit _hit;
 
     public override void Attack()
@@ -19,7 +21,18 @@ public class DrillAnimator : ItemAnimator
             if (_hit.collider.TryGetComponent<IWeaponVisitor>(out IWeaponVisitor weaponVisitor))
             {
                 weaponVisitor.Visit(_drill, _hit);
+                if (!_musicplay)
+                {
+                    _musicSecondary.Pause(false);
+                    _musicplay = true;
+                }
+                return;
             }
+        }
+        if (_musicplay)
+        {
+            _musicSecondary.Pause(true);
+            _musicplay = false;
         }
     }
 
