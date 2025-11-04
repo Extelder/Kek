@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class VendingMachineInteractableSpawnable : VendingMachineInteractible
 {
-    public event Action<BuyableItemData> ItemBought;
-
+    [SerializeField] private VendingMachine _vendingMachine;
     public override void OnBought()
     {
-        ItemBought?.Invoke(ItemData);
+        _vendingMachine.Spawn(ItemData);
     }
 }

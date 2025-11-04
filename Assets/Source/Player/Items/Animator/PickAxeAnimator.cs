@@ -26,7 +26,6 @@ public class PickAxeAnimator : ItemAnimator
                 _mixsound.MixOnServer();
                 _secondaryAudioSource.Play();
             }
-
         }
         else
         {

@@ -26,6 +26,8 @@ public class PlayerTransitionHands : MonoBehaviour
 
     private PlayerCharacter _character;
 
+    public static event Action TargetDestinated;
+
     private void OnEnable()
     {
         VendingMachineItem.Interacted += OnInteracted;
@@ -52,6 +54,7 @@ public class PlayerTransitionHands : MonoBehaviour
             {
                 _cinemachinePov.m_HorizontalAxis.Value = 0;
                 _cinemachinePov.m_VerticalAxis.Value = 0;
+                TargetDestinated?.Invoke();
                 _virtualCamera.enabled = false;
                 _disposable.Clear();
             }
