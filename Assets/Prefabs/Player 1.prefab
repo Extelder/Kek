@@ -15763,6 +15763,7 @@ GameObject:
   - component: {fileID: 3968811008505776637}
   - component: {fileID: 2264126181945957770}
   - component: {fileID: 7696215090152869467}
+  - component: {fileID: 7189274394667057284}
   - component: {fileID: 9153910927864380487}
   - component: {fileID: 5749772377050749133}
   - component: {fileID: 2346307380554849957}
@@ -15866,6 +15867,30 @@ CapsuleCollider:
   m_Height: 1.7072457
   m_Direction: 1
   m_Center: {x: 0, y: -0.14637715, z: 0}
+--- !u!114 &7189274394667057284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0419a74784f76cc49a098c2c4e225d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
+  _collider: {fileID: 7696215090152869467}
+  _offObjectsWhenDie:
+  - {fileID: 382734339632686515}
+  - {fileID: 5590929871486335087}
+  - {fileID: 5462518773619068142}
+  - {fileID: 469125217972292390}
+  - {fileID: 6541767915751262417}
+  _movement: {fileID: 2346307380554849957}
+  _interact: {fileID: 2031704261568184446}
 --- !u!114 &9153910927864380487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15881,6 +15906,7 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
+  <Camera>k__BackingField: {fileID: 0}
   <DropPoint>k__BackingField: {fileID: 8950486551078518353}
   <FingerLookAtPoint>k__BackingField: {fileID: 1694590149774310542}
   <TargetPoint>k__BackingField: {fileID: 6814984787001084996}
@@ -15942,6 +15968,7 @@ MonoBehaviour:
   _groundChecker: {fileID: 694033865345946828}
   _acceleration: 48
   _decceleration: 128
+  CanFly: 0
 --- !u!114 &6846853085322839939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15977,6 +16004,7 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 1996624997028827962}
   _character: {fileID: 9153910927864380487}
   _camera: {fileID: 4387599489495877655}
+  CopyAllRotation: 0
 --- !u!114 &2031704261568184446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16188,6 +16216,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <MaxValue>k__BackingField: 100
+  die: {fileID: 7189274394667057284}
 --- !u!114 &2611732306587144618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18315,6 +18344,7 @@ MonoBehaviour:
   _reset: Reset
   _drill: Drilling
   _guitar: Playing
+  _sign: 
   _animator: {fileID: 1225629203006681363}
   _fpsAnimator: {fileID: 9079513319236140734}
   _speed: 5
