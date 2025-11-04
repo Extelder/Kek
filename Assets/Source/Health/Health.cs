@@ -9,7 +9,7 @@ public abstract class Health : NetworkBehaviour
     [field: SerializeField] public float MaxValue { get; set; }
     protected float CurrentValue { get; set; }
 
-    public event Action<float> HealthValueChanged;
+    public  Action<float> HealthValueChanged;
     public event Action<float> OnHealedToMax;
     public event Action<float> Damaged;
     public event Action<float> Healed;
@@ -84,6 +84,8 @@ public abstract class Health : NetworkBehaviour
             HealthValueChanged?.Invoke(CurrentValue);
         }
     }
+
+    public float GetCurrentValue() => CurrentValue;
 
     public void SetCurrentValue(float value)
     {
