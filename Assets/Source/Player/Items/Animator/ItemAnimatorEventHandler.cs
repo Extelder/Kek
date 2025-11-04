@@ -36,6 +36,7 @@ public class ItemAnimatorEventHandler : MonoBehaviour
     {
         if (_currentItemAnimator == null)
             return;
+        
         PlayerCharacter.Instance.ServerSpawnObject(_tntThrowablePrefab, PlayerCharacter.Instance.DropPoint.position,
             PlayerCharacter.Instance.CameraTransform.rotation);
     }
