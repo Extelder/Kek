@@ -18,7 +18,19 @@ public class CamerHeadBob : NetworkBehaviour
         if (!base.IsOwner)
             return;
         base.OnStartClient();
-        _playerMovement.Moving.Subscribe(_ => { _animator.speed = Convert.ToInt16(_); }).AddTo(_disposable);
+        _playerMovement.Moving.Subscribe(_ => { SetAnimatorSpeedServer(Convert.ToInt16(_)); }).AddTo(_disposable);
+    }
+
+    [ServerRpc]
+    public void SetAnimatorSpeedServer(float speed)
+    {
+        SetAnimatorSpeedObserver(speed);
+    }
+
+    [ObserversRpc]
+    public void SetAnimatorSpeedObserver(float speed)
+    {
+        _animator.speed = Convert.ToInt16(speed);
     }
 
     private void OnDisable()
