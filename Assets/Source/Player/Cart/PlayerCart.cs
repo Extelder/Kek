@@ -12,7 +12,7 @@ public class PlayerCart : NetworkBehaviour
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _rotateSpeed = 10f;
     [SerializeField] private float _maxMoveDelta = 0.3f;
-    
+
     [SerializeField] private Transform[] _wheels;
     [SerializeField] private float _wheelRadius = 0.2f;
     [SerializeField] private float _deadZone = 0.05f;
@@ -44,6 +44,7 @@ public class PlayerCart : NetworkBehaviour
             Vector3 vel = delta / Time.deltaTime;
             forwardSpeed = Vector3.Dot(vel, transform.forward);
         }
+
         _lastPos = transform.position;
         _hasLast = true;
         if (Mathf.Abs(forwardSpeed) < _deadZone) forwardSpeed = 0f;
@@ -77,9 +78,11 @@ public class PlayerCart : NetworkBehaviour
             if (_equiped)
             {
                 _equiped = false;
+                _rigidbody.useGravity = true;
                 return;
             }
 
+            _equiped = true;
             return;
         }
     }
@@ -94,6 +97,8 @@ public class PlayerCart : NetworkBehaviour
 
     private void FollowPlayer()
     {
+        _rigidbody.useGravity = false;
+
         var target = _currentPlayer.CartPoint;
 
         Vector3 targetPos = target.position;
