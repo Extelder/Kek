@@ -1,9 +1,13 @@
+using System;
 using FishNet.Object;
 using FishNet.Connection;
 using UnityEngine;
 
 public class PlayerDie : NetworkBehaviour
 {
+    [SerializeField] private Transform _deadBodySourceBone;
+
+    [SerializeField] private DeadPlayer _deadPlayer;
     [SerializeField] private Collider _collider;
     [SerializeField] private GameObject[] _offObjectsWhenDie;
 
@@ -21,9 +25,23 @@ public class PlayerDie : NetworkBehaviour
         DieObserver();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Die();
+        }
+    }
+
     [ObserversRpc]
     public void DieObserver()
     {
+        
+        DeadPlayer player =
+            Instantiate(_deadPlayer, _deadBodySourceBone.transform.position, _deadBodySourceBone.rotation)
+                .GetComponent<DeadPlayer>();
+        ServerManager.Spawn(player.gameObject);
+        _deadPlayer.CopyBones(_deadBodySourceBone);
         for (int i = 0; i < _offObjectsWhenDie.Length; i++)
         {
             _offObjectsWhenDie[i].SetActive(false);
