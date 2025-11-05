@@ -54,6 +54,7 @@ public class PlayerTransitionHands : MonoBehaviour
             {
                 _cinemachinePov.m_HorizontalAxis.Value = 0;
                 _cinemachinePov.m_VerticalAxis.Value = 0;
+                _character.CameraTransform.eulerAngles = new Vector3(0, 0, 0);
                 TargetDestinated?.Invoke();
                 _virtualCamera.enabled = false;
                 _disposable.Clear();
