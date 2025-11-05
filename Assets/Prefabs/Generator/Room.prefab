@@ -92,7 +92,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.033, y: 0, z: 17.864}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4520761394372394429}
@@ -141,6 +141,7 @@ MonoBehaviour:
   - {fileID: 7531668499008362695, guid: 3e072500c8b77714192625e12bd44fe2, type: 3}
   - {fileID: 6268253527317012806}
   - {fileID: 6268253527317012806, guid: 75c3f17e01670134ab0d9407d6637b50, type: 3}
+  - {fileID: 7531668499008362695, guid: 47e700299f680d64ca810951bab292e5, type: 3}
   _spawnNextPoints:
   - {fileID: 1326102724335046386}
   _enemySpawnPoint:
@@ -197,14 +198,14 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 17
+  <PrefabId>k__BackingField: 19
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 9539816291624694483
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
     Position: {x: -0.033, y: 0, z: 17.864}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
-    Scale: {x: 1.34, y: 1.34, z: 1.34}
+    Scale: {x: 1.5, y: 1.5, z: 1.5}
     IsValid: 1
 --- !u!65 &340059573413881578
 BoxCollider:
