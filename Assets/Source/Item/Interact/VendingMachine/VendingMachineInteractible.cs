@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDownHandler
 {
     [field: SerializeField] public BuyableItemData ItemData { get; private set; }
-    private bool _canInteract = true;
+    [field:SerializeField] public VendingMachine VendingMachine;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -16,7 +16,7 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDow
     
     public void Interact()
     {
-        if (PlayerCharacter.Instance.Wallet.TryBuy(ItemData.Price) && _canInteract)
+        if (PlayerCharacter.Instance.Wallet.TryBuy(ItemData.Price) && VendingMachine.CanInteract)
         {
             OnBought();
             InteractServer();
@@ -26,7 +26,6 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDow
     [ServerRpc(RequireOwnership = false)]
     public void InteractServer()
     {
-        _canInteract = false;
         InteractObserver();
     }
 
@@ -34,7 +33,6 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDow
     public void InteractObserver()
     {
         PlayerCharacter.Instance.Wallet.Spend(ItemData.Price);
-        _canInteract = true;
     }
 
     public abstract void OnBought();
