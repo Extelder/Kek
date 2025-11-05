@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
 
-public class DeadPlayer : NetworkBehaviour
+public class DeadPlayer : MonoBehaviour
 {
     [Header("Source and Target Root Bones")]
     public Transform sourceRootBone;

@@ -8,7 +8,6 @@ public class PlayerDie : NetworkBehaviour
     [SerializeField] private Transform _deadBodySourceBone;
 
     [SerializeField] private DeadPlayer _deadPlayer;
-    [SerializeField] private Collider _collider;
     [SerializeField] private GameObject[] _offObjectsWhenDie;
 
     [SerializeField] private PlayerMovement _movement;
@@ -16,7 +15,8 @@ public class PlayerDie : NetworkBehaviour
 
     public void Die()
     {
-        DieServer();
+        if (IsOwner)
+            DieServer();
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -25,31 +25,27 @@ public class PlayerDie : NetworkBehaviour
         DieObserver();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Die();
-        }
-    }
 
     [ObserversRpc]
     public void DieObserver()
     {
-        
-        DeadPlayer player =
-            Instantiate(_deadPlayer, _deadBodySourceBone.transform.position, _deadBodySourceBone.rotation)
-                .GetComponent<DeadPlayer>();
-        ServerManager.Spawn(player.gameObject);
-        _deadPlayer.CopyBones(_deadBodySourceBone);
         for (int i = 0; i < _offObjectsWhenDie.Length; i++)
         {
+            if (_offObjectsWhenDie[i] == null)
+                continue;
             _offObjectsWhenDie[i].SetActive(false);
         }
 
-        _collider.enabled = false;
         PlayerCharacter.Instance.Rigidbody.useGravity = false;
         _movement.CanFly = true;
         _interact.enabled = false;
+
+        gameObject.layer = LayerMask.NameToLayer("PlayerWithoutPlayerCollision");
+
+
+        DeadPlayer player =
+            Instantiate(_deadPlayer, transform.position, transform.rotation)
+                .GetComponent<DeadPlayer>();
+        player.CopyBones(_deadBodySourceBone);
     }
 }
