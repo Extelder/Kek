@@ -19,4 +19,8 @@ public class Guitar : EquipItem
         _music.Pause(true); 
         PlayerAnimator.DisableAll();
     }
+    private void OnDisable()
+    {
+        _music.Pause(true);
+    }
 }

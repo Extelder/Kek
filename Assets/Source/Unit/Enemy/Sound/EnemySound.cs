@@ -1,18 +1,77 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AudioSource _soundsStep;
+    [SerializeField] private AudioSource _sounds2;
+    [SerializeField] private AudioSource _sounds3;
+    [SerializeField] private AudioClip[] _soundAttack;
+    private bool _move;
+    private bool _attack;
+
+    private void Start()
     {
-        
+        _soundsStep.Play();
+        _soundsStep.Pause();
+        _sounds2.Play();
+        _sounds2.Pause();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateVariable()
     {
-        
+        if (_move)
+        {
+            _soundsStep.UnPause();
+        }
+        else
+        {
+            {
+                _soundsStep.Pause();
+            }
+        }
+
+        if (_attack)
+        {
+            _sounds2.clip = _soundAttack[Random.Range(0, _soundAttack.Length)];
+            _sounds2.Play();
+        }
+        else
+        {
+            {
+                _sounds2.Stop();
+            }
+        }
+    }
+
+    public void Move()
+    {
+        _move = true;
+        _attack = false;
+        UpdateVariable();
+    }
+
+    public void Run()
+    {
+        _move = true;
+        _attack = false;
+        UpdateVariable();
+    }
+
+    public void Attack()
+    {
+        _move = false;
+        _attack = true;
+        UpdateVariable();
+    }
+
+    public void Idle()
+    {
+        _move = false;
+        _attack = false;
+        UpdateVariable();
     }
 }

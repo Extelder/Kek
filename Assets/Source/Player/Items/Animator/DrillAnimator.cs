@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,15 @@ public class DrillAnimator : ItemAnimator
                 return;
             }
         }
+        if (_musicplay)
+        {
+            _musicSecondary.Pause(true);
+            _musicplay = false;
+        }
+    }
+
+    private void OnDisable()
+    {
         if (_musicplay)
         {
             _musicSecondary.Pause(true);

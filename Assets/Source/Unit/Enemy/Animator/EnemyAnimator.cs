@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyAnimator : UnitAnimator
 {
     [SerializeField] private string _moveAnimationBoolName, _runAnimationBoolName, _attackAnimationBoolName;
+    [SerializeField] private EnemySound _enemysound;
 
     private void Start()
     {
@@ -22,15 +23,18 @@ public class EnemyAnimator : UnitAnimator
     public void Move()
     {
         SetAnimationBoolAndDisableOther(_moveAnimationBoolName);
+        _enemysound.Move();
     }
 
     public void Run()
     {
         SetAnimationBoolAndDisableOther(_runAnimationBoolName);
+        _enemysound.Run();
     }
 
     public void Attack()
     {
         SetAnimationBoolAndDisableOther(_attackAnimationBoolName);
+        _enemysound.Attack();
     }
 }
