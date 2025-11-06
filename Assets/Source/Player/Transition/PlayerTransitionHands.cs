@@ -10,6 +10,7 @@ using Observable = UniRx.Observable;
 
 public class PlayerTransitionHands : MonoBehaviour
 {
+    [SerializeField] private WeaponSway _sway;
     [SerializeField] private RaycastSettings _raycastSettings;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Transform _cameraOrigin;
@@ -18,7 +19,7 @@ public class PlayerTransitionHands : MonoBehaviour
     [SerializeField] private float _duration;
 
     [SerializeField] private Animator _animator;
-    
+
     [SerializeField] private string _startTriggerName;
     [SerializeField] private string _stopTriggerName;
 
@@ -53,6 +54,7 @@ public class PlayerTransitionHands : MonoBehaviour
         _defaultPosition = _cameraOrigin.position;
         _cameraHeadBob.EnableAnimator(false);
         _character.Rigidbody.isKinematic = true;
+        _sway.enabled = false;
         _tween = _cameraOrigin.DOMove(target.position, _duration).OnComplete(() =>
         {
             _character.CameraTransform.eulerAngles = target.eulerAngles;
@@ -64,12 +66,13 @@ public class PlayerTransitionHands : MonoBehaviour
         }).SetEase(_ease);
         _animator.SetTrigger(_startTriggerName);
     }
-    
-    
+
+
     private void OnReturned()
     {
         BackedToDefault?.Invoke();
         _virtualCamera.enabled = true;
+        _sway.enabled = true;
         _tween = _cameraOrigin.DOMove(_defaultPosition, _duration).OnComplete(() =>
         {
             _cameraHeadBob.EnableAnimator(true);
@@ -100,7 +103,7 @@ public class PlayerTransitionHands : MonoBehaviour
                 if (hit.collider.TryGetComponent<Monitor>(out Monitor Monitor))
                 {
                     _character.FingerLookAtPoint.position =
-                        new Vector3(hit.point.x, hit.point.y, _character.FingerLookAtPoint.position.z);
+                        new Vector3(hit.point.x, hit.point.y, 1.202f);
                 }
             }
         }).AddTo(_raycastCheckDisposable);
