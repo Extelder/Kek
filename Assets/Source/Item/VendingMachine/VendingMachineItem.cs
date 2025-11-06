@@ -10,8 +10,7 @@ public class VendingMachineItem : Item
     
     public override void Interact()
     {
-        PlayerCharacter.Instance.Hands.SetActive(false);
-        PlayerCharacter.Instance.TransitHands.SetActive(true);
+        PlayerCharacter.Instance.SwitchHands();
         Interacted?.Invoke(_targetPoint);
     }
 }

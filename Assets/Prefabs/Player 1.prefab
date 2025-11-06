@@ -1427,7 +1427,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 1996624997028827962}
   _playerMovement: {fileID: 2346307380554849957}
   _animator: {fileID: 4286145185116175484}
-  _animationName: HeadBob
 --- !u!114 &3539908148022854206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4268,16 +4267,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d66cbece7627774197ac034864167bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fingerLookAtRaycastLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  _fingerLookAtRaycastLenght: 15
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 0}
+    <MaxDistance>k__BackingField: 15
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 1
+  _playerMovement: {fileID: 2346307380554849957}
   _virtualCamera: {fileID: 8349068424952300896}
   _cameraOrigin: {fileID: 7715778907684120471}
-  _speed: 1
-  _camerHeadBob: {fileID: 2370595197139838975}
+  _cameraHeadBob: {fileID: 2370595197139838975}
+  _ease: 1
+  _duration: 0.8
   _animator: {fileID: 8316982715705213525}
-  _triggerName: Pointing
+  _startTriggerName: Pointing
+  _stopTriggerName: PointingBack
 --- !u!95 &795425754278628503
 Animator:
   serializedVersion: 5
@@ -13838,8 +13842,6 @@ MonoBehaviour:
   <TargetPoint>k__BackingField: {fileID: 6814984787001084996}
   <CartPoint>k__BackingField: {fileID: 2129311880670483170}
   <CameraTransform>k__BackingField: {fileID: 4387599489495877655}
-  <Hands>k__BackingField: {fileID: 4916814368379587111}
-  <TransitHands>k__BackingField: {fileID: 1708808102751024385}
   Rigidbody: {fileID: 2264126181945957770}
   PlayerTransform: {fileID: 3968811008505776637}
   _thirdPerson:
@@ -13852,8 +13854,9 @@ MonoBehaviour:
   _inventory: {fileID: 382734339632686515}
   <PlayerInventory>k__BackingField: {fileID: 4425973244517120947}
   <PlayerHatsEquip>k__BackingField: {fileID: 5749772377050749133}
-  <PlayerHealth>k__BackingField: {fileID: -5256358950320560399}
   <Wallet>k__BackingField: {fileID: 7160809295371563853}
+  _hands: {fileID: 4916814368379587111}
+  _transitionHands: {fileID: 1708808102751024385}
   Characters: []
 --- !u!114 &5749772377050749133
 MonoBehaviour:
