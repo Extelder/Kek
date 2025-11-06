@@ -9,9 +9,14 @@ using Random = UnityEngine.Random;
 
 public class Generator : NetworkBehaviour
 {
+    [field: ShowIf(nameof(IsInstance)), SerializeField]
+    private GameObject[] _defaultSpawningObjects;
+
     [SerializeField] private GameObject _block;
 
     [SerializeField] private GameObject[] _spawnableParts;
+
+    public List<GameObject> SpawningParts { get; private set; } = new List<GameObject>();
 
     [SerializeField] private Transform[] _spawnNextPoints;
 
@@ -53,6 +58,12 @@ public class Generator : NetworkBehaviour
             if (IsInstance)
             {
                 Instance = this;
+                SpawningParts = new List<GameObject>(_defaultSpawningObjects.Length);
+                for (int i = 0; i < _defaultSpawningObjects.Length; i++)
+                {
+                    SpawningParts.Add(_defaultSpawningObjects[i]);
+                    Debug.Log(_defaultSpawningObjects[i]);
+                }
             }
 
             Generate();
@@ -125,6 +136,12 @@ public class Generator : NetworkBehaviour
                 i.Despawn();
         }
 
+        Instance.SpawningParts = new List<GameObject>(Instance._defaultSpawningObjects.Length);
+        for (int k = 0; k < Instance._defaultSpawningObjects.Length; k++)
+        {
+            Instance.SpawningParts.Add(Instance._defaultSpawningObjects[k]);
+        }
+
         _spawnedEnemies = 0;
 
         Instance.SpawnedEnemySpawnPoint.Clear();
@@ -170,6 +187,15 @@ public class Generator : NetworkBehaviour
 
         for (int i = 0; i < _spawnNextPoints.Length; i++)
         {
+            if (IsInstance)
+            {
+                GameObject forward = _spawnableParts[0];
+
+                character.ServerSpawnObject(forward, _spawnNextPoints[i].position,
+                    Quaternion.LookRotation(_spawnNextPoints[i].forward));
+                continue;
+            }
+
             if (Instance.SpawnedGenerateParts >= Instance.MaxGenerateParts)
             {
                 GenerationEnd?.Invoke();
@@ -185,10 +211,38 @@ public class Generator : NetworkBehaviour
                 GetComponent<Collider>().enabled = false;
             }
 
-            GameObject part = (_spawnableParts[Random.Range(0, _spawnableParts.Length)]);
+            if (Instance.SpawningParts.Count == 0)
+            {
+                Debug.LogError("Count 0(");
+                Instance.SpawningParts = new List<GameObject>(Instance._defaultSpawningObjects.Length);
+                for (int k = 0; k < Instance._defaultSpawningObjects.Length; k++)
+                {
+                    Instance.SpawningParts.Add(Instance._defaultSpawningObjects[k]);
+                }
+            }
 
-            character.ServerSpawnObject(part, _spawnNextPoints[i].position,
+            if (Instance.SpawnedGenerateParts % 2 == 0)
+            {
+                GameObject forward = Instance._spawnableParts[1];
+
+                character.ServerSpawnObject(forward, _spawnNextPoints[i].position,
+                    Quaternion.LookRotation(_spawnNextPoints[i].forward));
+                continue;
+            }
+
+            Debug.Log("---------------");
+            for (int j = 0; j < Instance.SpawningParts.Count; j++)
+            {
+                Debug.Log(Instance.SpawningParts[i]);
+            }
+
+
+            GameObject objectToSpawn = Instance.SpawningParts[Random.Range(0, Instance.SpawningParts.Count - 1)];
+
+            character.ServerSpawnObject(objectToSpawn, _spawnNextPoints[i].position,
                 Quaternion.LookRotation(_spawnNextPoints[i].forward));
+
+            Instance.SpawningParts.Remove(objectToSpawn);
         }
     }
 
