@@ -132,6 +132,7 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
   _networkObjectCache: {fileID: 2553075755286328003}
+  _defaultSpawningObjects: []
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}
   _spawnableParts:
   - {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}
@@ -142,6 +143,7 @@ MonoBehaviour:
   - {fileID: 6268253527317012806}
   - {fileID: 6268253527317012806, guid: 75c3f17e01670134ab0d9407d6637b50, type: 3}
   - {fileID: 7531668499008362695, guid: 47e700299f680d64ca810951bab292e5, type: 3}
+  - {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}
   _spawnNextPoints:
   - {fileID: 1326102724335046386}
   _enemySpawnPoint:
@@ -205,7 +207,7 @@ MonoBehaviour:
   SerializedTransformProperties:
     Position: {x: -0.033, y: 0, z: 17.864}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
-    Scale: {x: 1.5, y: 1.5, z: 1.5}
+    Scale: {x: 1.4, y: 1.4, z: 1.4}
     IsValid: 1
 --- !u!65 &340059573413881578
 BoxCollider:

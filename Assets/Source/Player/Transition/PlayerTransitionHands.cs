@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
@@ -9,78 +10,110 @@ using Observable = UniRx.Observable;
 
 public class PlayerTransitionHands : MonoBehaviour
 {
-    [SerializeField] private LayerMask _fingerLookAtRaycastLayerMask;
-    [SerializeField] private float _fingerLookAtRaycastLenght;
+    [SerializeField] private WeaponSway _sway;
+    [SerializeField] private RaycastSettings _raycastSettings;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Transform _cameraOrigin;
-    [SerializeField] private float _speed;
-    [SerializeField] private CamerHeadBob _camerHeadBob;
+    [SerializeField] private CameraHeadBob _cameraHeadBob;
+    [SerializeField] private Ease _ease;
+    [SerializeField] private float _duration;
 
     [SerializeField] private Animator _animator;
-    [SerializeField] private string _triggerName;
 
-    private CompositeDisposable _disposable = new CompositeDisposable();
+    [SerializeField] private string _startTriggerName;
+    [SerializeField] private string _stopTriggerName;
+
+    private CompositeDisposable _raycastCheckDisposable = new CompositeDisposable();
+    private Tween _tween;
 
     private Vector3 _defaultPosition;
+    private Vector3 _defaultFingerPosition;
 
     private CinemachinePOV _cinemachinePov;
-
     private PlayerCharacter _character;
 
     public static event Action TargetDestinated;
+    public static event Action BackedToDefault;
 
     private void OnEnable()
     {
         VendingMachineItem.Interacted += OnInteracted;
+        VendingMachineReturn.Returned += OnReturned;
     }
 
     private void Awake()
     {
         _character = PlayerCharacter.Instance;
         _cinemachinePov = _virtualCamera.GetCinemachineComponent<CinemachinePOV>();
+        _defaultFingerPosition = _character.FingerLookAtPoint.position;
     }
 
     private void OnInteracted(Transform target)
     {
-        _cinemachinePov.m_HorizontalAxis.Value = 0;
-        _cinemachinePov.m_VerticalAxis.Value = 0;
+        RaycastCheck();
         _defaultPosition = _cameraOrigin.position;
+        _cameraHeadBob.EnableAnimator(false);
         _character.Rigidbody.isKinematic = true;
-
-        Observable.EveryUpdate().Subscribe(_ =>
+        _sway.enabled = false;
+        _tween = _cameraOrigin.DOMove(target.position, _duration).OnComplete(() =>
         {
-            _cameraOrigin.position =
-                Vector3.MoveTowards(_cameraOrigin.position, target.position, _speed * Time.deltaTime);
-            if (Vector3.Distance(_cameraOrigin.position, target.position) <= 0.1f)
-            {
-                _cinemachinePov.m_HorizontalAxis.Value = 0;
-                _cinemachinePov.m_VerticalAxis.Value = 0;
-                _character.CameraTransform.eulerAngles = new Vector3(0, 0, 0);
-                TargetDestinated?.Invoke();
-                _virtualCamera.enabled = false;
-                _disposable.Clear();
-            }
-        }).AddTo(_disposable);
-        _animator.SetTrigger(_triggerName);
+            _character.CameraTransform.eulerAngles = target.eulerAngles;
+            TargetDestinated?.Invoke();
+            SetCinemachineCameraValue(0);
+            _virtualCamera.enabled = false;
+            _character.FingerLookAtPoint.position = _defaultFingerPosition;
+            _tween?.Kill();
+        }).SetEase(_ease);
+        _animator.SetTrigger(_startTriggerName);
     }
 
-    private void Update()
+
+    private void OnReturned()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, _fingerLookAtRaycastLenght, _fingerLookAtRaycastLayerMask))
+        BackedToDefault?.Invoke();
+        _virtualCamera.enabled = true;
+        _sway.enabled = true;
+        _tween = _cameraOrigin.DOMove(_defaultPosition, _duration).OnComplete(() =>
         {
-            if (hit.collider.TryGetComponent<Monitor>(out Monitor Monitor))
+            _cameraHeadBob.EnableAnimator(true);
+            SetCinemachineCameraValue(1);
+            _character.Rigidbody.isKinematic = false;
+            PlayerCharacter.Instance.SwitchHands();
+            _tween?.Kill();
+        }).SetEase(_ease);
+        _animator.SetTrigger(_stopTriggerName);
+    }
+
+    private void SetCinemachineCameraValue(int value)
+    {
+        _cinemachinePov.m_HorizontalAxis.Value = value;
+        _cinemachinePov.m_VerticalAxis.Value = value;
+    }
+
+    private void RaycastCheck()
+    {
+        Observable.EveryUpdate().Subscribe(_ =>
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            bool hitted = Physics.Raycast(ray, out hit,
+                _raycastSettings.MaxDistance, _raycastSettings.LayerMask);
+            if (hitted)
             {
-                _character.FingerLookAtPoint.position =
-                    new Vector3(hit.point.x, hit.point.y, _character.FingerLookAtPoint.position.z);
+                if (hit.collider.TryGetComponent<Monitor>(out Monitor Monitor))
+                {
+                    _character.FingerLookAtPoint.position =
+                        new Vector3(hit.point.x, hit.point.y, 1.202f);
+                }
             }
-        }
+        }).AddTo(_raycastCheckDisposable);
     }
 
     private void OnDisable()
     {
         VendingMachineItem.Interacted -= OnInteracted;
-        _disposable.Clear();
+        VendingMachineReturn.Returned -= OnReturned;
+        _raycastCheckDisposable.Clear();
+        _tween?.Kill();
     }
 }
