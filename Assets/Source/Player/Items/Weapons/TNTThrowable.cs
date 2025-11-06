@@ -9,6 +9,7 @@ public class TNTThrowable : NetworkBehaviour
 {
     [SerializeField] private float _throwForce;
     [SerializeField] private float _explodeCooldown;
+    [SerializeField] private float _explodeCooldownAfterSound;
     [SerializeField] private OverlapSettings _overlapSettings;
     [SerializeField] private MixSoundAndPlay _sound;
     private Rigidbody _rigidbody;
@@ -21,13 +22,19 @@ public class TNTThrowable : NetworkBehaviour
     private void Throw()
     {
         _rigidbody.AddForce(transform.forward * _throwForce, ForceMode.Impulse);
-        StartCoroutine(Exploding());
+        StartCoroutine(ExplodingSound());
     }
 
-    private IEnumerator Exploding()
+    private IEnumerator ExplodingSound()
     {
         yield return new WaitForSeconds(_explodeCooldown);
         _sound.MixOnServer();
+        StartCoroutine(Exploding());
+    }
+    
+    private IEnumerator Exploding()
+    {
+        yield return new WaitForSeconds(_explodeCooldownAfterSound);
         Overlap();
         foreach (var other in _overlapSettings.Colliders)
         {
