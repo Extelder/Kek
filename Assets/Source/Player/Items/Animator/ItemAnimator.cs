@@ -13,6 +13,8 @@ public abstract class ItemAnimator : MonoBehaviour
     [HideInInspector] public bool CanUse = true;
     [HideInInspector] public bool AlreadyUsing;
 
+    public Action AttackPerfromed;
+
     public virtual void Attack()
     {
     }
