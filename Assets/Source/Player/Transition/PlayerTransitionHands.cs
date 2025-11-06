@@ -14,6 +14,7 @@ public class PlayerTransitionHands : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Transform _cameraOrigin;
     [SerializeField] private float _speed;
+    [SerializeField] private CamerHeadBob _camerHeadBob;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private string _triggerName;

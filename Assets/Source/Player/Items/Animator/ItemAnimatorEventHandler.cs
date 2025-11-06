@@ -33,6 +33,7 @@ public class ItemAnimatorEventHandler : MonoBehaviour
 
     public void Attack()
     {
+        Debug.Log(_currentItemAnimator);
         _currentItemAnimator?.Attack();
     }
 }
