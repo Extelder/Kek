@@ -6610,6 +6610,8 @@ MonoBehaviour:
   _actionName: MainShoot
   CanUse: 1
   AlreadyUsing: 0
+  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
+  _sound: {fileID: 0}
 --- !u!1 &2371270819665284983
 GameObject:
   m_ObjectHideFlags: 0
@@ -15820,8 +15822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeUp: {fileID: 4939536552562877852}
-  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
-  _music: {fileID: 7553194405837120205}
 --- !u!114 &6626394759318695960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22334,8 +22334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeUp: {fileID: 4939536552562877852}
-  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
-  _music: {fileID: 0}
 --- !u!1 &7652364451896913870
 GameObject:
   m_ObjectHideFlags: 0
