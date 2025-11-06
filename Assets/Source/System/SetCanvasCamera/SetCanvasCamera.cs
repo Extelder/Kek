@@ -10,6 +10,7 @@ public class SetCanvasCamera : MonoBehaviour
     private void OnEnable()
     {
         PlayerTransitionHands.TargetDestinated += OnTargetDestinated;
+        PlayerTransitionHands.BackedToDefault += OnBackedToDefault;
     }
 
     private void OnTargetDestinated()
@@ -17,8 +18,14 @@ public class SetCanvasCamera : MonoBehaviour
         _canvas.worldCamera = PlayerCharacter.Instance.Camera;
     }
 
+    private void OnBackedToDefault()
+    {
+        _canvas.worldCamera = null;
+    }
+
     private void OnDisable()
     {
         PlayerTransitionHands.TargetDestinated -= OnTargetDestinated;
+        PlayerTransitionHands.BackedToDefault -= OnBackedToDefault;
     }
 }

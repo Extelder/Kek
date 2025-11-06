@@ -5,8 +5,6 @@ using UnityEngine;
 public class ItemAnimatorEventHandler : MonoBehaviour
 {
     [SerializeField] private ItemTakeUp _takeUp;
-    [SerializeField] private GameObject _tntThrowablePrefab;
-    [SerializeField] private AudioSource _music;
 
 
     private ItemAnimator _currentItemAnimator;
@@ -31,15 +29,6 @@ public class ItemAnimatorEventHandler : MonoBehaviour
     public void AnimationEndStopChecking()
     {
         _currentItemAnimator?.AnimationEndStopChecking();
-    }
-
-    public void ThrowTNT()
-    {
-        if (_currentItemAnimator == null)
-            return;
-        _music.Play();
-        PlayerCharacter.Instance.ServerSpawnObject(_tntThrowablePrefab, PlayerCharacter.Instance.DropPoint.position,
-            PlayerCharacter.Instance.CameraTransform.rotation);
     }
 
     public void Attack()

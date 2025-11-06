@@ -10,6 +10,7 @@ public class TNTThrowable : NetworkBehaviour
     [SerializeField] private float _throwForce;
     [SerializeField] private float _explodeCooldown;
     [SerializeField] private OverlapSettings _overlapSettings;
+    [SerializeField] private MixSoundAndPlay _sound;
     private Rigidbody _rigidbody;
     private void OnEnable()
     {
@@ -26,6 +27,7 @@ public class TNTThrowable : NetworkBehaviour
     private IEnumerator Exploding()
     {
         yield return new WaitForSeconds(_explodeCooldown);
+        _sound.MixOnServer();
         Overlap();
         foreach (var other in _overlapSettings.Colliders)
         {

@@ -5,11 +5,10 @@ using FishNet.Object;
 using UniRx;
 using UnityEngine;
 
-public class CamerHeadBob : NetworkBehaviour
+public class CameraHeadBob : NetworkBehaviour
 {
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
-    [SerializeField] private string _animationName;
 
     private CompositeDisposable _disposable = new CompositeDisposable();
 
@@ -19,6 +18,12 @@ public class CamerHeadBob : NetworkBehaviour
             return;
         base.OnStartClient();
         _playerMovement.Moving.Subscribe(_ => { SetAnimatorSpeedServer(Convert.ToInt16(_)); }).AddTo(_disposable);
+    }
+
+    public void EnableAnimator(bool enabled)
+    {
+        _animator.enabled = enabled;
+        transform.localPosition = new Vector3(0,0,0);
     }
 
     [ServerRpc]

@@ -12,8 +12,6 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public Transform TargetPoint { get; private set; }
     [field: SerializeField] public Transform CartPoint { get; private set; }
     [field: SerializeField] public Transform CameraTransform { get; private set; }
-    [field: SerializeField] public GameObject Hands { get; private set; }
-    [field: SerializeField] public GameObject TransitHands { get; private set; }
     [field: SerializeField] public Rigidbody Rigidbody;
     [field: SerializeField] public PlayerBinds Binds;
     [field: SerializeField] public Transform PlayerTransform;
@@ -21,8 +19,10 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public GameObject _inventory;
     [field: SerializeField] public PlayerInventory PlayerInventory { get; private set; }
     [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
-    [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field: SerializeField] public PlayerWallet Wallet { get; private set; }
+
+    [SerializeField] private GameObject _hands;
+    [SerializeField] private GameObject _transitionHands;
 
     public float Distance { get; set; }
 
@@ -85,6 +85,11 @@ public class PlayerCharacter : NetworkBehaviour
         Debug.LogError(gameObject);
     }
 
+    public void SwitchHands()
+    {
+        _hands.SetActive(!_hands.activeSelf);
+        _transitionHands.SetActive(!_transitionHands.activeSelf);
+    }
 
     private void OnDisable()
     {

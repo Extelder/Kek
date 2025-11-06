@@ -1427,7 +1427,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 1996624997028827962}
   _playerMovement: {fileID: 2346307380554849957}
   _animator: {fileID: 4286145185116175484}
-  _animationName: HeadBob
 --- !u!114 &3539908148022854206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4268,15 +4267,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d66cbece7627774197ac034864167bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fingerLookAtRaycastLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  _fingerLookAtRaycastLenght: 15
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 0}
+    <MaxDistance>k__BackingField: 15
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 1
+  _playerMovement: {fileID: 2346307380554849957}
   _virtualCamera: {fileID: 8349068424952300896}
   _cameraOrigin: {fileID: 7715778907684120471}
-  _speed: 1
+  _cameraHeadBob: {fileID: 2370595197139838975}
+  _ease: 1
+  _duration: 0.8
   _animator: {fileID: 8316982715705213525}
-  _triggerName: Pointing
+  _startTriggerName: Pointing
+  _stopTriggerName: PointingBack
 --- !u!95 &795425754278628503
 Animator:
   serializedVersion: 5
@@ -6610,6 +6615,8 @@ MonoBehaviour:
   _actionName: MainShoot
   CanUse: 1
   AlreadyUsing: 0
+  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
+  _sound: {fileID: 7553194405837120205}
 --- !u!1 &2371270819665284983
 GameObject:
   m_ObjectHideFlags: 0
@@ -13835,8 +13842,6 @@ MonoBehaviour:
   <TargetPoint>k__BackingField: {fileID: 6814984787001084996}
   <CartPoint>k__BackingField: {fileID: 2129311880670483170}
   <CameraTransform>k__BackingField: {fileID: 4387599489495877655}
-  <Hands>k__BackingField: {fileID: 4916814368379587111}
-  <TransitHands>k__BackingField: {fileID: 1708808102751024385}
   Rigidbody: {fileID: 2264126181945957770}
   PlayerTransform: {fileID: 3968811008505776637}
   _thirdPerson:
@@ -13849,8 +13854,9 @@ MonoBehaviour:
   _inventory: {fileID: 382734339632686515}
   <PlayerInventory>k__BackingField: {fileID: 4425973244517120947}
   <PlayerHatsEquip>k__BackingField: {fileID: 5749772377050749133}
-  <PlayerHealth>k__BackingField: {fileID: -5256358950320560399}
   <Wallet>k__BackingField: {fileID: 7160809295371563853}
+  _hands: {fileID: 4916814368379587111}
+  _transitionHands: {fileID: 1708808102751024385}
   Characters: []
 --- !u!114 &5749772377050749133
 MonoBehaviour:
@@ -15737,6 +15743,8 @@ GameObject:
   - component: {fileID: 5440737559542215630}
   - component: {fileID: 2279830191536538982}
   - component: {fileID: 7553194405837120205}
+  - component: {fileID: 278984084878957430}
+  - component: {fileID: 6373135034554353954}
   m_Layer: 0
   m_Name: Y Bot
   m_TagString: Untagged
@@ -15820,8 +15828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeUp: {fileID: 4939536552562877852}
-  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
-  _music: {fileID: 7553194405837120205}
 --- !u!114 &6626394759318695960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15973,6 +15979,120 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 10
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &278984084878957430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462518773619068142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
+  _audio: {fileID: 6373135034554353954}
+  _audioClips:
+  - {fileID: 0}
+--- !u!82 &6373135034554353954
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462518773619068142}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3085219128794693552, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -22325,8 +22445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeUp: {fileID: 4939536552562877852}
-  _tntThrowablePrefab: {fileID: 4175146075619927911, guid: 231f69228cc392846a92ab4846e10130, type: 3}
-  _music: {fileID: 0}
 --- !u!1 &7652364451896913870
 GameObject:
   m_ObjectHideFlags: 0
