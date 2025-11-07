@@ -233,12 +233,6 @@ public class Generator : NetworkBehaviour
                 continue;
             }
 
-            Debug.Log("---------------");
-            for (int j = 0; j < Instance.SpawningParts.Count; j++)
-            {
-                Debug.Log(Instance.SpawningParts[i]);
-            }
-
 
             GameObject objectToSpawn = Instance.SpawningParts[Random.Range(0, Instance.SpawningParts.Count - 1)];
 
