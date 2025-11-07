@@ -48,6 +48,8 @@ public class Generator : NetworkBehaviour
 
     public static event Action GenerationEnd;
 
+    public event Action Regenerate;
+
     private int _spawnedEnemies;
 
     public override void OnStartClient()
@@ -127,6 +129,7 @@ public class Generator : NetworkBehaviour
     {
         if (!IsServer)
             return;
+        Regenerate?.Invoke();
         Generatable[] objects =
             GameObject.FindObjectsByType<Generatable>(FindObjectsSortMode.None);
 
