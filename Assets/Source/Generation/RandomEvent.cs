@@ -7,6 +7,7 @@ public class RandomEvent : NetworkBehaviour
 {
     public override void OnStartClient()
     {
-        RandomEventsSpawner.Instance.RegisterSpawnedEvent(NetworkObject);
+        if (IsServer)
+            RandomEventsSpawner.Instance.RegisterSpawnedEvent(NetworkObject);
     }
 }
