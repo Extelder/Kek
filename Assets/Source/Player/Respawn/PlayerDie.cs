@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerDie : NetworkBehaviour
 {
+    [SerializeField] private GameObject _deadLight;
     [SerializeField] private Transform _deadBodySourceBone;
 
     [SerializeField] private DeadPlayer _deadPlayer;
@@ -29,6 +30,7 @@ public class PlayerDie : NetworkBehaviour
     [ObserversRpc]
     public void DieObserver()
     {
+        _deadLight.SetActive(true);
         for (int i = 0; i < _offObjectsWhenDie.Length; i++)
         {
             if (_offObjectsWhenDie[i] == null)
