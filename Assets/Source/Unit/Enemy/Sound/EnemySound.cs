@@ -36,14 +36,7 @@ public class EnemySound : MonoBehaviour
 
         if (_attack)
         {
-            _sounds2.clip = _soundAttack[Random.Range(0, _soundAttack.Length)];
             _sounds2.Play();
-        }
-        else
-        {
-            {
-                _sounds2.Stop();
-            }
         }
     }
 
