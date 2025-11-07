@@ -1,28 +1,28 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using FishNet.Demo.AdditiveScenes;
 using FishNet.Object;
-using UniRx;
 using UnityEngine;
 
 public class PlayerCart : NetworkBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _moveSpeed = 5f;
-    [SerializeField] private float _rotateSpeed = 10f;
-    [SerializeField] private float _maxMoveDelta = 0.3f;
+    [SerializeField] private float _moveSpeed = 8f;
+    [SerializeField] private float _rotateSpeed = 12f;
+    [SerializeField] private float _maxMoveDelta = 0.4f;
+    [SerializeField] private float _heightAdjustSpeed = 8f;
 
     [SerializeField] private Transform[] _wheels;
     [SerializeField] private float _wheelRadius = 0.2f;
-    [SerializeField] private float _deadZone = 0.05f;
     [SerializeField] private float _smoothLerp = 12f;
-    private Vector3 _lastPos;
-    private bool _hasLast;
-    private float _smoothedForwardSpeed;
-    private bool _equiped;
+
+    [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private float _groundCheckDistance = 1f;
 
     private PlayerCharacter _currentPlayer;
+    private bool _equipped;
+    private Vector3 _lastPos;
+    private float _smoothedForwardSpeed;
+    private Vector3 _velocity;
+    private Vector3 _targetVel;
 
     public void Interact(PlayerCharacter character)
     {
@@ -30,89 +30,78 @@ public class PlayerCart : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void InteractServer(PlayerCharacter character)
+    private void InteractServer(PlayerCharacter character)
     {
         InteractObserver(character);
     }
 
-    private void Update()
-    {
-        float forwardSpeed = 0f;
-        if (_hasLast)
-        {
-            Vector3 delta = transform.position - _lastPos;
-            Vector3 vel = delta / Time.deltaTime;
-            forwardSpeed = Vector3.Dot(vel, transform.forward);
-        }
-
-        _lastPos = transform.position;
-        _hasLast = true;
-        if (Mathf.Abs(forwardSpeed) < _deadZone) forwardSpeed = 0f;
-        _smoothedForwardSpeed = (_smoothLerp > 0f)
-            ? Mathf.Lerp(_smoothedForwardSpeed, forwardSpeed, 1f - Mathf.Exp(-_smoothLerp * Time.deltaTime))
-            : forwardSpeed;
-        float radius = Mathf.Max(_wheelRadius, 0.0001f);
-        float degPerFrame = (_smoothedForwardSpeed / radius) * Mathf.Rad2Deg * Time.deltaTime;
-        for (int i = 0; i < _wheels.Length; i++)
-        {
-            var w = _wheels[i];
-            w.Rotate(Vector3.forward, degPerFrame, Space.Self);
-        }
-    }
-
     [ObserversRpc]
-    public void InteractObserver(PlayerCharacter character)
+    private void InteractObserver(PlayerCharacter character)
     {
-        if (character != _currentPlayer)
+        if (_currentPlayer != character)
         {
-            if (_equiped)
-            {
-                return;
-            }
-
-            _equiped = true;
             _currentPlayer = character;
+            _equipped = true;
+            _rigidbody.useGravity = false;
         }
         else
         {
-            if (_equiped)
-            {
-                _equiped = false;
-                _rigidbody.useGravity = true;
-                return;
-            }
-
-            _equiped = true;
-            return;
+            _equipped = !_equipped;
+            _rigidbody.useGravity = !_equipped;
+            if (!_equipped)
+                _currentPlayer = null;
         }
     }
 
     private void FixedUpdate()
     {
-        if (!_equiped)
+        if (!_equipped || _currentPlayer == null)
             return;
-        FollowPlayer();
+
+        FollowPlayerSmooth();
+        AnimateWheels();
     }
 
-
-    private void FollowPlayer()
+    private void FollowPlayerSmooth()
     {
-        _rigidbody.useGravity = false;
+        Transform target = _currentPlayer.CartPoint;
 
-        var target = _currentPlayer.CartPoint;
-
-        Vector3 targetPos = target.position;
-        Vector3 toTarget = targetPos - _rigidbody.position;
+        Vector3 desiredPos = target.position;
+        Vector3 toTarget = desiredPos - _rigidbody.position;
 
         if (toTarget.magnitude > _maxMoveDelta)
             toTarget = toTarget.normalized * _maxMoveDelta;
 
-        Vector3 newPos = _rigidbody.position + toTarget * _moveSpeed * Time.fixedDeltaTime;
-
-        _rigidbody.MovePosition(newPos);
+        _targetVel = toTarget * _moveSpeed;
+        _velocity = Vector3.Lerp(_velocity, _targetVel, 1f - Mathf.Exp(-_smoothLerp * Time.fixedDeltaTime));
+        _rigidbody.velocity = _velocity;
 
         Quaternion targetRot = target.rotation;
         Quaternion newRot = Quaternion.Slerp(_rigidbody.rotation, targetRot, _rotateSpeed * Time.fixedDeltaTime);
         _rigidbody.MoveRotation(newRot);
+
+        if (Physics.Raycast(_rigidbody.position + Vector3.up * 0.3f, Vector3.down, out RaycastHit hit, _groundCheckDistance, _groundMask))
+        {
+            Vector3 groundNormal = hit.normal;
+            Vector3 adjustedPos = new Vector3(_rigidbody.position.x, hit.point.y, _rigidbody.position.z);
+            _rigidbody.position = Vector3.Lerp(_rigidbody.position, adjustedPos, _heightAdjustSpeed * Time.fixedDeltaTime);
+
+            Quaternion groundTilt = Quaternion.FromToRotation(_rigidbody.transform.up, groundNormal) * _rigidbody.rotation;
+            _rigidbody.MoveRotation(Quaternion.Slerp(_rigidbody.rotation, groundTilt, 0.5f * Time.fixedDeltaTime));
+        }
+    }
+
+    private void AnimateWheels()
+    {
+        Vector3 delta = _rigidbody.position - _lastPos;
+        float forwardSpeed = Vector3.Dot(delta / Time.fixedDeltaTime, transform.forward);
+        _lastPos = _rigidbody.position;
+
+        _smoothedForwardSpeed = Mathf.Lerp(_smoothedForwardSpeed, forwardSpeed, 1f - Mathf.Exp(-_smoothLerp * Time.fixedDeltaTime));
+        float radius = Mathf.Max(_wheelRadius, 0.0001f);
+        float degPerFrame = (_smoothedForwardSpeed / radius) * Mathf.Rad2Deg * Time.fixedDeltaTime;
+
+        foreach (var w in _wheels)
+            w.Rotate(Vector3.forward, degPerFrame, Space.Self);
     }
 }
