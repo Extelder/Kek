@@ -35,4 +35,17 @@ public class NetWorkAnimatorSynchronize : NetworkBehaviour
     {
         Animator.SetBool(name, value);
     }
+    
+    [ServerRpc(RequireOwnership = false)]
+    public void PlayAnim(string name)
+    {
+        if (_blocked)
+            return;
+        PlayAnimObserver(name);
+    }
+    [ObserversRpc]
+    public void PlayAnimObserver(string name)
+    {
+        Animator.Play(name);
+    }
 }
