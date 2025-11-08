@@ -34,7 +34,7 @@ public class OreGenerator : NetworkBehaviour
 
             PlayerCharacter.Instance.ServerSpawnObject(_ores[Random.Range(0, _ores.Length)],
                 Generator.Instance.OreSpawnPlaces[i].transform.position,
-                Quaternion.LookRotation(Generator.Instance.OreSpawnPlaces[i].transform.position));
+                Quaternion.LookRotation(Generator.Instance.OreSpawnPlaces[i].transform.position, Vector3.up));
         }
     }
 }
