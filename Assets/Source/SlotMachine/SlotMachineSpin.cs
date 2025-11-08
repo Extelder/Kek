@@ -87,7 +87,7 @@ public class SlotMachineSpin : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void ServerSpinStart()
     {
-        if (!PlayerCharacter.Instance.Wallet.TryBuy(_price))
+        if (!PlayerCharacter.Instance.PlayerWallet.TryBuy(_price))
             return;
         if (spinning) return;
         spinning = true;
@@ -294,11 +294,11 @@ public class SlotMachineSpin : NetworkBehaviour
     {
         if (addmoney)
         {
-            PlayerCharacter.Instance.Wallet.Add(money);
+            PlayerCharacter.Instance.PlayerWallet.Add(money);
         }
         else
         {
-            PlayerCharacter.Instance.Wallet.Spend(money);
+            PlayerCharacter.Instance.PlayerWallet.Spend(money);
         }
     }
 }

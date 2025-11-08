@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAnimator : UnitAnimator
 {
-    [SerializeField] private string _moveAnimationBoolName, _runAnimationBoolName, _attackAnimationBoolName;
+    [SerializeField] private string _moveAnimationBoolName, _runAnimationBoolName, _attackAnimationBoolName, _kiteAnimationBoolName;
     [SerializeField] private EnemySound _enemysound;
 
     private void Start()
@@ -36,5 +36,10 @@ public class EnemyAnimator : UnitAnimator
     {
         SetAnimationBoolAndDisableOther(_attackAnimationBoolName);
         _enemysound.Attack();
+    }
+
+    public void Kait()
+    {
+        SetAnimationBoolAndDisableOther(_kiteAnimationBoolName);
     }
 }

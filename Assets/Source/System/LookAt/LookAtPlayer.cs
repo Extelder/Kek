@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
-
-    private bool right;
     private void OnEnable()
     {
         transform.LookAt(PlayerCharacter.Instance.CameraTransform.position);

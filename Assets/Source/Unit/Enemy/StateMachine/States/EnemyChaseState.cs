@@ -44,7 +44,7 @@ public class EnemyChaseState : EnemyState
     {
         if (!base.IsServer)
             return;
-        Animator.Idle();
+        EnemyAnimator.Idle();
         StopAllCoroutines();
     }
 
@@ -67,7 +67,7 @@ public class EnemyChaseState : EnemyState
     {
         while (true)
         {
-            Animator.Run();
+            EnemyAnimator.Run();
             _enemyNavMeshMove.SetDestinationServer(Target.position);
             yield return new WaitForSeconds(_updateTargetRate);
         }

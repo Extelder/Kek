@@ -20,7 +20,7 @@ public class EnemyAttackState : EnemyState
         if (!base.IsServer)
             return;
         CanChanged = false;
-        Animator.Attack();
+        EnemyAnimator.Attack();
         _agent.isStopped = _stopNavMesh;
         if (!_agent.isStopped)
         {

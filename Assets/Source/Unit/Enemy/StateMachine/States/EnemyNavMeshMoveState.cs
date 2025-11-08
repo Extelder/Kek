@@ -19,7 +19,7 @@ public class EnemyNavMeshMoveState : EnemyState
 
     public override void Enter()
     {
-        Animator.Move();
+        EnemyAnimator.Move();
         StartCoroutine(Moving());
     }
 

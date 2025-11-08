@@ -16,7 +16,7 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDow
     
     public void Interact()
     {
-        if (PlayerCharacter.Instance.Wallet.TryBuy(ItemData.Price) && VendingMachine.CanInteract)
+        if (PlayerCharacter.Instance.PlayerWallet.TryBuy(ItemData.Price) && VendingMachine.CanInteract)
         {
             OnBought();
             InteractServer();
@@ -32,7 +32,7 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDow
     [ObserversRpc]
     public void InteractObserver()
     {
-        PlayerCharacter.Instance.Wallet.Spend(ItemData.Price);
+        PlayerCharacter.Instance.PlayerWallet.Spend(ItemData.Price);
     }
 
     public abstract void OnBought();

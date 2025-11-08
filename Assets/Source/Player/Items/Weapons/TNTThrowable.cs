@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class TNTThrowable : NetworkBehaviour
 {
+    [field: SerializeField] public Transform Transform { get; private set; }
+    
     [SerializeField] private float _throwForce;
     [SerializeField] private float _explodeCooldown;
     [SerializeField] private float _explodeCooldownAfterSound;

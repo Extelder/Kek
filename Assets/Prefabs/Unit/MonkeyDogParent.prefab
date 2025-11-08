@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1954450001079475247}
   - component: {fileID: 6733781836990546481}
   - component: {fileID: 3745756302386204726}
+  - component: {fileID: 1961397547060905830}
   - component: {fileID: 2182527861056086388}
   - component: {fileID: 4754827775033367042}
   - component: {fileID: 194464235216101010}
@@ -151,6 +152,7 @@ MonoBehaviour:
   _startState: {fileID: 2182527861056086388}
   _patrolState: {fileID: 2182527861056086388}
   _attack: {fileID: 6689626912187634829}
+  _kite: {fileID: 1961397547060905830}
   _chase: {fileID: 6733781836990546481}
 --- !u!114 &6733781836990546481
 MonoBehaviour:
@@ -168,7 +170,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6059055495045773088}
   _networkObjectCache: {fileID: 6059055495045773088}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 8573598005896238283}
+  <EnemyAnimator>k__BackingField: {fileID: 8573598005896238283}
   _enemyStateMachine: {fileID: 1954450001079475247}
   _lostTime: 7
   _enemyAttackState: {fileID: 6689626912187634829}
@@ -197,6 +199,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1961397547060905830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202499112075736450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d821831ef08af41875b53487b99c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 6059055495045773088}
+  _networkObjectCache: {fileID: 0}
+  CanChanged: 1
+  <EnemyAnimator>k__BackingField: {fileID: 8573598005896238283}
+  _enemyStateMachine: {fileID: 1954450001079475247}
+  _enemyNavMeshMove: {fileID: 194464235216101010}
+  _coolDown: 2
+  _updateTargetRate: 0.2
+  _distanceToStop: 0.1
 --- !u!114 &2182527861056086388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +237,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6059055495045773088}
   _networkObjectCache: {fileID: 6059055495045773088}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 8573598005896238283}
+  <EnemyAnimator>k__BackingField: {fileID: 8573598005896238283}
   _enemyNavMeshMove: {fileID: 194464235216101010}
   _randomPointRange: 4
   _maxRandomWaitTime: 5
@@ -246,7 +270,7 @@ MonoBehaviour:
   _componentIndexCache: 4
   _addedNetworkObject: {fileID: 6059055495045773088}
   _networkObjectCache: {fileID: 6059055495045773088}
-  _agent: {fileID: 3745756302386204726}
+  <Agent>k__BackingField: {fileID: 3745756302386204726}
 --- !u!114 &2890928714213309714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1419,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 551320697f070834ebf9ae408a8b2027, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6689626912187634829}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 551320697f070834ebf9ae408a8b2027, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7140877031142062589}
   m_SourcePrefab: {fileID: 100100000, guid: 551320697f070834ebf9ae408a8b2027, type: 3}
 --- !u!4 &1524012063616397715 stripped
 Transform:
@@ -1451,6 +1478,7 @@ MonoBehaviour:
   _moveAnimationBoolName: IsWalking
   _runAnimationBoolName: IsRunning
   _attackAnimationBoolName: IsAttacking
+  _kiteAnimationBoolName: IsLookingAround
   _enemysound: {fileID: 9206862742918085386}
 --- !u!114 &7471900379610180543
 MonoBehaviour:
@@ -1511,11 +1539,24 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6059055495045773088}
   _networkObjectCache: {fileID: 6059055495045773088}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 8573598005896238283}
+  <EnemyAnimator>k__BackingField: {fileID: 8573598005896238283}
   _chaseState: {fileID: 6733781836990546481}
   _stopNavMesh: 1
   _agent: {fileID: 3745756302386204726}
   <Damage>k__BackingField: {fileID: 4754827775033367042}
+--- !u!114 &7140877031142062589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533988847329186969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStateMachine: {fileID: 1954450001079475247}
 --- !u!1001 &8010338845501113164
 PrefabInstance:
   m_ObjectHideFlags: 0

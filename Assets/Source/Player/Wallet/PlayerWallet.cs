@@ -13,6 +13,7 @@ public class PlayerWallet : NetworkBehaviour
     public int CurrentValue { get; private set; }
 
     public event Action<int> ValueChanged;
+    public event Action<int> MoneyChanged;
 
     public override void OnStartClient()
     {
@@ -37,6 +38,7 @@ public class PlayerWallet : NetworkBehaviour
     public void AddObserever(int value)
     {
         Add(value);
+        MoneyChanged?.Invoke(+value);
     }
 
     public void Add(int value)
@@ -44,12 +46,14 @@ public class PlayerWallet : NetworkBehaviour
         if (CurrentValue + value > _maxValue)
         {
             CurrentValue = _maxValue;
+            MoneyChanged?.Invoke(+value);
             ValueChanged?.Invoke(CurrentValue);
             return;
         }
 
         CurrentValue += value;
         ValueChanged?.Invoke(CurrentValue);
+        MoneyChanged?.Invoke(+value);
     }
 
     public void SpendMoney(int value)
@@ -78,5 +82,6 @@ public class PlayerWallet : NetworkBehaviour
 
         CurrentValue -= value;
         ValueChanged?.Invoke(CurrentValue);
+        MoneyChanged?.Invoke(-value);
     }
 }

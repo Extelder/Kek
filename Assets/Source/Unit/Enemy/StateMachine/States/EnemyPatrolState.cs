@@ -31,13 +31,13 @@ public class EnemyPatrolState : EnemyState
         {
             if (GetRandomPointOnNavMesh(transform.position, _randomPointRange, out Vector3 point))
             {
-                Animator.Move();
+                EnemyAnimator.Move();
                 _enemyNavMeshMove.SetDestinationServer(point);
             }
 
             yield return new WaitForSeconds(0.2f);
             yield return new WaitUntil(() => AgentReachedDestination());
-            Animator.Idle();
+            EnemyAnimator.Idle();
             yield return new WaitForSeconds(Random.Range(0, _maxRandomWaitTime));
         }
     }
