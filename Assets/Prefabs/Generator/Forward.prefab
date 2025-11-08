@@ -137,6 +137,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4710440589118561372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3276468027930657967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5446532008984121492}
+  m_Layer: 0
+  m_Name: OreSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5446532008984121492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3276468027930657967}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.611, y: 1.174, z: 3.678}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4710440589118561372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3339526539374436052
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +204,7 @@ Transform:
   m_Children:
   - {fileID: 7999889287232170457}
   - {fileID: 8309175051572036349}
+  - {fileID: 5446532008984121492}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3226521526342173385
@@ -244,6 +276,8 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 3226521526342173385}
   _networkObjectCache: {fileID: 3226521526342173385}
+  _oreSpawnPoint:
+  - {fileID: 5446532008984121492}
   _defaultSpawningObjects: []
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}
   _spawnableParts:
@@ -265,6 +299,7 @@ MonoBehaviour:
   <Enemies>k__BackingField: []
   <RandomChanceToSpawnEnemy>k__BackingField: 0
   _maxEnemyToSpawn: 0
+  <OreSpawnPlaces>k__BackingField: []
   <IsInstance>k__BackingField: 0
 --- !u!65 &1835804431254336472
 BoxCollider:

@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class Generator : NetworkBehaviour
 {
+    [SerializeField] private Transform[] _oreSpawnPoint;
+
     [field: ShowIf(nameof(IsInstance)), SerializeField]
     private GameObject[] _defaultSpawningObjects;
 
@@ -42,6 +44,10 @@ public class Generator : NetworkBehaviour
     [field: ShowIf(nameof(IsInstance))] [SerializeField]
     private int _maxEnemyToSpawn;
 
+
+    [field: ShowIf(nameof(IsInstance)), SerializeField]
+    public List<Transform> OreSpawnPlaces { get; private set; } = new List<Transform>();
+
     public static Generator Instance { get; private set; }
 
     [field: SerializeField] public bool IsInstance { get; private set; }
@@ -65,6 +71,15 @@ public class Generator : NetworkBehaviour
                 {
                     SpawningParts.Add(_defaultSpawningObjects[i]);
                     Debug.Log(_defaultSpawningObjects[i]);
+                }
+            }
+            else
+            {
+                foreach (var transform1 in _oreSpawnPoint)
+                {
+                    if (transform1 == null)
+                        continue;
+                    Instance.OreSpawnPlaces.Add(transform1);
                 }
             }
 
@@ -129,6 +144,7 @@ public class Generator : NetworkBehaviour
     {
         if (!IsServer)
             return;
+        Instance.OreSpawnPlaces?.Clear();
         Regenerate?.Invoke();
         Generatable[] objects =
             GameObject.FindObjectsByType<Generatable>(FindObjectsSortMode.None);
