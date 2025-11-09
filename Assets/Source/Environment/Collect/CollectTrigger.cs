@@ -15,7 +15,9 @@ public class CollectTrigger : NetworkBehaviour
             if (interactItem.Item is PickUpableItem pickUpableItem)
             {
                 PlayerCharacter.Instance.PlayerWallet.Add(pickUpableItem.Price);
-                
+
+                _quota.Add(1);
+
                 interactItem.Despawn();
             }
         }

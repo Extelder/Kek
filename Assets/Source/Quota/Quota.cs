@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet;
 using FishNet.Object;
 using UnityEngine;
 
@@ -12,28 +13,21 @@ public class Quota : NetworkBehaviour
     [SerializeField] private float _minValuetoHire;
     [SerializeField] private float _startValue;
 
-    public float CurrentValue { get; private set; }
+    [SerializeField] private float _currentValue;
 
     public event Action<float> ValueChanged;
 
-    public override void OnStartClient()
+    public override void OnStartServer()
     {
-        Debug.Log(base.IsServer + " Server");
-
-        if (!base.IsServer)
-        {
-            Debug.LogError("Sex");
-            return;
-        }
-
         _generator.GenerateStarted += OnGenerateStarted;
-        CurrentValue += _startValue;
-        ValueChanged?.Invoke(CurrentValue);
+        _currentValue += _startValue;
+        ValueChanged?.Invoke(_currentValue);
+        NotifyValueChanged(_currentValue);
     }
 
     private void OnGenerateStarted()
     {
-        SpendServer(_removeValue);
+        Spend(_removeValue);
     }
 
     private void OnDisable()
@@ -44,9 +38,16 @@ public class Quota : NetworkBehaviour
         _generator.GenerateStarted -= OnGenerateStarted;
     }
 
+    [ObserversRpc(BufferLast = true)]
+    private void NotifyValueChanged(float newValue)
+    {
+        _currentValue = newValue;
+        ValueChanged?.Invoke(newValue);
+    }
+
     public bool TryBuy(float value)
     {
-        return (CurrentValue - value >= _minValuetoHire);
+        return (_currentValue - value >= _minValuetoHire);
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -63,8 +64,8 @@ public class Quota : NetworkBehaviour
 
     public void Add(float value)
     {
-        CurrentValue += value;
-        ValueChanged?.Invoke(CurrentValue);
+        _currentValue += value;
+        ValueChanged?.Invoke(_currentValue);
     }
 
     public void SpendMoney(float value)
@@ -84,15 +85,14 @@ public class Quota : NetworkBehaviour
         Spend(value);
     }
 
+    [ServerRpc(RequireOwnership = false)]
     public void Spend(float value)
     {
-        if (CurrentValue - value < _minValuetoHire)
-        {
+        if (!IsServer)
             return;
-        }
 
-        CurrentValue -= value;
-        Debug.Log(CurrentValue);
-        ValueChanged?.Invoke(CurrentValue);
+        _currentValue -= value;
+        NotifyValueChanged(_currentValue);
+        Debug.Log(_currentValue);
     }
 }
