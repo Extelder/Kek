@@ -10,6 +10,6 @@ public class DoorInteractable : Item
     public override void Interact()
     {
         _netWorkAnimator.SetAnimatorBool("IsOpen", !_netWorkAnimator.Animator.GetBool("IsOpen"));
-        _audio.Play();
+        _audio?.Play();
     }
 }
