@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using FishNet.Object;
 using UniRx;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    [SerializeField] private PlayerAnimator _animator;
+
     [SerializeField] private PlayerCharacter _character;
 
     [SerializeField] private float _speed;
+    [SerializeField] private float _runSpeedMultiplier;
 
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _acceleration;
@@ -43,6 +47,9 @@ public class PlayerMovement : NetworkBehaviour
             inputVector = new Vector3(_binds.Character.Horizontal.ReadValue<float>(), 0,
                 _binds.Character.Vertical.ReadValue<float>());
         }).AddTo(_disposable);
+
+        _binds.Character.Run.started += OnRunStarted;
+        _binds.Character.Run.canceled += OnRunCanceled;
 
         Observable.EveryFixedUpdate().Subscribe(_ =>
         {
@@ -79,9 +86,27 @@ public class PlayerMovement : NetworkBehaviour
         }).AddTo(_disposable);
     }
 
+    private void OnRunCanceled(InputAction.CallbackContext obj)
+    {
+        _speed /= _runSpeedMultiplier;
+        _animator.SetLocomotionBlendTreeSpeed(1f);
+    }
+
+    private void OnRunStarted(InputAction.CallbackContext obj)
+    {
+        _speed *= _runSpeedMultiplier;
+        _animator.SetLocomotionBlendTreeSpeed(1.5f);
+    }
+
 
     private void OnDisable()
     {
+        if (!base.IsOwner)
+            return;
+
+        _binds.Character.Run.started += OnRunStarted;
+        _binds.Character.Run.canceled += OnRunCanceled;
+
         _disposable?.Clear();
     }
 }

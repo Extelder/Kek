@@ -12,6 +12,8 @@ public class SlotMachineSpin : NetworkBehaviour
     [SerializeField] private AudioSource _audioBaraban;
     [SerializeField] private AudioSource _audioStop;
     [SerializeField] private AudioClip[] _audioStopClip;
+    [SerializeField] private AudioSource _win;
+    [SerializeField] private AudioSource _Bigwin;
     [SerializeField] private NetWorkAnimatorSynchronize _netWorkAnimator;
     [Header("Money")]
     [SerializeField] private int _price;
@@ -179,17 +181,10 @@ public class SlotMachineSpin : NetworkBehaviour
     private IEnumerator ClearAndCheckAfter(float t)
     {
         yield return new WaitForSeconds(t);
-        spinning = false;
         if (IsServer)
         {
             CheckResults();
         }
-    }
-
-    private IEnumerator ClearSpinningAfter(float t)
-    {
-        yield return new WaitForSeconds(t);
-        spinning = false;
     }
 
     private IEnumerator SpinSingleRoutine(int reelIndex, int targetIndex, int extraTurnsInt, float duration,
@@ -254,6 +249,8 @@ public class SlotMachineSpin : NetworkBehaviour
         {
             Debug.Log($"BIG WIN!! [{a} {b} {c}]  (symbol {a})");
             WalletOperation(_priceBigWin, true);
+            _Bigwin.Play();
+            StartCoroutine(WaitSoundAfterSpin(_Bigwin.clip.length));
             return;
         }
 
@@ -282,11 +279,19 @@ public class SlotMachineSpin : NetworkBehaviour
 
             Debug.Log($"Small win: pair {pair}, symbol {matchedSymbol}, odd {oddSymbol}. [{a} {b} {c}]");
             WalletOperation(_priceWin, true);
+            _win.Play();
+            StartCoroutine(WaitSoundAfterSpin(_win.clip.length));
             return;
         }
 
-        // НИЧЕГО
+        spinning = false;
         Debug.Log($"No win [{a} {b} {c}]");
+    }
+
+    private IEnumerator WaitSoundAfterSpin(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        spinning = false;
     }
 
     [ObserversRpc]

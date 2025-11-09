@@ -244,6 +244,7 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 3226521526342173385}
   _networkObjectCache: {fileID: 3226521526342173385}
+  _oreSpawnPoint: []
   _defaultSpawningObjects: []
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}
   _spawnableParts:
@@ -265,6 +266,7 @@ MonoBehaviour:
   <Enemies>k__BackingField: []
   <RandomChanceToSpawnEnemy>k__BackingField: 0
   _maxEnemyToSpawn: 0
+  <OreSpawnPlaces>k__BackingField: []
   <IsInstance>k__BackingField: 0
 --- !u!65 &1835804431254336472
 BoxCollider:

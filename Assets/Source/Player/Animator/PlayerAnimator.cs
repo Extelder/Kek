@@ -131,6 +131,11 @@ public class PlayerAnimator : MonoBehaviour
         ResetAnimationTrigger(_reset);
     }
 
+    public void SetLocomotionBlendTreeSpeed(float speed)
+    {
+        _animator.SetFloat("BlendTreeSpeed", speed);
+    }
+
     private void OnDestroy()
     {
         _character.ClientStarted -= OnClienStarted;

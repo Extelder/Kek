@@ -31,6 +31,99 @@ Transform:
   m_Children: []
   m_Father: {fileID: 541388442387208783}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &358809787940219760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 657926561964080666}
+  m_Layer: 0
+  m_Name: OreSpawnPoint (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &657926561964080666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358809787940219760}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.25, y: 2.219, z: 8.414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 541388442387208783}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3687095673906926233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8201256671806855793}
+  m_Layer: 0
+  m_Name: OreSpawnPoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8201256671806855793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687095673906926233}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.045, y: 0.7190002, z: 2.203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 541388442387208783}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4618382258597889648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066781989809333426}
+  m_Layer: 0
+  m_Name: OreSpawnPoint (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066781989809333426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618382258597889648}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.919, y: -0.055, z: 6.548}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 541388442387208783}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9024634903536713273
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +662,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: _spawnableParts.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -580,6 +677,30 @@ PrefabInstance:
       propertyPath: _spawnNextPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 8201256671806855793}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 2066781989809333426}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.data[2]
+      value: 
+      objectReference: {fileID: 657926561964080666}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.data[3]
+      value: 
+      objectReference: {fileID: 8201256671806855793}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.data[4]
+      value: 
+      objectReference: {fileID: 2066781989809333426}
+    - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: _oreSpawnPoint.Array.data[5]
+      value: 
+      objectReference: {fileID: 657926561964080666}
     - target: {fileID: 786306376388715718, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: _spawnableParts.Array.data[0]
       value: 
@@ -764,6 +885,15 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 1253799968646857374, guid: b34657a1358428641877b5be6ff2b345, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4710440589118561372, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 8201256671806855793}
+    - targetCorrespondingSourceObject: {fileID: 4710440589118561372, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2066781989809333426}
+    - targetCorrespondingSourceObject: {fileID: 4710440589118561372, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 657926561964080666}
     - targetCorrespondingSourceObject: {fileID: 4710440589118561372, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2260547639774416499}
