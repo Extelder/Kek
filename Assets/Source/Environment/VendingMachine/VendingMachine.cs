@@ -19,7 +19,7 @@ public class VendingMachine : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
-        NotifyValueChanged(CanInteract);
+        Set(CanInteract);
     }
 
     public void GetCurrentBuyable(BuyableItemData buyableItemData)
@@ -29,30 +29,21 @@ public class VendingMachine : NetworkBehaviour
         _animatorSynchronize.SetAnimatorBoolMulticast(_boolName, true);
         CanBuy = false;
     }
-    
-    public void SetInteractBool(bool value)
-    {
-        Set(value);
-    }
 
     [ServerRpc(RequireOwnership = false)]
-    private void Set(bool value)
+    public void Set(bool value)
     {
-        if (!IsServer)
-            return;
-
-        CanInteract = value;
-        NotifyValueChanged(CanInteract);
-        Debug.Log(CanInteract + "Server");
+        NotifyValueChanged(value);
+        Debug.Log(value + "Server");
     }
-    
+
     [ObserversRpc(BufferLast = true)]
     private void NotifyValueChanged(bool value)
     {
         CanInteract = value;
         Debug.Log(CanInteract + "Observer");
     }
-    
+
     public void SpawnItem()
     {
         PlayerCharacter.Instance.ServerSpawnObject(_currentBuyable.Prefab, _spawnOrigin.position, Quaternion.identity);

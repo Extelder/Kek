@@ -80,7 +80,7 @@ public class PlayerTransitionHands : MonoBehaviour
             _cameraHeadBob.EnableAnimator(true);
             SetCinemachineCameraValue(1);
             _character.Rigidbody.isKinematic = false;
-            _vendingMachine.SetInteractBool(true);
+            _vendingMachine.Set(true);
             PlayerCharacter.Instance.SwitchHands();
             _tween?.Kill();
         }).SetEase(_ease);

@@ -14,7 +14,7 @@ public class VendingMachineItem : Item
         if (!_vendingMachine.CanInteract)
             return;
         PlayerCharacter.Instance.SwitchHands();
-        _vendingMachine.SetInteractBool(false);
+        _vendingMachine.Set(false);
         Interacted?.Invoke(_targetPoint, _vendingMachine);
     }
 }
