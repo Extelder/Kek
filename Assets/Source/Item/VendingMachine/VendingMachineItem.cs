@@ -6,11 +6,15 @@ using UnityEngine;
 public class VendingMachineItem : Item
 {
     [SerializeField] private Transform _targetPoint;
-    public static event Action<Transform> Interacted;
+    [SerializeField] private VendingMachine _vendingMachine;
+    public static event Action<Transform, VendingMachine> Interacted;
     
     public override void Interact()
     {
+        if (!_vendingMachine.CanInteract)
+            return;
         PlayerCharacter.Instance.SwitchHands();
-        Interacted?.Invoke(_targetPoint);
+        _vendingMachine.SetInteractBool(false);
+        Interacted?.Invoke(_targetPoint, _vendingMachine);
     }
 }

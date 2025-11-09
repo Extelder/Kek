@@ -837,6 +837,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1725289894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2641216286699011095, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
+  m_PrefabInstance: {fileID: 3729754944913994067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbf0baf73c237a4881bca383533d429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1790842385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1210,6 +1221,10 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 1476129183
       objectReference: {fileID: 0}
+    - target: {fileID: 3361182373389561367, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
+      propertyPath: managedReferences[6779343588899422209]._vendingMachine
+      value: 
+      objectReference: {fileID: 1725289894}
     - target: {fileID: 4765316650413452850, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
       propertyPath: m_Name
       value: VendingMachine

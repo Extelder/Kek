@@ -16,7 +16,7 @@ public abstract class VendingMachineInteractible : NetworkBehaviour, IPointerDow
     
     public void Interact()
     {
-        if (PlayerCharacter.Instance.PlayerWallet.TryBuy(ItemData.Price) && VendingMachine.CanInteract)
+        if (PlayerCharacter.Instance.PlayerWallet.TryBuy(ItemData.Price) && VendingMachine.CanBuy)
         {
             OnBought();
             InteractServer();
