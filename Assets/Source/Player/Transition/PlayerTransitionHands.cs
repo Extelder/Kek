@@ -31,6 +31,7 @@ public class PlayerTransitionHands : MonoBehaviour
 
     private CinemachinePOV _cinemachinePov;
     private PlayerCharacter _character;
+    private VendingMachine _vendingMachine;
 
     public static event Action TargetDestinated;
     public static event Action BackedToDefault;
@@ -48,9 +49,10 @@ public class PlayerTransitionHands : MonoBehaviour
         _defaultFingerPosition = _character.FingerLookAtPoint.position;
     }
 
-    private void OnInteracted(Transform target)
+    private void OnInteracted(Transform target, VendingMachine vendingMachine)
     {
         RaycastCheck();
+        _vendingMachine = vendingMachine;
         _defaultPosition = _cameraOrigin.position;
         _cameraHeadBob.EnableAnimator(false);
         _character.Rigidbody.isKinematic = true;
@@ -78,6 +80,7 @@ public class PlayerTransitionHands : MonoBehaviour
             _cameraHeadBob.EnableAnimator(true);
             SetCinemachineCameraValue(1);
             _character.Rigidbody.isKinematic = false;
+            _vendingMachine.SetInteractBool(true);
             PlayerCharacter.Instance.SwitchHands();
             _tween?.Kill();
         }).SetEase(_ease);
