@@ -5681,6 +5681,7 @@ GameObject:
   - component: {fileID: 1041161158}
   - component: {fileID: 1041161157}
   - component: {fileID: 1041161159}
+  - component: {fileID: 1041161160}
   m_Layer: 0
   m_Name: RustModel
   m_TagString: Untagged
@@ -5778,6 +5779,25 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
     IsValid: 0
+--- !u!114 &1041161160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041161156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c98041a81afe44fb3c3c513376247e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1041161159}
+  _networkObjectCache: {fileID: 0}
+  _removeValue: 15
+  _generator: {fileID: 1259111793}
+  _minValuetoHire: 0
+  _startValue: 23
 --- !u!4 &1041426978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8952172330349078154, guid: a51564009a4f712409d3a2aa85a91fcc, type: 3}
@@ -6610,6 +6630,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1041161159}
   _networkObjectCache: {fileID: 0}
+  _quota: {fileID: 0}
 --- !u!54 &1224764099
 Rigidbody:
   m_ObjectHideFlags: 0

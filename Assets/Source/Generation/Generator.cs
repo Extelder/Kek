@@ -56,6 +56,8 @@ public class Generator : NetworkBehaviour
 
     public event Action Regenerate;
 
+    public event Action GenerateStarted;
+
     private int _spawnedEnemies;
 
     public override void OnStartClient()
@@ -195,6 +197,7 @@ public class Generator : NetworkBehaviour
     {
         if (!IsServer)
             return;
+        GenerateStarted?.Invoke();
         PlayerCharacter character = PlayerCharacter.Instance;
 
         for (int i = 0; i < _enemySpawnPoint.Length; i++)

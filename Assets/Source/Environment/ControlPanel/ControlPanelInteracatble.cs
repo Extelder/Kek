@@ -12,7 +12,7 @@ public class ControlPanelInteracatble : Item
         _netWorkAnimator.SetAnimatorBool("IsActivate", !_netWorkAnimator.Animator.GetBool("IsActivate"));
         if (!_netWorkAnimator.Animator.GetBool("IsActivate"))
         {
-            _audio.Play();
+            _audio?.Play();
         }
     }
 }
