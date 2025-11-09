@@ -992,6 +992,7 @@ MonoBehaviour:
   _moveAnimationBoolName: IsWalking
   _runAnimationBoolName: IsRunning
   _attackAnimationBoolName: IsAttacking
+  _kiteAnimationBoolName: IsLookingAround
   _enemysound: {fileID: 8054798152089447048}
 --- !u!114 &1321689767631958878
 MonoBehaviour:
@@ -1009,7 +1010,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 4907562411042432674}
   _networkObjectCache: {fileID: 4907562411042432674}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 9100959404700687138}
+  <EnemyAnimator>k__BackingField: {fileID: 9100959404700687138}
   _chaseState: {fileID: 5583916236219487155}
   _stopNavMesh: 1
   _agent: {fileID: 2591440462724432308}
@@ -1048,8 +1049,16 @@ PrefabInstance:
       propertyPath: _attack
       value: 
       objectReference: {fileID: 1321689767631958878}
+    - target: {fileID: 1961397547060905830, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
+      propertyPath: <EnemyAnimator>k__BackingField
+      value: 
+      objectReference: {fileID: 9100959404700687138}
     - target: {fileID: 2182527861056086388, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
       propertyPath: <Animator>k__BackingField
+      value: 
+      objectReference: {fileID: 9100959404700687138}
+    - target: {fileID: 2182527861056086388, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
+      propertyPath: <EnemyAnimator>k__BackingField
       value: 
       objectReference: {fileID: 9100959404700687138}
     - target: {fileID: 2890928714213309714, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
@@ -1078,6 +1087,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6059055495045773088, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
       propertyPath: NetworkBehaviours.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059055495045773088, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
+      propertyPath: NetworkBehaviours.Array.data[10]
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6397662293344551839, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
@@ -1130,6 +1143,10 @@ PrefabInstance:
       objectReference: {fileID: 1321689767631958878}
     - target: {fileID: 6733781836990546481, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
       propertyPath: <Animator>k__BackingField
+      value: 
+      objectReference: {fileID: 9100959404700687138}
+    - target: {fileID: 6733781836990546481, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
+      propertyPath: <EnemyAnimator>k__BackingField
       value: 
       objectReference: {fileID: 9100959404700687138}
     - target: {fileID: 8187789183149026713, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}

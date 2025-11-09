@@ -212,12 +212,14 @@ GameObject:
   m_Component:
   - component: {fileID: 607273854595316074}
   - component: {fileID: 6616226694445494291}
+  - component: {fileID: 8823703688702723508}
   - component: {fileID: 3507580206033813643}
   - component: {fileID: 6784848595248029159}
   - component: {fileID: 6704532929611208735}
   - component: {fileID: 8984141797754028298}
   - component: {fileID: 8438387107030626433}
   - component: {fileID: 847549570573782971}
+  - component: {fileID: 5650792083494908302}
   - component: {fileID: 2864416154726154449}
   - component: {fileID: 61326847796005970}
   m_Layer: 6
@@ -264,7 +266,30 @@ MonoBehaviour:
   _startState: {fileID: 6704532929611208735}
   _patrolState: {fileID: 6704532929611208735}
   _attack: {fileID: 6742630258748014978}
+  _kite: {fileID: 8823703688702723508}
   _chase: {fileID: 3507580206033813643}
+--- !u!114 &8823703688702723508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820919100946353322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d821831ef08af41875b53487b99c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 549270684482896193}
+  _networkObjectCache: {fileID: 0}
+  CanChanged: 1
+  <EnemyAnimator>k__BackingField: {fileID: 3442421149067022237}
+  _enemyStateMachine: {fileID: 6616226694445494291}
+  _enemyNavMeshMove: {fileID: 8438387107030626433}
+  _coolDown: 2
+  _updateTargetRate: 0.2
+  _distanceToStop: 0.1
 --- !u!114 &3507580206033813643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +306,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 3442421149067022237}
+  <EnemyAnimator>k__BackingField: {fileID: 3442421149067022237}
   _enemyStateMachine: {fileID: 6616226694445494291}
   _lostTime: 7
   _enemyAttackState: {fileID: 6742630258748014978}
@@ -326,7 +351,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 3442421149067022237}
+  <EnemyAnimator>k__BackingField: {fileID: 3442421149067022237}
   _enemyNavMeshMove: {fileID: 8438387107030626433}
   _randomPointRange: 4
   _maxRandomWaitTime: 5
@@ -359,7 +384,7 @@ MonoBehaviour:
   _componentIndexCache: 4
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
-  _agent: {fileID: 6784848595248029159}
+  <Agent>k__BackingField: {fileID: 6784848595248029159}
 --- !u!114 &847549570573782971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +411,19 @@ MonoBehaviour:
     <Size>k__BackingField: 13
   _checkRate: 0.1
   _colliderCount: 10
+--- !u!114 &5650792083494908302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820919100946353322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStateMachine: {fileID: 6616226694445494291}
 --- !u!114 &2864416154726154449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +884,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   CanChanged: 1
-  <Animator>k__BackingField: {fileID: 3442421149067022237}
+  <EnemyAnimator>k__BackingField: {fileID: 3442421149067022237}
   _chaseState: {fileID: 3507580206033813643}
   _stopNavMesh: 0
   _agent: {fileID: 6784848595248029159}
@@ -870,6 +908,7 @@ MonoBehaviour:
   _moveAnimationBoolName: IsWalking
   _runAnimationBoolName: IsRunning
   _attackAnimationBoolName: IsAttacking
+  _kiteAnimationBoolName: IsLookingAround
   _enemysound: {fileID: 4157882494026995210}
 --- !u!114 &1524273953916119522
 MonoBehaviour:
