@@ -8,13 +8,13 @@ public class VendingMachineItem : Item
     [SerializeField] private Transform _targetPoint;
     [SerializeField] private VendingMachine _vendingMachine;
     public static event Action<Transform, VendingMachine> Interacted;
-    
+
     public override void Interact()
     {
         if (!_vendingMachine.CanInteract)
             return;
+        _vendingMachine.SetIsVne(false);
         PlayerCharacter.Instance.SwitchHands();
-        _vendingMachine.Set(false);
         Interacted?.Invoke(_targetPoint, _vendingMachine);
     }
 }

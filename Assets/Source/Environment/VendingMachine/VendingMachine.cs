@@ -30,15 +30,23 @@ public class VendingMachine : NetworkBehaviour
         CanBuy = false;
     }
 
+    public void SetIsVne(bool value)
+    {
+        Set(value);
+    }
+
     [ServerRpc(RequireOwnership = false)]
     public void Set(bool value)
     {
+        if (!IsServer)
+            return;
+
         NotifyValueChanged(value);
         Debug.Log(value + "Server");
     }
 
     [ObserversRpc(BufferLast = true)]
-    private void NotifyValueChanged(bool value)
+    public void NotifyValueChanged(bool value)
     {
         CanInteract = value;
         Debug.Log(CanInteract + "Observer");
