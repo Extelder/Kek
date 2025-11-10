@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using FishNet.Object;
 using UnityEngine;
 
 public class PlayerCharacter : NetworkBehaviour
 {
     [field: SerializeField] public Camera Camera { get; private set; }
+    [field: SerializeField] public CameraHeadBob CameraHeadBob { get; private set; }
     [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field: SerializeField] public Transform DropPoint { get; private set; }
     [field: SerializeField] public Transform FingerLookAtPoint { get; private set; }
@@ -22,8 +24,12 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
     [field: SerializeField] public PlayerWallet PlayerWallet { get; private set; }
 
+    [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private GameObject _hands;
     [SerializeField] private GameObject _transitionHands;
+
+    private CinemachinePOV _cinemachinePov;
+    private PlayerConfig _config;
 
     public float Distance { get; set; }
 
@@ -61,6 +67,8 @@ public class PlayerCharacter : NetworkBehaviour
             {
                 _thirdPerson[i].SetActive(false);
             }
+            _cinemachinePov = _virtualCamera.GetCinemachineComponent<CinemachinePOV>();
+            _config = PlayerConfig.Instance;
 
             Instance = this;
         }
@@ -84,6 +92,18 @@ public class PlayerCharacter : NetworkBehaviour
     {
         gameObject.SetActive(enabled);
         Debug.LogError(gameObject);
+    }
+
+    public void SetCinemachienCameraValueZero()
+    {
+        _cinemachinePov.m_HorizontalAxis.m_MaxSpeed = 0;
+        _cinemachinePov.m_VerticalAxis.m_MaxSpeed = 0;
+    }
+
+    public void SetCinemachineCameraDefaultValue()
+    {
+        _cinemachinePov.m_HorizontalAxis.m_MaxSpeed = _config.ConfigData.lookSensitivity;
+        _cinemachinePov.m_VerticalAxis.m_MaxSpeed = _config.ConfigData.lookSensitivity;
     }
 
     public void SwitchHands()

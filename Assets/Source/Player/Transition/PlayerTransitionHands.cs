@@ -61,7 +61,7 @@ public class PlayerTransitionHands : MonoBehaviour
         {
             _character.CameraTransform.eulerAngles = target.eulerAngles;
             TargetDestinated?.Invoke();
-            SetCinemachineCameraValue(0);
+            _character.SetCinemachienCameraValueZero();
             _virtualCamera.enabled = false;
             _character.FingerLookAtPoint.position = _defaultFingerPosition;
             _tween?.Kill();
@@ -78,19 +78,13 @@ public class PlayerTransitionHands : MonoBehaviour
         _tween = _cameraOrigin.DOMove(_defaultPosition, _duration).OnComplete(() =>
         {
             _cameraHeadBob.EnableAnimator(true);
-            SetCinemachineCameraValue(1);
+            _character.SetCinemachineCameraDefaultValue();
             _character.Rigidbody.isKinematic = false;
             _vendingMachine.Set(true);
             PlayerCharacter.Instance.SwitchHands();
             _tween?.Kill();
         }).SetEase(_ease);
         _animator.SetTrigger(_stopTriggerName);
-    }
-
-    private void SetCinemachineCameraValue(int value)
-    {
-        _cinemachinePov.m_HorizontalAxis.Value = value;
-        _cinemachinePov.m_VerticalAxis.Value = value;
     }
 
     private void RaycastCheck()
