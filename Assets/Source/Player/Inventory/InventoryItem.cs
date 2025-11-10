@@ -88,6 +88,13 @@ public class InventoryItem : NetworkBehaviour
         Equip();
     }
 
+    public void Clear()
+    {
+        CurrentItemData = null;
+        ItemDataChanged?.Invoke(CurrentItemData);
+        Equip();
+    }
+
     private void OnDisable()
     {
         CurrentInventoryItem = null;

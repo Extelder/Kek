@@ -28,4 +28,16 @@ public class PlayerInventory : MonoBehaviour
 
         return false;
     }
+
+    public void ClearEquipSlot()
+    {
+        for (int i = 0; i < _inventoryItems.Length; i++)
+        {
+            if (_inventoryItems[i].IsEquiped == true)
+            {
+                _inventoryItems[i].Clear();
+                return;
+            }
+        }
+    }
 }

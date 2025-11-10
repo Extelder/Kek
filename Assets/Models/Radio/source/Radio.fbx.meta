@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 00a4a78bd58843040aaf4e7ed53b8aea
+guid: d4852822c44c97d46bd2c21b4955cb20
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WorldGridMaterial
+    second: {fileID: 2100000, guid: 46eab1cc18c813a43b5b7b2720b722e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -32,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -77,22 +82,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - e4442d7a29c417244a1d6970d4fb80c2
-  - f8ad7d05f57b39d4b9710869e98f3314
-  - 80655ec9486dada41be06ffb3767c7cb
-  - 25b068920dba83b4388b1363f6e1c723
-  - 53f4c662071bbbf4f8134da16992961d
-  - c890d0645f44723409483d1f275d8d53
-  - d23096bfa9921ad49a2ceca6a81b0a36
-  - 5546094e448c2b649a0b8d08035f5d1f
-  - 0bed19d196c372b4d9bc81af7ff5a1cb
-  - f390977e450fdd74b8387e503408d929
-  - 830b4c197aa7f3f47a87beca15de672b
-  - d8db34d95bcf418438bb06375f40bfdb
-  - f470b70d4c7738940afe83b3004c0ef8
-  - 2b6b638dfdf754041b27b28277d0c4b4
-  - f4f27c8b29415bf4baf3d9c7ed04de5f
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
