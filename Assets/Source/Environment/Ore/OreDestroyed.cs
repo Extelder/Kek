@@ -2,11 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class OreDestroyed : MonoBehaviour
 {
     [SerializeField] private Ore _ore;
-    [SerializeField] private Rigidbody[] _rigidbodies;
+    [SerializeField] private GameObject _spawnableGameObject;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private int _minCountToSpawn;
+    [SerializeField] private int _maxCountToSpawn;
+    
+    private int _countToSpawn;
 
     private void OnEnable()
     {
@@ -15,9 +21,10 @@ public class OreDestroyed : MonoBehaviour
 
     private void OnDestroyed()
     {
-        for (int i = 0; i < _rigidbodies.Length; i++)
+        _countToSpawn = Random.Range(_minCountToSpawn, _maxCountToSpawn);
+        for (int i = 0; i < _countToSpawn; i++)
         {
-            _rigidbodies[i].useGravity = true;
+            PlayerCharacter.Instance.ServerSpawnObject(_spawnableGameObject, _spawnPoint.position, Quaternion.identity);
         }
     }
 
