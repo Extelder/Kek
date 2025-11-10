@@ -64,10 +64,10 @@ public class PlayerMovement : NetworkBehaviour
             Vector3 desiredVelocityXZ = new Vector3(inputVector.x * _speed, 0,
                 inputVector.z * _speed);
 
-            if (Moving.Value == true || _groundChecker.Detected == true)
+            if (Moving.Value || _groundChecker.Detected)
                 _currentVelocity =
                     Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, _acceleration * Time.fixedDeltaTime);
-            else if (Moving.Value == false)
+            else if (!Moving.Value)
             {
                 _currentVelocity =
                     Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, _decceleration * Time.fixedDeltaTime);
