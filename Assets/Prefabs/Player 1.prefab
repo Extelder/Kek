@@ -14573,6 +14573,7 @@ GameObject:
   - component: {fileID: 9153910927864380487}
   - component: {fileID: 5749772377050749133}
   - component: {fileID: 2346307380554849957}
+  - component: {fileID: 8879053857243264287}
   - component: {fileID: 6846853085322839939}
   - component: {fileID: 953327120620694847}
   - component: {fileID: 2031704261568184446}
@@ -14773,14 +14774,38 @@ MonoBehaviour:
   _componentIndexCache: 2
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
+  <Speed>k__BackingField: 5
   _animator: {fileID: 6499830973396402101}
   _character: {fileID: 9153910927864380487}
-  _speed: 5
   _runSpeedMultiplier: 1.2
   _groundChecker: {fileID: 694033865345946828}
   _acceleration: 48
   _decceleration: 128
   CanFly: 0
+--- !u!114 &8879053857243264287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f234e58b692fb4f885f91383ab6245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 4387599489495877655}
+    <MaxDistance>k__BackingField: 100
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 2
+  _playerMovement: {fileID: 2346307380554849957}
+  _checkRate: 0.1
+  _maxSlopeAngle: 60
 --- !u!114 &6846853085322839939
 MonoBehaviour:
   m_ObjectHideFlags: 0
