@@ -35,6 +35,8 @@ public class RandomEventsSpawner : NetworkBehaviour
 
         for (int i = 0; i < toSpawnNumber; i++)
         {
+            if (SpawningEvents.Count == 0)
+                continue;
             RandomEvent eventToSpawn = SpawningEvents[Random.Range(0, SpawningEvents.Count - 1)];
 
             PlayerCharacter.Instance.ServerSpawnObject(eventToSpawn.gameObject, transform.position,
