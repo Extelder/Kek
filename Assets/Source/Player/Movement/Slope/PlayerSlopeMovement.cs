@@ -62,7 +62,6 @@ public class PlayerSlopeMovement : NetworkBehaviour
         {
             if (_hit.collider.TryGetComponent<Ground>(out Ground ground))
             {
-                Debug.Log("GroundChecked");
                 float angle = Vector3.Angle(Vector3.up, _hit.normal);
                 return angle < _maxSlopeAngle && angle != 0;
             }
