@@ -17,35 +17,47 @@ public class EnemyRandomMove : NetworkBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private float _minimalRemainingDistance;
 
+    private Vector3 _result;
+    
     public override void OnStartServer()
     {
         base.OnStartClient();
         StartCoroutine(GettingRandomPointOnNavMesh());
     }
 
-    public bool GetRandomPointOnNavMesh(out Vector3 result)
+    public bool GetRandomPointOnNavMesh()
     {
-        Debug.Log("Getting");
         Vector3 randomDirection = Random.insideUnitSphere * _radius;
         Vector3 randomPoint = _center + randomDirection;
 
         NavMeshHit hit;
         if (NavMesh.SamplePosition(randomPoint, out hit, _radius, NavMesh.AllAreas))
         {
-            result = hit.position;
-            Debug.Log("SetDestination");
-            if (_enemyNavMeshMove.Agent.remainingDistance <= _minimalRemainingDistance)
-                _enemyNavMeshMove.SetDestinationServer(result);
+            _result = hit.position;
 
             return true;
         }
 
-        result = Vector3.zero;
-        return GetRandomPointOnNavMesh(out result);
+        _result = Vector3.zero;
+        return false;
     }
+
+    private bool ReachedPoint() => _enemyNavMeshMove.Agent.remainingDistance <= _minimalRemainingDistance;
 
     private IEnumerator GettingRandomPointOnNavMesh()
     {
-        yield return new WaitUntil(()=> GetRandomPointOnNavMesh(out Vector3 result));
+        while (true)
+        {
+            yield return new WaitUntil(()=> GetRandomPointOnNavMesh());
+            _enemyNavMeshMove.SetDestinationServer(_result);
+            yield return new WaitUntil(()=> ReachedPoint());
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (!base.IsOwner)
+            return;
+        StopAllCoroutines();
     }
 }
