@@ -1,35 +1,19 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TractorEvent : RandomEvent
+public class BazookaEvent : RandomEvent
 {
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [SerializeField] private AudioSource _audio;
+    [SerializeField] private BazookaAttack _bazooka;
     private PlayerCharacter _target;
-    [SerializeField] Transform[] wheels;
-    [SerializeField] float rpm = 180f;
-
-    public enum Axis
-    {
-        PlusX,
-        MinusX,
-        PlusY,
-        MinusY,
-        PlusZ,
-        MinusZ
-    }
-
-    [SerializeField] Axis spinAxis = Axis.PlusX;
-
-    Vector3 AxisVec => spinAxis switch
-    {
-        Axis.PlusX => Vector3.right, Axis.MinusX => Vector3.left,
-        Axis.PlusY => Vector3.up, Axis.MinusY => Vector3.down,
-        Axis.PlusZ => Vector3.forward, Axis.MinusZ => Vector3.back
-    };
+    private float _delayUpdate;
+    [SerializeField] private LayerMask _mask;
+    private float _delayAfterAttack;
+    private bool _attack;
 
     public override void StartEvent()
     {
@@ -49,6 +33,7 @@ public class TractorEvent : RandomEvent
         if (Agent != null && _target != null)
             Agent.SetDestination(_target.transform.position);
         if (_audio) _audio.Play();
+        StartCoroutine(UpdateWithDelay());
     }
 
     private PlayerCharacter FindNearestPlayerCharacter(Vector3 fromPosition)
@@ -71,13 +56,32 @@ public class TractorEvent : RandomEvent
         return nearest;
     }
 
-    private void Update()
+    private IEnumerator UpdateWithDelay()
     {
-        Agent.SetDestination(_target.transform.position);
-        float deg = rpm * 6f * Time.deltaTime; // 360/60
-        var ax = AxisVec;
-        for (int i = 0; i < (wheels?.Length ?? 0); i++)
-            if (wheels[i])
-                wheels[i].Rotate(ax, deg, Space.Self);
+        while (true)
+        {
+            yield return new WaitForSeconds(_delayUpdate);
+            _target = FindNearestPlayerCharacter(transform.position);
+            if (Agent != null && _target != null)
+                Agent.SetDestination(_target.transform.position);
+            
+        }
+    }
+
+    private IEnumerator AttackWait()
+    {
+        if (_attack)
+        {
+            yield break;
+        }
+        _attack = true;
+        Attack(_target);
+        yield return new WaitForSeconds(_delayAfterAttack);
+        _attack = false;
+    }
+
+    private void Attack(PlayerCharacter AttackLocation)
+    {
+        _bazooka.Attack(AttackLocation);
     }
 }
