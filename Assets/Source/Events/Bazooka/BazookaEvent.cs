@@ -10,9 +10,9 @@ public class BazookaEvent : RandomEvent
     [SerializeField] private AudioSource _audio;
     [SerializeField] private BazookaAttack _bazooka;
     private PlayerCharacter _target;
-    private float _delayUpdate;
+    [SerializeField] private float _delayUpdate;
     [SerializeField] private LayerMask _mask;
-    private float _delayAfterAttack;
+    [SerializeField] private float _delayAfterAttack;
     private bool _attack;
 
     public override void StartEvent()
@@ -63,19 +63,34 @@ public class BazookaEvent : RandomEvent
             yield return new WaitForSeconds(_delayUpdate);
             _target = FindNearestPlayerCharacter(transform.position);
             if (Agent != null && _target != null)
+            {
                 Agent.SetDestination(_target.transform.position);
-            
+                AttackWait();
+            }
         }
     }
 
-    private IEnumerator AttackWait()
+    private void AttackWait()
     {
         if (_attack)
         {
-            yield break;
+            return;
+        }
+
+        if (Physics.Raycast(transform.position, _target.transform.position - transform.position, out RaycastHit hit, 10000f, _mask))
+        {
+            if (!hit.collider.GetComponent<PlayerCharacter>())
+            {
+                return;
+            }
         }
         _attack = true;
         Attack(_target);
+        StartCoroutine(WaitAfterAttack());
+    }
+
+    private IEnumerator WaitAfterAttack()
+    {
         yield return new WaitForSeconds(_delayAfterAttack);
         _attack = false;
     }
