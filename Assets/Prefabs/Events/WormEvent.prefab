@@ -4762,7 +4762,7 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
-  - {fileID: 0}
+  - {fileID: -2395600617990982459}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -4787,7 +4787,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 10
+  <PrefabId>k__BackingField: 34
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 12021599567183117419
   <SceneId>k__BackingField: 0
@@ -4808,9 +4808,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7b0950d1f46924e9d5c451e3e1a247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 132438768994226271}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 132438768994226271}
+  _cinemachineImpulse: {fileID: 1036281953778992210}
   _retargetDelay: 5
   _lookAtSpeed: 3
   _moveSpeed: 4
@@ -4830,7 +4831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_ImpulseShape: 2
+    m_ImpulseShape: 4
     m_CustomImpulseShape:
       serializedVersion: 2
       m_Curve: []
@@ -4868,7 +4869,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 20.48
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0, y: -1, z: 0}
+  m_DefaultVelocity: {x: 0, y: 0.4, z: 0}
 --- !u!1001 &6248545011654022740
 PrefabInstance:
   m_ObjectHideFlags: 0

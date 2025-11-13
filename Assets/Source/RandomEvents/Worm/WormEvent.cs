@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using FishNet.Object;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -8,6 +10,8 @@ using Random = UnityEngine.Random;
 
 public class WormEvent : RandomEvent
 {
+    [SerializeField] private CinemachineImpulseSource _cinemachineImpulse;
+
     [SerializeField] private float _retargetDelay;
     [SerializeField] private float _lookAtSpeed;
     [SerializeField] private float _moveSpeed;
@@ -22,6 +26,12 @@ public class WormEvent : RandomEvent
 
     private bool _tired = false;
 
+    private float _damageCooldown = 1f;
+
+    private bool _canDamage = true;
+
+    private Coroutine _waitingForNewPlayerCoroutine;
+
     public override void StartEvent()
     {
         _target =
@@ -29,17 +39,44 @@ public class WormEvent : RandomEvent
 
         _mountAndBlade.OnCollisionEnterAsObservable().Subscribe(_ =>
             {
+                ShakeServer();
                 if (_tired)
                     return;
                 if (_.gameObject.TryGetComponent<PlayerHitBox>(out PlayerHitBox PlayerHitBox))
                 {
                     Debug.LogError("Player");
+                    if (_canDamage)
+                    {
+                        PlayerHitBox.TakeDamage(20);
+                        StartCoroutine(WaitForDamageCooldown());
+                    }
 
-                    StopAllCoroutines();
-                    StartCoroutine(WaitingForNewPlayer());
+                    if (_waitingForNewPlayerCoroutine != null)
+                        StopCoroutine(_waitingForNewPlayerCoroutine);
+                    _waitingForNewPlayerCoroutine = StartCoroutine(WaitingForNewPlayer());
                 }
             }
         ).AddTo(_disposable);
+    }
+
+    private IEnumerator WaitForDamageCooldown()
+    {
+        _canDamage = false;
+        yield return new WaitForSeconds(_damageCooldown);
+        _canDamage = true;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ShakeServer()
+    {
+        ShakeObserver();
+    }
+
+
+    [ObserversRpc]
+    private void ShakeObserver()
+    {
+        _cinemachineImpulse.GenerateImpulse();
     }
 
     private IEnumerator WaitingForNewPlayer()

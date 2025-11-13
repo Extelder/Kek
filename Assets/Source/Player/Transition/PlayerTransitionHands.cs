@@ -10,6 +10,8 @@ using Observable = UniRx.Observable;
 
 public class PlayerTransitionHands : MonoBehaviour
 {
+    [SerializeField] private float _zPointerOffset = 1.202f;
+    
     [SerializeField] private WeaponSway _sway;
     [SerializeField] private RaycastSettings _raycastSettings;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
@@ -100,7 +102,7 @@ public class PlayerTransitionHands : MonoBehaviour
                 if (hit.collider.TryGetComponent<Monitor>(out Monitor Monitor))
                 {
                     _character.FingerLookAtPoint.position =
-                        new Vector3(hit.point.x, hit.point.y, 1.202f);
+                        new Vector3(hit.point.x, hit.point.y, transform.forward.z * _zPointerOffset);
                 }
             }
         }).AddTo(_raycastCheckDisposable);
