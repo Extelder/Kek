@@ -15,6 +15,8 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private string _guitar;
     [SerializeField] private string _sign;
     [SerializeField] private string _smoke;
+    [SerializeField] private string _rpgShoot;
+    [SerializeField] private string _rpgTake;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _fpsAnimator;
@@ -88,6 +90,21 @@ public class PlayerAnimator : MonoBehaviour
     {
         SetAnimationBoolAndDisableOthers(_smoke, true);
     }
+    
+    public void RPGShootAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_rpgShoot, true);
+    }
+
+    public void RPGTakeAnim()
+    {
+        SetAnimationBoolAndDisableOthers(_rpgTake, true);
+    }
+
+    public void RPGTakeStopAnim()
+    {
+        SetAnimationBool(_rpgTake, false);
+    }
 
     public void ResetAnim()
     {
@@ -135,6 +152,7 @@ public class PlayerAnimator : MonoBehaviour
         SetAnimationBool(_guitar, false);
         SetAnimationBool(_sign, false);
         SetAnimationBool(_smoke, false);
+        SetAnimationBool(_rpgShoot, false);
         ResetAnimationTrigger(_reset);
     }
 
