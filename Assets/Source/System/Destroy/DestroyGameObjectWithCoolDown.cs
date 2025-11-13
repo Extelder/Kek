@@ -26,7 +26,7 @@ public class DestroyGameObjectWithCoolDown : NetworkBehaviour
         DestroyObserverer();
     }
 
-    [ObserversRpc(BufferLast = true)]
+    [ObserversRpc]
     private void DestroyObserverer()
     {
         Despawn();
