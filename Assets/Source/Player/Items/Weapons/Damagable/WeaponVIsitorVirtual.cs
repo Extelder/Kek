@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WeaponVIsitorVirtual : IWeaponVisitor
 {
+    public void Visit(RPGProjectile rpgProjectile)
+    {
+    }
+
     public virtual void Visit(TNTThrowable tntThrowable)
     {
     }
