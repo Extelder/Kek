@@ -11,6 +11,7 @@ public class BazookaBullet : MonoBehaviour
     [SerializeField] private AudioSource _audioFly;
     [SerializeField] private GameObject _bulletOff;
     [SerializeField] private Collider _bulletCollider;
+    [SerializeField] private ParticleSystem _gasFx;  
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class BazookaBullet : MonoBehaviour
     private IEnumerator DestroyDelay()
     {
         _audioFly.Stop();
+        _gasFx.Play();
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
