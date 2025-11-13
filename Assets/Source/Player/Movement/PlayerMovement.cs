@@ -8,9 +8,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : NetworkBehaviour
 {
-    [field :SerializeField] public float Speed { get; private set; }
+    [field: SerializeField] public float Speed { get; private set; }
     public Vector3 InputVector { get; private set; } = new Vector3(0, 0, 0);
-    
+
     [SerializeField] private PlayerAnimator _animator;
 
     [SerializeField] private PlayerCharacter _character;
@@ -25,8 +25,10 @@ public class PlayerMovement : NetworkBehaviour
     private PlayerBinds _binds;
 
     private CompositeDisposable _disposable = new CompositeDisposable();
-    
+
     private Vector3 _currentVelocity;
+
+    private float _speedMultiplier = 1;
 
     public bool CanFly;
 
@@ -60,8 +62,8 @@ public class PlayerMovement : NetworkBehaviour
 
             Moving.Value = Mathf.Abs(InputVector.x) > 0 || Mathf.Abs(InputVector.z) > 0;
 
-            Vector3 desiredVelocityXZ = new Vector3(InputVector.x * Speed, 0,
-                InputVector.z * Speed);
+            Vector3 desiredVelocityXZ = new Vector3(InputVector.x * Speed * _speedMultiplier, 0,
+                InputVector.z * Speed * _speedMultiplier);
 
             if (Moving.Value || _groundChecker.Detected)
                 _currentVelocity =
@@ -97,6 +99,19 @@ public class PlayerMovement : NetworkBehaviour
         _animator.SetLocomotionBlendTreeSpeed(1.5f);
     }
 
+
+    public void BoostSpeed(float value, float forTime)
+    {
+        StopAllCoroutines();
+        _speedMultiplier = value;
+        StartCoroutine(WaitForeBoost(forTime));
+    }
+
+    private IEnumerator WaitForeBoost(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _speedMultiplier = 1;
+    }
 
     private void OnDisable()
     {

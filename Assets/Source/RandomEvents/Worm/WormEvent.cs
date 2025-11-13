@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using FishNet.Object;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -8,6 +10,8 @@ using Random = UnityEngine.Random;
 
 public class WormEvent : RandomEvent
 {
+    [SerializeField] private CinemachineImpulseSource _cinemachineImpulse;
+
     [SerializeField] private float _retargetDelay;
     [SerializeField] private float _lookAtSpeed;
     [SerializeField] private float _moveSpeed;
@@ -29,6 +33,7 @@ public class WormEvent : RandomEvent
 
         _mountAndBlade.OnCollisionEnterAsObservable().Subscribe(_ =>
             {
+                ShakeServer();
                 if (_tired)
                     return;
                 if (_.gameObject.TryGetComponent<PlayerHitBox>(out PlayerHitBox PlayerHitBox))
@@ -40,6 +45,19 @@ public class WormEvent : RandomEvent
                 }
             }
         ).AddTo(_disposable);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ShakeServer()
+    {
+        ShakeObserver();
+    }
+
+
+    [ObserversRpc]
+    private void ShakeObserver()
+    {
+        _cinemachineImpulse.GenerateImpulse();
     }
 
     private IEnumerator WaitingForNewPlayer()

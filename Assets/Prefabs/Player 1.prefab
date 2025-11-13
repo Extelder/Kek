@@ -4524,6 +4524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d66cbece7627774197ac034864167bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _zPointerOffset: 1.202
   _sway: {fileID: 2634763617331935320}
   _raycastSettings:
     <Origin>k__BackingField: {fileID: 0}
@@ -28316,6 +28317,9 @@ MonoBehaviour:
   _actionName: MainShoot
   CanUse: 1
   AlreadyUsing: 0
+  _boostSpeed: 2
+  _timeBoostSpeed: 3
+  _movement: {fileID: 2346307380554849957}
   _volume: {fileID: 722867672703079798}
   _inventory: {fileID: 4425973244517120947}
 --- !u!1 &8937973355825172946
