@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CigaretteAnimator : ItemAnimator
 {
+    [SerializeField] private VolumeLerp _volume;
+
     [SerializeField] private PlayerInventory _inventory;
 
     public override void Attack()
     {
+        _volume.StartLerp();
         _inventory.ClearEquipSlot();
     }
 
