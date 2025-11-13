@@ -12,8 +12,10 @@ public class BazookaBullet : MonoBehaviour
     {
         if (target == null)
         {
+            transform.position += transform.forward * _speed * Time.deltaTime;
             return;
         }
+
         Vector3 dir = (target.transform.position - transform.position).normalized;
         Quaternion targetRot = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, 100f * 100f * Time.deltaTime);
@@ -25,9 +27,8 @@ public class BazookaBullet : MonoBehaviour
         var player = collision.collider.GetComponent<PlayerCharacter>();
         if (player != null)
         {
-            Debug.Log("ТЫ СДОХАВЛОАОВАЫРПАОВЫАРАВЫОРПАВЫОАРВЫОАВЫОАВЫОАВЫОАВЫАРВЫОА");
+            
         }
-
         Destroy(gameObject);
     }
 }
