@@ -26,6 +26,12 @@ public class WormEvent : RandomEvent
 
     private bool _tired = false;
 
+    private float _damageCooldown = 1f;
+
+    private bool _canDamage = true;
+
+    private Coroutine _waitingForNewPlayerCoroutine;
+
     public override void StartEvent()
     {
         _target =
@@ -39,12 +45,25 @@ public class WormEvent : RandomEvent
                 if (_.gameObject.TryGetComponent<PlayerHitBox>(out PlayerHitBox PlayerHitBox))
                 {
                     Debug.LogError("Player");
+                    if (_canDamage)
+                    {
+                        PlayerHitBox.TakeDamage(20);
+                        StartCoroutine(WaitForDamageCooldown());
+                    }
 
-                    StopAllCoroutines();
-                    StartCoroutine(WaitingForNewPlayer());
+                    if (_waitingForNewPlayerCoroutine != null)
+                        StopCoroutine(_waitingForNewPlayerCoroutine);
+                    _waitingForNewPlayerCoroutine = StartCoroutine(WaitingForNewPlayer());
                 }
             }
         ).AddTo(_disposable);
+    }
+
+    private IEnumerator WaitForDamageCooldown()
+    {
+        _canDamage = false;
+        yield return new WaitForSeconds(_damageCooldown);
+        _canDamage = true;
     }
 
     [ServerRpc(RequireOwnership = false)]
