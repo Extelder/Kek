@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class TractorEvent : RandomEvent
 {
@@ -10,6 +12,7 @@ public class TractorEvent : RandomEvent
     [SerializeField] private AudioSource _audio;
     private PlayerCharacter _target;
     [SerializeField] Transform[] wheels;
+    [SerializeField] private GameObject _tractorGood;
     [SerializeField] float rpm = 180f;
 
     public enum Axis
@@ -40,6 +43,7 @@ public class TractorEvent : RandomEvent
     private void StartEventServer()
     {
         SetDestinationObserver();
+        WaitAndDestroy();
     }
 
     [ObserversRpc]
@@ -69,6 +73,20 @@ public class TractorEvent : RandomEvent
         }
 
         return nearest;
+    }
+
+    private IEnumerator WaitAndDestroy()
+    {
+
+        float random = Random.Range(2,3);    
+        yield return new WaitForSeconds(random);
+        Death();
+    }
+    
+    private void Death()
+    {
+        PlayerCharacter.Instance.ServerSpawnObject(_tractorGood, transform.position, transform.rotation);
+        Despawn(gameObject);
     }
 
     private void Update()
