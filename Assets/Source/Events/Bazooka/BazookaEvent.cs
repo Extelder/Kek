@@ -32,7 +32,6 @@ public class BazookaEvent : RandomEvent
         _target = FindNearestPlayerCharacter(transform.position);
         if (Agent != null && _target != null)
             Agent.SetDestination(_target.transform.position);
-        if (_audio) _audio.Play();
         StartCoroutine(UpdateWithDelay());
     }
 
@@ -85,6 +84,7 @@ public class BazookaEvent : RandomEvent
             }
         }
         _attack = true;
+        if (_audio) _audio.Play();
         Attack(_target);
         StartCoroutine(WaitAfterAttack());
     }
