@@ -11,7 +11,7 @@ public class VendingMachine : NetworkBehaviour
     [SerializeField] private NetWorkAnimatorSynchronize _animatorSynchronize;
     [SerializeField] private string _boolName;
     [SerializeField] private float _coolDown;
-
+    
     [field: SerializeField] public bool CanBuy { get; private set; } = true;
     [field: SerializeField] public bool CanInteract = true;
     private BuyableItemData _currentBuyable;

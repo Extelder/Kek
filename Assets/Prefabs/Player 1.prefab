@@ -11985,37 +11985,6 @@ Transform:
   - {fileID: 7579045208259433366}
   m_Father: {fileID: 960756571744963556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3833382542139499363
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6902133428292241131}
-  m_Layer: 3
-  m_Name: SpawnOrigin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6902133428292241131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833382542139499363}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.65254915, y: 0.27206144, z: -0.6524324, w: 0.27293628}
-  m_LocalPosition: {x: 0.01, y: 0.001, z: -0.35}
-  m_LocalScale: {x: 99.999985, y: 100, z: 99.999985}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 414292473975656988}
-  m_LocalEulerAnglesHint: {x: -225.334, y: 90.026, z: 0.08799744}
 --- !u!1 &3844814006600805279
 GameObject:
   m_ObjectHideFlags: 0
@@ -22346,7 +22315,7 @@ MonoBehaviour:
   CanUse: 1
   AlreadyUsing: 0
   _spawnableObject: {fileID: 6587872237093119325, guid: d88ec868b3065224e8ca28025cb155cc, type: 3}
-  _spawnOrigin: {fileID: 6902133428292241131}
+  _spawnOrigin: {fileID: 1945358518379758707}
 --- !u!1 &7135062210060375229
 GameObject:
   m_ObjectHideFlags: 0
@@ -29684,10 +29653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 864e602c54c9d814cab98804349dcc25, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 6902133428292241131}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 864e602c54c9d814cab98804349dcc25, type: 3}
 --- !u!4 &414292473975656988 stripped
