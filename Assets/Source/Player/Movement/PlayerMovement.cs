@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : NetworkBehaviour
 {
     [field: SerializeField] public float Speed { get; private set; }
+    [field :SerializeField] public float Decceleration { get; set; }
     public Vector3 InputVector { get; private set; } = new Vector3(0, 0, 0);
 
     [SerializeField] private PlayerAnimator _animator;
@@ -19,7 +20,6 @@ public class PlayerMovement : NetworkBehaviour
 
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _acceleration;
-    [SerializeField] private float _decceleration;
 
     private Rigidbody _rigidbody;
     private PlayerBinds _binds;
@@ -71,7 +71,7 @@ public class PlayerMovement : NetworkBehaviour
             else if (!Moving.Value)
             {
                 _currentVelocity =
-                    Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, _decceleration * Time.fixedDeltaTime);
+                    Vector3.MoveTowards(_currentVelocity, desiredVelocityXZ, Decceleration * Time.fixedDeltaTime);
             }
 
             if (CanFly)

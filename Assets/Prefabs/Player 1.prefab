@@ -14744,6 +14744,7 @@ MonoBehaviour:
   <PlayerInventory>k__BackingField: {fileID: 4425973244517120947}
   <PlayerHatsEquip>k__BackingField: {fileID: 5749772377050749133}
   <PlayerWallet>k__BackingField: {fileID: 7160809295371563853}
+  <PlayerMovement>k__BackingField: {fileID: 0}
   _virtualCamera: {fileID: 8349068424952300896}
   _hands: {fileID: 4916814368379587111}
   _transitionHands: {fileID: 1708808102751024385}
@@ -14783,12 +14784,12 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <Speed>k__BackingField: 5
+  <Decceleration>k__BackingField: 128
   _animator: {fileID: 6499830973396402101}
   _character: {fileID: 9153910927864380487}
   _runSpeedMultiplier: 1.2
   _groundChecker: {fileID: 694033865345946828}
   _acceleration: 48
-  _decceleration: 128
   CanFly: 0
 --- !u!114 &8879053857243264287
 MonoBehaviour:

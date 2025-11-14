@@ -23,6 +23,7 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public PlayerInventory PlayerInventory { get; private set; }
     [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
     [field: SerializeField] public PlayerWallet PlayerWallet { get; private set; }
+    [field: SerializeField] public PlayerMovement PlayerMovement { get; private set; }
 
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private GameObject _hands;
