@@ -22,6 +22,7 @@ public class BarrelExplosion : NetworkBehaviour
     private void InteractObserver()
     {
         Rigidbody rb = _object.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
         Vector3 dir = (Vector3.up * 0.7f) + (Random.insideUnitSphere * 0.45f);
         dir.Normalize();
         float force = _strenge;

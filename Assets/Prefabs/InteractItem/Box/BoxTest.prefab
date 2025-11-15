@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4212750228118939379}
   - component: {fileID: 4522230996624453969}
   - component: {fileID: 889116642390922127}
+  - component: {fileID: 2845114707793726485}
   m_Layer: 0
   m_Name: wooden_crate_5.002
   m_TagString: Untagged
@@ -107,10 +108,31 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2845114707793726485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099327199279746082}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009528723, y: 0.0004667538, z: 0.010800001}
+  m_Center: {x: 0.0047643664, y: -0.00047569163, z: -0.00040822203}
 --- !u!1 &1331856890386427800
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +145,7 @@ GameObject:
   - component: {fileID: 3332347926993683960}
   - component: {fileID: 1885219856495442280}
   - component: {fileID: 6801922148537123491}
+  - component: {fileID: 6573471259342698261}
   m_Layer: 0
   m_Name: wooden_crate_5
   m_TagString: Untagged
@@ -139,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 1331856890386427800}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000014106499, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.53737956, y: 0.45130503, z: 0.038663357}
+  m_LocalPosition: {x: -0.53737956, y: 0.471, z: 0.038663357}
   m_LocalScale: {x: 100, y: 100.000015, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -218,10 +241,31 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6573471259342698261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331856890386427800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010879663, y: 0.00069933094, z: 0.0108}
+  m_Center: {x: 0.0054398314, y: 0.00035940544, z: -0.0004082214}
 --- !u!1 &3172453080235473110
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +440,7 @@ GameObject:
   - component: {fileID: 5016936469418357598}
   - component: {fileID: 2303487508818899315}
   - component: {fileID: 2518542043808801828}
+  - component: {fileID: 4814558159808943540}
   m_Layer: 0
   m_Name: wooden_crate_5.005
   m_TagString: Untagged
@@ -491,10 +536,31 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &4814558159808943540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292627291990206120}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009481659, y: 0.00058295846, z: 0.0108}
+  m_Center: {x: 0.006150823, y: -0.0004175908, z: -0.00040821964}
 --- !u!1 &4232105498965944983
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +573,7 @@ GameObject:
   - component: {fileID: 6736847631358991632}
   - component: {fileID: 9150845058731983845}
   - component: {fileID: 6113098612839297778}
+  - component: {fileID: 8716139405962945011}
   m_Layer: 0
   m_Name: wooden_crate_5.004
   m_TagString: Untagged
@@ -602,10 +669,31 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &8716139405962945011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232105498965944983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009691617, y: 0.0004471067, z: 0.0108}
+  m_Center: {x: 0.004845811, y: -0.0004855161, z: -0.00040821967}
 --- !u!1 &4460511662273694920
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +706,7 @@ GameObject:
   - component: {fileID: 3517531772178873244}
   - component: {fileID: 4355565655502174302}
   - component: {fileID: 6181476275388787755}
+  - component: {fileID: 4156052100007100322}
   m_Layer: 0
   m_Name: wooden_crate_5.003
   m_TagString: Untagged
@@ -713,10 +802,31 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &4156052100007100322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460511662273694920}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009506746, y: 0.00048839964, z: 0.0108}
+  m_Center: {x: 0.0047533736, y: -0.00046487214, z: -0.00040822144}
 --- !u!1 &4939871263126697937
 GameObject:
   m_ObjectHideFlags: 0

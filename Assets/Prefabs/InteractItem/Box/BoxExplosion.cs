@@ -21,9 +21,11 @@ public class BoxExplosion : NetworkBehaviour
     [ObserversRpc]
     private void InteractObserver()
     {
+        GetComponent<Collider>().enabled = false;
         for (int i = 0; i < _object.Length; i++)
         {
             Rigidbody rb = _object[i].GetComponent<Rigidbody>();
+            rb.isKinematic = false;
             Vector3 dir = (Vector3.up * 0.3f) + (Random.insideUnitSphere * 0.2f);
             dir.Normalize();
             float force = _strenge;

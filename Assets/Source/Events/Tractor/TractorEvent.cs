@@ -44,14 +44,14 @@ public class TractorEvent : RandomEvent
     {
         SetDestinationObserver();
         WaitAndDestroy();
+        _target = FindNearestPlayerCharacter(transform.position);
+        if (Agent != null && _target != null)
+            Agent.SetDestination(_target.transform.position);
     }
 
     [ObserversRpc]
     private void SetDestinationObserver()
     {
-        _target = FindNearestPlayerCharacter(transform.position);
-        if (Agent != null && _target != null)
-            Agent.SetDestination(_target.transform.position);
         if (_audio) _audio.Play();
     }
 
@@ -91,6 +91,7 @@ public class TractorEvent : RandomEvent
 
     private void Update()
     {
+        if (!IsServer) return;
         Agent.SetDestination(_target.transform.position);
         float deg = rpm * 6f * Time.deltaTime; // 360/60
         var ax = AxisVec;
