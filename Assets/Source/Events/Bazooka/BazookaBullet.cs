@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public class BazookaBullet : MonoBehaviour
+public class BazookaBullet : NetworkBehaviour
 {
     [SerializeField] private float _speed;
     public PlayerCharacter target;
@@ -18,28 +19,31 @@ public class BazookaBullet : MonoBehaviour
         _audioFly.Play();
     }
 
-    void Update()
+    private void Update()
     {
         if (target == null)
         {
-            transform.position += transform.forward * _speed * Time.deltaTime;
             return;
         }
-
         Vector3 dir = (target.transform.position - transform.position).normalized;
         Quaternion targetRot = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, 100f * 100f * Time.deltaTime);
         transform.position += transform.forward * _speed * Time.deltaTime;
     }
+    [ObserversRpc]
+    private void OnDestroy()
+    {
+        _audio.Play();
+        _bulletOff.SetActive(false);
+        _bulletCollider.enabled = false;
+    }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         var player = collision.collider.GetComponent<PlayerCharacter>();
         if (player != null)
         {
-            _audio.Play();
-            _bulletOff.SetActive(false);
-            _bulletCollider.enabled = false;
+            OnDestroy();
             StartCoroutine(DestroyDelay());
         }
         
@@ -49,7 +53,7 @@ public class BazookaBullet : MonoBehaviour
     {
         _audioFly.Stop();
         _gasFx.Play();
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(2.1f);
+        PlayerCharacter.Instance.Despawn(gameObject);
     }
 }

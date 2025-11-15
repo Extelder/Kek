@@ -13,6 +13,7 @@ public class ValveSpin : NetworkBehaviour
     private bool IsSpin;
     private float _currentAngle;
     private bool canSpin = true;
+    private int _currentInteractPlayers;
     private void Start()
     {
         _audio.Play();
@@ -23,17 +24,22 @@ public class ValveSpin : NetworkBehaviour
     {
         if (canSpin) ObserverPress(true);
     }
-
+    [ObserversRpc]
     private void ObserverPress(bool press)
     {
         if (press)
         {
             _audio.UnPause();
             IsSpin = true;
+            _currentInteractPlayers++;
             return;
         }
-        _audio.Pause();
-        IsSpin = false;
+        _currentInteractPlayers--;
+        if (!(_currentInteractPlayers > 0))
+        {
+            IsSpin = false;
+            _audio.Pause();
+        }
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -53,7 +59,7 @@ public class ValveSpin : NetworkBehaviour
         {
             if (_currentAngle < _maxAngle)
             {
-                float delta = _speed * Time.deltaTime;
+                float delta = _speed * _currentInteractPlayers * Time.deltaTime;
                 if (_currentAngle + delta > _maxAngle)
                     delta = _maxAngle - _currentAngle;
                 _currentAngle += delta;

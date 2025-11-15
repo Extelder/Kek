@@ -23,16 +23,15 @@ public class BazookaEvent : RandomEvent
     [ServerRpc(RequireOwnership = false)]
     private void StartEventServer()
     {
-        SetDestinationObserver();
+        _target = FindNearestPlayerCharacter(transform.position);
+        if (Agent != null && _target != null)
+            Agent.SetDestination(_target.transform.position);
+        StartCoroutine(UpdateWithDelay());
     }
 
     [ObserversRpc]
     private void SetDestinationObserver()
     {
-        _target = FindNearestPlayerCharacter(transform.position);
-        if (Agent != null && _target != null)
-            Agent.SetDestination(_target.transform.position);
-        StartCoroutine(UpdateWithDelay());
     }
 
     private PlayerCharacter FindNearestPlayerCharacter(Vector3 fromPosition)
@@ -61,12 +60,9 @@ public class BazookaEvent : RandomEvent
         {
             yield return new WaitForSeconds(_delayUpdate);
             _target = FindNearestPlayerCharacter(transform.position);
-            if (Agent != null && _target != null)
-            {
-                Agent.SetDestination(_target.transform.position);
-                AttackWait();
+            Agent.SetDestination(_target.transform.position);
+            AttackWait();
             }
-        }
     }
 
     private void AttackWait()
@@ -85,7 +81,7 @@ public class BazookaEvent : RandomEvent
         }
         _attack = true;
         if (_audio) _audio.Play();
-        Attack(_target);
+        Attack();
         StartCoroutine(WaitAfterAttack());
     }
 
@@ -95,8 +91,8 @@ public class BazookaEvent : RandomEvent
         _attack = false;
     }
 
-    private void Attack(PlayerCharacter AttackLocation)
+    private void Attack()
     {
-        _bazooka.Attack(AttackLocation);
+        _bazooka.Attack(_target);
     }
 }
