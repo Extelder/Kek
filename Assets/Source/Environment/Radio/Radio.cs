@@ -12,6 +12,11 @@ public class Radio : NetworkBehaviour, IInteractable
         SetSoundPause(!_audioSource.isPlaying);
     }
 
+    public void InteractCancelled()
+    {
+        
+    }
+
     [ServerRpc]
     public void SetSoundPause(bool pause)
     {

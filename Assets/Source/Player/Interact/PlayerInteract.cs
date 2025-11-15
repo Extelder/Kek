@@ -18,6 +18,7 @@ public class PlayerInteract : NetworkBehaviour
     private CompositeDisposable _disposable = new CompositeDisposable();
     private InteractItem _currentItem;
     private PlayerBinds _binds;
+    private IInteractable _nowInteractable;
 
     public override void OnStartClient()
     {
@@ -27,16 +28,24 @@ public class PlayerInteract : NetworkBehaviour
         CheckInteractable();
         _binds = PlayerCharacter.Instance.Binds;
         _binds.Character.Interact.started += OnButtonPerformed;
+        _binds.Character.Interact.canceled += OnButtonCancelled;
+    }
+
+    private void OnButtonCancelled(InputAction.CallbackContext obj)
+    {
+        if (_nowInteractable != null) _nowInteractable.InteractCancelled();
     }
 
     private void OnButtonPerformed(InputAction.CallbackContext obj)
     {
+        _nowInteractable = null;
         bool hitted = Physics.Raycast(_raycastSettings.Origin.position, _raycastSettings.Origin.forward, out _hit,
             _raycastSettings.MaxDistance, _raycastSettings.LayerMask);
         if (hitted)
         {
             if (_hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
             {
+                _nowInteractable = interactable;
                 interactable.Interact();
             }
             if (_hit.collider.TryGetComponent<PlayerCart>(out PlayerCart PlayerCart))

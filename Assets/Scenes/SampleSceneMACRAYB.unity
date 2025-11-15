@@ -19828,6 +19828,71 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1001 &716313815
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0144227
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.127
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.973207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000006537948
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.22993076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000015446615
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 26.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781884834566100396, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907761302524643392, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907761302524643392, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: <SceneId>k__BackingField
+      value: 1001911705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553179445020561174, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
+      propertyPath: m_Name
+      value: Valve
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b6b451464baab8488be68966b6d6f87, type: 3}
 --- !u!1 &736056140
 GameObject:
   m_ObjectHideFlags: 0
@@ -110873,10 +110938,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 371734255}
   _networkObjectCache: {fileID: 0}
   _generator: {fileID: 1259111793}
-  _events:
-  - {fileID: -2395600617990982459, guid: 2d2f6176b73dd034cac94549d17e357d, type: 3}
-  - {fileID: 5760006599427077890, guid: 55b3264f17fca0e4cb3d68c6dec57094, type: 3}
-  - {fileID: 7964188866673006613, guid: 210e08493df75b745b445d048baea425, type: 3}
+  _events: []
   _randomEventsToSpawnRange: {x: 1, y: 5}
 --- !u!1001 &2070037761
 PrefabInstance:
@@ -112316,3 +112378,4 @@ SceneRoots:
   - {fileID: 1117484432}
   - {fileID: 1763926675}
   - {fileID: 1260583635}
+  - {fileID: 716313815}

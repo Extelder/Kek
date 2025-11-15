@@ -13,6 +13,11 @@ public class InteractItem : NetworkBehaviour, IInteractable
         Item.Interact();
     }
 
+    public void InteractCancelled()
+    {
+        Item.InteractCancelled();
+    }
+
     public virtual void Detected()
     {
     }

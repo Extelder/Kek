@@ -8,4 +8,9 @@ using UnityEngine;
 public abstract class Item
 {
     public abstract void Interact();
+    
+    public virtual void InteractCancelled() 
+    {
+        
+    }
 }
