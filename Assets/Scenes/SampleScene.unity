@@ -61729,9 +61729,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51a49799c74678e40ba4cd9fb9d4531d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1259111797}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51a49799c74678e40ba4cd9fb9d4531d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1259111800}
   m_SourcePrefab: {fileID: 100100000, guid: 51a49799c74678e40ba4cd9fb9d4531d, type: 3}
 --- !u!1 &1259111790 stripped
 GameObject:
@@ -61873,26 +61870,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1259111792}
   _networkObjectCache: {fileID: 0}
---- !u!114 &1259111800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259111790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab67dd612a8d1fc459b437e15a63cc76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 1259111792}
-  _networkObjectCache: {fileID: 0}
-  _ores:
-  - {fileID: 5340537181173947690, guid: c62efcb7cfad06c49b2b1a10ff0b1e12, type: 3}
-  - {fileID: 332587761613752044, guid: bc9a8edba7ab5584cb58689330d3ac21, type: 3}
-  - {fileID: 2794485286712187446, guid: 9e202937c20f7f04a8873a492fec7fd1, type: 3}
-  - {fileID: 3570708055885830674, guid: cf4dcbe68b23c1d4d8b057ca29c3f316, type: 3}
 --- !u!1001 &1260583635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61904,6 +61881,10 @@ PrefabInstance:
     - target: {fileID: 432685487874487616, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
       propertyPath: _maxPanelIndex
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027131399985311314, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1137310265748647781, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
       propertyPath: <SceneId>k__BackingField
@@ -62008,6 +61989,10 @@ PrefabInstance:
     - target: {fileID: 8679505845759417481, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 3857710341
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021505377124648540, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9063554928301281846, guid: 4863b396ba2da8b48bdaeb3ec99d9433, type: 3}
       propertyPath: <SceneId>k__BackingField
@@ -111322,8 +111307,6 @@ MonoBehaviour:
   _generator: {fileID: 1259111793}
   _events:
   - {fileID: -2395600617990982459, guid: 2d2f6176b73dd034cac94549d17e357d, type: 3}
-  - {fileID: 5760006599427077890, guid: 55b3264f17fca0e4cb3d68c6dec57094, type: 3}
-  - {fileID: 7964188866673006613, guid: 210e08493df75b745b445d048baea425, type: 3}
   _randomEventsToSpawnRange: {x: 1, y: 5}
 --- !u!1001 &2070037761
 PrefabInstance:
