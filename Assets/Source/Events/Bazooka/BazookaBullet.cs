@@ -12,7 +12,7 @@ public class BazookaBullet : NetworkBehaviour
     [SerializeField] private AudioSource _audioFly;
     [SerializeField] private GameObject _bulletOff;
     [SerializeField] private Collider _bulletCollider;
-    [SerializeField] private ParticleSystem _gasFx;  
+    [SerializeField] private ParticleSystem _gasFx;
 
     private void Start()
     {
@@ -25,17 +25,25 @@ public class BazookaBullet : NetworkBehaviour
         {
             return;
         }
+
         Vector3 dir = (target.transform.position - transform.position).normalized;
         Quaternion targetRot = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, 100f * 100f * Time.deltaTime);
         transform.position += transform.forward * _speed * Time.deltaTime;
     }
+
     [ObserversRpc]
-    private void OnDestroy()
+    private void OnDestroyObserver()
     {
         _audio.Play();
         _bulletOff.SetActive(false);
         _bulletCollider.enabled = false;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void OnDestroyServer()
+    {
+        OnDestroyObserver();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -43,10 +51,9 @@ public class BazookaBullet : NetworkBehaviour
         var player = collision.collider.GetComponent<PlayerCharacter>();
         if (player != null)
         {
-            OnDestroy();
+            OnDestroyServer();
             StartCoroutine(DestroyDelay());
         }
-        
     }
 
     private IEnumerator DestroyDelay()

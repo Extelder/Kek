@@ -36,7 +36,10 @@ public class BazookaEvent : RandomEvent
 
     private PlayerCharacter FindNearestPlayerCharacter(Vector3 fromPosition)
     {
-        PlayerCharacter[] characters = PlayerCharacter.Instance.Characters.ToArray();
+        if (PlayerCharacter.Instance == null)
+            return null;
+        PlayerCharacter[]
+            characters = PlayerCharacter.Instance.Characters.ToArray();
         PlayerCharacter nearest = null;
         float minDistSq = float.MaxValue;
 
@@ -62,7 +65,7 @@ public class BazookaEvent : RandomEvent
             _target = FindNearestPlayerCharacter(transform.position);
             Agent.SetDestination(_target.transform.position);
             AttackWait();
-            }
+        }
     }
 
     private void AttackWait()
@@ -72,13 +75,15 @@ public class BazookaEvent : RandomEvent
             return;
         }
 
-        if (Physics.Raycast(transform.position, _target.transform.position - transform.position, out RaycastHit hit, 10000f, _mask))
+        if (Physics.Raycast(transform.position, _target.transform.position - transform.position, out RaycastHit hit,
+            10000f, _mask))
         {
             if (!hit.collider.GetComponent<PlayerCharacter>())
             {
                 return;
             }
         }
+
         _attack = true;
         if (_audio) _audio.Play();
         Attack();

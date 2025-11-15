@@ -12,7 +12,7 @@ public abstract class RandomEvent : NetworkBehaviour
         if (IsServer)
         {
             StartEvent();
-            RandomEventsSpawner.Instance.RegisterSpawnedEvent(NetworkObject);
+            RandomEventsSpawner.Instance?.RegisterSpawnedEvent(NetworkObject);
         }
     }
 }

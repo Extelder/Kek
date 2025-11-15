@@ -19,6 +19,8 @@ public class MultiAimNearestPlayer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.02f);
+            if (PlayerCharacter.Instance == null)
+                continue;
             PlayerCharacter nearestCharacter = FindNearestPlayerCharacter(transform.position);
             _lookPoint.position = nearestCharacter.TargetPoint.position;
         }
