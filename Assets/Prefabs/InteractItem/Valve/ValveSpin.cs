@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ValveSpin : NetworkBehaviour
 {
+    public event Action SpinCompleteEvent;
+    
     [SerializeField] private GameObject _valveObject;
     [SerializeField] private AudioSource _audio;
     [SerializeField] private float _speed;
@@ -50,7 +52,7 @@ public class ValveSpin : NetworkBehaviour
     [ObserversRpc]
     private void SpinComplete()
     {
-        Debug.Log("OKDOSKDOASDASDASDAD");
+        SpinCompleteEvent?.Invoke();
     }
 
     private void Update()
