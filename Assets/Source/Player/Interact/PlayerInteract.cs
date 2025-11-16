@@ -48,6 +48,7 @@ public class PlayerInteract : NetworkBehaviour
                 _nowInteractable = interactable;
                 interactable.Interact();
             }
+
             if (_hit.collider.TryGetComponent<PlayerCart>(out PlayerCart PlayerCart))
             {
                 PlayerCart.Interact(_character);
@@ -71,9 +72,8 @@ public class PlayerInteract : NetworkBehaviour
                 }
             }
 
-            if (_currentItem == null)
-                return; 
-            _currentItem.Lost();
+            if (_currentItem != null)
+                _currentItem.Lost();
             _currentItem = null;
         }).AddTo(_disposable);
     }

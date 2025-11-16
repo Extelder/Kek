@@ -31,10 +31,25 @@ public class OreGenerator : NetworkBehaviour
         {
             if (Generator.Instance.OreSpawnPlaces[i] == null)
                 continue;
+            Vector3 basePos = Generator.Instance.OreSpawnPlaces[i].transform.position;
+            Vector3 spawnPos = basePos + new Vector3(0, 0.1f, 0);
 
-            PlayerCharacter.Instance.ServerSpawnObject(_ores[Random.Range(0, _ores.Length)],
-                Generator.Instance.OreSpawnPlaces[i].transform.position,
-                Quaternion.LookRotation(Generator.Instance.OreSpawnPlaces[i].transform.position, Vector3.up));
+            RaycastHit hit;
+            Vector3 finalNormal = Vector3.forward;
+
+            if (Physics.Raycast(basePos + Vector3.forward * 0.1f, -Vector3.forward, out hit, 1f))
+            {
+                finalNormal = hit.normal;
+            }
+
+            Quaternion rot = Quaternion.LookRotation(finalNormal, Vector3.up);
+
+            PlayerCharacter.Instance.ServerSpawnObject(
+                _ores[Random.Range(0, _ores.Length)],
+                spawnPos,
+                rot
+            );
+
         }
     }
 }
