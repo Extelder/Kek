@@ -20,6 +20,8 @@ public class PlayerInteract : NetworkBehaviour
     private PlayerBinds _binds;
     private IInteractable _nowInteractable;
 
+    public event Action<bool> DetectedStateChanged;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -67,7 +69,20 @@ public class PlayerInteract : NetworkBehaviour
                 if (_hit.collider.TryGetComponent<InteractItem>(out InteractItem interactItem))
                 {
                     _currentItem = interactItem;
+                    DetectedStateChanged?.Invoke(true);
                     _currentItem.Detected();
+                    return;
+                }
+
+                if (_hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
+                {
+                    DetectedStateChanged?.Invoke(true);
+                    return;
+                }
+
+                if (_hit.collider.TryGetComponent<PlayerCart>(out PlayerCart PlayerCart))
+                {
+                    DetectedStateChanged?.Invoke(true);
                     return;
                 }
             }
@@ -75,6 +90,7 @@ public class PlayerInteract : NetworkBehaviour
             if (_currentItem != null)
                 _currentItem.Lost();
             _currentItem = null;
+            DetectedStateChanged?.Invoke(false);
         }).AddTo(_disposable);
     }
 
