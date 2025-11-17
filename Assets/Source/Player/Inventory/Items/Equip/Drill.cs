@@ -7,17 +7,17 @@ using UnityEngine.InputSystem;
 
 public class Drill : EquipItem
 {
-    [SerializeField] private SoundPlayPause _music;
-
+    public event Action<bool> StartedDrilling;
+    
     public override void OnInputReceived(InputAction.CallbackContext obj)
     {
-        _music.Pause(false); 
         PlayerAnimator.DrillAnim();
+        StartedDrilling?.Invoke(false);
     }
 
     public override void OnInputCanceled(InputAction.CallbackContext obj)
     {
-        _music.Pause(true); 
         PlayerAnimator.DisableAll();
+        StartedDrilling?.Invoke(true);
     }
 }

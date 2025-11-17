@@ -14791,6 +14791,7 @@ MonoBehaviour:
   _groundChecker: {fileID: 694033865345946828}
   _acceleration: 48
   CanFly: 0
+  Invert: 1
 --- !u!114 &8879053857243264287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26099,10 +26100,11 @@ GameObject:
   - component: {fileID: 7120326263116549688}
   - component: {fileID: 4604447119282961588}
   - component: {fileID: 1961720257267050468}
+  - component: {fileID: 6830439617166596390}
   - component: {fileID: 1018044559699549597}
-  - component: {fileID: 8992534030678737016}
-  - component: {fileID: 1752204190592987470}
-  - component: {fileID: 8491348090870461723}
+  - component: {fileID: 6690400633923279316}
+  - component: {fileID: 7635824511128187963}
+  - component: {fileID: 80569735050222881}
   m_Layer: 3
   m_Name: DrillItem
   m_TagString: Untagged
@@ -26162,7 +26164,6 @@ MonoBehaviour:
   _animator: {fileID: 1961720257267050468}
   _playerInventoryItem: {fileID: 7120326263116549688}
   _actionName: MainShoot
-  _music: {fileID: 8491348090870461723}
 --- !u!114 &1961720257267050468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26180,14 +26181,29 @@ MonoBehaviour:
   CanUse: 1
   AlreadyUsing: 0
   _hiitedImpulseSource: {fileID: 7946937751470678444}
-  _drill: {fileID: 4604447119282961588}
   _raycastSettings:
     <Origin>k__BackingField: {fileID: 4387599489495877655}
     <MaxDistance>k__BackingField: 2
     <LayerMask>k__BackingField:
       serializedVersion: 2
       m_Bits: 3
-  _musicSecondary: {fileID: 1752204190592987470}
+  _drill: {fileID: 4604447119282961588}
+--- !u!114 &6830439617166596390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296599143694963796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b7a7aca11edd6438105ba3ad99c219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1961720257267050468}
+  _drill: {fileID: 4604447119282961588}
+  _soundPlayPause: {fileID: 6690400633923279316}
+  _secondSoundPlayPause: {fileID: 80569735050222881}
 --- !u!82 &1018044559699549597
 AudioSource:
   m_ObjectHideFlags: 0
@@ -26284,7 +26300,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &8992534030678737016
+--- !u!114 &6690400633923279316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296599143694963796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f48e8c55cee0584e8ce0cad81c530bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
+  _audio: {fileID: 1018044559699549597}
+--- !u!82 &7635824511128187963
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26304,7 +26336,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0
   MaxDistance: 10
   Pan2D: 0
   rolloffMode: 1
@@ -26380,7 +26412,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1752204190592987470
+--- !u!114 &80569735050222881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26395,23 +26427,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 0}
-  _audio: {fileID: 8992534030678737016}
---- !u!114 &8491348090870461723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296599143694963796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f48e8c55cee0584e8ce0cad81c530bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 1996624997028827962}
-  _networkObjectCache: {fileID: 0}
-  _audio: {fileID: 1018044559699549597}
+  _audio: {fileID: 7635824511128187963}
 --- !u!1 &8303447894759046206
 GameObject:
   m_ObjectHideFlags: 0
@@ -28642,6 +28658,7 @@ GameObject:
   - component: {fileID: 5357624642094703125}
   - component: {fileID: 5309658263975827797}
   - component: {fileID: 8830144297548802997}
+  - component: {fileID: 4204422531475080837}
   - component: {fileID: 1382652270395333294}
   - component: {fileID: 4654380168899197821}
   - component: {fileID: 1671604473749705316}
@@ -28722,16 +28739,28 @@ MonoBehaviour:
   CanUse: 1
   AlreadyUsing: 0
   _hiitedImpulseSource: {fileID: 8730060719129827191}
-  _pickaxe: {fileID: 5309658263975827797}
   _raycastSettings:
     <Origin>k__BackingField: {fileID: 4387599489495877655}
     <MaxDistance>k__BackingField: 2
     <LayerMask>k__BackingField:
       serializedVersion: 2
       m_Bits: 3
-  _mixsound: {fileID: 4654380168899197821}
-  _secondaryMixsound: {fileID: 8673977206011491500}
-  _secondaryAudioSource: {fileID: 1671604473749705316}
+  _pickaxe: {fileID: 5309658263975827797}
+--- !u!114 &4204422531475080837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971234289735552014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4354cb9d858d8948a86c0356e292965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8830144297548802997}
+  _mixSound: {fileID: 4654380168899197821}
+  _mixSoundSecond: {fileID: 8673977206011491500}
 --- !u!82 &1382652270395333294
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30371,7 +30400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: "\u0423"
+      value: E
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name
