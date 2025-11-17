@@ -12,17 +12,15 @@ public class CollectTrigger : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<InteractItem>(out InteractItem interactItem))
+        if (other.TryGetComponent<OreQuota>(out OreQuota OreQuota))
         {
-            if (interactItem.Item is PickUpableItem pickUpableItem)
+            if (OreQuota.InteractItem.Item is PickUpableItem item)
             {
-                PlayerCharacter.Instance.PlayerWallet.Add(pickUpableItem.Price);
-
+                PlayerCharacter.Instance.PlayerWallet.Add(item.Price);
                 _quota.Add(1);
-
                 _chunkAnimator.SetTrigger("Eat");
 
-                interactItem.Despawn();
+                OreQuota.Despawn();
             }
         }
     }

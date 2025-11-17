@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : NetworkBehaviour
 {
     [field: SerializeField] public float Speed { get; private set; }
-    [field :SerializeField] public float Decceleration { get; set; }
+    [field: SerializeField] public float Decceleration { get; set; }
     public Vector3 InputVector { get; private set; } = new Vector3(0, 0, 0);
 
     [SerializeField] private PlayerAnimator _animator;
@@ -31,6 +31,7 @@ public class PlayerMovement : NetworkBehaviour
     private float _speedMultiplier = 1;
 
     public bool CanFly;
+    public float Invert = 1;
 
     public ReactiveProperty<bool> Moving { get; private set; } = new ReactiveProperty<bool>();
 
@@ -62,8 +63,9 @@ public class PlayerMovement : NetworkBehaviour
 
             Moving.Value = Mathf.Abs(InputVector.x) > 0 || Mathf.Abs(InputVector.z) > 0;
 
-            Vector3 desiredVelocityXZ = new Vector3(InputVector.x * Speed * _speedMultiplier, 0,
-                InputVector.z * Speed * _speedMultiplier);
+
+            Vector3 desiredVelocityXZ = new Vector3(InputVector.x * Speed * _speedMultiplier * Invert, 0,
+                InputVector.z * Speed * _speedMultiplier * Invert);
 
             if (Moving.Value || _groundChecker.Detected)
                 _currentVelocity =
