@@ -51,6 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454df8f9422be0848ab7aca14247c0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 4778092016831248856}
+  _networkObjectCache: {fileID: 0}
   _speed: 10
   target: {fileID: 0}
   _audio: {fileID: 3078480661515957473}
@@ -77,8 +80,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.001852319, y: 0.0016647832, z: 0.0039183605}
-  m_Center: {x: 0.00010651717, y: 0.00005510438, z: 0.00066541653}
+  m_Size: {x: 0.002737166, y: 0.0027412113, z: 0.01057955}
+  m_Center: {x: 0.000047307458, y: -0.000057085454, z: 0.0020487169}
 --- !u!82 &4984601356063444884
 AudioSource:
   m_ObjectHideFlags: 0
