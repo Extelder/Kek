@@ -54,7 +54,7 @@ public class MimicBurEvent : RandomEvent
 
             yield return new WaitForSeconds(_activeTime);
             _disposable?.Clear();
-            targetPoint -= _spawnOffset;
+            targetPoint -= _spawnOffset * 2f;
             Observable.EveryUpdate().Subscribe(_ =>
                 {
                     _bur.Translate(-transform.up * _burSpeed * Time.deltaTime, Space.World);
