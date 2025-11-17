@@ -13,6 +13,11 @@ public class BazookaEvent : RandomEvent
     [SerializeField] private float _delayUpdate;
     [SerializeField] private LayerMask _mask;
     [SerializeField] private float _delayAfterAttack;
+    [SerializeField] private GameObject _objectToOff;
+    [SerializeField] private GameObject _objectForSpawn;
+    [SerializeField] private GameObject _objectToSpawn;
+    [SerializeField] private float _deathTimer;
+    [SerializeField] private float _chanceIsDrop;
     private bool _attack;
 
     public override void StartEvent()
@@ -27,11 +32,24 @@ public class BazookaEvent : RandomEvent
         if (Agent != null && _target != null)
             Agent.SetDestination(_target.transform.position);
         StartCoroutine(UpdateWithDelay());
+        StartCoroutine(DeathByTimer());
     }
 
     [ObserversRpc]
-    private void SetDestinationObserver()
+    private void OffObject()
     {
+        _objectToOff.SetActive(false);
+    }
+
+    private IEnumerator DeathByTimer()
+    {
+        yield return new WaitForSeconds(_deathTimer);
+        OffObject();
+        float chance = Random.Range(1, 101);
+        if (chance >= _chanceIsDrop)
+            PlayerCharacter.Instance.ServerSpawnObject(_objectForSpawn, _objectToSpawn.transform.position,_objectToSpawn.transform.rotation);
+        yield return new WaitForSeconds(3f);
+        PlayerCharacter.Instance.Despawn(gameObject);
     }
 
     private PlayerCharacter FindNearestPlayerCharacter(Vector3 fromPosition)

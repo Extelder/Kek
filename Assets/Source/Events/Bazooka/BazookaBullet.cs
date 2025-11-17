@@ -44,15 +44,14 @@ public class BazookaBullet : NetworkBehaviour
     public void OnDestroyServer()
     {
         OnDestroyObserver();
+        StartCoroutine(DestroyDelay());
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        var player = collision.collider.GetComponent<PlayerCharacter>();
-        if (player != null)
+        if (IsServer)
         {
             OnDestroyServer();
-            StartCoroutine(DestroyDelay());
         }
     }
 

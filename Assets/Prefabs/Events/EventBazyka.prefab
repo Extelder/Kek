@@ -1168,6 +1168,37 @@ Transform:
   - {fileID: 1462842238307550001}
   m_Father: {fileID: 4763787974265523291}
   m_LocalEulerAnglesHint: {x: 61.08974, y: -95.85644, z: 175.48668}
+--- !u!1 &5144192654756490807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6395210692162024912}
+  m_Layer: 0
+  m_Name: BazookaSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6395210692162024912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144192654756490807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0045454553, y: 0.0045454577, z: 0.0045454544}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5793464452021527851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5192005029826871870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,6 +1668,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   _delayAfterAttack: 3
+  _objectToOff: {fileID: 5461138318085235045}
+  _objectForSpawn: {fileID: 5468293997626743333, guid: 30d633abb4641e6499a4e0b879aed413, type: 3}
+  _objectToSpawn: {fileID: 5144192654756490807}
+  _deathTimer: 15
+  _vFFX: {fileID: 0}
 --- !u!114 &7669630989097494587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,7 +2039,8 @@ Transform:
   m_LocalPosition: {x: -0.039, y: 0.01382, z: -0.0015}
   m_LocalScale: {x: 9.090908, y: 9.090911, z: 9.090906}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6395210692162024912}
   m_Father: {fileID: 2680795520626107817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1592879874574046661
