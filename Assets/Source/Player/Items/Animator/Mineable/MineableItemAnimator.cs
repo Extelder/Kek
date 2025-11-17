@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -7,40 +8,30 @@ public abstract class MineableItemAnimator : ItemAnimator
 {
     [SerializeField] private CinemachineImpulseSource _hiitedImpulseSource;
 
-    [SerializeField] private Drill _drill;
     [SerializeField] private RaycastSettings _raycastSettings;
-    [SerializeField] private SoundPlayPause _musicSecondary;
-    private bool _musicplay;
-    private RaycastHit _hit;
+    public RaycastHit Hit;
+    public event Action Hitted;
+    public event Action NotHitted;
+    
     
     public override void Attack()
     {
         AttackPerfromed?.Invoke();
-        bool hitted = Physics.Raycast(_raycastSettings.Origin.position, _raycastSettings.Origin.forward, out _hit,
+        bool hitted = Physics.Raycast(_raycastSettings.Origin.position, _raycastSettings.Origin.forward, out Hit,
             _raycastSettings.MaxDistance, _raycastSettings.LayerMask);
         Debug.DrawRay(_raycastSettings.Origin.position, _raycastSettings.Origin.forward * _raycastSettings.MaxDistance,
             Color.red);
         if (hitted)
         {
-            if (_hit.collider.TryGetComponent<IWeaponVisitor>(out IWeaponVisitor weaponVisitor))
+            if (Hit.collider.TryGetComponent<IWeaponVisitor>(out IWeaponVisitor weaponVisitor))
             {
-                weaponVisitor.Visit(_drill, _hit);
+                OnWeaponVisited(weaponVisitor);
                 _hiitedImpulseSource.GenerateImpulse();
-                if (!_musicplay)
-                {
-                    _musicSecondary.Pause(false);
-                    _musicplay = true;
-                }
-
-                return;
+                Hitted?.Invoke();
             }
+            return;
         }
-
-        if (_musicplay)
-        {
-            _musicSecondary.Pause(true);
-            _musicplay = false;
-        }
+        NotHitted?.Invoke();
     }
 
     public override void AnimationEndCheck()
@@ -49,4 +40,5 @@ public abstract class MineableItemAnimator : ItemAnimator
     }
 
     public abstract void StartAnimation();
+    public abstract void OnWeaponVisited(IWeaponVisitor visitor);
 }
