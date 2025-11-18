@@ -32,6 +32,7 @@ public abstract class Health : NetworkBehaviour
 
         if (CurrentValue - value > 0)
         {
+            Debug.Log("Damaged" + gameObject.name + " " + CurrentValue);
             ChangeHealthValue(CurrentValue - value);
             Damaged?.Invoke(CurrentValue);
             return;

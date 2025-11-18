@@ -10,6 +10,7 @@ public class PlayerDie : NetworkBehaviour
 
     [SerializeField] private DeadPlayer _deadPlayer;
     [SerializeField] private GameObject[] _offObjectsWhenDie;
+    [SerializeField] private GameObject _sounds;
 
     [SerializeField] private PlayerMovement _movement;
     [SerializeField] private PlayerInteract _interact;
@@ -31,6 +32,7 @@ public class PlayerDie : NetworkBehaviour
     public void DieObserver()
     {
         _deadLight.SetActive(true);
+        _sounds.SetActive(false);
         for (int i = 0; i < _offObjectsWhenDie.Length; i++)
         {
             if (_offObjectsWhenDie[i] == null)
