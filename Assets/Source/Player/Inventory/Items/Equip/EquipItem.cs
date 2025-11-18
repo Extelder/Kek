@@ -25,7 +25,7 @@ public abstract class EquipItem : MonoBehaviour
             _defaultRotation = _cameraTransform.localEulerAngles;
     }
 
-    private void OnEquipmentNull()
+    public virtual void OnEquipmentNull()
     {
         _animatorEventHandler.ChooseItemAnimator(null);
     }
