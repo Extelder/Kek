@@ -9,13 +9,19 @@ public class DrillSounds : MonoBehaviour
     [SerializeField] private Drill _drill;
     [SerializeField] private SoundPlayPause _soundPlayPause;
     [SerializeField] private SoundPlayPause _secondSoundPlayPause;
-    private bool _musicPlay;
     
     private void OnEnable()
     {
         _drill.StartedDrilling += OnStartedDrilling;
+        _drill.StoppedDrilling += OnStoppedDrilling;
         _animator.Hitted += OnHitted;
         _animator.NotHitted += OnNotHitted;
+    }
+
+    private void OnStoppedDrilling()
+    {
+        _secondSoundPlayPause.Pause(true);
+        _soundPlayPause.Pause(true);
     }
 
     private void OnStartedDrilling(bool value)
@@ -26,11 +32,7 @@ public class DrillSounds : MonoBehaviour
 
     private void OnHitted()
     {
-        if (!_musicPlay)
-        {
-            _soundPlayPause.Pause(false);
-            _musicPlay = true;
-        }
+        _soundPlayPause.Pause(false);
     }
     
     private void OnNotHitted()
@@ -40,16 +42,13 @@ public class DrillSounds : MonoBehaviour
 
     private void StopSound()
     {
-        if (_musicPlay)
-        {
-            _soundPlayPause.Pause(true);
-            _musicPlay = false;
-        }
+        _soundPlayPause.Pause(true);
     }
 
     private void OnDisable()
     {
         _drill.StartedDrilling -= OnStartedDrilling;
+        _drill.StoppedDrilling -= OnStoppedDrilling;
         _animator.Hitted -= OnHitted;
         _animator.NotHitted -= OnNotHitted;
         StopSound();

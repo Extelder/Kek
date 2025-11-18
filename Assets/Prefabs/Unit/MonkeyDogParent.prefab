@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2182527861056086388}
   - component: {fileID: 4754827775033367042}
   - component: {fileID: 194464235216101010}
+  - component: {fileID: 922962687104828435}
   - component: {fileID: 2890928714213309714}
   - component: {fileID: 6633784103939525667}
   m_Layer: 6
@@ -271,6 +272,23 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6059055495045773088}
   _networkObjectCache: {fileID: 6059055495045773088}
   <Agent>k__BackingField: {fileID: 3745756302386204726}
+--- !u!114 &922962687104828435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202499112075736450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 6059055495045773088}
+  _networkObjectCache: {fileID: 0}
+  <MaxValue>k__BackingField: 100
+  _object: {fileID: 6059055495045773088}
 --- !u!114 &2890928714213309714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,7 +1574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 6059055495045773088}
+  _networkObjectCache: {fileID: 0}
   _enemyStateMachine: {fileID: 1954450001079475247}
+  _enemyHealth: {fileID: 922962687104828435}
 --- !u!1001 &8010338845501113164
 PrefabInstance:
   m_ObjectHideFlags: 0

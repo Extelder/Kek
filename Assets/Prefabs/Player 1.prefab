@@ -14556,6 +14556,7 @@ MonoBehaviour:
   - {fileID: 5462518773619068142}
   - {fileID: 469125217972292390}
   - {fileID: 6541767915751262417}
+  _sounds: {fileID: 3120048939406832683}
   _movement: {fileID: 2346307380554849957}
   _interact: {fileID: 2031704261568184446}
 --- !u!114 &9153910927864380487
@@ -24843,11 +24844,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3085219128794693552, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2d01f0d27fb810545a0ee21dd6d8da9a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -24959,7 +24960,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3085219128794693552, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
   m_audioClip: {fileID: 8300000, guid: dc8d8be09be5c9e47a14b6ee6520c9d1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -26009,6 +26010,7 @@ MonoBehaviour:
   _animator: {fileID: 1961720257267050468}
   _playerInventoryItem: {fileID: 7120326263116549688}
   _actionName: MainShoot
+  <Damage>k__BackingField: 5
 --- !u!114 &1961720257267050468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28203,6 +28205,7 @@ MonoBehaviour:
   _animator: {fileID: 8830144297548802997}
   _playerInventoryItem: {fileID: 5357624642094703125}
   _actionName: MainShoot
+  <Damage>k__BackingField: 10
 --- !u!114 &8830144297548802997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31273,6 +31276,10 @@ PrefabInstance:
       propertyPath: _addedNetworkObject
       value: 
       objectReference: {fileID: 1996624997028827962}
+    - target: {fileID: 4852713473971118873, guid: 2a3c64a285c1edc40a828ce877614c7d, type: 3}
+      propertyPath: _networkObjectCache
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7835834542334447797, guid: 2a3c64a285c1edc40a828ce877614c7d, type: 3}
       propertyPath: _interact
       value: 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Pickaxe : EquipItem
+public class Pickaxe : DamageableEquipItem
 {
     public override void OnInputReceived(InputAction.CallbackContext obj)
     {
