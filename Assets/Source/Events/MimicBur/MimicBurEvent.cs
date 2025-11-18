@@ -20,6 +20,8 @@ public class MimicBurEvent : RandomEvent
 
     private CompositeDisposable _disposable = new CompositeDisposable();
 
+    private Tween _moveUp;
+
     public override void StartEvent()
     {
         StartCoroutine(Spawning());
@@ -29,6 +31,7 @@ public class MimicBurEvent : RandomEvent
     {
         StopAllCoroutines();
         _disposable?.Clear();
+        _moveUp?.Kill();
     }
 
     private IEnumerator Spawning()
@@ -44,22 +47,17 @@ public class MimicBurEvent : RandomEvent
             Vector3 targetPoint = randomCharacter.PlayerTransform.position;
             _bur.position = targetPoint - _spawnOffset;
 
-            Observable.EveryUpdate().Subscribe(_ =>
+            _moveUp = _bur.DOMove(targetPoint, _burSpeed).OnComplete(() =>
+            {
+                for (int i = 0; i < _enemySpawnPoints.Length; i++)
                 {
-                    _bur.Translate(transform.up * _burSpeed * Time.deltaTime, Space.World);
-                    if (_bur.position.y >= targetPoint.y)
-                    {
-                        _disposable?.Clear();
-                        for (int i = 0; i < _enemySpawnPoints.Length; i++)
-                        {
-                            PlayerCharacter.Instance.ServerSpawnObject(_enemyPrefab, _enemySpawnPoints[i].position,
-                                Quaternion.identity);
-                        }
-                    }
-                })
-                .AddTo(_disposable);
+                    PlayerCharacter.Instance.ServerSpawnObject(_enemyPrefab, _enemySpawnPoints[i].position,
+                        Quaternion.identity);
+                }
+            });
 
             yield return new WaitForSeconds(_activeTime);
+            _moveUp?.Kill();
             _disposable?.Clear();
             targetPoint -= _spawnOffset * 2f;
             Observable.EveryUpdate().Subscribe(_ =>

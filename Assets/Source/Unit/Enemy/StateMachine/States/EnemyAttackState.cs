@@ -37,7 +37,7 @@ public class EnemyAttackState : EnemyState
     {
         if (!base.IsServer)
             return;
-        PlayerHitBox.TakeDamage(Damage.GetDamage());
+        PlayerHitBox?.TakeDamage(Damage.GetDamage());
     }
 
     public virtual void OnPlayerDetected(PlayerHitBox hitBox)
