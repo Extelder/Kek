@@ -8,13 +8,15 @@ using Random = UnityEngine.Random;
 
 public class MimicBurEvent : RandomEvent
 {
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private Transform[] _enemySpawnPoints;
+
     [SerializeField] private Vector3 _spawnOffset;
 
     [SerializeField] private Transform _bur;
     [SerializeField] private Vector2 _spawnTimeRandomRateRange;
     [SerializeField] private float _activeTime = 40f;
     [SerializeField] private float _burSpeed;
-
 
     private CompositeDisposable _disposable = new CompositeDisposable();
 
@@ -48,6 +50,11 @@ public class MimicBurEvent : RandomEvent
                     if (_bur.position.y >= targetPoint.y)
                     {
                         _disposable?.Clear();
+                        for (int i = 0; i < _enemySpawnPoints.Length; i++)
+                        {
+                            PlayerCharacter.Instance.ServerSpawnObject(_enemyPrefab, _enemySpawnPoints[i].position,
+                                Quaternion.identity);
+                        }
                     }
                 })
                 .AddTo(_disposable);

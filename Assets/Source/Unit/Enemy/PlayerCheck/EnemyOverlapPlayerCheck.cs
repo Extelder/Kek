@@ -51,6 +51,8 @@ public class EnemyOverlapPlayerCheck : EnemyPlayerCheck
                 }
             }
 
+
+            _enemyAttackState.OnPlayerDetected(null);
             PlayerLost?.Invoke();
         }).AddTo(_disposable);
     }
