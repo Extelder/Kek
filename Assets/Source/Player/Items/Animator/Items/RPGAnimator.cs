@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UniRx.Triggers;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class RPGAnimator : ItemAnimator
@@ -14,6 +16,6 @@ public class RPGAnimator : ItemAnimator
     public override void Attack()
     {
         base.Attack();
-        PlayerCharacter.Instance.ServerSpawnObject(_spawnableObject, _spawnOrigin.position, Quaternion.LookRotation(_spawnOrigin.forward));
+        PlayerCharacter.Instance.ServerSpawnObject(_spawnableObject, _spawnOrigin.position, _spawnOrigin.localRotation);
     }
 }

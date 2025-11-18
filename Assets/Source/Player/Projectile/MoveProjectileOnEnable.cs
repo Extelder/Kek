@@ -7,7 +7,6 @@ public class MoveProjectileOnEnable : MonoBehaviour
 {
     [SerializeField] private Transform _projectile;
     [SerializeField] private float _projectileSpeed;
-    [SerializeField] private float _speed;
     
     private CompositeDisposable _disposable = new CompositeDisposable();
     private void OnEnable()
@@ -20,7 +19,7 @@ public class MoveProjectileOnEnable : MonoBehaviour
         _disposable.Clear();
         Observable.EveryUpdate().Subscribe(_ =>
         {
-            _projectile.position = Vector3.MoveTowards(_projectile.position, _projectile.position + _projectile.forward * _projectileSpeed, _speed * Time.deltaTime);
+            _projectile.position = Vector3.MoveTowards(_projectile.position, _projectile.position + _projectile.forward, _projectileSpeed);
         }).AddTo(_disposable);
     }
 
