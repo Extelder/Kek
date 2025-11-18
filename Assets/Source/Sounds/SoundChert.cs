@@ -3,14 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class MixSoundAndPlay : NetworkBehaviour
+public class SoundChert : NetworkBehaviour
 {
     [SerializeField] private AudioSource _audio;
-    [SerializeField] private AudioClip[] _audioClips;
-    
-    
+    [SerializeField] private CollectTrigger _qouta;
+
+    private void OnEnable()
+    {
+        _qouta.ItemEatable += ItemEat;
+    }
+
+    private void OnDisable()
+    {
+        _qouta.ItemEatable -= ItemEat;
+    }
+
+
+    private void ItemEat()
+    {
+        MixOnServer();
+    }
 
     [ServerRpc(RequireOwnership = false)]
     public void MixOnServer()
@@ -21,7 +34,6 @@ public class MixSoundAndPlay : NetworkBehaviour
     [ObserversRpc]
     private void MixAndPlayObserver()
     {
-        _audio.clip = _audioClips[Random.Range(0, _audioClips.Length)];
         _audio.Play();
     }
 }
