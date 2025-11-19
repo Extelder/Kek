@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyNavMeshMove : NetworkBehaviour
 {
-    [field :SerializeField] public NavMeshAgent Agent { get; private set; }
+    [field: SerializeField] public NavMeshAgent Agent { get; private set; }
 
     [ServerRpc(RequireOwnership = false)]
     public void SetDestinationServer(Vector3 position)
@@ -14,10 +14,10 @@ public class EnemyNavMeshMove : NetworkBehaviour
         SetDestinationObserver(position);
     }
 
-
     [ObserversRpc]
     public void SetDestinationObserver(Vector3 position)
     {
-        Agent.SetDestination(position);
+        if (position != null)
+            Agent?.SetDestination(position);
     }
 }

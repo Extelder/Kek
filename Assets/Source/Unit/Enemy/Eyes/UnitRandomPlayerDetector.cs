@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using FishNet.Object;
+using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +10,9 @@ public class UnitRandomPlayerDetector : NetworkBehaviour
     [SerializeField] private Vector2 _randomDelay = new Vector2(5f, 25f);
 
     [SerializeField] private EnemyStateMachine _enemyStateMachine;
+    [SerializeField] private float _playerUpdateRate;
+
+    private CompositeDisposable _disposable = new CompositeDisposable();
 
     public override void OnStartClient()
     {
@@ -30,13 +33,19 @@ public class UnitRandomPlayerDetector : NetworkBehaviour
             yield return new WaitUntil(() => PlayerCharacter.Instance != null);
             PlayerCharacter randomCharacter =
                 PlayerCharacter.Instance.Characters[Random.Range(0, PlayerCharacter.Instance.Characters.Count)];
-            _enemyStateMachine?.Chase(randomCharacter.PlayerMovement.transform);
+
+            Observable.Interval(TimeSpan.FromSeconds(_playerUpdateRate)).Subscribe(_ =>
+            {
+                _enemyStateMachine?.Chase(randomCharacter.PlayerMovement.transform);
+            }).AddTo(_disposable);
             yield return new WaitForSeconds(Random.Range(_randomDelay.x, _randomDelay.y));
+            _disposable?.Clear();
         }
     }
 
     public void OnDisable()
     {
+        _disposable?.Clear();
         StopAllCoroutines();
     }
 }

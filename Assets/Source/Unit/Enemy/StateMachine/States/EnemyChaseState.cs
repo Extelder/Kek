@@ -68,7 +68,8 @@ public class EnemyChaseState : EnemyState
         while (true)
         {
             EnemyAnimator.Run();
-            _enemyNavMeshMove.SetDestinationServer(Target.position);
+            if (Target != null)
+                _enemyNavMeshMove.SetDestinationServer(Target.position);
             yield return new WaitForSeconds(_updateTargetRate);
         }
     }

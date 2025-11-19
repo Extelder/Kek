@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2549257770867629532}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.70710707, z: -0, w: 0.70710653}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100.000015, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4563442765832609123}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &7751271264033274486
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -140,8 +140,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5033512, y: 0.0942705, z: 0.13}
-  m_Center: {x: -0.07796987, y: 0.00869666, z: 0}
+  m_Size: {x: 0.09500169, y: 0.0942705, z: 0.50152934}
+  m_Center: {x: 0.0041852556, y: 0.00869666, z: 0.08623429}
 --- !u!114 &3373700330300974703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     <Origin>k__BackingField: {fileID: 4563442765832609123}
     <LayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 131
+      m_Bits: 3
     <SphereRadius>k__BackingField: 10
     <Size>k__BackingField: 0
   _collidersSize: 35
@@ -176,8 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 4563442765832609123}
-  _projectileSpeed: 10
-  _speed: 10
+  _projectileSpeed: 0.01
 --- !u!114 &6541032820691688407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +237,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 0
+  <PrefabId>k__BackingField: 1
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 440106910230233216
   <SceneId>k__BackingField: 0
@@ -262,4 +261,4 @@ MonoBehaviour:
   _componentIndexCache: 1
   _addedNetworkObject: {fileID: 4769415668577741113}
   _networkObjectCache: {fileID: 4769415668577741113}
-  _cooldown: 7
+  _cooldown: 23

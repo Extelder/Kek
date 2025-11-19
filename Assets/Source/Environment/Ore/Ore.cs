@@ -15,7 +15,7 @@ public class Ore : NetworkBehaviour, IWeaponVisitor
 
     public void Visit(RPGProjectile rpgProjectile)
     {
-        Destroy();
+        DestroyOre();
     }
 
     public void Visit(TNTThrowable tntThrowable)
@@ -49,11 +49,11 @@ public class Ore : NetworkBehaviour, IWeaponVisitor
             _modelsOrigin.localScale.y <= _scaleThresholdToDestroy ||
             _modelsOrigin.localScale.z <= _scaleThresholdToDestroy)
         {
-            Destroy();
+            DestroyOre();
         }
     }
 
-    private void Destroy()
+    private void DestroyOre()
     {
         Destroyed?.Invoke();
         Despawn();
