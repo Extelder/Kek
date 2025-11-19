@@ -1432,6 +1432,9 @@ GameObject:
   - component: {fileID: 7669630989097494587}
   - component: {fileID: 1136176466948991519}
   - component: {fileID: 5508710341534709530}
+  - component: {fileID: 8019147759304505791}
+  - component: {fileID: 3860092310514639550}
+  - component: {fileID: 4968687459044560631}
   m_Layer: 0
   m_Name: EventBazyka
   m_TagString: Untagged
@@ -1672,7 +1675,7 @@ MonoBehaviour:
   _objectForSpawn: {fileID: 5468293997626743333, guid: 30d633abb4641e6499a4e0b879aed413, type: 3}
   _objectToSpawn: {fileID: 5144192654756490807}
   _deathTimer: 15
-  _vFFX: {fileID: 0}
+  _chanceIsDrop: 0
 --- !u!114 &7669630989097494587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,6 +1831,63 @@ MonoBehaviour:
     X: 0
     Y: 0
     Z: 0
+--- !u!136 &8019147759304505791
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.23
+  m_Height: 1.3002834
+  m_Direction: 1
+  m_Center: {x: 4.0492323e-10, y: 0.6760095, z: -1.4352696e-11}
+--- !u!114 &3860092310514639550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 132438768994226271}
+  _networkObjectCache: {fileID: 0}
+  _enemyStateMachine: {fileID: 0}
+  _enemyHealth: {fileID: 4968687459044560631}
+--- !u!114 &4968687459044560631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 132438768994226271}
+  _networkObjectCache: {fileID: 0}
+  <MaxValue>k__BackingField: 100
+  _object: {fileID: 132438768994226271}
 --- !u!1 &5821123964117347519
 GameObject:
   m_ObjectHideFlags: 0

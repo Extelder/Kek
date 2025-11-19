@@ -16,7 +16,7 @@ public class EnemyHitBox : NetworkBehaviour, IWeaponVisitor
 
     public void Visit(TNTThrowable tntThrowable)
     {
-        _enemyStateMachine.Kite(tntThrowable.Transform);
+        _enemyStateMachine?.Kite(tntThrowable.Transform);
         Hit(tntThrowable.Damage, transform.position);
     }
 
