@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public class PoolObject : MonoBehaviour
+public class PoolObject : NetworkBehaviour
 {
     [field: SerializeField] public float ReturnToPoolDelay { get; private set; } = 2f;
     [SerializeField] private bool _autoreturnToPool = true;

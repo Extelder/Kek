@@ -30,6 +30,8 @@ public class PlayerCharacter : NetworkBehaviour
     [SerializeField] private GameObject _hands;
     [SerializeField] private GameObject _transitionHands;
 
+
+    [SerializeField] private GameObject _poolsPrefab;
     private CinemachinePOV _cinemachinePov;
     private PlayerConfig _config;
 
@@ -55,12 +57,23 @@ public class PlayerCharacter : NetworkBehaviour
         spawnedObject.Despawn();
     }
 
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+    }
 
     public override void OnStartClient()
     {
         base.OnStartClient();
         if (base.IsOwner)
         {
+            if (IsServer)
+            {
+                GameObject instance = Instantiate(_poolsPrefab, transform.position, Quaternion.identity);
+                ServerManager.Spawn(instance);
+                Debug.Log("SPawned" + GetInstanceID());
+            }
+
             Binds = InputManager.inputActions;
 
             Binds.Enable();

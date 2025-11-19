@@ -645,6 +645,9 @@ GameObject:
   - component: {fileID: 8634315647787892730}
   - component: {fileID: 1913333699036023246}
   - component: {fileID: 5111485562273203073}
+  - component: {fileID: 8338944864629526019}
+  - component: {fileID: 1956265769912501822}
+  - component: {fileID: 7021154889615671959}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -872,6 +875,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 0}
   _lookPoint: {fileID: 1667370998773180201}
+--- !u!136 &8338944864629526019
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716083673011763953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.3451767
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.1181691, z: 0}
+--- !u!114 &1956265769912501822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716083673011763953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 7956545133502747003}
+  _networkObjectCache: {fileID: 0}
+  _enemyStateMachine: {fileID: 5490892718330967952}
+  _enemyHealth: {fileID: 7021154889615671959}
+--- !u!114 &7021154889615671959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716083673011763953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 7956545133502747003}
+  _networkObjectCache: {fileID: 0}
+  <MaxValue>k__BackingField: 100
+  _object: {fileID: 7956545133502747003}
 --- !u!1 &3056688452857555161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,7 +2963,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 58
+  <PrefabId>k__BackingField: 59
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 14474817118861264872
   <SceneId>k__BackingField: 0
