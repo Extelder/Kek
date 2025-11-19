@@ -13,7 +13,6 @@ public class EnemyChaseState : EnemyState
     [SerializeField] private EnemyAttackState _enemyAttackState;
 
     [SerializeField] private EnemyNavMeshMove _enemyNavMeshMove;
-    [SerializeField] private NavMeshAgent _agent;
 
     [SerializeField] private float _updateTargetRate;
     public Transform Target { get; private set; }
@@ -65,13 +64,24 @@ public class EnemyChaseState : EnemyState
 
     private IEnumerator Chasing()
     {
+        OnStartedChasing();
         while (true)
         {
-            EnemyAnimator.Run();
+            CallAnimations();
             if (Target != null)
                 _enemyNavMeshMove.SetDestinationServer(Target.position);
             yield return new WaitForSeconds(_updateTargetRate);
         }
+    }
+
+    public virtual void OnStartedChasing()
+    {
+        Debug.Log("STARTEDCHASING");
+    }
+
+    public virtual void CallAnimations()
+    {
+        EnemyAnimator.Run();
     }
 
     public IEnumerator ChasingWithoutAnimation()
