@@ -7,6 +7,7 @@ using UnityEngine;
 public class Pools : NetworkBehaviour
 {
     [field: SerializeField] public Pool BloodPool { get; private set; }
+    [field: SerializeField] public Pool BloodExplodePool { get; private set; }
 
     public static Pools Instance { get; private set; }
 

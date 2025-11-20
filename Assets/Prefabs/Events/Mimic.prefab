@@ -1432,6 +1432,7 @@ GameObject:
   - component: {fileID: 7669630989097494587}
   - component: {fileID: 1136176466948991519}
   - component: {fileID: 5508710341534709530}
+  - component: {fileID: 4744935184068720696}
   m_Layer: 0
   m_Name: Mimic
   m_TagString: Untagged
@@ -1828,6 +1829,29 @@ MonoBehaviour:
     X: 0
     Y: 0
     Z: 0
+--- !u!136 &4744935184068720696
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8188478
+  m_Direction: 1
+  m_Center: {x: 3.2387962e-10, y: 0.40942454, z: 2.255604e-11}
 --- !u!1 &5821123964117347519
 GameObject:
   m_ObjectHideFlags: 0

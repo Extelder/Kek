@@ -77,6 +77,14 @@ public class Pool : MonoBehaviour
         return element;
     }
 
+    public PoolObject GetFreeElement(Vector3 position, Quaternion rotation, Action OnSpawned)
+    {
+        var element = GetFreeElement(position);
+        element.transform.rotation = rotation;
+        OnSpawned?.Invoke();
+        return element;
+    }
+
     public PoolObject GetFreeElement(Vector3 position, Quaternion rotation, Transform parent)
     {
         var element = GetFreeElement(position, rotation);
