@@ -10,9 +10,8 @@ public class Quota : NetworkBehaviour
     [SerializeField] private float _removeValue;
 
     [SerializeField] private Generator _generator;
-    [SerializeField] private float _minValuetoHire;
+    [SerializeField] public float _minValuetoHire;
     [SerializeField] private float _startValue;
-
     [SerializeField] private float _currentValue;
 
     public event Action<float> ValueChanged;
@@ -22,6 +21,8 @@ public class Quota : NetworkBehaviour
         _generator.GenerateStarted += OnGenerateStarted;
         _currentValue += _startValue;
         ValueChanged?.Invoke(_currentValue);
+        Debug.Log("quota edit");
+        Debug.Log( _currentValue);
         NotifyValueChanged(_currentValue);
     }
 
@@ -29,7 +30,6 @@ public class Quota : NetworkBehaviour
     {
         Spend(_removeValue);
     }
-
     private void OnDisable()
     {
         if (!base.IsServer)
@@ -47,7 +47,7 @@ public class Quota : NetworkBehaviour
 
     public bool TryBuy(float value)
     {
-        return (_currentValue - value >= _minValuetoHire);
+        return (_currentValue - value  >= _minValuetoHire);
     }
 
     [ServerRpc(RequireOwnership = false)]

@@ -18,7 +18,7 @@ public class CollectTrigger : NetworkBehaviour
             if (OreQuota.InteractItem.Item is PickUpableItem item)
             {
                 PlayerCharacter.Instance.PlayerWallet.Add(item.Price);
-                _quota.Add(1);
+                _quota.Add(50);
                 _chunkAnimator.SetTrigger("Eat");
                 ItemEatable?.Invoke();
 
