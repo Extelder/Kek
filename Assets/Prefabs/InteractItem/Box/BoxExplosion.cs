@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BoxExplosion : NetworkBehaviour
 {
@@ -10,8 +12,9 @@ public class BoxExplosion : NetworkBehaviour
     [SerializeField] private float _strenge;
     [SerializeField] private bool destroyAll;
     [SerializeField] private bool _lockInteractAfterUse = true;
-    private bool IsUse;
+    public bool IsUse;
     private int _currentIndex;
+
 
     [ServerRpc(RequireOwnership = false)]
     public void Interact()
@@ -32,6 +35,7 @@ public class BoxExplosion : NetworkBehaviour
             {
                 _currentIndex++;
             }
+
             if (_object.Length == _currentIndex)
             {
                 if (_lockInteractAfterUse)
