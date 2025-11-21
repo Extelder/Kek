@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyAnimator : UnitAnimator
 {
     [SerializeField] private string _moveAnimationBoolName, _runAnimationBoolName, _attackAnimationBoolName, _kiteAnimationBoolName;
+    [SerializeField] private bool _randomizeAttack;
+    [ShowIf(nameof(_randomizeAttack)), SerializeField] private string _attackIntName;
+    [ShowIf(nameof(_randomizeAttack)), SerializeField] private int _maxAttackTypes;
     [SerializeField] private EnemySound _enemysound;
 
     private void Start()
@@ -34,8 +39,16 @@ public class EnemyAnimator : UnitAnimator
 
     public void Attack()
     {
+        if(_randomizeAttack)
+            RandomizeAttackAnimation();
         SetAnimationBoolAndDisableOther(_attackAnimationBoolName);
         _enemysound.Attack();
+    }
+    
+    public void RandomizeAttackAnimation()
+    {
+        int value = Random.Range(0, _maxAttackTypes);
+        SetAnimationInt(_attackIntName, value);
     }
 
     public void Kait()

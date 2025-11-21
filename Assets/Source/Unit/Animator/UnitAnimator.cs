@@ -31,6 +31,13 @@ public abstract class UnitAnimator : NetworkBehaviour
         Animator.SetBool(name, value);
     }
 
+    public void SetAnimationInt(string name, int value)
+    {
+        if (!base.IsServer)
+            return;
+        Animator.SetInteger(name, value);
+    }
+
     public void SetAnimationTrigger(string name)
     {
         if (!base.IsServer)

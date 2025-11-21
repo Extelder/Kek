@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyDoubleChaseAnimator : EnemyAnimator
 {
     [SerializeField] private string _secondRun;
-    
     public void SecondRun()
     {
         SetAnimationBoolAndDisableOther(_secondRun);
