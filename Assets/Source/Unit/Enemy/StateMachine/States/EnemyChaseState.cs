@@ -64,9 +64,9 @@ public class EnemyChaseState : EnemyState
 
     private IEnumerator Chasing()
     {
-        OnStartedChasing();
         while (true)
         {
+            OnStartedChasing();
             CallAnimations();
             if (Target != null)
                 _enemyNavMeshMove.SetDestinationServer(Target.position);

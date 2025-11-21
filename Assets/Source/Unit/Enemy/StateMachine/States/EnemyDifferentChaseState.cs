@@ -16,7 +16,7 @@ public class EnemyDifferentChaseState : EnemyChaseState
 
     private void CheckOnDistance()
     {
-        bool hitted = Physics.Raycast(_raycastSettings.Origin.position, Vector3.forward, out RaycastHit hit,
+        bool hitted = Physics.Raycast(_raycastSettings.Origin.position, _raycastSettings.Origin.forward, out RaycastHit hit,
             _raycastSettings.MaxDistance, _raycastSettings.LayerMask);
         Debug.Log("Raycasting" + _useOverrideBase);
         if (hitted)
@@ -32,8 +32,11 @@ public class EnemyDifferentChaseState : EnemyChaseState
                 }
                 Debug.Log("ChangeState" + _useOverrideBase);
                 _useOverrideBase = true;
+                return;
             }
         }
+
+        CallAnimations();
     }
 
     public override void CallAnimations()
