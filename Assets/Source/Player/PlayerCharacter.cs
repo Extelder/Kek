@@ -10,6 +10,7 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public Camera Camera { get; private set; }
     [field: SerializeField] public CameraHeadBob CameraHeadBob { get; private set; }
     [field: SerializeField] public PlayerHealth PlayerHealth { get; private set; }
+    [field: SerializeField] public PlayerDialogue PlayerDialogue { get; private set; }
     [field: SerializeField] public Transform DropPoint { get; private set; }
     [field: SerializeField] public Transform FingerLookAtPoint { get; private set; }
     [field: SerializeField] public Transform TargetPoint { get; private set; }
