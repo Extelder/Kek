@@ -1844,6 +1844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 541388442387208783}
     m_Modifications:
+    - target: {fileID: 605264956210664209, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1484858377706024333, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
       propertyPath: _maxAngle
       value: 250
@@ -1956,9 +1960,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3025679340773722102, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084101411591345533, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3279156786004875848, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279156786004875848, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298217809384080938, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871530257861362180, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884530517430862527, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772404163995717075, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9205733224594643445, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
       propertyPath: _maxAngle

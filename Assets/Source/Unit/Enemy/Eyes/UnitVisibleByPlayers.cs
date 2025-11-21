@@ -1,16 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using FishNet.Object;
 #if UNITY_EDITOR
 using UnityEditor;
+
 #endif
 
-public class UnitVisibleByPlayers : MonoBehaviour
+public class UnitVisibleByPlayers : NetworkBehaviour
 {
+    [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
 
     private bool _currentVisible;
 
-    void Update()
+    private void Update()
     {
         bool visible = IsVisibleByAnyGameCamera(_skinnedMeshRenderer);
 
@@ -20,21 +23,28 @@ public class UnitVisibleByPlayers : MonoBehaviour
             SetPlayerVisibleServer(visible);
             Debug.Log("Visible: " + visible);
         }
+
+        if (_currentVisible)
+        {
+            _agent.speed = 0f;
+        }
+        else
+        {
+            _agent.speed = 2f;
+        }
     }
 
-    // Проверка видимости во ВСЕХ игровый камерах
     public static bool IsVisibleByAnyGameCamera(Renderer renderer)
     {
         if (renderer == null)
             return false;
 
-        if (!renderer.isVisible) 
+        if (!renderer.isVisible)
             return false;
 
         foreach (Camera cam in Camera.allCameras)
         {
 #if UNITY_EDITOR
-            // Пропускаем SceneView
             if (cam.cameraType == CameraType.SceneView)
                 continue;
 #endif
@@ -46,18 +56,20 @@ public class UnitVisibleByPlayers : MonoBehaviour
         return false;
     }
 
-    // Фрустум-проверка
     private static bool IsRendererVisibleFromCamera(Renderer renderer, Camera cam)
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
         return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
     }
 
+
+    [ServerRpc(RequireOwnership = false)]
     public void SetPlayerVisibleServer(bool visible)
     {
         SetPlayerVisibleObservers(visible);
     }
 
+    [ObserversRpc]
     public void SetPlayerVisibleObservers(bool visible)
     {
         _currentVisible = visible;
