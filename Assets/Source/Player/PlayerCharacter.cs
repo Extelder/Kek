@@ -72,7 +72,6 @@ public class PlayerCharacter : NetworkBehaviour
             {
                 GameObject instance = Instantiate(_poolsPrefab, transform.position, Quaternion.identity);
                 ServerManager.Spawn(instance);
-                Debug.Log("SPawned" + GetInstanceID());
             }
 
             Binds = InputManager.inputActions;

@@ -109,7 +109,6 @@ public class InputManager : MonoBehaviour
 
     public static void LoadBindingOverride(string actionName)
     {
-        Debug.LogError(actionName);
         if (actionName == null)
             return;
 
@@ -120,7 +119,6 @@ public class InputManager : MonoBehaviour
 
         for (int i = 0; i < action.bindings.Count; i++)
         {
-            Debug.Log(PlayerPrefs.GetString(action.actionMap + action.name + i));
             if (!string.IsNullOrEmpty(PlayerPrefs.GetString(action.actionMap + action.name + i)))
                 action.ApplyBindingOverride(i, PlayerPrefs.GetString(action.actionMap + action.name + i));
         }

@@ -21,8 +21,6 @@ public class Quota : NetworkBehaviour
         _generator.GenerateStarted += OnGenerateStarted;
         _currentValue += _startValue;
         ValueChanged?.Invoke(_currentValue);
-        Debug.Log("quota edit");
-        Debug.Log( _currentValue);
         NotifyValueChanged(_currentValue);
     }
 
@@ -93,6 +91,5 @@ public class Quota : NetworkBehaviour
 
         _currentValue -= value;
         NotifyValueChanged(_currentValue);
-        Debug.Log(_currentValue);
     }
 }
