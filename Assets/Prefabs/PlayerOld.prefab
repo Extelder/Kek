@@ -1695,8 +1695,29 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
+  <Camera>k__BackingField: {fileID: 0}
+  <CameraHeadBob>k__BackingField: {fileID: 0}
+  <PlayerHealth>k__BackingField: {fileID: 0}
+  <PlayerDialogue>k__BackingField: {fileID: 0}
+  <DropPoint>k__BackingField: {fileID: 0}
+  <FingerLookAtPoint>k__BackingField: {fileID: 0}
+  <TargetPoint>k__BackingField: {fileID: 0}
+  <CartPoint>k__BackingField: {fileID: 0}
+  <CameraTransform>k__BackingField: {fileID: 0}
   Rigidbody: {fileID: 2264126181945957770}
   PlayerTransform: {fileID: 3968811008505776637}
+  _thirdPerson: []
+  _inventory: {fileID: 0}
+  <PlayerInventory>k__BackingField: {fileID: 0}
+  <PlayerHatsEquip>k__BackingField: {fileID: 0}
+  <PlayerWallet>k__BackingField: {fileID: 0}
+  <PlayerMovement>k__BackingField: {fileID: 0}
+  <PlayerHitBox>k__BackingField: {fileID: 0}
+  _virtualCamera: {fileID: 0}
+  _hands: {fileID: 0}
+  _transitionHands: {fileID: 0}
+  _poolsPrefab: {fileID: 0}
+  Characters: []
 --- !u!114 &2346307380554849957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,11 +1733,15 @@ MonoBehaviour:
   _componentIndexCache: 1
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
+  <Speed>k__BackingField: 0
+  <Decceleration>k__BackingField: 0
+  _animator: {fileID: 0}
   _character: {fileID: 9153910927864380487}
-  _speed: 3
+  _runSpeedMultiplier: 0
   _groundChecker: {fileID: 694033865345946828}
   _acceleration: 48
-  _decceleration: 128
+  CanFly: 0
+  Invert: 1
 --- !u!114 &6846853085322839939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1752,6 +1777,7 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 1996624997028827962}
   _character: {fileID: 9153910927864380487}
   _camera: {fileID: 4387599489495877655}
+  CopyAllRotation: 0
 --- !u!114 &6464001380552801192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,7 +1872,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 4
+  <PrefabId>k__BackingField: 29
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 5213782315602490691
   <SceneId>k__BackingField: 0
@@ -2099,7 +2125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724c4369bfc35674dadc982430878b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attack: 
+  _throw: 
+  _pickUp: 
+  _reset: 
+  _drill: 
+  _guitar: 
+  _sign: 
+  _smoke: 
+  _rpgShoot: 
+  _rpgTake: 
   _animator: {fileID: 1225629203006681363}
+  _fpsAnimator: {fileID: 0}
   _speed: 5
   _character: {fileID: 9153910927864380487}
 --- !u!114 &6626394759318695960

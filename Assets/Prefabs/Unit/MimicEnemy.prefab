@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4ba100b2e39ee439932bb56b3ca33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 7
+  _componentIndexCache: 9
   _addedNetworkObject: {fileID: 7956545133502747003}
   _networkObjectCache: {fileID: 7956545133502747003}
   _randomDelay: {x: 5, y: 25}
@@ -715,7 +715,6 @@ MonoBehaviour:
   _lostTime: 156.62
   _enemyAttackState: {fileID: 2153089774911504797}
   _enemyNavMeshMove: {fileID: 480338663317889952}
-  _agent: {fileID: 8566014873476348319}
   _updateTargetRate: 0.2
 --- !u!195 &8566014873476348319
 NavMeshAgent:
@@ -910,11 +909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 7
   _addedNetworkObject: {fileID: 7956545133502747003}
-  _networkObjectCache: {fileID: 0}
-  _enemyStateMachine: {fileID: 5490892718330967952}
+  _networkObjectCache: {fileID: 7956545133502747003}
   _enemyHealth: {fileID: 7021154889615671959}
+  _enemyStateMachine: {fileID: 5490892718330967952}
 --- !u!114 &7021154889615671959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,9 +926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 8
   _addedNetworkObject: {fileID: 7956545133502747003}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 7956545133502747003}
   <MaxValue>k__BackingField: 100
   _object: {fileID: 7956545133502747003}
 --- !u!1 &3056688452857555161
@@ -1276,7 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95233896471f18549af7ce0fde601643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 8
+  _componentIndexCache: 10
   _addedNetworkObject: {fileID: 7956545133502747003}
   _networkObjectCache: {fileID: 7956545133502747003}
   <Animator>k__BackingField: {fileID: 690465984340676409}
@@ -1284,6 +1283,9 @@ MonoBehaviour:
   _runAnimationBoolName: IsRunning
   _attackAnimationBoolName: IsAttacking
   _kiteAnimationBoolName: IsLookingAround
+  _randomizeAttack: 0
+  _attackIntName: 
+  _maxAttackTypes: 0
   _enemysound: {fileID: 8614887537397444951}
 --- !u!114 &2153089774911504797
 MonoBehaviour:
@@ -1297,7 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a451196b36744b54a8f83592965ad3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 9
+  _componentIndexCache: 11
   _addedNetworkObject: {fileID: 7956545133502747003}
   _networkObjectCache: {fileID: 7956545133502747003}
   CanChanged: 1
@@ -1318,7 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 10
+  _componentIndexCache: 12
   _addedNetworkObject: {fileID: 7956545133502747003}
   _networkObjectCache: {fileID: 7956545133502747003}
   IgnoredParameters: []
@@ -2935,6 +2937,8 @@ MonoBehaviour:
   - {fileID: 480338663317889952}
   - {fileID: 8634315647787892730}
   - {fileID: 1913333699036023246}
+  - {fileID: 1956265769912501822}
+  - {fileID: 7021154889615671959}
   - {fileID: 2236895756247500798}
   - {fileID: 8908403943561064058}
   - {fileID: 2153089774911504797}
@@ -2963,7 +2967,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 59
+  <PrefabId>k__BackingField: 65
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 14474817118861264872
   <SceneId>k__BackingField: 0

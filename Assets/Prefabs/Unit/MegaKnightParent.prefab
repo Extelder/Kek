@@ -82,7 +82,20 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
-  NetworkBehaviours: []
+  NetworkBehaviours:
+  - {fileID: 2516679064081721611}
+  - {fileID: 4683845081975877196}
+  - {fileID: 8958906456288512964}
+  - {fileID: 155380438937417669}
+  - {fileID: 3900357638313477381}
+  - {fileID: 2843654935365460135}
+  - {fileID: 6807837321536400670}
+  - {fileID: 7259359143941559045}
+  - {fileID: 8302221590065365993}
+  - {fileID: 2751240146054238206}
+  - {fileID: 6404049755412103046}
+  - {fileID: 7812265171377176095}
+  - {fileID: 1865684309148389003}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -107,15 +120,15 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 65535
+  <PrefabId>k__BackingField: 91
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 18415426669172938512
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    Scale: {x: 0, y: 0, z: 0}
-    IsValid: 0
+    Position: {x: -11.913595, y: 6.862768, z: -2.3425043}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Scale: {x: 1, y: 1, z: 1}
+    IsValid: 1
 --- !u!1 &4901213082526903222
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,9 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4ba100b2e39ee439932bb56b3ca33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 9
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   _randomDelay: {x: 5, y: 25}
   _enemyStateMachine: {fileID: 2516679064081721611}
   _playerUpdateRate: 1
@@ -224,9 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7fa325e16e8ad4b923576dd4d66b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 1
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   _notStartOnEnable: 0
   _startState: {fileID: 155380438937417669}
   _patrolState: {fileID: 155380438937417669}
@@ -245,9 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d821831ef08af41875b53487b99c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   CanChanged: 1
   <EnemyAnimator>k__BackingField: {fileID: 6404049755412103046}
   _enemyStateMachine: {fileID: 2516679064081721611}
@@ -267,9 +280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db976974826138744be1289a2e6592dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   CanChanged: 1
   <EnemyAnimator>k__BackingField: {fileID: 6404049755412103046}
   _enemyStateMachine: {fileID: 2516679064081721611}
@@ -321,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentIndexCache: 3
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   CanChanged: 1
   <EnemyAnimator>k__BackingField: {fileID: 6404049755412103046}
   _enemyNavMeshMove: {fileID: 3900357638313477381}
@@ -355,7 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentIndexCache: 4
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   <Agent>k__BackingField: {fileID: 7216501054140905535}
 --- !u!114 &2843654935365460135
 MonoBehaviour:
@@ -371,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentIndexCache: 5
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   _enemyAttackState: {fileID: 7812265171377176095}
   <StateMachine>k__BackingField: {fileID: 2516679064081721611}
   _overlappSettings:
@@ -395,11 +408,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 6
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
-  _enemyStateMachine: {fileID: 2516679064081721611}
+  _networkObjectCache: {fileID: 5076272363172792022}
   _enemyHealth: {fileID: 7259359143941559045}
+  _enemyStateMachine: {fileID: 2516679064081721611}
 --- !u!114 &7259359143941559045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,9 +425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 7
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   <MaxValue>k__BackingField: 100
   _object: {fileID: 5076272363172792022}
 --- !u!114 &8302221590065365993
@@ -429,9 +442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2836e36774ca1c4bbbee976e17b649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 6
+  _componentIndexCache: 8
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   _componentConfiguration: 0
   _synchronizeParent: 0
   _packing:
@@ -609,9 +622,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e142e48d5f1f6ec45b2de0952d1f237f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 10
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   <Animator>k__BackingField: {fileID: 613000190131750368}
   _moveAnimationBoolName: isWalking
   _runAnimationBoolName: isRunning
@@ -634,9 +647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a451196b36744b54a8f83592965ad3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 8
+  _componentIndexCache: 11
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   CanChanged: 1
   <EnemyAnimator>k__BackingField: {fileID: 6404049755412103046}
   _chaseState: {fileID: 8958906456288512964}
@@ -655,9 +668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 10
+  _componentIndexCache: 12
   _addedNetworkObject: {fileID: 5076272363172792022}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5076272363172792022}
   IgnoredParameters: []
   _animator: {fileID: 613000190131750368}
   _synchronizeWhenDisabled: 1

@@ -109,6 +109,7 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
   _networkObjectCache: {fileID: 2553075755286328003}
+  _oreSpawnPoint: []
   _defaultSpawningObjects: []
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}
   _spawnableParts:
@@ -130,6 +131,7 @@ MonoBehaviour:
   <Enemies>k__BackingField: []
   <RandomChanceToSpawnEnemy>k__BackingField: 0
   _maxEnemyToSpawn: 0
+  <OreSpawnPlaces>k__BackingField: []
   <IsInstance>k__BackingField: 0
 --- !u!114 &2553075755286328003
 MonoBehaviour:
@@ -176,14 +178,14 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 29
+  <PrefabId>k__BackingField: 59
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 13287580699765610301
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
     Position: {x: -0.033, y: 0, z: 17.864}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
-    Scale: {x: 1.4, y: 1.4, z: 1.4}
+    Scale: {x: 2, y: 2, z: 2}
     IsValid: 1
 --- !u!65 &340059573413881578
 BoxCollider:

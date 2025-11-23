@@ -11,6 +11,8 @@ public class SoundPlayPause : NetworkBehaviour
 
     public override void OnStartClient()
     {
+        if (_audio == null)
+            return;
         _audio.Play();
         _audio.Pause();
     }
@@ -24,6 +26,8 @@ public class SoundPlayPause : NetworkBehaviour
     [ObserversRpc]
     private void PauseMulticast(bool pause)
     {
+        if (_audio == null)
+            return;
         if (pause)
         {
             _audio.Pause();

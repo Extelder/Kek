@@ -185,9 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a90fb7abd346141bc0d06f52d634bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 238935555973811291}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 238935555973811291}
   Item:
     rid: 7802504096237748224
   references:
@@ -215,7 +215,10 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
-  NetworkBehaviours: []
+  NetworkBehaviours:
+  - {fileID: 3725651431284149423}
+  - {fileID: 6359255210980608056}
+  - {fileID: 5759855384368719476}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -240,15 +243,15 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 65535
+  <PrefabId>k__BackingField: 78
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 16212884374130320281
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    Scale: {x: 0, y: 0, z: 0}
-    IsValid: 0
+    Position: {x: -1.98, y: 0.126, z: -5.57}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Scale: {x: 0.021233745, y: 0.021233745, z: 0.021233745}
+    IsValid: 1
 --- !u!114 &6359255210980608056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,9 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ce0ff94116abc449e0901c8843af7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 238935555973811291}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 238935555973811291}
   <Animator>k__BackingField: {fileID: 7758742628404800298}
 --- !u!95 &7758742628404800298
 Animator:
@@ -394,9 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d078e9fe46b67aa42a4d2e4b5195c877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 238935555973811291}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 238935555973811291}
   reels:
   - {fileID: 7196020305493104826}
   - {fileID: 3584097655535582695}

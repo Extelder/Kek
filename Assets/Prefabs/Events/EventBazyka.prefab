@@ -1481,6 +1481,8 @@ MonoBehaviour:
   - {fileID: 3275088805533836739}
   - {fileID: 7964188866673006613}
   - {fileID: 5508710341534709530}
+  - {fileID: 4968687459044560631}
+  - {fileID: 6903674441942029497}
   - {fileID: 1595507391154388030}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -1506,7 +1508,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 54
+  <PrefabId>k__BackingField: 71
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 15187441044822297239
   <SceneId>k__BackingField: 0
@@ -1866,9 +1868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 132438768994226271}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 132438768994226271}
   <MaxValue>k__BackingField: 100
   _object: {fileID: 132438768994226271}
 --- !u!114 &6903674441942029497
@@ -1883,9 +1885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef36683cd3ce09c4ebfa35bef5f7e521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 4
   _addedNetworkObject: {fileID: 132438768994226271}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 132438768994226271}
   _enemyHealth: {fileID: 4968687459044560631}
 --- !u!1 &5821123964117347519
 GameObject:
@@ -3032,7 +3034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85288dd3b0a99554d94685e459c4c1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 3
+  _componentIndexCache: 5
   _addedNetworkObject: {fileID: 132438768994226271}
   _networkObjectCache: {fileID: 132438768994226271}
   _bullet: {fileID: 4778092016831248856, guid: 1942183fbd08bc647b03ea24c88d0d63, type: 3}
