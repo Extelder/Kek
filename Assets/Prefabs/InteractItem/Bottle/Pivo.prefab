@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 5416227559062570250}
   - component: {fileID: 3305809221489538694}
   - component: {fileID: 5089481605374101086}
-  - component: {fileID: 5792696914362040365}
   - component: {fileID: 2767021996497316536}
   m_Layer: 1
   m_Name: Pivo
@@ -112,6 +111,7 @@ MonoBehaviour:
   _objectDestroyAfterMain: []
   _strenge: 3
   destroyAll: 0
+  _audio: {fileID: 2767021996497316536}
   _lockInteractAfterUse: 0
   IsUse: 0
 --- !u!114 &4343374623131983889
@@ -278,23 +278,6 @@ MonoBehaviour:
   uprightThreshold: 20
   stopVelocity: 0.1
   stopAngularVelocity: 1
---- !u!114 &5792696914362040365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3496426682929834340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04f4313abac51954bab38c82704748e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 4343374623131983889}
-  _networkObjectCache: {fileID: 0}
-  _boxInteract: {fileID: 3821573993045926851}
-  _audio: {fileID: 2767021996497316536}
 --- !u!82 &2767021996497316536
 AudioSource:
   m_ObjectHideFlags: 0

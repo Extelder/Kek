@@ -11,6 +11,9 @@ public class BoxExplosion : NetworkBehaviour
     [SerializeField] private GameObject[] _objectDestroyAfterMain;
     [SerializeField] private float _strenge;
     [SerializeField] private bool destroyAll;
+    [SerializeField] private AudioSource _audio;
+    [SerializeField] private bool _MixAudio;
+    [SerializeField] private AudioClip[] _audioClip;
     [SerializeField] private bool _lockInteractAfterUse = true;
     public bool IsUse;
     private int _currentIndex;
@@ -73,6 +76,9 @@ public class BoxExplosion : NetworkBehaviour
         float force = _strenge;
         rb.AddForce(dir * force, ForceMode.VelocityChange);
         rb.AddTorque(Random.insideUnitSphere * 5f, ForceMode.VelocityChange);
+        if (_MixAudio)
+            _audio.clip = _audioClip[Random.Range(0, _audioClip.Length)];
+        _audio.Play();
     }
 
     private void ExplosionAfter(int index)
@@ -84,5 +90,8 @@ public class BoxExplosion : NetworkBehaviour
         float force = _strenge;
         rb.AddForce(dir * force, ForceMode.VelocityChange);
         rb.AddTorque(Random.insideUnitSphere * 5f, ForceMode.VelocityChange);
+        if (_MixAudio)
+            _audio.clip = _audioClip[Random.Range(0, _audioClip.Length)];
+        _audio.Play();
     }
 }
