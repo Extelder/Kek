@@ -26,6 +26,7 @@ public class PlayerDialogue : MonoBehaviour
     public bool Dialoguing { get; private set; }
 
     private Replica[] _currentReplics;
+
     private void TrySkipDialogue(InputAction.CallbackContext obj)
     {
         if (_currentReplics == null)
@@ -85,6 +86,7 @@ public class PlayerDialogue : MonoBehaviour
     private void OnDisable()
     {
         PlayerCharacter.Instance.Rigidbody.isKinematic = false;
-        _character.Binds.Character.Interact.started -= TrySkipDialogue;
+        if (_character.Binds != null)
+            _character.Binds.Character.Interact.started -= TrySkipDialogue;
     }
 }
