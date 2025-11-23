@@ -13,7 +13,6 @@ public class Pools : NetworkBehaviour
 
     private void Start()
     {
-        Debug.LogError("### START POOLS: " + gameObject.name + " ### " + this.GetInstanceID());
     }
 
     public override void OnStartClient()

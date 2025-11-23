@@ -49,7 +49,6 @@ public class MicrophoneManager : MonoBehaviour
 
     public string GetCurrentDeviceName()
     {
-        Debug.LogError(Microphone.devices[0]);
         return Microphone.devices[0];
     }
 }

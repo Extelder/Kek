@@ -76,7 +76,6 @@ public class EnemyChaseState : EnemyState
 
     public virtual void OnStartedChasing()
     {
-        Debug.Log("STARTEDCHASING");
     }
 
     public virtual void CallAnimations()

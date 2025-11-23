@@ -72,7 +72,6 @@ public class Generator : NetworkBehaviour
                 for (int i = 0; i < _defaultSpawningObjects.Length; i++)
                 {
                     SpawningParts.Add(_defaultSpawningObjects[i]);
-                    Debug.Log(_defaultSpawningObjects[i]);
                 }
             }
             else
@@ -235,7 +234,6 @@ public class Generator : NetworkBehaviour
 
             if (Instance.SpawningParts.Count == 0)
             {
-                Debug.LogError("Count 0(");
                 Instance.SpawningParts = new List<GameObject>(Instance._defaultSpawningObjects.Length);
                 for (int k = 0; k < Instance._defaultSpawningObjects.Length; k++)
                 {

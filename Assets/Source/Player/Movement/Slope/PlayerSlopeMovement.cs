@@ -1,75 +1,91 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using FishNet.Object;
 using UniRx;
 using UnityEngine;
-using UnityEngine.InputSystem.Utilities;
-using Observable = UniRx.Observable;
 
 public class PlayerSlopeMovement : NetworkBehaviour
 {
+    [Header("Raycast")]
     [SerializeField] private RaycastSettings _raycastSettings;
+    [SerializeField] private float _checkRate = 0.05f;
+    [SerializeField] private float _maxSlopeAngle = 45f;
 
+    [Header("Refs")]
     [SerializeField] private PlayerMovement _playerMovement;
-    
-    [SerializeField] private float _checkRate;
-    [SerializeField] private float _maxSlopeAngle;
-
-    private RaycastHit _hit;
 
     private PlayerCharacter _character;
-    
-    private CompositeDisposable _reactiveDisposable = new CompositeDisposable();
-    private CompositeDisposable _checkDisposable = new CompositeDisposable();
+
+    private RaycastHit _hit;
+    private readonly CompositeDisposable _moveDisposable = new CompositeDisposable();
+    private readonly CompositeDisposable _checkDisposable = new CompositeDisposable();
 
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if (!base.IsOwner)
+        if (!IsOwner)
             return;
+
         _character = PlayerCharacter.Instance;
-        _playerMovement.Moving.Subscribe(_ =>
-        {
-            if (_)
+
+        // слушаем начало/конец движения
+        _playerMovement.Moving
+            .Subscribe(isMoving =>
             {
-                CheckNormalAngle();
-                return;
-            }
-            _checkDisposable.Clear();
-        }).AddTo(_reactiveDisposable);
+                if (isMoving)
+                    StartSlopeCheck();
+                else
+                    _checkDisposable.Clear();
+            })
+            .AddTo(_moveDisposable);
     }
 
-    private void CheckNormalAngle()
+    private void StartSlopeCheck()
     {
-        Observable.Interval(TimeSpan.FromSeconds(_checkRate)).Subscribe(_ =>
-        {
-            if (OnSlope())
-            {
-                _character.Rigidbody.AddForce(GetSlopeMoveDirection() * _playerMovement.Speed * 20f, ForceMode.Force);
+        _checkDisposable.Clear();
 
-                if (_character.Rigidbody.velocity.y > 0)
-                    _character.Rigidbody.AddForce(Vector3.down * 80f, ForceMode.Force);
-            }
-        }).AddTo(_checkDisposable);
+        Observable.Interval(TimeSpan.FromSeconds(_checkRate))
+            .Subscribe(_ =>
+            {
+                if (IsOnSlope())
+                    ApplySlopeMovement();
+            })
+            .AddTo(_checkDisposable);
     }
-    
-    private bool OnSlope()
+
+    private bool IsOnSlope()
     {
-        bool hitted = Physics.Raycast(_raycastSettings.Origin.position, Vector3.down, out _hit,
-            _raycastSettings.MaxDistance, _raycastSettings.LayerMask);
-        if (hitted)
-        {
-            if (_hit.collider.TryGetComponent<Ground>(out Ground ground))
-            {
-                float angle = Vector3.Angle(Vector3.up, _hit.normal);
-                return angle < _maxSlopeAngle && angle != 0;
-            }
-        }
+        bool hit = Physics.Raycast(
+            _raycastSettings.Origin.position,
+            Vector3.down,
+            out _hit,
+            _raycastSettings.MaxDistance,
+            _raycastSettings.LayerMask);
 
-        return false;
+        if (!hit)
+            return false;
+
+        if (!_hit.collider.TryGetComponent<Ground>(out _))
+            return false;
+
+        float angle = Vector3.Angle(_hit.normal, Vector3.up);
+        return angle > 0 && angle <= _maxSlopeAngle;
     }
-    
+
+    private void ApplySlopeMovement()
+    {
+        Vector3 dir = GetSlopeMoveDirection();
+        Rigidbody rb = _character.Rigidbody;
+
+        // мягкое "прилипание" к склону
+        if (rb.velocity.y > 0)
+            rb.AddForce(Vector3.down * 40f, ForceMode.Acceleration);
+
+        // движение вдоль склона
+        rb.AddForce(
+            dir * _playerMovement.Speed * 10f,
+            ForceMode.Acceleration);
+    }
+
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(_playerMovement.InputVector, _hit.normal).normalized;
@@ -77,9 +93,10 @@ public class PlayerSlopeMovement : NetworkBehaviour
 
     private void OnDisable()
     {
-        if (!base.IsOwner)
+        if (!IsOwner)
             return;
+
+        _moveDisposable.Clear();
         _checkDisposable.Clear();
-        _reactiveDisposable.Clear();
     }
 }
