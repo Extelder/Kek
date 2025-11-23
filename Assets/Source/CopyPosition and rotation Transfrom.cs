@@ -8,6 +8,8 @@ public class CopyPositionandrotationTransfrom : MonoBehaviour
     
     private void Update()
     {
+        if (_target == null)
+            return;
         _target.position = transform.position;
         _target.rotation = transform.rotation;
     }
