@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.Utilities;
+using Observable = UniRx.Observable;
 using Random = UnityEngine.Random;
 
 public class TractorEvent : RandomEvent
@@ -14,6 +17,7 @@ public class TractorEvent : RandomEvent
     [SerializeField] Transform[] wheels;
     [SerializeField] private GameObject _tractorGood;
     [SerializeField] float rpm = 180f;
+    private CompositeDisposable _disposable = new CompositeDisposable();
 
     public enum Axis
     {
@@ -43,10 +47,11 @@ public class TractorEvent : RandomEvent
     private void StartEventServer()
     {
         SetDestinationObserver();
-        WaitAndDestroy();
+        //StartCoroutine(WaitAndDestroy());
         _target = FindNearestPlayerCharacter(transform.position);
         if (Agent != null && _target != null)
             Agent.SetDestination(_target.transform.position);
+        TraktorEbator();
     }
 
     [ObserversRpc]
@@ -89,14 +94,22 @@ public class TractorEvent : RandomEvent
         Despawn(gameObject);
     }
 
-    private void Update()
+    private void TraktorEbator()
     {
-        if (!IsServer) return;
-        Agent.SetDestination(_target.transform.position);
-        float deg = rpm * 6f * Time.deltaTime; // 360/60
-        var ax = AxisVec;
-        for (int i = 0; i < (wheels?.Length ?? 0); i++)
-            if (wheels[i])
-                wheels[i].Rotate(ax, deg, Space.Self);
+        Observable.Interval(TimeSpan.FromSeconds(0.02f)).Subscribe(_ =>
+        {
+            if (!IsServer) return;
+            Agent.SetDestination(_target.transform.position);
+            float deg = rpm * 6f * Time.deltaTime; // 360/60
+            var ax = AxisVec;
+            for (int i = 0; i < (wheels?.Length ?? 0); i++)
+                if (wheels[i])
+                    wheels[i].Rotate(ax, deg, Space.Self);
+        }).AddTo(_disposable);
+    }
+
+    private void OnDisable()
+    {
+        _disposable.Clear();
     }
 }
