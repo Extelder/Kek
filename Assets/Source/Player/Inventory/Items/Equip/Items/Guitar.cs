@@ -6,21 +6,25 @@ using UnityEngine.InputSystem;
 
 public class Guitar : EquipItem
 {
-    [SerializeField] private SoundPlayPause _music;
+    public event Action<bool> StartedPlayingMusic;
+    public event Action StoppedPlayingMusic;
 
     public override void OnInputReceived(InputAction.CallbackContext obj)
     {
-        _music.Pause(false); 
+        StartedPlayingMusic?.Invoke(false);
         PlayerAnimator.GuitarAnim();
+    }
+    
+    
+    public override void OnEquipmentNull()
+    {
+        base.OnEquipmentNull();
+        StoppedPlayingMusic?.Invoke();
     }
 
     public override void OnInputCanceled(InputAction.CallbackContext obj)
     {
-        _music.Pause(true); 
+        StartedPlayingMusic?.Invoke(true);
         PlayerAnimator.DisableAll();
-    }
-    private void OnDisable()
-    {
-        _music.Pause(true);
     }
 }
