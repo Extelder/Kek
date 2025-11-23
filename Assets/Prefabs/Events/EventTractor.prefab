@@ -1487,6 +1487,8 @@ GameObject:
   - component: {fileID: 2714020628677296953}
   - component: {fileID: 4485428688758134970}
   - component: {fileID: 6062525753813603347}
+  - component: {fileID: 7170817439165556218}
+  - component: {fileID: 5786435915374911916}
   m_Layer: 0
   m_Name: EventTractor
   m_TagString: Untagged
@@ -1806,6 +1808,39 @@ MonoBehaviour:
     X: 0
     Y: 0
     Z: 0
+--- !u!114 &7170817439165556218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef36683cd3ce09c4ebfa35bef5f7e521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 132438768994226271}
+  _networkObjectCache: {fileID: 0}
+  _enemyHealth: {fileID: 5786435915374911916}
+--- !u!114 &5786435915374911916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739f2565d304278468e19c865bdcb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 132438768994226271}
+  _networkObjectCache: {fileID: 0}
+  <MaxValue>k__BackingField: 100
+  _object: {fileID: 132438768994226271}
 --- !u!1 &6016398443213153462
 GameObject:
   m_ObjectHideFlags: 0

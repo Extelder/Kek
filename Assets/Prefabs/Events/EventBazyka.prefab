@@ -1433,8 +1433,8 @@ GameObject:
   - component: {fileID: 1136176466948991519}
   - component: {fileID: 5508710341534709530}
   - component: {fileID: 8019147759304505791}
-  - component: {fileID: 3860092310514639550}
   - component: {fileID: 4968687459044560631}
+  - component: {fileID: 6903674441942029497}
   m_Layer: 0
   m_Name: EventBazyka
   m_TagString: Untagged
@@ -1854,23 +1854,6 @@ CapsuleCollider:
   m_Height: 1.3002834
   m_Direction: 1
   m_Center: {x: 4.0492323e-10, y: 0.6760095, z: -1.4352696e-11}
---- !u!114 &3860092310514639550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5789407644844275816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5746fdae5b6432043ab0f57b2916b14a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 132438768994226271}
-  _networkObjectCache: {fileID: 0}
-  _enemyStateMachine: {fileID: 0}
-  _enemyHealth: {fileID: 4968687459044560631}
 --- !u!114 &4968687459044560631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1888,6 +1871,22 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   <MaxValue>k__BackingField: 100
   _object: {fileID: 132438768994226271}
+--- !u!114 &6903674441942029497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789407644844275816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef36683cd3ce09c4ebfa35bef5f7e521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 132438768994226271}
+  _networkObjectCache: {fileID: 0}
+  _enemyHealth: {fileID: 4968687459044560631}
 --- !u!1 &5821123964117347519
 GameObject:
   m_ObjectHideFlags: 0
