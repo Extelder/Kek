@@ -14702,6 +14702,7 @@ GameObject:
   - component: {fileID: 683338491}
   - component: {fileID: 683338490}
   - component: {fileID: 683338494}
+  - component: {fileID: 683338495}
   m_Layer: 1
   m_Name: DoorAnimationPart
   m_TagString: Untagged
@@ -14748,7 +14749,7 @@ MonoBehaviour:
       type: {class: DoorInteractable, ns: , asm: Assembly-CSharp}
       data:
         _netWorkAnimator: {fileID: 1509234337}
-        _audio: {fileID: 683338494}
+        _mix: {fileID: 683338495}
 --- !u!64 &683338491
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14918,6 +14919,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &683338495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683338488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 797742497}
+  _networkObjectCache: {fileID: 0}
+  _audio: {fileID: 683338494}
+  _audioClips:
+  - {fileID: 8300000, guid: 99b329a09aa4e1549bed1c2909da1738, type: 3}
 --- !u!1 &696623903
 GameObject:
   m_ObjectHideFlags: 0
@@ -66802,7 +66821,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.05666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0085d152ad201a044bcc17a03a4c5cb1, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1257096992
 Transform:

@@ -22,7 +22,8 @@ public class CollectTrigger : NetworkBehaviour
                 _chunkAnimator.SetTrigger("Eat");
                 ItemEatable?.Invoke();
 
-                OreQuota.Despawn();
+                if (OreQuota != null)
+                    OreQuota.Despawn();
             }
         }
     }
