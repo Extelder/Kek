@@ -18,6 +18,7 @@ public class BazookaEvent : RandomEvent
     [SerializeField] private GameObject _objectToSpawn;
     [SerializeField] private float _deathTimer;
     [SerializeField] private float _chanceIsDrop;
+    [SerializeField] private SoundEventBazooka _soundEventBazooka;
     private bool _attack;
 
     public override void StartEvent()
@@ -33,6 +34,12 @@ public class BazookaEvent : RandomEvent
             Agent.SetDestination(_target.transform.position);
         StartCoroutine(UpdateWithDelay());
         StartCoroutine(DeathByTimer());
+        StartSound();
+    }
+    [ObserversRpc]
+    private void StartSound()
+    {
+        _soundEventBazooka.StartCoroutine(_soundEventBazooka.FootStep());
     }
 
     [ObserversRpc]

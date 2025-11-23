@@ -94,8 +94,9 @@ GameObject:
   - component: {fileID: 3812691901012360751}
   - component: {fileID: 4760675070963832918}
   - component: {fileID: 2622188151491096099}
-  - component: {fileID: 2551738117300335505}
   - component: {fileID: 2745318273016883076}
+  - component: {fileID: 9078159258567508962}
+  - component: {fileID: 4527668008457574785}
   m_Layer: 1
   m_Name: BarrelOne
   m_TagString: Untagged
@@ -137,14 +138,14 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 2622188151491096099}
   _networkObjectCache: {fileID: 0}
   Item:
-    rid: 7802504300689096704
+    rid: 7802504477450436608
   references:
     version: 2
     RefIds:
-    - rid: 7802504300689096704
-      type: {class: BarrelInteract, ns: , asm: Assembly-CSharp}
+    - rid: 7802504477450436608
+      type: {class: BoxInteract, ns: , asm: Assembly-CSharp}
       data:
-        barrel: {fileID: 2551738117300335505}
+        box: {fileID: 4527668008457574785}
 --- !u!114 &2622188151491096099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,23 +198,6 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
     IsValid: 0
---- !u!114 &2551738117300335505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984063984427849907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6505a55f7a85fb44af2c2646ea1c5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 2622188151491096099}
-  _networkObjectCache: {fileID: 0}
-  _object: {fileID: 4833302299070123183}
-  _strenge: 5
 --- !u!65 &2745318273016883076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -235,6 +219,131 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.67121875, y: 1.0122982, z: 0.71466446}
   m_Center: {x: 0.002814114, y: 0.502667, z: 0.0013403893}
+--- !u!82 &9078159258567508962
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984063984427849907}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3085219128794693552, guid: 592de11c8adfb3a4b94b18770eefc1e3, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4527668008457574785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984063984427849907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97a4328db436f6459e25da4105fbbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 2622188151491096099}
+  _networkObjectCache: {fileID: 0}
+  _object:
+  - {fileID: 4833302299070123183}
+  _objectDestroyAfterMain: []
+  _strenge: 3
+  destroyAll: 1
+  _audio: {fileID: 9078159258567508962}
+  _MixAudio: 1
+  _audioClip:
+  - {fileID: 8300000, guid: 4a1a970a8f39c3242bce17a2c5223296, type: 3}
+  - {fileID: 8300000, guid: 8cb5a952176089e499fd749414918a38, type: 3}
+  - {fileID: 8300000, guid: ce874f533b1cfaa4f82d3020a733a28a, type: 3}
+  - {fileID: 8300000, guid: 06dec9480362da746b8b980d2138cb59, type: 3}
+  _lockInteractAfterUse: 1
+  IsUse: 0
 --- !u!1 &4833302299070123183
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +488,7 @@ GameObject:
   - component: {fileID: 3631694624659202931}
   - component: {fileID: 6798549504650226566}
   - component: {fileID: 1444318912746202095}
+  - component: {fileID: 8308980269552542186}
   m_Layer: 0
   m_Name: metal_barrel_mp_3.001 (1)
   m_TagString: Untagged
@@ -451,3 +561,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8308980269552542186
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679719627959130854}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0068329475, y: 0.010280213, z: 0.0068329475}
+  m_Center: {x: 0, y: -0.0005217683, z: -1.0811854e-18}
