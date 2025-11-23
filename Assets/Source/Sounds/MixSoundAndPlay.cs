@@ -9,8 +9,7 @@ public class MixSoundAndPlay : NetworkBehaviour
 {
     [SerializeField] private AudioSource _audio;
     [SerializeField] private AudioClip[] _audioClips;
-    
-    
+
 
     [ServerRpc(RequireOwnership = false)]
     public void MixOnServer()
@@ -21,6 +20,8 @@ public class MixSoundAndPlay : NetworkBehaviour
     [ObserversRpc]
     private void MixAndPlayObserver()
     {
+        if (_audio == null)
+            return;
         _audio.clip = _audioClips[Random.Range(0, _audioClips.Length)];
         _audio.Play();
     }
