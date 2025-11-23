@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3078480661515957473}
   - component: {fileID: 5498199888147706504}
   - component: {fileID: 4778092016831248856}
+  - component: {fileID: 2540753348174118997}
   m_Layer: 0
   m_Name: wing_4_low.002
   m_TagString: Untagged
@@ -371,6 +372,22 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
     IsValid: 0
+--- !u!114 &2540753348174118997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201928749094589659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf63dfa83b4ce9948940eeb560034c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 4778092016831248856}
+  _networkObjectCache: {fileID: 0}
+  _cooldown: 2
 --- !u!1 &6394386946692052225
 GameObject:
   m_ObjectHideFlags: 0
