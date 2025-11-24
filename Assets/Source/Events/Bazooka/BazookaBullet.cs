@@ -17,12 +17,14 @@ public class BazookaBullet : NetworkBehaviour
     private void Start()
     {
         _audioFly.Play();
+        StartCoroutine(AimStop());
     }
 
     private void Update()
     {
         if (target == null)
         {
+            transform.position += transform.forward * _speed * Time.deltaTime;
             return;
         }
 
@@ -44,6 +46,7 @@ public class BazookaBullet : NetworkBehaviour
     public void OnDestroyServer()
     {
         OnDestroyObserver();
+        PlayerCharacter.Instance.PlayerHitBox.TakeDamage(10);
         StartCoroutine(DestroyDelay());
     }
 
@@ -61,5 +64,11 @@ public class BazookaBullet : NetworkBehaviour
         _gasFx.Play();
         yield return new WaitForSeconds(2.1f);
         PlayerCharacter.Instance.Despawn(gameObject);
+    }
+
+    private IEnumerator AimStop()
+    {
+        yield return new WaitForSeconds(0.5f);
+        target = null;
     }
 }

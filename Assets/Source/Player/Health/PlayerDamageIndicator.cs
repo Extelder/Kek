@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerDamageIndicator : MonoBehaviour
 {
     [SerializeField] private PlayerHealth _health;
-    [SerializeField] private GameObject _damageIndicator;
+    [SerializeField] private Animator _damageIndicatorAnimator;
+    [SerializeField] private Animator _damageIndicatorAnimator2;
     [SerializeField] private float _showRate;
 
     private void OnEnable()
@@ -16,19 +17,17 @@ public class PlayerDamageIndicator : MonoBehaviour
 
     private void OnPlayerDamaged(float value)
     {
-        StopAllCoroutines();
-        StartCoroutine(ShowIndicator());
+        ShowIndicator();
     }
 
-    private IEnumerator ShowIndicator()
+    private void ShowIndicator()
     {
-        _damageIndicator.SetActive(true);
-        yield return new WaitForSeconds(_showRate);
-        _damageIndicator.SetActive(false);
+        _damageIndicatorAnimator.Play("Blood", 0, 0f);
+        _damageIndicatorAnimator2.Play("Blood1", 0, 0f);
     }
 
     private void OnDisable()
     {
-        _health.Damaged += OnPlayerDamaged;
+        _health.Damaged -= OnPlayerDamaged;
     }
 }
