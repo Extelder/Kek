@@ -5,12 +5,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 [Serializable]
 public class Replica
 {
+    public bool HasEvent;
+
     [field: SerializeField] public string Text { get; private set; }
     [field: SerializeField] public float delay { get; private set; }
+
+    [field: SerializeReference]
+    [field: ShowIfReference(nameof(HasEvent))]
+    [field: SerializeReferenceButton]
+    [field: SerializeField]
+    public DialogueEvent DialogueEvent { get; private set; }
 }
 
 public class PlayerDialogue : MonoBehaviour
@@ -67,6 +74,8 @@ public class PlayerDialogue : MonoBehaviour
         {
             _currentIndex = i;
             _dialogueText.text = replicas[i].Text;
+            if (replicas[i].HasEvent)
+                replicas[i].DialogueEvent.Invoke();
             yield return new WaitForSeconds(replicas[i].delay);
         }
 
