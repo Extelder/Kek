@@ -10,6 +10,7 @@ public class CollectTrigger : NetworkBehaviour
     [SerializeField] private Animator _chunkAnimator;
 
     [SerializeField] private Quota _quota;
+    [SerializeField] private AudioSource _eatAudio;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +22,7 @@ public class CollectTrigger : NetworkBehaviour
                 _quota.Add(50);
                 _chunkAnimator.SetTrigger("Eat");
                 ItemEatable?.Invoke();
+                _eatAudio.Play();
 
                 if (OreQuota != null)
                     OreQuota.Despawn();
