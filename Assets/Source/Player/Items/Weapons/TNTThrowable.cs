@@ -9,7 +9,8 @@ public class TNTThrowable : NetworkBehaviour
 {
     [field: SerializeField] public Transform Transform { get; private set; }
     [field: SerializeField] public float Damage { get; private set; }
-    
+
+    [SerializeField] private ParticleSystem _particle;
     [SerializeField] private float _throwForce;
     [SerializeField] private float _explodeCooldown;
     [SerializeField] private float _explodeCooldownAfterSound;
@@ -51,6 +52,7 @@ public class TNTThrowable : NetworkBehaviour
                 break;
             }
         }
+        _particle.Play();
         PlayerCharacter.Instance.DespawnObject(this);
     }
     

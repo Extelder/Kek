@@ -4,27 +4,31 @@ using FishNet.Object;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class UnitHitBox : NetworkBehaviour, IWeaponVisitor
+public class UnitHitBox : HitBox
 {
     [SerializeField] private EnemyHealth _enemyHealth;
 
-    public void Visit(RPGProjectile rpgProjectile)
+    public override void Visit(RPGProjectile rpgProjectile)
     {
+        base.Visit(rpgProjectile);
         Hit(rpgProjectile.Damage, transform.position + new Vector3(0, 0.5f, 0));
     }
 
-    public virtual void Visit(TNTThrowable tntThrowable)
+    public override void Visit(TNTThrowable tntThrowable)
     {
+        base.Visit(tntThrowable);
         Hit(tntThrowable.Damage, transform.position);
     }
 
-    public void Visit(Pickaxe pickaxe, RaycastHit hit)
+    public override void Visit(Pickaxe pickaxe, RaycastHit hit)
     {
+        base.Visit(pickaxe, hit);
         HitWithRaycast(pickaxe.Damage, hit.point, hit.normal);
     }
 
-    public void Visit(Drill drill, RaycastHit hit)
+    public override void Visit(Drill drill, RaycastHit hit)
     {
+        base.Visit(drill, hit);
         HitWithRaycast(drill.Damage, hit.point, hit.normal);
     }
     
