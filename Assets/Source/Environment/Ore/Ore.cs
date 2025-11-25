@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
 
-public class Ore : NetworkBehaviour, IWeaponVisitor
+public class Ore : HitBox
 {
     [SerializeField] private GameObject _hitEffect;
     [SerializeField] private Transform _modelsOrigin;
@@ -13,23 +13,27 @@ public class Ore : NetworkBehaviour, IWeaponVisitor
 
     public event Action Destroyed;
 
-    public void Visit(RPGProjectile rpgProjectile)
+    public override void Visit(RPGProjectile rpgProjectile)
     {
+        base.Visit(rpgProjectile);
         DestroyOre();
     }
 
-    public void Visit(TNTThrowable tntThrowable)
+    public override void Visit(TNTThrowable tntThrowable)
     {
+        base.Visit(tntThrowable);
     }
 
-    public void Visit(Pickaxe pickaxe, RaycastHit hit)
+    public override void Visit(Pickaxe pickaxe, RaycastHit hit)
     {
+        base.Visit(pickaxe, hit);
         PlayerCharacter.Instance.ServerSpawnObject(_hitEffect, hit.point, Quaternion.LookRotation(-hit.normal));
         Hit();
     }
 
-    public void Visit(Drill drill, RaycastHit hit)
+    public override void Visit(Drill drill, RaycastHit hit)
     {
+        base.Visit(drill, hit);
         PlayerCharacter.Instance.ServerSpawnObject(_hitEffect, hit.point, Quaternion.LookRotation(-hit.normal));
         Hit();
     }

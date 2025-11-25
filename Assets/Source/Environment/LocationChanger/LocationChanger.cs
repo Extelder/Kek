@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class LocationChanger : NetworkBehaviour
 {
+    public event Action StartRegenerate;
     [SerializeField] private float _waitTIme;
 
     [SerializeField] private PlayersInChecker _playerInChecker;
@@ -23,6 +24,7 @@ public class LocationChanger : NetworkBehaviour
     {
         _netWorkAnimatorSynchronize.SetAnimatorBool("IsOpen", false);
         _generator.ReGenerate();
+        StartRegenerate?.Invoke();
         _controlPanelAnimator.SetAnimatorBool("IsActivate", false);
         _netWorkAnimatorSynchronize.SetBlock(true);
         Invoke(nameof(EnableDoor), _waitTIme);

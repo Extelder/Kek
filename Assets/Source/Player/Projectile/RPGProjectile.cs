@@ -8,6 +8,7 @@ public class RPGProjectile : MonoBehaviour
     [field :SerializeField] public float Damage { get; private set; }
     [SerializeField] private OverlapSettings _overlapSettings;
     [SerializeField] private int _collidersSize;
+    [SerializeField] private ParticleSystem _particle;
     private Collider[] _colliders;
     private void OnCollisionEnter(Collision other)
     {
@@ -18,6 +19,7 @@ public class RPGProjectile : MonoBehaviour
 
     private void Explode()
     {
+        _particle.Play();
         _colliders = new Collider[_collidersSize];
         Overlap();
         foreach (var other in _colliders)

@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_Fog: 1
+  m_FogColor: {r: 0.23584908, g: 0.2302866, b: 0.2302866, a: 1}
+  m_FogMode: 1
+  m_FogDensity: 0.05
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 230
   m_AmbientSkyColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 0.431
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -14303,6 +14303,81 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &2361646303605972434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5005752806760563601, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005752806760563601, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: <SceneId>k__BackingField
+      value: 3153583479
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.753
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.938
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.53137153
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.53137165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.46652365
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.46652362
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786606837483838415, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -82.564
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558922133716746613, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: m_Name
+      value: TransportHab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966805887883939482, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      propertyPath: _locationChanger
+      value: 
+      objectReference: {fileID: 371734254}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2665537058689549366, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2195569965864272873, guid: 80523003cc331cb4f87869066687a152, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 80523003cc331cb4f87869066687a152, type: 3}
 --- !u!33 &2372301326004777325
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19292,3 +19367,4 @@ SceneRoots:
   - {fileID: 1930180433}
   - {fileID: 588858983}
   - {fileID: 1828561911}
+  - {fileID: 2361646303605972434}
