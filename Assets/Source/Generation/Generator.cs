@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class Generator : NetworkBehaviour
 {
+    [SerializeField] private bool _notDeleate;
+
     [SerializeField] private Transform[] _oreSpawnPoint;
 
     [field: ShowIf(nameof(IsInstance)), SerializeField]
@@ -171,6 +173,8 @@ public class Generator : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_notDeleate)
+            return;
         if (IsInstance)
             return;
         if (!IsServer)
