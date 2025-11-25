@@ -7179,19 +7179,28 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 1259111792}
   _networkObjectCache: {fileID: 0}
   _oreSpawnPoint: []
-  _defaultSpawningObjects: []
+  _defaultSpawningObjects:
+  - {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+  - {fileID: 7531668499008362695, guid: 3e072500c8b77714192625e12bd44fe2, type: 3}
+  - {fileID: 7531668499008362695, guid: abecb2f7d6252124d9b81d8c11cbb32b, type: 3}
+  - {fileID: 7531668499008362695, guid: 47e700299f680d64ca810951bab292e5, type: 3}
+  - {fileID: 1385481675081835522, guid: a51564009a4f712409d3a2aa85a91fcc, type: 3}
+  - {fileID: 3563620989626414073, guid: f3a4f83669f4f70439178d26f7922dc3, type: 3}
+  - {fileID: 4517050547419009275, guid: cc5c4ee866bb4464aa1a9f7447788e65, type: 3}
   _block: {fileID: 0}
   _spawnableParts:
-  - {fileID: 6268253527317012806, guid: 75c3f17e01670134ab0d9407d6637b50, type: 3}
+  - {fileID: 4517050547419009275, guid: cc5c4ee866bb4464aa1a9f7447788e65, type: 3}
+  - {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}
   _spawnNextPoints:
   - {fileID: 483434623}
   _enemySpawnPoint: []
   <MaxGenerateParts>k__BackingField: 23
   <SpawnedGenerateParts>k__BackingField: 0
-  <Surface>k__BackingField: {fileID: 1257096991}
+  <Surface>k__BackingField: {fileID: 0}
   <Enemies>k__BackingField:
   - {fileID: 1518440961630321515, guid: e7a828d4f2dc062469b39ad3791c39e1, type: 3}
-  - {fileID: 8187789183149026713, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
+  - {fileID: 7038530547136117787, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+  - {fileID: 2309284192556468955, guid: 5f8640f3617804d408ef704a9b3786dd, type: 3}
   - {fileID: 1855220539242055211, guid: 75270188151acf24699a7172f877261d, type: 3}
   <RandomChanceToSpawnEnemy>k__BackingField: 0.1
   _maxEnemyToSpawn: 6
@@ -12231,6 +12240,7 @@ MonoBehaviour:
   _events:
   - {fileID: 7964188866673006613, guid: 210e08493df75b745b445d048baea425, type: 3}
   - {fileID: -2395600617990982459, guid: 2d2f6176b73dd034cac94549d17e357d, type: 3}
+  - {fileID: 2239606556426538748, guid: d35031cc3dbff1848b92b70f23933c0e, type: 3}
   _randomEventsToSpawnRange: {x: -1, y: 2}
 --- !u!1001 &2070037761
 PrefabInstance:
