@@ -1439,7 +1439,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: managedReferences[25188187093598208]
@@ -1448,9 +1448,17 @@ PrefabInstance:
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: managedReferences[25188187093598208]._prefab
       value: 
-      objectReference: {fileID: 8336503651146100546, guid: 12600f105dd7ce441be4f2e94fcb2f92, type: 3}
+      objectReference: {fileID: 4379315780189467794, guid: 3242e2128dcc02f499225c30e04bc3e2, type: 3}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.data[1].<Name>k__BackingField
+      value: Muler
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Name>k__BackingField
+      value: Muler
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Name>k__BackingField
       value: Muler
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
@@ -1470,6 +1478,38 @@ PrefabInstance:
       value: 0.6117647
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Color>k__BackingField.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Color>k__BackingField.b
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Color>k__BackingField.g
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Color>k__BackingField.r
+      value: 0.6117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Color>k__BackingField.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Color>k__BackingField.b
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Color>k__BackingField.g
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Color>k__BackingField.r
+      value: 0.6117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: managedReferences[25188187093598208]._spawnPoint
       value: 
       objectReference: {fileID: 155616958}
@@ -1478,7 +1518,23 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.data[1].<Replicas>k__BackingField.Array.data[2].HasEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[2].HasEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[2].HasEvent
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
@@ -1492,7 +1548,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.data[1].<Replicas>k__BackingField.Array.data[2].<Text>k__BackingField
-      value: <color=green>Here`s<color=green> for you one
+      value: <color=green>Here`s</color=green> for you one
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[0].<Text>k__BackingField
+      value: Hi!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[1].<Text>k__BackingField
+      value: Listen, i found one stranger thing in doctors lab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[2].<Text>k__BackingField
+      value: <color=green>here</color=green>
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[0].<Text>k__BackingField
+      value: What`s up!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[1].<Text>k__BackingField
+      value: I found a cool ore there
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[2].<Text>k__BackingField
+      value: '<color=green>here</color=green> take it '
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.data[1].<Replicas>k__BackingField.Array.data[0].<delay>k__BackingField
@@ -1507,6 +1587,30 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[0].<delay>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[1].<delay>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[2].<delay>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[0].<delay>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[1].<delay>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[2].<delay>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.data[1].<Replicas>k__BackingField.Array.data[0].<DialogueEvent>k__BackingField
       value: -2
       objectReference: {fileID: 0}
@@ -1516,6 +1620,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
       propertyPath: _dialogue.Array.data[1].<Replicas>k__BackingField.Array.data[2].<DialogueEvent>k__BackingField
+      value: 25188187093598208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[0].<DialogueEvent>k__BackingField
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[1].<DialogueEvent>k__BackingField
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[2].<Replicas>k__BackingField.Array.data[2].<DialogueEvent>k__BackingField
+      value: 25188187093598208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[0].<DialogueEvent>k__BackingField
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[1].<DialogueEvent>k__BackingField
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113492134046605354, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
+      propertyPath: _dialogue.Array.data[3].<Replicas>k__BackingField.Array.data[2].<DialogueEvent>k__BackingField
       value: 25188187093598208
       objectReference: {fileID: 0}
     - target: {fileID: 5573231698674207274, guid: c0bffff3a1d650240a6eab061f0b9e55, type: 3}
@@ -3638,6 +3766,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6562664502541917, guid: a21f8d983dbc73d4c8c9330626c5dc88, type: 3}
+      propertyPath: _generator
+      value: 
+      objectReference: {fileID: 1259111793}
     - target: {fileID: 2284347806218810129, guid: a21f8d983dbc73d4c8c9330626c5dc88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.720138
