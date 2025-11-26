@@ -15392,6 +15392,7 @@ GameObject:
   - component: {fileID: 7160809295371563853}
   - component: {fileID: 3327174935348597493}
   - component: {fileID: 6562081531379052814}
+  - component: {fileID: 6767672220255195287}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Untagged
@@ -15530,6 +15531,7 @@ MonoBehaviour:
   <CameraHeadBob>k__BackingField: {fileID: 2370595197139838975}
   <PlayerHealth>k__BackingField: {fileID: -5256358950320560399}
   <PlayerStamina>k__BackingField: {fileID: 6562081531379052814}
+  <PlayerGuide>k__BackingField: {fileID: 6767672220255195287}
   <PlayerDialogue>k__BackingField: {fileID: 4754405594093800195}
   <DropPoint>k__BackingField: {fileID: 8950486551078518353}
   <FingerLookAtPoint>k__BackingField: {fileID: 1694590149774310542}
@@ -16080,6 +16082,21 @@ MonoBehaviour:
   _timeToRecover: 2
   _valueToSpend: 5
   _valueToRecover: 5
+--- !u!114 &6767672220255195287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7502805d58905a44917f5f74db0d7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
 --- !u!1 &4908910220154872521
 GameObject:
   m_ObjectHideFlags: 0
@@ -16516,7 +16533,7 @@ GameObject:
   - component: {fileID: 4872895716309076989}
   - component: {fileID: 8824358684511982346}
   m_Layer: 7
-  m_Name: HealthText (1)
+  m_Name: StaminaText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29761,6 +29778,7 @@ GameObject:
   - component: {fileID: 7284072720175164895}
   - component: {fileID: 4754405594093800195}
   - component: {fileID: 5852357317188626388}
+  - component: {fileID: 6805030359981725462}
   m_Layer: 7
   m_Name: Hud
   m_TagString: Untagged
@@ -29903,6 +29921,22 @@ MonoBehaviour:
   _damageIndicatorAnimator: {fileID: 3593030828017656918}
   _damageIndicatorAnimator2: {fileID: 6198482361761824382}
   _showRate: 0.5
+--- !u!114 &6805030359981725462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896811762941255136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7021516d04f61c349bc023298c6edded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  margin: 32
+  canvasColor: {r: 0, g: 0.8117647, b: 1, a: 0.105882354}
+  camera: {fileID: 1067356894709117499}
 --- !u!1 &8899614852522377651
 GameObject:
   m_ObjectHideFlags: 0
