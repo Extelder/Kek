@@ -1051,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 1148780328587988079, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
       propertyPath: _hitBox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3598967366075044156}
     - target: {fileID: 1954450001079475247, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
       propertyPath: _attack
       value: 
@@ -1120,6 +1120,10 @@ PrefabInstance:
       propertyPath: NetworkBehaviours.Array.data[13]
       value: 
       objectReference: {fileID: 6409149106310953296}
+    - target: {fileID: 6059055495045773088, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
+      propertyPath: NetworkBehaviours.Array.data[14]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6059055495045773088, guid: 139c9a0ce7802324abe9aab2dbf3d54d, type: 3}
       propertyPath: SerializedTransformProperties.Position.x
       value: 8.964382

@@ -13,7 +13,7 @@ public class SpawnableTrap : PlayerTrigger
 
     public override void OnTriggered(PlayerHealth playerHealth)
     {
-        if(Random.Range(1,100) >= 90) StartCoroutine(Triggering());
+        if(Random.value <= 0.9) StartCoroutine(Triggering());
     }
 
     private IEnumerator Triggering()
