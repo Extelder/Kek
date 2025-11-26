@@ -9,6 +9,8 @@ public class DoorInteract : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _maxAngle;
     [SerializeField] private GameObject _object;
+    [SerializeField] private AudioSource _dooropen;
+    [SerializeField] private AudioSource _dooropened;
     private bool IsSpin;
     private float _currentAngle;
 
@@ -33,6 +35,7 @@ public class DoorInteract : MonoBehaviour
     private void ValveSpinComplete()
     {
         IsSpin = true;
+        _dooropen.Play();
     }
 
     private void Update()
@@ -55,6 +58,8 @@ public class DoorInteract : MonoBehaviour
             else
             {
                 IsSpin = false;
+                _dooropened.Play();
+                _dooropen.Stop();
             }
         }
         else
@@ -70,6 +75,8 @@ public class DoorInteract : MonoBehaviour
             else
             {
                 IsSpin = false;
+                _dooropened.Play();
+                _dooropen.Stop();
             }
         }
     }

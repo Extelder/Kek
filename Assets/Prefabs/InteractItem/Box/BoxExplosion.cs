@@ -17,6 +17,9 @@ public class BoxExplosion : NetworkBehaviour
     [SerializeField] private bool _lockInteractAfterUse = true;
     public bool IsUse;
     private int _currentIndex;
+    [SerializeField] private bool _spawnObjects;
+    [SerializeField] private GameObject[] _objectsToSpawn;
+    [SerializeField] private GameObject _spawnPoint;
 
 
     [ServerRpc(RequireOwnership = false)]
@@ -24,6 +27,17 @@ public class BoxExplosion : NetworkBehaviour
     {
         if (!IsUse)
         {
+            if (_spawnObjects)
+            {
+                int randomChance = Random.Range(1, 101);
+                if (randomChance >= 70)
+                {
+                    int random = Random.Range(0, _objectsToSpawn.Length);
+                    PlayerCharacter.Instance.ServerSpawnObject(_objectsToSpawn[random], _spawnPoint.transform.position,
+                        _spawnPoint.transform.rotation);
+                }
+            }
+
             InteractObserver();
         }
     }

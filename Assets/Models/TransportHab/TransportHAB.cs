@@ -20,7 +20,11 @@ public class TransportHAB : NetworkBehaviour
     [SerializeField] private LocationChanger _locationChanger;
     [SerializeField] private TextMeshPro _textDrillig;
     [SerializeField] private TextMeshPro _textDrilligTochki;
+    [SerializeField] private TextMeshPro _depth;
     private Coroutine _moveRoutine;
+    [SerializeField] private Renderer _renderer;
+    private int stage = 1;
+    private int depth = 0;
 
     private void OnEnable()
     {
@@ -43,7 +47,12 @@ public class TransportHAB : NetworkBehaviour
     {
         _currentStateIndex++;
         if (_currentStateIndex >= 8)
+        {
             _currentStateIndex = 0;
+            stage++;
+            UpdateStageColor();
+        }
+
         MoveToState(_currentStateIndex);
     }
 
@@ -76,6 +85,7 @@ public class TransportHAB : NetworkBehaviour
     {
         _textDrillig.enabled = true;
         _textDrilligTochki.enabled = true;
+        StartCoroutine(MetrDepth());
         StartCoroutine(Tochki());
         Vector3 startPos = _objectToTransform.position;
         Vector3 endPos = target.position;
@@ -86,13 +96,23 @@ public class TransportHAB : NetworkBehaviour
             float k = _moveCurve.Evaluate(Mathf.Clamp01(t));
 
             _objectToTransform.position = Vector3.Lerp(startPos, endPos, k);
-
             yield return null;
         }
 
         _moveRoutine = null;
         _textDrillig.enabled = false;
         _textDrilligTochki.enabled = false;
+    }
+
+    private IEnumerator MetrDepth()
+    {
+        while (_textDrillig.enabled)
+        {
+            yield return new WaitForSeconds(0.5f);
+            int randomDepth = UnityEngine.Random.Range(2, 4);
+            depth = randomDepth + depth;
+            _depth.text = depth.ToString();
+        }
     }
 
     private IEnumerator Tochki()
@@ -108,5 +128,14 @@ public class TransportHAB : NetworkBehaviour
                 currentTochki = 1;
             }
         }
+    }
+
+    public void UpdateStageColor()
+    {
+        float t = Mathf.Clamp01(stage / 10f);
+
+        Color targetColor = Color.Lerp(Color.white, Color.red, t);
+
+        _renderer.material.color = targetColor;
     }
 }
