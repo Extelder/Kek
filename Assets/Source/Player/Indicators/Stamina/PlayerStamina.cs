@@ -8,9 +8,17 @@ using UnityEngine.InputSystem;
 public class PlayerStamina : Stamina
 {
     [SerializeField] private PlayerCharacter _character;
+    
     [SerializeField] private float _spendRate; 
+    [SerializeField] private float _recoverRate; 
+    
+    [SerializeField] private float _timeToRecover;
+    
     [SerializeField] private float _valueToSpend; 
+    [SerializeField] private float _valueToRecover; 
+    
     private CompositeDisposable _spendDisposable = new CompositeDisposable();
+    private CompositeDisposable _recoverDisposable = new CompositeDisposable();
     
     private void OnEnable()
     {
@@ -27,24 +35,34 @@ public class PlayerStamina : Stamina
 
     private void OnPlayerMoving(InputAction.CallbackContext obj)
     {
-        Debug.Log("MOVING");
+        StopAllCoroutines();
+        _recoverDisposable.Clear();
         Observable.Interval(TimeSpan.FromSeconds(_spendRate)).Subscribe(_ =>
         {
             Spend(_valueToSpend);
         }).AddTo(_spendDisposable);
     }
 
+    private IEnumerator RecoverStamina()
+    {
+        yield return new WaitForSeconds(_timeToRecover);
+        Observable.Interval(TimeSpan.FromSeconds(_recoverRate)).Subscribe(_ =>
+        {
+            Add(_valueToRecover);
+        }).AddTo(_recoverDisposable);
+    }
+    
+
     private void OnPlayerStoppedMoving(InputAction.CallbackContext obj)
     {
-        Debug.Log("STOPPEDMOVING");
         _spendDisposable.Clear();
+        StartCoroutine(RecoverStamina());
     }
 
     public override void Lost()
     {
         CurrentValue = 0;
         StaminaValueChanged?.Invoke(CurrentValue);
-        Debug.Log("NoStamina");
     }
 
     private void OnDisable()
@@ -55,5 +73,6 @@ public class PlayerStamina : Stamina
         _character.Binds.Character.Run.started -= OnPlayerMoving;
         _character.Binds.Character.Run.canceled -= OnPlayerStoppedMoving;
         _spendDisposable.Clear();
+        _recoverDisposable.Clear();
     }
 }
