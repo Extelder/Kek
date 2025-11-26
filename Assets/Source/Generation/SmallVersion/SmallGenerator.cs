@@ -56,6 +56,13 @@ public class SmallGenerator : NetworkBehaviour
                 continue;
             }
 
+            if (_currentSpawnedObjects % 2 == 0)
+            {
+                PlayerCharacter.Instance.ServerSpawnObject(
+                    _generatables[0].gameObject,
+                    generatable.SpawnPoints[i].position,
+                    Quaternion.LookRotation(generatable.SpawnPoints[i].forward));
+            }
             _currentSpawnedObjects++;
             PlayerCharacter.Instance.ServerSpawnObject(
                 _generatables[Random.Range(0, _generatables.Length)].gameObject,
