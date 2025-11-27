@@ -40,6 +40,7 @@ public class PlayerPotions : NetworkBehaviour
 
     public void DrinkGreen()
     {
+        
     }
 
     public void DrinkPink()
