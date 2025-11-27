@@ -9,12 +9,20 @@ public class OreGenerator : NetworkBehaviour
 {
     [SerializeField] private GameObject[] _ores;
 
+    private bool _generating;
+
     public override void OnStartClient()
     {
         if (!IsServer)
             return;
 
         Generator.GenerationEnd += OnGenerationEnd;
+        Generator.Instance.Regenerate += OnRegenerate;
+    }
+
+    private void OnRegenerate()
+    {
+        _generating = false;
     }
 
     private void OnDisable()
@@ -23,14 +31,23 @@ public class OreGenerator : NetworkBehaviour
             return;
 
         Generator.GenerationEnd -= OnGenerationEnd;
+        Generator.Instance.Regenerate -= OnRegenerate;
     }
 
     private void OnGenerationEnd()
     {
+        Debug.LogError("Invoked");
+
+
+        if (_generating)
+            return;
+        _generating = true;
+
         for (int i = 0; i < Generator.Instance.OreSpawnPlaces.Count; i++)
         {
             if (Generator.Instance.OreSpawnPlaces[i] == null)
                 continue;
+            Debug.LogError("Spawned");
             Vector3 basePos = Generator.Instance.OreSpawnPlaces[i].transform.position;
             Vector3 spawnPos = basePos + new Vector3(0, 0.1f, 0);
 
@@ -49,7 +66,6 @@ public class OreGenerator : NetworkBehaviour
                 spawnPos,
                 rot
             );
-
         }
     }
 }
