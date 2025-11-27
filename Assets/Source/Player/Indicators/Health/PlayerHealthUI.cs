@@ -30,12 +30,11 @@ public class PlayerHealthUI : NetworkBehaviour
 
     private void OnHealthValueChanged(float value)
     {
-        _healthText.text = $"{value}/{_health.MaxValue}";
+        _healthText.text = $"{value}";
 
         float t = Mathf.Clamp01(value / _health.MaxValue);
 
-        Color color = Color.Lerp(Color.red, Color.green, t);
-
+        Color color = Color.Lerp(Color.red, Color.white, t);
         _healthText.color = color;
     }
 
