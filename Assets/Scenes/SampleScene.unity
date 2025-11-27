@@ -3175,11 +3175,11 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 371734255}
   _networkObjectCache: {fileID: 0}
-  _waitTIme: 3
+  _waitTIme: 10
   _playerInChecker: {fileID: 275263358}
   _generator: {fileID: 1259111793}
   _netWorkAnimatorSynchronize: {fileID: 1509234337}
-  _controlPanelAnimator: {fileID: 324447396}
+  _controlPanelAnimator: {fileID: 1294663799}
 --- !u!114 &371734255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7691,6 +7691,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4072993402720666, guid: 49561c9ced9a8a14a9aa40be4dd8248c, type: 3}
   m_PrefabInstance: {fileID: 1282340350}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1294663799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2540972332802867222, guid: b8723582901b86a44ba69beba7cb862e, type: 3}
+  m_PrefabInstance: {fileID: 1828561911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ce0ff94116abc449e0901c8843af7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1307780889
 PrefabInstance:
   m_ObjectHideFlags: 0
