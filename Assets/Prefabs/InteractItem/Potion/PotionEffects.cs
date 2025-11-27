@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FishNet.Object;
 
 enum PotionType
 {
@@ -24,43 +25,24 @@ public class PotionEffects : MonoBehaviour
         switch (_potionType)
         {
             case PotionType.Blue:
-                DrinkBlue();
+                PlayerCharacter.Instance.PlayerPotions.DrinkBlue();
                 break;
 
             case PotionType.Red:
-                DrinkRed();
+                PlayerCharacter.Instance.PlayerPotions.DrinkRed();
                 break;
 
             case PotionType.Green:
-                DrinkGreen();
+                PlayerCharacter.Instance.PlayerPotions.DrinkGreen();
                 break;
 
             case PotionType.Pink:
-                DrinkPink();
+                PlayerCharacter.Instance.PlayerPotions.DrinkPink();
                 break;
         }
+        PlayerCharacter.Instance.Despawn(gameObject);
     }
 
-    private void DrinkBlue()
-    {
-        _renderer.sharedMaterial = blueMat;
-    }
-
-    private void DrinkGreen()
-    {
-        _renderer.sharedMaterial = greenMat;
-    }
-
-    private void DrinkPink()
-    {
-        _renderer.sharedMaterial = pinkMat;
-    }
-
-    private void DrinkRed()
-    {
-        _renderer.sharedMaterial = redMat;
-    }
-    
     private void OnValidate()
     {
 

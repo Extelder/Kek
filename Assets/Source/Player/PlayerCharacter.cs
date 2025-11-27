@@ -25,6 +25,7 @@ public class PlayerCharacter : NetworkBehaviour
     [field: SerializeField] public GameObject _inventory;
     [field: SerializeField] public PlayerInventory PlayerInventory { get; private set; }
     [field: SerializeField] public PlayerHatsEquip PlayerHatsEquip { get; private set; }
+    [field: SerializeField] public PlayerPotions PlayerPotions { get; private set; }
     [field: SerializeField] public PlayerWallet PlayerWallet { get; private set; }
     [field: SerializeField] public PlayerMovement PlayerMovement { get; private set; }
     [field: SerializeField] public PlayerHitBox PlayerHitBox { get; private set; }
