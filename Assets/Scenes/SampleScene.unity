@@ -330,8 +330,8 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 7896949}
   _networkObjectCache: {fileID: 0}
   _rigidbody: {fileID: 7896951}
-  _moveSpeed: 15
-  _rotateSpeed: 15
+  _moveSpeed: 50
+  _rotateSpeed: 50
   _maxMoveDelta: 0.3
   _heightAdjustSpeed: 8
   _wheels:
@@ -340,7 +340,7 @@ MonoBehaviour:
   - {fileID: 176065670}
   - {fileID: 1237250343}
   _wheelRadius: 0.2
-  _smoothLerp: 12
+  _smoothLerp: 32
   _groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -12086,6 +12086,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 9205733224594643445, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: _speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205733224594643445, guid: a517f260477d8aa40b97d5ec4cfb596d, type: 3}
+      propertyPath: _maxAngle
+      value: -60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12197,8 +12205,8 @@ Transform:
   m_GameObject: {fileID: 1972873118}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.339, z: 1.748}
-  m_LocalScale: {x: 1.618, y: 0.71206, z: 2.1937}
+  m_LocalPosition: {x: 0.07, y: -0.065, z: 1.45}
+  m_LocalScale: {x: 1.618, y: 0.71206, z: 2.7971869}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7896957}

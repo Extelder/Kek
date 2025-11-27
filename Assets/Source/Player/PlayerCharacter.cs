@@ -110,7 +110,6 @@ public class PlayerCharacter : NetworkBehaviour
     public void SetObjectEnableObserver(GameObject gameObject, bool enabled)
     {
         gameObject.SetActive(enabled);
-        Debug.LogError(gameObject);
     }
 
     public void SetCinemachienCameraValueZero()

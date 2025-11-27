@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class CameraHeadBob : NetworkBehaviour
 {
+    [SerializeField] private GroundChecker _checker;
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
 
@@ -17,13 +18,14 @@ public class CameraHeadBob : NetworkBehaviour
         if (!base.IsOwner)
             return;
         base.OnStartClient();
-        _playerMovement.Moving.Subscribe(_ => { SetAnimatorSpeedServer(Convert.ToInt16(_)); }).AddTo(_disposable);
+        _playerMovement.Moving.Subscribe(_ => { SetAnimatorSpeedServer(Convert.ToInt16(_ && _checker.Detected)); })
+            .AddTo(_disposable);
     }
 
     public void EnableAnimator(bool enabled)
     {
         _animator.enabled = enabled;
-        transform.localPosition = new Vector3(0,0,0);
+        transform.localPosition = new Vector3(0, 0, 0);
     }
 
     [ServerRpc]
