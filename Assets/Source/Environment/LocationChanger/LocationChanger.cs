@@ -23,9 +23,9 @@ public class LocationChanger : NetworkBehaviour
     private void OnAllPlayerInAction()
     {
         _netWorkAnimatorSynchronize.SetAnimatorBool("IsOpen", false);
+        _controlPanelAnimator.SetAnimatorBool("IsActivate", false);
         _generator.ReGenerate();
         StartRegenerate?.Invoke();
-        _controlPanelAnimator.SetAnimatorBool("IsActivate", false);
         _netWorkAnimatorSynchronize.SetBlock(true);
         Invoke(nameof(EnableDoor), _waitTIme);
     }
