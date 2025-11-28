@@ -686,7 +686,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 36462526}
   _networkObjectCache: {fileID: 0}
-  <Step>k__BackingField: 0
   _enableIndificator: {fileID: 36462532}
   _interactItem: {fileID: 36462527}
 --- !u!1001 &45682633
@@ -5696,7 +5695,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 835252994}
   _networkObjectCache: {fileID: 0}
-  <Step>k__BackingField: 0
   _enableIndificator: {fileID: 835252998}
   _collectTrigger: {fileID: 1208950124}
 --- !u!1001 &842092578
@@ -8752,7 +8750,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1421835028}
   _networkObjectCache: {fileID: 0}
-  <Step>k__BackingField: 1
   _enableIndificator: {fileID: 1421835032}
   _ore: {fileID: 1421835027}
 --- !u!114 &1421835032
@@ -9618,7 +9615,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1493219839}
   _networkObjectCache: {fileID: 0}
-  <Step>k__BackingField: 0
   _enableIndificator: {fileID: 1493219841}
   _interactItem: {fileID: 1493219840}
 --- !u!1 &1509234335
@@ -12113,7 +12109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
       propertyPath: _isSpawnable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
       propertyPath: WasActiveDuringEdit
@@ -12249,7 +12245,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1849055086}
   _networkObjectCache: {fileID: 0}
-  <Step>k__BackingField: 1
   _enableIndificator: {fileID: 1849055087}
   _ore: {fileID: 1849055085}
 --- !u!1 &1878185404
@@ -15380,7 +15375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
       propertyPath: _isSpawnable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
       propertyPath: WasActiveDuringEdit

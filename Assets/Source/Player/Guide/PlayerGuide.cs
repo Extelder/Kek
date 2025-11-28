@@ -28,6 +28,25 @@ public class PlayerGuide : NetworkBehaviour
 
     public void SwitchStep()
     {
+        SwitchStepServer();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SwitchStepServer()
+    {
+        if(!IsServer)
+            return;
+        SwitchStepObserver();
+    }
+
+    [ObserversRpc(BufferLast = true)]
+    public void SwitchStepObserver()
+    {
+        Switch();
+    }
+
+    private void Switch()
+    {
         _currentStep++;
         if (_currentStep > _guideSteps.Count - 1)
             return;
