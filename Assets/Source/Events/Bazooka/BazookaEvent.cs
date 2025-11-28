@@ -36,6 +36,7 @@ public class BazookaEvent : RandomEvent
         StartCoroutine(DeathByTimer());
         StartSound();
     }
+
     [ObserversRpc]
     private void StartSound()
     {
@@ -54,7 +55,8 @@ public class BazookaEvent : RandomEvent
         OffObject();
         float chance = Random.Range(1, 101);
         if (chance >= _chanceIsDrop)
-            PlayerCharacter.Instance.ServerSpawnObject(_objectForSpawn, _objectToSpawn.transform.position,_objectToSpawn.transform.rotation);
+            PlayerCharacter.Instance.ServerSpawnObject(_objectForSpawn, _objectToSpawn.transform.position,
+                _objectToSpawn.transform.rotation);
         yield return new WaitForSeconds(3f);
         PlayerCharacter.Instance.Despawn(gameObject);
     }
