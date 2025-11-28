@@ -40,19 +40,8 @@ public class PotionEffects : NetworkBehaviour
                 PlayerCharacter.Instance.PlayerPotions.DrinkPink();
                 break;
         }
-        DespawnServer();
-    }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void DespawnServer()
-    {
-        DespawmObserver();
-    }
-
-    [ObserversRpc]
-    public void DespawmObserver()
-    {
-        Despawn();
+        PlayerCharacter.Instance.DespawnObject(this);
     }
 
     private void OnValidate()
