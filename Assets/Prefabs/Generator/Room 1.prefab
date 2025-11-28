@@ -223,7 +223,8 @@ MonoBehaviour:
   - {fileID: 6647199920731359244}
   - {fileID: -5742216864982525921}
   InitializedParentNetworkBehaviour: {fileID: 0}
-  InitializedNestedNetworkObjects: []
+  InitializedNestedNetworkObjects:
+  - {fileID: 4644255118342796449}
   RuntimeParentNetworkBehaviour: {fileID: 0}
   RuntimeChildNetworkBehaviours: []
   _isNetworked: 1
@@ -246,7 +247,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 59
+  <PrefabId>k__BackingField: 70
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 13287580699765610301
   <SceneId>k__BackingField: 0
@@ -3479,6 +3480,58 @@ PrefabInstance:
       propertyPath: WasActiveDuringEdit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: <IsNested>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: <ComponentIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: InitializedParentNetworkBehaviour
+      value: 
+      objectReference: {fileID: 6647199920731359244}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Position.x
+      value: -3.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Position.y
+      value: -0.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Position.z
+      value: 3.4920397
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.w
+      value: 0.53096473
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.y
+      value: 0.847394
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 9173877073534833976, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -3536,6 +3589,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+--- !u!114 &4644255118342796449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8638638930494903105, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}
+  m_PrefabInstance: {fileID: 4004026872863057888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5242473287287190232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9173877073534833976, guid: 0ec759daa20747e45bf4e7a0b937e181, type: 3}

@@ -986,16 +986,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsNested>k__BackingField: 0
+  <IsNested>k__BackingField: 1
   WasActiveDuringEdit: 1
   WasActiveDuringEdit_Set1: 1
-  <ComponentIndex>k__BackingField: 0
+  <ComponentIndex>k__BackingField: 1
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
-  - {fileID: 0}
-  - {fileID: 0}
-  InitializedParentNetworkBehaviour: {fileID: 0}
+  - {fileID: 1565242114315481387}
+  - {fileID: 3950909745924057293}
+  InitializedParentNetworkBehaviour: {fileID: 4002535635422404112}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
   RuntimeChildNetworkBehaviours: []
@@ -1024,9 +1024,9 @@ MonoBehaviour:
   <AssetPathHash>k__BackingField: 13125312253242707459
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 14.794886, y: -3.475614, z: -75.26395}
-    Rotation: {x: -0, y: -0.6087605, z: -0, w: 0.79335415}
-    Scale: {x: 2, y: 2, z: 2}
+    Position: {x: 9.090002, y: -16.48, z: 5.069998}
+    Rotation: {x: -0, y: -0.65653217, z: -0, w: 0.7542981}
+    Scale: {x: 1, y: 1, z: 1}
     IsValid: 1
 --- !u!65 &1017217940378201923
 BoxCollider:
@@ -1088,9 +1088,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58167fdb415a74c48960583acb4f5d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 8250904696008183498}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8250904696008183498}
   _generator: {fileID: 0}
   _spawnPoint: {fileID: 2396288089890858616}
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}
@@ -1113,9 +1113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e56f5cf5c339a94bb388c9ffe01306e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 8250904696008183498}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8250904696008183498}
 --- !u!1 &4648840342467114106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4308630438471123387, guid: 8ab1349e0b068f145bc9ff70e13f3790, type: 3}
       propertyPath: <ComponentIndex>k__BackingField
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4308630438471123387, guid: 8ab1349e0b068f145bc9ff70e13f3790, type: 3}
       propertyPath: InitializedParentNetworkBehaviour
@@ -3138,7 +3138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: <PrefabId>k__BackingField
-      value: 16
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: NetworkBehaviours.Array.size
@@ -3166,10 +3166,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: InitializedNestedNetworkObjects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: InitializedNestedNetworkObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8250904696008183498}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: InitializedNestedNetworkObjects.Array.data[1]
       value: 
       objectReference: {fileID: 2900592587556470985}
     - target: {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}

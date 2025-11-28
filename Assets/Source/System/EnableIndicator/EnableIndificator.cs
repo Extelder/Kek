@@ -15,7 +15,7 @@ public class EnableIndificator : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if (!base.IsServer || !_enableOnClientStarted)
+        if (!base.IsServer && !_enableOnClientStarted)
             return;
         CallEnable(true);
     }
@@ -36,6 +36,8 @@ public class EnableIndificator : NetworkBehaviour
     [ObserversRpc(BufferLast = true)]
     private void EnableObserver(bool value)
     {
+        _indicatorOff.enabled = value;
+        _indicatorOn.enabled = value;   
         Enable(value);
     }
 
