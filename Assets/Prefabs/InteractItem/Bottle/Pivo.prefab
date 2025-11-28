@@ -116,6 +116,9 @@ MonoBehaviour:
   _audioClip: []
   _lockInteractAfterUse: 0
   IsUse: 0
+  _spawnObjects: 0
+  _objectsToSpawn: []
+  _spawnPoint: {fileID: 0}
 --- !u!114 &4343374623131983889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +165,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 24
+  <PrefabId>k__BackingField: 27
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 4290967604746450832
   <SceneId>k__BackingField: 0

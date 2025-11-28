@@ -546,9 +546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 6760854688972468161}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 6760854688972468161}
   _audio: {fileID: 4415965964185534912}
   _audioClips:
   - {fileID: 8300000, guid: 90ac8532836ce354d90ba2715999bb86, type: 3}
@@ -661,9 +661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f48e8c55cee0584e8ce0cad81c530bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 6760854688972468161}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 6760854688972468161}
   _audio: {fileID: 5593218031834686168}
 --- !u!82 &5593218031834686168
 AudioSource:
@@ -841,6 +841,8 @@ MonoBehaviour:
   NetworkBehaviours:
   - {fileID: 3920040481294978686}
   - {fileID: 3302673230844297946}
+  - {fileID: 3103690326789294342}
+  - {fileID: 8393689917877819570}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -865,7 +867,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 83
+  <PrefabId>k__BackingField: 97
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 16668588247824233449
   <SceneId>k__BackingField: 0

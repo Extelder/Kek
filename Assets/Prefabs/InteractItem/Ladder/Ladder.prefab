@@ -357,7 +357,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 33
+  <PrefabId>k__BackingField: 36
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 5762535177858302460
   <SceneId>k__BackingField: 0
@@ -450,6 +450,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 526fc5780927fa34b9a1b9da27663ecf, type: 3}
   _lockInteractAfterUse: 1
   IsUse: 0
+  _spawnObjects: 0
+  _objectsToSpawn: []
+  _spawnPoint: {fileID: 0}
 --- !u!82 &4732326126174958583
 AudioSource:
   m_ObjectHideFlags: 0

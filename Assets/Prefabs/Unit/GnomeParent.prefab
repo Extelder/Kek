@@ -64,6 +64,8 @@ MonoBehaviour:
   - {fileID: 5650792083494908302}
   - {fileID: 7628792992349595081}
   - {fileID: 2864416154726154449}
+  - {fileID: 7866273726985103136}
+  - {fileID: 4155427217602218221}
   - {fileID: 602941142966521667}
   - {fileID: 6742630258748014978}
   - {fileID: 3442421149067022237}
@@ -182,9 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 10
   _addedNetworkObject: {fileID: 549270684482896193}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 549270684482896193}
   _audio: {fileID: 8242075414122070071}
   _audioClips:
   - {fileID: 8300000, guid: 90ac8532836ce354d90ba2715999bb86, type: 3}
@@ -297,9 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 11
   _addedNetworkObject: {fileID: 549270684482896193}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 549270684482896193}
   _audio: {fileID: 699618679392340418}
   _audioClips:
   - {fileID: 8300000, guid: 4d4771e7b5cf35146904b85841cd52ac, type: 3}
@@ -474,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb8ac5931aa5b74e9e7f154d22ad779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 10
+  _componentIndexCache: 12
   _addedNetworkObject: {fileID: 0}
   _networkObjectCache: {fileID: 549270684482896193}
   _horizontalRays: 6
@@ -731,6 +733,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   <MaxValue>k__BackingField: 100
+  <CurrentValue>k__BackingField: 0
   _object: {fileID: 549270684482896193}
 --- !u!114 &2864416154726154449
 MonoBehaviour:
@@ -1188,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a451196b36744b54a8f83592965ad3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 11
+  _componentIndexCache: 13
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   CanChanged: 1
@@ -1209,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95233896471f18549af7ce0fde601643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 12
+  _componentIndexCache: 14
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   <Animator>k__BackingField: {fileID: 6394240559396793490}
@@ -1233,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 13
+  _componentIndexCache: 15
   _addedNetworkObject: {fileID: 549270684482896193}
   _networkObjectCache: {fileID: 549270684482896193}
   IgnoredParameters: []

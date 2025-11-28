@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 8023116136111652953}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8023116136111652953}
   IgnoredParameters: []
   _animator: {fileID: 3769575192141387562}
   _synchronizeWhenDisabled: 0
@@ -98,7 +98,11 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
-  NetworkBehaviours: []
+  NetworkBehaviours:
+  - {fileID: 6520567256646624018}
+  - {fileID: 2540972332802867222}
+  - {fileID: 1592856030820289485}
+  - {fileID: 6268878596714444874}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -123,15 +127,15 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 65535
+  <PrefabId>k__BackingField: 73
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 13777630909386696997
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-    Scale: {x: 0, y: 0, z: 0}
-    IsValid: 0
+    Position: {x: -6.323, y: 0.47, z: 2.178}
+    Rotation: {x: -0, y: 0.99439555, z: -0, w: -0.105723634}
+    Scale: {x: 0.5, y: 0.5, z: 0.5}
+    IsValid: 1
 --- !u!114 &2540972332802867222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ce0ff94116abc449e0901c8843af7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 8023116136111652953}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8023116136111652953}
   <Animator>k__BackingField: {fileID: 3769575192141387562}
 --- !u!114 &1253485812814642633
 MonoBehaviour:
@@ -293,9 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a90fb7abd346141bc0d06f52d634bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 8023116136111652953}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8023116136111652953}
   Item:
     rid: 8847182399393234944
   references:
@@ -436,9 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 8023116136111652953}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8023116136111652953}
   _audio: {fileID: 1479117632821030744}
   _audioClips:
   - {fileID: 8300000, guid: 0d975027ef356c844851f9698ebe2bed, type: 3}

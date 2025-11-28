@@ -275,8 +275,7 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6607754734463412334}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -301,12 +300,12 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 61
+  <PrefabId>k__BackingField: 8
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 1183810426594194277
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 14.794886, y: -3.475614, z: -75.26395}
+    Position: {x: -7.6458154, y: -14.037357, z: 5.9656954}
     Rotation: {x: -0, y: -0.6087605, z: -0, w: 0.79335415}
     Scale: {x: 2, y: 2, z: 2}
     IsValid: 1
@@ -370,9 +369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58167fdb415a74c48960583acb4f5d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 0
   _addedNetworkObject: {fileID: 3525704646134466654}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 3525704646134466654}
   _generator: {fileID: 0}
   _spawnPoint: {fileID: 1312640801645608554}
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}

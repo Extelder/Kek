@@ -1501,7 +1501,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b78a45903c4bb4cb8fd5f31a537c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 4892829383746930527}
+  _raycastSettings:
+    <Origin>k__BackingField: {fileID: 0}
+    <MaxDistance>k__BackingField: 0
+    <LayerMask>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 0
 --- !u!1 &1189807779509673463
 GameObject:
   m_ObjectHideFlags: 0
@@ -6141,6 +6146,8 @@ MonoBehaviour:
   <Camera>k__BackingField: {fileID: 0}
   <CameraHeadBob>k__BackingField: {fileID: 0}
   <PlayerHealth>k__BackingField: {fileID: 0}
+  <PlayerStamina>k__BackingField: {fileID: 0}
+  <PlayerGuide>k__BackingField: {fileID: 0}
   <PlayerDialogue>k__BackingField: {fileID: 0}
   <DropPoint>k__BackingField: {fileID: 8950486551078518353}
   <FingerLookAtPoint>k__BackingField: {fileID: 0}
@@ -6156,12 +6163,14 @@ MonoBehaviour:
   _inventory: {fileID: 382734339632686515}
   <PlayerInventory>k__BackingField: {fileID: 4425973244517120947}
   <PlayerHatsEquip>k__BackingField: {fileID: 0}
+  <PlayerPotions>k__BackingField: {fileID: 0}
   <PlayerWallet>k__BackingField: {fileID: 0}
   <PlayerMovement>k__BackingField: {fileID: 0}
   <PlayerHitBox>k__BackingField: {fileID: 0}
   _virtualCamera: {fileID: 0}
   _hands: {fileID: 0}
   _transitionHands: {fileID: 0}
+  <_outline>k__BackingField: {fileID: 0}
   _poolsPrefab: {fileID: 0}
   Characters: []
 --- !u!114 &2346307380554849957

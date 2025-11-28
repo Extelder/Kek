@@ -56,6 +56,8 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: 6868256051469265639}
+  - {fileID: 729433567864339799}
+  - {fileID: 3337019245490294729}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects:
   - {fileID: 8889965214222928042}
@@ -449,6 +451,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6756698901296238314}
   _networkObjectCache: {fileID: 8889965214222928042}
   <MaxValue>k__BackingField: 100
+  <CurrentValue>k__BackingField: 0
   _object: {fileID: 6756698901296238314}
 --- !u!114 &5526562330510776320
 MonoBehaviour:
@@ -597,9 +600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 6756698901296238314}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 6756698901296238314}
   _audio: {fileID: 3178490493166034313}
   _audioClips:
   - {fileID: 8300000, guid: 90ac8532836ce354d90ba2715999bb86, type: 3}
@@ -712,9 +715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 6756698901296238314}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 6756698901296238314}
   _audio: {fileID: 2190781128237548484}
   _audioClips:
   - {fileID: 8300000, guid: 4d4771e7b5cf35146904b85841cd52ac, type: 3}

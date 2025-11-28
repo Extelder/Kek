@@ -1484,6 +1484,7 @@ MonoBehaviour:
   - {fileID: 5508710341534709530}
   - {fileID: 4968687459044560631}
   - {fileID: 6903674441942029497}
+  - {fileID: 7412087465152075567}
   - {fileID: 1595507391154388030}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -1509,7 +1510,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 71
+  <PrefabId>k__BackingField: 85
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 15187441044822297239
   <SceneId>k__BackingField: 0
@@ -1778,6 +1779,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 132438768994226271}
   _networkObjectCache: {fileID: 132438768994226271}
   <MaxValue>k__BackingField: 100
+  <CurrentValue>k__BackingField: 0
   _object: {fileID: 132438768994226271}
 --- !u!114 &6903674441942029497
 MonoBehaviour:
@@ -1807,9 +1809,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac107b343ed4be4aaf4b65c641d6a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 5
   _addedNetworkObject: {fileID: 132438768994226271}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 132438768994226271}
   _audio: {fileID: 6438437100503194052}
   _audioClip:
   - {fileID: 8300000, guid: ee53651527d8cc74d84d0ff7c663e8bc, type: 3}
@@ -3057,7 +3059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85288dd3b0a99554d94685e459c4c1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 5
+  _componentIndexCache: 6
   _addedNetworkObject: {fileID: 132438768994226271}
   _networkObjectCache: {fileID: 132438768994226271}
   _bullet: {fileID: 4778092016831248856, guid: 1942183fbd08bc647b03ea24c88d0d63, type: 3}
