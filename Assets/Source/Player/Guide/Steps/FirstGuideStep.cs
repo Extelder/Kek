@@ -7,7 +7,7 @@ public class FirstGuideStep : GuideStep
 {
     [SerializeField] private EnableIndificator _enableIndificator;
     [SerializeField] private InteractItem _interactItem;
-    
+
     public override void OnStartClient()
     {
         if(!base.IsServer)

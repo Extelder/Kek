@@ -650,7 +650,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   _indicatorOff: {fileID: 36462525}
   _indicatorOn: {fileID: 36462533}
-  _enableOnClientStarted: 1
 --- !u!114 &36462533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5634,7 +5633,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   _indicatorOff: {fileID: 835252999}
   _indicatorOn: {fileID: 835253000}
-  _enableOnClientStarted: 0
 --- !u!114 &835252999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9445,7 +9443,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   _indicatorOff: {fileID: 1493219843}
   _indicatorOn: {fileID: 1493219842}
-  _enableOnClientStarted: 1
 --- !u!114 &1493219842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11969,7 +11966,6 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   _indicatorOff: {fileID: 1849055088}
   _indicatorOn: {fileID: 1849055089}
-  _enableOnClientStarted: 0
 --- !u!114 &1849055088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15072,21 +15068,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1075751523858671744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7298960125001864151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e56f5cf5c339a94bb388c9ffe01306e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 1
-  _addedNetworkObject: {fileID: 6760854687526336682}
-  _networkObjectCache: {fileID: 6760854687526336682}
 --- !u!114 &1162646366043186985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19180,7 +19161,7 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: 3920040479647553813}
-  - {fileID: 1075751523858671744}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   InitializedParentNetworkBehaviour: {fileID: 0}
@@ -19705,7 +19686,6 @@ GameObject:
   - component: {fileID: 7991440998454315664}
   - component: {fileID: 6760854687526336682}
   - component: {fileID: 3920040479647553813}
-  - component: {fileID: 1075751523858671744}
   - component: {fileID: 1849055090}
   - component: {fileID: 1849055089}
   - component: {fileID: 1849055088}

@@ -24,7 +24,7 @@ public class ThirdGuideStep : GuideStep
     private void OnItemAte()
     {
         StopStep();
-        _enableIndificator.CallEnable(true);
+        _enableIndificator.CallEnable(false);
     }
 
     private void OnDisable()

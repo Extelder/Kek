@@ -9,9 +9,7 @@ using UnityEngine.Events;
 public class PlayerGuide : NetworkBehaviour
 {
     public List<GuideStep> _guideSteps = new List<GuideStep>();
-    private int _lastSortedStep;
-    private int _currentStep;
-    private int _stepNumber;
+    [SerializeField] private int _currentStep;
     
     public override void OnStartClient()
     {
@@ -39,15 +37,34 @@ public class PlayerGuide : NetworkBehaviour
         SwitchStepObserver();
     }
 
-    [ObserversRpc(BufferLast = true)]
+    [ObserversRpc]
     public void SwitchStepObserver()
     {
+        AddStepServer();
         Switch();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void AddStepServer()
+    {
+        _currentStep++;
+        int currentStep = _currentStep;
+        AddStepObserver(currentStep);
+    }
+
+    [ObserversRpc]
+    public void AddStepObserver(int currentStep)
+    {
+        _currentStep = currentStep;
+    }
+
+    private void Update()
+    {
+        Debug.Log(_currentStep);
     }
 
     private void Switch()
     {
-        _currentStep++;
         if (_currentStep > _guideSteps.Count - 1)
             return;
         Debug.Log("STEP CHANGED " + _currentStep);
