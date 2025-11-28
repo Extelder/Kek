@@ -109,6 +109,7 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: 6649689313630822921}
+  - {fileID: 5977306866713652031}
   - {fileID: 2894503579553505801}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -200,6 +201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64769f04e76529e44a1902b02fa0d200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 1
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 4500543610159863613}
   _potionType: 3
   _renderer: {fileID: 1173530842144986052}
   blueMat: {fileID: 2100000, guid: 8c3f402b317602f42b722809fe2663d4, type: 2}
@@ -218,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 1
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 4500543610159863613}
   _networkObjectCache: {fileID: 4500543610159863613}
   _audio: {fileID: 5689666135516690527}

@@ -12545,6 +12545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5849462170526548862}
   - component: {fileID: 4134443973343191270}
+  - component: {fileID: 1140137896723088723}
   m_Layer: 0
   m_Name: Cube.012
   m_TagString: Untagged
@@ -12681,6 +12682,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00004005432, y: -0.009930978, z: 0.0022587534}
     m_Extent: {x: 0.07306114, y: 0.06344165, z: 0.021392424}
   m_DirtyAABB: 0
+--- !u!114 &1140137896723088723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3789485249089397574}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.5393074, g: 0, b: 0.6226415, a: 1}
+  outlineWidth: 3.86
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3802630810155421101
 GameObject:
   m_ObjectHideFlags: 0
@@ -15583,6 +15602,7 @@ MonoBehaviour:
   _virtualCamera: {fileID: 8349068424952300896}
   _hands: {fileID: 4916814368379587111}
   _transitionHands: {fileID: 1708808102751024385}
+  <_outline>k__BackingField: {fileID: 1140137896723088723}
   _poolsPrefab: {fileID: 3310650678267320549, guid: c07d9014d49978843a7c96324b3311c2, type: 3}
   Characters: []
 --- !u!114 &5749772377050749133
@@ -16139,6 +16159,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 0}
+  _pinkCooldown: 7
   _audio: {fileID: 537354005271326383}
 --- !u!114 &537354005271326383
 MonoBehaviour:
@@ -32221,7 +32242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: "\u041F"
+      value: G
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name
@@ -32564,7 +32585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: "\u0423"
+      value: E
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name
@@ -33104,7 +33125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: "\u0410"
+      value: F
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name
