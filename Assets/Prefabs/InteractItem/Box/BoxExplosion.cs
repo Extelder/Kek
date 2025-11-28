@@ -29,8 +29,8 @@ public class BoxExplosion : NetworkBehaviour
         {
             if (_spawnObjects)
             {
-                int randomChance = Random.Range(1, 101);
-                if (randomChance >= 70)
+                int randomChance = Random.Range(0, 101);
+                if (randomChance >= 1)
                 {
                     int random = Random.Range(0, _objectsToSpawn.Length);
                     PlayerCharacter.Instance.ServerSpawnObject(_objectsToSpawn[random], _spawnPoint.transform.position,

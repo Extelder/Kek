@@ -7,6 +7,7 @@ public class PlayerPotions : NetworkBehaviour
 {
     [SerializeField] private float _pinkCooldown;
     [SerializeField] private MixSoundAndPlay _audio;
+    [SerializeField] private Transform _modelRoot;
 
     [ServerRpc(RequireOwnership = false)]
     public void DrinkBlue()
@@ -41,6 +42,26 @@ public class PlayerPotions : NetworkBehaviour
 
     public void DrinkGreen()
     {
+        for (int i = 0; i < PlayerCharacter.Instance.Characters.Count; i++)
+        {
+            if (PlayerCharacter.Instance.Characters[i] != PlayerCharacter.Instance)
+            {
+                Vector3 point = transform.position + new Vector3(i * 1.2f, 0, 0);
+                TeleportServer(point, PlayerCharacter.Instance.Characters[i]);
+            }
+        }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    private void TeleportServer(Vector3 point, PlayerCharacter playerCharacter)
+    {
+        TeleportToPlayer(point, playerCharacter);
+    }
+
+    [ObserversRpc]
+    private void TeleportToPlayer(Vector3 point, PlayerCharacter playerCharacter)
+    {
+        transform.position = point;
+        playerCharacter.transform.position = point;
     }
 
     public void DrinkPink()
@@ -65,7 +86,22 @@ public class PlayerPotions : NetworkBehaviour
         }
     }
 
+    [ServerRpc(RequireOwnership = false)]
     public void DrinkRed()
     {
+        DrinkRedObserver();
+    }
+
+    [ObserversRpc]
+    private void DrinkRedObserver()
+    {
+        _modelRoot.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        StartCoroutine(WaitBaby());
+    }
+
+    private IEnumerator WaitBaby()
+    {
+        yield return new WaitForSeconds(76);
+        _modelRoot.localScale = new Vector3(1f, 1f, 1f);
     }
 }

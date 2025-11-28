@@ -15938,6 +15938,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 1996624997028827962}
   _networkObjectCache: {fileID: 1996624997028827962}
   <MaxValue>k__BackingField: 100
+  <CurrentValue>k__BackingField: 100
   die: {fileID: 7189274394667057284}
 --- !u!114 &2611732306587144618
 MonoBehaviour:
@@ -16161,6 +16162,8 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   _pinkCooldown: 7
   _audio: {fileID: 537354005271326383}
+  _modelRoot: {fileID: 3968811008505776637}
+  _cameraRoot: {fileID: 4387599489495877655}
 --- !u!114 &537354005271326383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32242,7 +32245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: G
+      value: "\u041F"
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name
@@ -32585,7 +32588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: E
+      value: "\u0423"
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name
@@ -33125,7 +33128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557647708507388437, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Text
-      value: F
+      value: "\u0410"
       objectReference: {fileID: 0}
     - target: {fileID: 8461417888642342839, guid: 98134a5fc3494e144b8419510b6e4a29, type: 3}
       propertyPath: m_Name

@@ -7,7 +7,7 @@ using UnityEngine;
 public abstract class Health : NetworkBehaviour
 {
     [field: SerializeField] public float MaxValue { get; set; }
-    protected float CurrentValue { get; set; }
+    [field: SerializeField] protected float CurrentValue { get; set; }
 
     public Action<float> HealthValueChanged;
     public event Action<float> OnHealedToMax;
@@ -21,7 +21,7 @@ public abstract class Health : NetworkBehaviour
     }
 
     public virtual void VirtualStart()
-    {
+    {    
         CurrentValue = MaxValue;
     }
 
