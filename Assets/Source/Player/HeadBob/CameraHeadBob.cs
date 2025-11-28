@@ -18,8 +18,21 @@ public class CameraHeadBob : NetworkBehaviour
         if (!base.IsOwner)
             return;
         base.OnStartClient();
-        _playerMovement.Moving.Subscribe(_ => { SetAnimatorSpeedServer(Convert.ToInt16(_ && _checker.Detected)); })
-            .AddTo(_disposable);
+        StartCoroutine(ChekingForMovingOnGreound());
+    }
+
+    private IEnumerator ChekingForMovingOnGreound()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            int speed = Convert.ToInt16(_playerMovement.Moving.Value);
+
+            if (!_checker.Detected)
+                speed = 0;
+
+            SetAnimatorSpeedServer(speed);
+        }
     }
 
     public void EnableAnimator(bool enabled)
@@ -44,6 +57,7 @@ public class CameraHeadBob : NetworkBehaviour
     {
         if (!base.IsOwner)
             return;
+        StopAllCoroutines();
         _disposable.Clear();
     }
 }

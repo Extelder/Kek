@@ -3,28 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
-
+    [SerializeField] private RaycastSettings _raycastSettings;
     public bool Detected { get; private set; }
 
-    public event Action GroundDetected;
-
-    private void OnTriggerStay(Collider other)
+    private void FixedUpdate()
     {
-        if (other.gameObject == _player)
-            return;
-        GroundDetected?.Invoke();
-        Detected = true;
+        if (Physics.Raycast(_raycastSettings.Origin.position, -_raycastSettings.Origin.up, out RaycastHit hit,
+            _raycastSettings.MaxDistance,
+            _raycastSettings.LayerMask))
+        {
+            Detected = true;
+        }
+        else
+        {
+            Detected = false;
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnDrawGizmosSelected()
     {
-        if (other.gameObject == _player)
-            return;
-        Detected = false;
+        Gizmos.DrawRay(_raycastSettings.Origin.position, -_raycastSettings.Origin.up * _raycastSettings.MaxDistance);
     }
 }

@@ -1,92 +1,239 @@
 fileFormatVersion: 2
 guid: 26e6bae5ccf202c4784d944e0b4f7caf
-timeCreated: 1502411184
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Box013
-    100002: Burner003
-    100004: Cylinder027
-    100006: Cylinder031
-    100008: Cylinder036
-    100010: Cylinder038
-    100012: //RootNode
-    100014: Line001
-    100016: Sphere010
-    100018: Spring001
-    100020: Torus001
-    100022: VialDrop01
-    100024: VialRound01
-    100026: VialRound02
-    100028: VialRoundLiquid
-    400000: Box013
-    400002: Burner003
-    400004: Cylinder027
-    400006: Cylinder031
-    400008: Cylinder036
-    400010: Cylinder038
-    400012: //RootNode
-    400014: Line001
-    400016: Sphere010
-    400018: Spring001
-    400020: Torus001
-    400022: VialDrop01
-    400024: VialRound01
-    400026: VialRound02
-    400028: VialRoundLiquid
-    2300000: Box013
-    2300002: Burner003
-    2300004: Cylinder027
-    2300006: Cylinder031
-    2300008: Cylinder036
-    2300010: Cylinder038
-    2300012: Line001
-    2300014: Sphere010
-    2300016: Spring001
-    2300018: Torus001
-    2300020: VialDrop01
-    2300022: VialRound01
-    2300024: VialRound02
-    2300026: VialRoundLiquid
-    3300000: Box013
-    3300002: Burner003
-    3300004: Cylinder027
-    3300006: Cylinder031
-    3300008: Cylinder036
-    3300010: Cylinder038
-    3300012: Line001
-    3300014: Sphere010
-    3300016: Spring001
-    3300018: Torus001
-    3300020: VialDrop01
-    3300022: VialRound01
-    3300024: VialRound02
-    3300026: VialRoundLiquid
-    4300000: Spring001
-    4300002: VialDrop01
-    4300004: Cylinder027
-    4300006: Cylinder031
-    4300008: Sphere010
-    4300010: Cylinder036
-    4300012: Cylinder038
-    4300014: VialRound02
-    4300016: VialRoundLiquid
-    4300018: Line001
-    4300020: Box013
-    4300022: VialRound01
-    4300024: Torus001
-    4300026: Burner003
-    9500000: //RootNode
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Box013
+  - first:
+      1: 100002
+    second: Burner003
+  - first:
+      1: 100004
+    second: Cylinder027
+  - first:
+      1: 100006
+    second: Cylinder031
+  - first:
+      1: 100008
+    second: Cylinder036
+  - first:
+      1: 100010
+    second: Cylinder038
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      1: 100014
+    second: Line001
+  - first:
+      1: 100016
+    second: Sphere010
+  - first:
+      1: 100018
+    second: Spring001
+  - first:
+      1: 100020
+    second: Torus001
+  - first:
+      1: 100022
+    second: VialDrop01
+  - first:
+      1: 100024
+    second: VialRound01
+  - first:
+      1: 100026
+    second: VialRound02
+  - first:
+      1: 100028
+    second: VialRoundLiquid
+  - first:
+      4: 400000
+    second: Box013
+  - first:
+      4: 400002
+    second: Burner003
+  - first:
+      4: 400004
+    second: Cylinder027
+  - first:
+      4: 400006
+    second: Cylinder031
+  - first:
+      4: 400008
+    second: Cylinder036
+  - first:
+      4: 400010
+    second: Cylinder038
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      4: 400014
+    second: Line001
+  - first:
+      4: 400016
+    second: Sphere010
+  - first:
+      4: 400018
+    second: Spring001
+  - first:
+      4: 400020
+    second: Torus001
+  - first:
+      4: 400022
+    second: VialDrop01
+  - first:
+      4: 400024
+    second: VialRound01
+  - first:
+      4: 400026
+    second: VialRound02
+  - first:
+      4: 400028
+    second: VialRoundLiquid
+  - first:
+      23: 2300000
+    second: Box013
+  - first:
+      23: 2300002
+    second: Burner003
+  - first:
+      23: 2300004
+    second: Cylinder027
+  - first:
+      23: 2300006
+    second: Cylinder031
+  - first:
+      23: 2300008
+    second: Cylinder036
+  - first:
+      23: 2300010
+    second: Cylinder038
+  - first:
+      23: 2300012
+    second: Line001
+  - first:
+      23: 2300014
+    second: Sphere010
+  - first:
+      23: 2300016
+    second: Spring001
+  - first:
+      23: 2300018
+    second: Torus001
+  - first:
+      23: 2300020
+    second: VialDrop01
+  - first:
+      23: 2300022
+    second: VialRound01
+  - first:
+      23: 2300024
+    second: VialRound02
+  - first:
+      23: 2300026
+    second: VialRoundLiquid
+  - first:
+      33: 3300000
+    second: Box013
+  - first:
+      33: 3300002
+    second: Burner003
+  - first:
+      33: 3300004
+    second: Cylinder027
+  - first:
+      33: 3300006
+    second: Cylinder031
+  - first:
+      33: 3300008
+    second: Cylinder036
+  - first:
+      33: 3300010
+    second: Cylinder038
+  - first:
+      33: 3300012
+    second: Line001
+  - first:
+      33: 3300014
+    second: Sphere010
+  - first:
+      33: 3300016
+    second: Spring001
+  - first:
+      33: 3300018
+    second: Torus001
+  - first:
+      33: 3300020
+    second: VialDrop01
+  - first:
+      33: 3300022
+    second: VialRound01
+  - first:
+      33: 3300024
+    second: VialRound02
+  - first:
+      33: 3300026
+    second: VialRoundLiquid
+  - first:
+      43: 4300000
+    second: Spring001
+  - first:
+      43: 4300002
+    second: VialDrop01
+  - first:
+      43: 4300004
+    second: Cylinder027
+  - first:
+      43: 4300006
+    second: Cylinder031
+  - first:
+      43: 4300008
+    second: Sphere010
+  - first:
+      43: 4300010
+    second: Cylinder036
+  - first:
+      43: 4300012
+    second: Cylinder038
+  - first:
+      43: 4300014
+    second: VialRound02
+  - first:
+      43: 4300016
+    second: VialRoundLiquid
+  - first:
+      43: 4300018
+    second: Line001
+  - first:
+      43: 4300020
+    second: Box013
+  - first:
+      43: 4300022
+    second: VialRound01
+  - first:
+      43: 4300024
+    second: Torus001
+  - first:
+      43: 4300026
+    second: Burner003
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -94,12 +241,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -107,26 +257,49 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -136,14 +309,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
