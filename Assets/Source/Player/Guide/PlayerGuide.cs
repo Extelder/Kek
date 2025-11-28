@@ -35,18 +35,6 @@ public class PlayerGuide : NetworkBehaviour
         _guideSteps[_currentStep].StartStep();
     }
 
-    // private void CheckOnGuideSteps(Action action)
-    // {
-    //     for (int i = 0; i < _guideSteps.Count; i++)
-    //     {
-    //         if (_guideSteps[i].Step == _currentStep)
-    //         {
-    //             _stepNumber = i;
-    //             action?.Invoke();
-    //         }
-    //     }
-    // }
-
     private void OnDisable()
     {
         if (!base.IsServer)

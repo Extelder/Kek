@@ -7,7 +7,7 @@ using UnityEngine;
 public abstract class Stamina : NetworkBehaviour
 {
     [field: SerializeField] public float MaxValue { get; set; }
-    protected float CurrentValue { get; set; }
+    protected float CurrentValue { get; set; } = 100;
 
     public Action<float> StaminaValueChanged;
     public event Action<float> OnAddedToMax;
@@ -46,8 +46,6 @@ public abstract class Stamina : NetworkBehaviour
 
     public void Add(float value)
     {
-        if (IsSpend())
-            return;
         if (CurrentValue + value < MaxValue)
         {
             Added?.Invoke(CurrentValue);
@@ -73,7 +71,7 @@ public abstract class Stamina : NetworkBehaviour
 
     protected virtual void ChangeStaminaValue(float value)
     {
-        if (CurrentValue > 0)
+        if (CurrentValue >= 0)
         {
             CurrentValue = value;
             StaminaValueChanged?.Invoke(CurrentValue);

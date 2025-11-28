@@ -29,11 +29,11 @@ public class PlayerStamina : Stamina
     {
         if (!_character.IsOwner)
             return;
-        _character.Binds.Character.Run.started += OnPlayerMoving;
+        _character.Binds.Character.Run.started += OnPlayerStartedMoving;
         _character.Binds.Character.Run.canceled += OnPlayerStoppedMoving;
     }
 
-    private void OnPlayerMoving(InputAction.CallbackContext obj)
+    private void OnPlayerStartedMoving(InputAction.CallbackContext obj)
     {
         StopAllCoroutines();
         _recoverDisposable.Clear();
@@ -70,7 +70,7 @@ public class PlayerStamina : Stamina
         if (!base.IsOwner)
             return;
         _character.ClientStarted -= OnClientStarted;
-        _character.Binds.Character.Run.started -= OnPlayerMoving;
+        _character.Binds.Character.Run.started -= OnPlayerStartedMoving;
         _character.Binds.Character.Run.canceled -= OnPlayerStoppedMoving;
         _spendDisposable.Clear();
         _recoverDisposable.Clear();
