@@ -34,7 +34,7 @@ public class BoxExplosion : NetworkBehaviour
                 {
                     int random = Random.Range(0, _objectsToSpawn.Length);
                     PlayerCharacter.Instance.ServerSpawnObject(_objectsToSpawn[random], _spawnPoint.transform.position,
-                        _spawnPoint.transform.rotation);
+                        _spawnPoint.transform.rotation, _spawnPoint.transform.localScale);
                 }
             }
 

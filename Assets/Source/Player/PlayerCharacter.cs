@@ -53,6 +53,14 @@ public class PlayerCharacter : NetworkBehaviour
         GameObject instance = Instantiate(spawnedObject, position, rotation);
         ServerManager.Spawn(instance);
     }
+    
+    [ServerRpc(RequireOwnership = false)]
+    public void ServerSpawnObject(GameObject spawnedObject, Vector3 position, Quaternion rotation, Vector3 scale)
+    {
+        GameObject instance = Instantiate(spawnedObject, position, rotation);
+        instance.transform.localScale = scale;
+        ServerManager.Spawn(instance);
+    }
 
 
     [ServerRpc(RequireOwnership = false)]
