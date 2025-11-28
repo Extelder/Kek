@@ -8361,7 +8361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1318636476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8783,7 +8783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
-  renderers: []
+  renderers:
+  - {fileID: 1151324689}
   style:
     texture: {fileID: 2800000, guid: 1d3693e8192748a4c85ac72d38c6532a, type: 3}
     color: {r: 1, g: 0.7668699, b: 0, a: 1}
@@ -8809,7 +8810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
-  renderers: []
+  renderers:
+  - {fileID: 1151324689}
   style:
     texture: {fileID: 2800000, guid: 1d3693e8192748a4c85ac72d38c6532a, type: 3}
     color: {r: 1, g: 0.7668699, b: 0, a: 1}
@@ -12198,7 +12200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
-  renderers: []
+  renderers:
+  - {fileID: 1151324689}
   style:
     texture: {fileID: 2800000, guid: 1d3693e8192748a4c85ac72d38c6532a, type: 3}
     color: {r: 1, g: 0.7668699, b: 0, a: 1}
@@ -12224,7 +12227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
-  renderers: []
+  renderers:
+  - {fileID: 1151324689}
   style:
     texture: {fileID: 2800000, guid: 1d3693e8192748a4c85ac72d38c6532a, type: 3}
     color: {r: 1, g: 0.7668699, b: 0, a: 1}
@@ -15375,6 +15379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
       propertyPath: _isSpawnable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
+      propertyPath: _enablePrediction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6760854688972468161, guid: 748c1df054d4dda40adc391e57dc502e, type: 3}
