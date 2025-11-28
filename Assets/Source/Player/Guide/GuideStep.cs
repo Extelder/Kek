@@ -6,8 +6,6 @@ using UnityEngine;
 
 public abstract class GuideStep : NetworkBehaviour
 {
-    [field: SerializeField] public int Step { get; private set; }
-    
     public static event Action<GuideStep> OnSpawned;
 
     public override void OnStartClient()
