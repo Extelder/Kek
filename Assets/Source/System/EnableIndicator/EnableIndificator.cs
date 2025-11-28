@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
@@ -16,12 +17,38 @@ public class EnableIndificator : NetworkBehaviour
         base.OnStartClient();
         if (!base.IsServer || !_enableOnClientStarted)
             return;
-        Enable();
+        CallEnable(true);
     }
 
-    public void Enable()
+    public void CallEnable(bool value)
     {
-        _indicatorOff.enabled = true;
-        _indicatorOn.enabled = true;
+        EnableServer(value);
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    public void EnableServer(bool value)
+    {
+        if(!IsServer)
+            return;
+        EnableObserver(value);
+    }
+
+    [ObserversRpc(BufferLast = true)]
+    private void EnableObserver(bool value)
+    {
+        Enable(value);
+    }
+
+    private void Enable(bool value)
+    {
+        _indicatorOff.enabled = value;
+        _indicatorOn.enabled = value;   
+    }
+
+    private void OnDisable()
+    {
+        if (!base.IsServer)
+            return;
+        CallEnable(false);
     }
 }

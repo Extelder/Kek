@@ -1,34 +1,34 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstGuideStep : GuideStep
+public class ThirdGuideStep : GuideStep
 {
     [SerializeField] private EnableIndificator _enableIndificator;
-    [SerializeField] private InteractItem _interactItem;
-    
+    [SerializeField] private CollectTrigger _collectTrigger;
+
     public override void OnStartClient()
     {
-        if(!base.IsServer)
+        if (!base.IsServer)
             return;
         base.OnStartClient();
-        StartStep();
-        _interactItem.Interacted += OnInteracted;
+        _collectTrigger.ItemAte += OnItemAte;
     }
 
     public override void StartStep()
     {
         _enableIndificator.CallEnable(true);
+        Debug.Log("STEP CHANGED");
     }
 
-    private void OnInteracted()
+    private void OnItemAte()
     {
         StopStep();
+        _enableIndificator.CallEnable(true);
     }
 
     private void OnDisable()
     {
-        _interactItem.Interacted -= OnInteracted;
+        _collectTrigger.ItemAte -= OnItemAte;
     }
 }

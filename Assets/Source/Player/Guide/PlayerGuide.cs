@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class PlayerGuide : NetworkBehaviour
 {
-    private List<GuideStep> _guideSteps = new List<GuideStep>();
+    public List<GuideStep> _guideSteps = new List<GuideStep>();
     private int _lastSortedStep;
     private int _currentStep;
     private int _stepNumber;
@@ -29,23 +29,23 @@ public class PlayerGuide : NetworkBehaviour
     public void SwitchStep()
     {
         _currentStep++;
-        Debug.Log("STEP CHANGED " + _currentStep);
-        if (_currentStep > _guideSteps.Count)
+        if (_currentStep > _guideSteps.Count - 1)
             return;
-        CheckOnGuideSteps(_guideSteps[_stepNumber].StartStep);
+        Debug.Log("STEP CHANGED " + _currentStep);
+        _guideSteps[_currentStep].StartStep();
     }
 
-    private void CheckOnGuideSteps(Action action)
-    {
-        for (int i = 0; i < _guideSteps.Count; i++)
-        {
-            if (_guideSteps[i].Step == _currentStep)
-            {
-                _stepNumber = i;
-                action?.Invoke();
-            }
-        }
-    }
+    // private void CheckOnGuideSteps(Action action)
+    // {
+    //     for (int i = 0; i < _guideSteps.Count; i++)
+    //     {
+    //         if (_guideSteps[i].Step == _currentStep)
+    //         {
+    //             _stepNumber = i;
+    //             action?.Invoke();
+    //         }
+    //     }
+    // }
 
     private void OnDisable()
     {

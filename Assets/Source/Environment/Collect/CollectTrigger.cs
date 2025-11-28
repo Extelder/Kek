@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CollectTrigger : NetworkBehaviour
 {
-    public event Action ItemEatable;
+    public event Action ItemAte;
     [SerializeField] private Animator _chunkAnimator;
 
     [SerializeField] private Quota _quota;
@@ -21,7 +21,7 @@ public class CollectTrigger : NetworkBehaviour
                 PlayerCharacter.Instance.PlayerWallet.Add(item.Price);
                 _quota.Add(50);
                 _chunkAnimator.SetTrigger("Eat");
-                ItemEatable?.Invoke();
+                ItemAte?.Invoke();
                 _eatAudio.Play();
 
                 if (OreQuota != null)

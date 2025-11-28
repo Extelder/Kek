@@ -11,12 +11,12 @@ public class SoundChert : NetworkBehaviour
 
     private void OnEnable()
     {
-        _qouta.ItemEatable += ItemEat;
+        _qouta.ItemAte += ItemEat;
     }
 
     private void OnDisable()
     {
-        _qouta.ItemEatable -= ItemEat;
+        _qouta.ItemAte -= ItemEat;
     }
 
 

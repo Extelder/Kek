@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
@@ -8,9 +9,12 @@ public class InteractItem : NetworkBehaviour, IInteractable
     [SerializeReference] [SerializeReferenceButton]
     public Item Item;
 
+    public event Action Interacted;
+
     public virtual void Interact()
     {
         Item.Interact();
+        Interacted?.Invoke();
     }
 
     public void InteractCancelled()
