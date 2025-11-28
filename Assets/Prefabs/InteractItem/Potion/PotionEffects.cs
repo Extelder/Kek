@@ -11,7 +11,7 @@ enum PotionType
     Pink
 }
 
-public class PotionEffects : MonoBehaviour
+public class PotionEffects : NetworkBehaviour
 {
     [SerializeField] private PotionType _potionType;
     [SerializeField] private Renderer _renderer;
@@ -40,12 +40,12 @@ public class PotionEffects : MonoBehaviour
                 PlayerCharacter.Instance.PlayerPotions.DrinkPink();
                 break;
         }
-        PlayerCharacter.Instance.Despawn(gameObject);
+
+        PlayerCharacter.Instance.DespawnObject(this);
     }
 
     private void OnValidate()
     {
-
         switch (_potionType)
         {
             case PotionType.Blue:

@@ -34,7 +34,7 @@ public class PlayerCharacter : NetworkBehaviour
     [SerializeField] private GameObject _hands;
     [SerializeField] private GameObject _transitionHands;
 
-
+    [field: SerializeField] public Outline _outline { get; private set; }
     [SerializeField] private GameObject _poolsPrefab;
     private CinemachinePOV _cinemachinePov;
     private PlayerConfig _config;
@@ -110,7 +110,6 @@ public class PlayerCharacter : NetworkBehaviour
     public void SetObjectEnableObserver(GameObject gameObject, bool enabled)
     {
         gameObject.SetActive(enabled);
-        Debug.LogError(gameObject);
     }
 
     public void SetCinemachienCameraValueZero()

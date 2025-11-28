@@ -5,6 +5,7 @@ using FishNet.Object;
 
 public class PlayerPotions : NetworkBehaviour
 {
+    [SerializeField] private float _pinkCooldown;
     [SerializeField] private MixSoundAndPlay _audio;
 
     [ServerRpc(RequireOwnership = false)]
@@ -44,6 +45,24 @@ public class PlayerPotions : NetworkBehaviour
 
     public void DrinkPink()
     {
+        if (!base.IsOwner)
+            return;
+        StopAllCoroutines();
+        for (int i = 0; i < PlayerCharacter.Instance.Characters.Count; i++)
+        {
+            PlayerCharacter.Instance.Characters[i]._outline.enabled = true;
+        }
+
+        StartCoroutine(WaitingForPinkCooldown());
+    }
+
+    private IEnumerator WaitingForPinkCooldown()
+    {
+        yield return new WaitForSeconds(_pinkCooldown);
+        for (int i = 0; i < PlayerCharacter.Instance.Characters.Count; i++)
+        {
+            PlayerCharacter.Instance.Characters[i]._outline.enabled = false;
+        }
     }
 
     public void DrinkRed()

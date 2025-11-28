@@ -42,19 +42,17 @@ public class BazookaBullet : NetworkBehaviour
         _bulletCollider.enabled = false;
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void OnDestroyServer()
-    {
-        OnDestroyObserver();
-        PlayerCharacter.Instance.PlayerHitBox.TakeDamage(10);
-        StartCoroutine(DestroyDelay());
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (IsServer)
         {
-            OnDestroyServer();
+            if (collision.gameObject.TryGetComponent<PlayerHitBox>(out PlayerHitBox playerHitBox))
+            {
+                playerHitBox.TakeDamage(10);
+            }
+
+            OnDestroyObserver();
+            StartCoroutine(DestroyDelay());
         }
     }
 
