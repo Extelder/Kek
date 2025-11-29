@@ -19,6 +19,7 @@ public class PotionEffects : NetworkBehaviour
     [SerializeField] private Material redMat;
     [SerializeField] private Material greenMat;
     [SerializeField] private Material pinkMat;
+    [SerializeField] private GameObject _audioGameObject;
 
     public void Drink()
     {
@@ -40,7 +41,7 @@ public class PotionEffects : NetworkBehaviour
                 PlayerCharacter.Instance.PlayerPotions.DrinkPink();
                 break;
         }
-
+        PlayerCharacter.Instance.ServerSpawnObject(_audioGameObject, transform.position, transform.rotation);
         PlayerCharacter.Instance.DespawnObject(this);
     }
 

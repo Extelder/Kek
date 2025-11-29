@@ -82,6 +82,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1195159626694496663}
   m_SourcePrefab: {fileID: 100100000, guid: 06e4ce390353cc2438ad9b55bae84bc3, type: 3}
+--- !u!4 &8245101039184369046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06e4ce390353cc2438ad9b55bae84bc3, type: 3}
+  m_PrefabInstance: {fileID: 8495691913737056893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8730134528346656556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 06e4ce390353cc2438ad9b55bae84bc3, type: 3}
@@ -112,7 +117,9 @@ MonoBehaviour:
       data:
         <InteractItem>k__BackingField: {fileID: 6209168183074828002}
         <Price>k__BackingField: 15
+        _SoundSpawn: {fileID: 6347241754810884813, guid: 92a37750de9ac1b438fdb1128423f7f8, type: 3}
         _item: {fileID: 11400000, guid: 72f13e34a512cd24fbb05c8b0c4cd21f, type: 2}
+        transform: {fileID: 8245101039184369046}
 --- !u!114 &6841417395133546127
 MonoBehaviour:
   m_ObjectHideFlags: 0

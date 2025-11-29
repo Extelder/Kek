@@ -29,7 +29,7 @@ public class PlayerPotions : NetworkBehaviour
 
         float moonGravity = -1.62f;
         float time = 0f;
-        rigidbody.AddForce(Vector3.up * 30f, ForceMode.Impulse);
+        rigidbody.AddForce(Vector3.up * 10f, ForceMode.Impulse);
         while (time < 15f)
         {
             rigidbody.AddForce(Vector3.up * moonGravity, ForceMode.Acceleration);
