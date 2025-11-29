@@ -11,7 +11,7 @@ public class FirstGuideStep : GuideStep
     
     public override void OnStartClient()
     {
-        if(!base.IsServer)
+        if(!IsServer)
             return;
         base.OnStartClient();
         // _config = PlayerConfig.Instance;
@@ -28,11 +28,14 @@ public class FirstGuideStep : GuideStep
 
     private void OnInteracted()
     {
+        Debug.Log("YAICA");
         StopStep();
     }
 
     private void OnDisable()
     {
+        if(!IsServer)
+            return;
         _interactItem.Interacted -= OnInteracted;
     }
 }

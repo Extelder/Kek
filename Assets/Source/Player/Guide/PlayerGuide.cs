@@ -15,7 +15,7 @@ public class PlayerGuide : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        if (!base.IsServer)
+        if (!IsOwner)
             return;
         base.OnStartClient();
         // _config = PlayerConfig.Instance;
@@ -37,40 +37,24 @@ public class PlayerGuide : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SwitchStepServer()
     {
-        if(!IsServer)
+        if(!IsOwner)
             return;
-        AddCurrentStep();
-        SwitchStepObserver();
-    }
-
-    [ObserversRpc]
-    public void SwitchStepObserver()
-    {
-        AddStepServer();
+        _currentStep++;
         Switch();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void AddStepServer()
-    {
-        if (!IsServer)
-            return;
-        AddStepObserver();
+        SwitchStepObserver(_currentStep);
     }
 
     [ObserversRpc]
-    public void AddStepObserver()
+    public void SwitchStepObserver(int value)
     {
-        AddCurrentStep();
-    }
-
-    private int AddCurrentStep()
-    {
-        return _currentStep++;
+        _currentStep = value;
+        Switch();
     }
 
     private void Update()
     {
+        if (!IsOwner)
+            return;
         Debug.Log(_currentStep);
     }
 
@@ -78,8 +62,8 @@ public class PlayerGuide : NetworkBehaviour
     {
         if (_currentStep > _guideSteps.Count - 1)
         {
-            _config.Save();
-            _config.ConfigData.guidePassed = true;
+            // _config.Save();
+            // _config.ConfigData.guidePassed = true;
             return;
         }
         _guideSteps[_currentStep].StartStep();
@@ -87,7 +71,7 @@ public class PlayerGuide : NetworkBehaviour
 
     private void OnDisable()
     {
-        if (!base.IsServer)
+        if (!IsOwner)
             return;
         GuideStep.OnSpawned -= OnGuideStepSpawned;
     }
