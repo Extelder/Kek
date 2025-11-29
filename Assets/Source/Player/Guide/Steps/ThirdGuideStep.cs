@@ -9,7 +9,6 @@ public class ThirdGuideStep : GuideStep
 
     public override void OnStartClient()
     {
-       
         base.OnStartClient();
         _collectTrigger.ItemAte += OnItemAte;
     }
