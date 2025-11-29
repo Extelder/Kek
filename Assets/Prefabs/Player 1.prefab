@@ -15383,13 +15383,13 @@ GameObject:
   - component: {fileID: 1996624997028827962}
   - component: {fileID: 5141690507351948461}
   - component: {fileID: 4580442888730487172}
+  - component: {fileID: 6767672220255195287}
   - component: {fileID: -5256358950320560399}
   - component: {fileID: 8198702721160355421}
   - component: {fileID: -74783182155294016}
   - component: {fileID: 7160809295371563853}
   - component: {fileID: 3327174935348597493}
   - component: {fileID: 6562081531379052814}
-  - component: {fileID: 6767672220255195287}
   - component: {fileID: 3772147245761073638}
   - component: {fileID: 537354005271326383}
   m_Layer: 7
@@ -15879,6 +15879,25 @@ MonoBehaviour:
     fullScreen: 1
     width: 0
     height: 0
+    guidePassed: 0
+--- !u!114 &6767672220255195287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7502805d58905a44917f5f74db0d7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 14
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 1996624997028827962}
+  _guideSteps: []
+  _currentStep: 0
+  _config: {fileID: 4580442888730487172}
 --- !u!114 &-5256358950320560399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16064,22 +16083,6 @@ MonoBehaviour:
   _timeToRecover: 2
   _valueToSpend: 5
   _valueToRecover: 5
---- !u!114 &6767672220255195287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4892829383746930527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7502805d58905a44917f5f74db0d7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 14
-  _addedNetworkObject: {fileID: 1996624997028827962}
-  _networkObjectCache: {fileID: 1996624997028827962}
-  _guideSteps: []
 --- !u!114 &3772147245761073638
 MonoBehaviour:
   m_ObjectHideFlags: 0

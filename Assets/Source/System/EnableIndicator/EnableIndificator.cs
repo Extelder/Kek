@@ -10,15 +10,6 @@ public class EnableIndificator : NetworkBehaviour
 {
     [SerializeField] private IndicatorOffScreen _indicatorOff;
     [SerializeField] private IndicatorOnScreen _indicatorOn;
-    [SerializeField] private bool _enableOnClientStarted;
-    
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
-        if (!base.IsServer && !_enableOnClientStarted)
-            return;
-        CallEnable(true);
-    }
 
     public void CallEnable(bool value)
     {

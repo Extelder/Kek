@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Demo.AdditiveScenes;
 using FishNet.Object;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,15 +10,17 @@ using UnityEngine.Events;
 public class PlayerGuide : NetworkBehaviour
 {
     public List<GuideStep> _guideSteps = new List<GuideStep>();
-    private int _lastSortedStep;
-    private int _currentStep;
-    private int _stepNumber;
-    
+    [SerializeField] private int _currentStep;
+    private PlayerConfig _config;
+
     public override void OnStartClient()
     {
-        if (!base.IsServer)
+        if (!IsOwner)
             return;
         base.OnStartClient();
+        // _config = PlayerConfig.Instance;
+        // if(_config.ConfigData.guidePassed)
+        //     return;
         GuideStep.OnSpawned += OnGuideStepSpawned;
     }
 
@@ -34,29 +37,41 @@ public class PlayerGuide : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SwitchStepServer()
     {
-        if(!IsServer)
+        if(!IsOwner)
             return;
-        SwitchStepObserver();
+        _currentStep++;
+        Switch();
+        SwitchStepObserver(_currentStep);
     }
 
-    [ObserversRpc(BufferLast = true)]
-    public void SwitchStepObserver()
+    [ObserversRpc]
+    public void SwitchStepObserver(int value)
     {
+        _currentStep = value;
         Switch();
+    }
+
+    private void Update()
+    {
+        if (!IsOwner)
+            return;
+        Debug.Log(_currentStep);
     }
 
     private void Switch()
     {
-        _currentStep++;
         if (_currentStep > _guideSteps.Count - 1)
+        {
+            // _config.Save();
+            // _config.ConfigData.guidePassed = true;
             return;
-        Debug.Log("STEP CHANGED " + _currentStep);
+        }
         _guideSteps[_currentStep].StartStep();
     }
 
     private void OnDisable()
     {
-        if (!base.IsServer)
+        if (!IsOwner)
             return;
         GuideStep.OnSpawned -= OnGuideStepSpawned;
     }
