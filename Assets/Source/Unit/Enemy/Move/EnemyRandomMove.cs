@@ -18,7 +18,7 @@ public class EnemyRandomMove : NetworkBehaviour
     [SerializeField] private float _minimalRemainingDistance;
 
     private Vector3 _result;
-    
+
     public override void OnStartServer()
     {
         base.OnStartClient();
@@ -28,7 +28,7 @@ public class EnemyRandomMove : NetworkBehaviour
     public bool GetRandomPointOnNavMesh()
     {
         Vector3 randomDirection = Random.insideUnitSphere * _radius;
-        Vector3 randomPoint = _center + randomDirection;
+        Vector3 randomPoint = transform.position + randomDirection;
 
         NavMeshHit hit;
         if (NavMesh.SamplePosition(randomPoint, out hit, _radius, NavMesh.AllAreas))
@@ -48,9 +48,9 @@ public class EnemyRandomMove : NetworkBehaviour
     {
         while (true)
         {
-            yield return new WaitUntil(()=> GetRandomPointOnNavMesh());
+            yield return new WaitUntil(() => GetRandomPointOnNavMesh());
             _enemyNavMeshMove.SetDestinationServer(_result);
-            yield return new WaitUntil(()=> ReachedPoint());
+            yield return new WaitUntil(() => ReachedPoint());
         }
     }
 

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class VendingMachineInteractableSpawnable : VendingMachineInteractible
 {
     public event Action<string, int, Sprite> DataChanged;
-    
+
     public override void OnStartClient()
     {
         base.OnStartClient();

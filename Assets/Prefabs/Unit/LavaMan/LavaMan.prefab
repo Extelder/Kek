@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2233343419499896431}
   - component: {fileID: 6026651690339436378}
   - component: {fileID: 5643972729640650952}
+  - component: {fileID: 6939877424631385074}
   m_Layer: 0
   m_Name: LavaMan
   m_TagString: Untagged
@@ -55,7 +56,7 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 6026651690339436378}
   _enemyNavMeshMove: {fileID: 9152396072336205969}
   _center: {x: 0, y: 0, z: 0}
-  _radius: 80
+  _radius: 4
   _minimalRemainingDistance: 0.2
 --- !u!114 &9152396072336205969
 MonoBehaviour:
@@ -93,7 +94,7 @@ MonoBehaviour:
     <MaxDistance>k__BackingField: 10
     <LayerMask>k__BackingField:
       serializedVersion: 2
-      m_Bits: 2
+      m_Bits: 3
   _spawnableGameObject: {fileID: 9109201873220344337, guid: d840cd9fed45db94fade204889b7262e, type: 3}
   _spawnCooldown: 1
 --- !u!195 &2233343419499896431
@@ -200,6 +201,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6939877424631385074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127815885585618865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e56f5cf5c339a94bb388c9ffe01306e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 6026651690339436378}
+  _networkObjectCache: {fileID: 0}
 --- !u!1 &3234058078564148769
 GameObject:
   m_ObjectHideFlags: 0

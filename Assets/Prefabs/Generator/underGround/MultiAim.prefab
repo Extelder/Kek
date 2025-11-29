@@ -583,6 +583,7 @@ Transform:
   - {fileID: 9206706383265045414}
   - {fileID: 7757473497148140850}
   - {fileID: 3570555488910066482}
+  - {fileID: 1369602811123766584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -75, z: 0}
 --- !u!114 &7391778934859390621
@@ -607,7 +608,9 @@ MonoBehaviour:
   - {fileID: 6543039497588212023}
   - {fileID: 5459261639552042046}
   InitializedParentNetworkBehaviour: {fileID: 0}
-  InitializedNestedNetworkObjects: []
+  InitializedNestedNetworkObjects:
+  - {fileID: 2296509991244980615}
+  - {fileID: 0}
   RuntimeParentNetworkBehaviour: {fileID: 0}
   RuntimeChildNetworkBehaviours: []
   _isNetworked: 1
@@ -630,7 +633,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 58
+  <PrefabId>k__BackingField: 60
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 10733980502051632807
   <SceneId>k__BackingField: 0
@@ -658,8 +661,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 12.723475, y: 3.06, z: 13.695122}
-  m_Center: {x: -0.491367, y: 1.5699999, z: 9.087223}
+  m_Size: {x: 12.029665, y: 3.06, z: 13.296754}
+  m_Center: {x: -0.14445746, y: 1.5699999, z: 9.286413}
 --- !u!54 &5686764490193375077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1832,3 +1835,144 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4510566177744984952, guid: ab7c75cb286606f49901caf3308495b9, type: 3}
+--- !u!1001 &6612970532376971045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9214855509013584837}
+    m_Modifications:
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: <IsNested>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: <ComponentIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: InitializedParentNetworkBehaviour
+      value: 
+      objectReference: {fileID: 6543039497588212023}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.x
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.z
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Position.x
+      value: -0.70650923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Position.y
+      value: 0.00224185
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Position.z
+      value: 9.744396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.w
+      value: 0.79335415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.y
+      value: 0.6087605
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.70650923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00224185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.744396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.79335415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6087605
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038530547136117787, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+      propertyPath: m_Name
+      value: WarewolfParent Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+--- !u!4 &1369602811123766584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5243372119837643293, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+  m_PrefabInstance: {fileID: 6612970532376971045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2296509991244980615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4907562411042432674, guid: a3b40fa9ffa6e064fad28c1ef0f2c35f, type: 3}
+  m_PrefabInstance: {fileID: 6612970532376971045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

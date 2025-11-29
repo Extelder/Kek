@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
+using Unity.AI.Navigation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,10 +17,11 @@ public class SmallGenerator : NetworkBehaviour
 
     [SerializeField] private int _maxToSpawn;
 
-
     private int _currentSpawnedObjects;
 
     [SerializeField] private SmallGeneratable[] _generatables;
+
+    private bool _surfaceGenerated;
 
     public override void OnStartClient()
     {
@@ -36,8 +38,11 @@ public class SmallGenerator : NetworkBehaviour
 
     private void OnRegenerate()
     {
-        if (!base.IsServer)
-            return;
+        _currentSpawnedObjects = 0;
+        Despawn();
+        return;
+
+        _surfaceGenerated = false;
         _currentSpawnedObjects = 0;
         PlayerCharacter.Instance.ServerSpawnObject(
             _firstSpawn,
@@ -53,6 +58,10 @@ public class SmallGenerator : NetworkBehaviour
             {
                 PlayerCharacter.Instance.ServerSpawnObject(_block, generatable.SpawnPoints[i].position,
                     Quaternion.identity);
+                if (_surfaceGenerated)
+                    continue;
+                _surfaceGenerated = true;
+                GameObject.FindObjectOfType<NavMeshSurface>().BuildNavMesh();
                 continue;
             }
 
@@ -63,6 +72,7 @@ public class SmallGenerator : NetworkBehaviour
                     generatable.SpawnPoints[i].position,
                     Quaternion.LookRotation(generatable.SpawnPoints[i].forward));
             }
+
             _currentSpawnedObjects++;
             PlayerCharacter.Instance.ServerSpawnObject(
                 _generatables[Random.Range(0, _generatables.Length)].gameObject,

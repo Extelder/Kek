@@ -24,7 +24,10 @@ public class SmallGeneratable : NetworkBehaviour
         if (other.TryGetComponent<SmallGeneratable>(out SmallGeneratable SmallGeneratable))
         {
             if (SmallGeneratable != this)
+            {
                 Despawn();
+                Debug.LogError("Despawn");
+            }
         }
     }
 }
