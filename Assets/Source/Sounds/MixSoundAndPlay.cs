@@ -9,7 +9,14 @@ public class MixSoundAndPlay : NetworkBehaviour
 {
     [SerializeField] private AudioSource _audio;
     [SerializeField] private AudioClip[] _audioClips;
+    [SerializeField] private bool _DestroyAfterPlay;
+    private bool _playing;
 
+    public override void OnStartClient()
+    {
+        if (_DestroyAfterPlay)
+            MixOnServer();
+    }
 
     [ServerRpc(RequireOwnership = false)]
     public void MixOnServer()
@@ -20,9 +27,28 @@ public class MixSoundAndPlay : NetworkBehaviour
     [ObserversRpc]
     private void MixAndPlayObserver()
     {
+        if (_DestroyAfterPlay)
+        {
+            if (!IsServer)
+                return;
+        }
         if (_audio == null)
             return;
         _audio.clip = _audioClips[Random.Range(0, _audioClips.Length)];
         _audio.Play();
+        if(_DestroyAfterPlay)
+            _playing = true;
+    }
+
+    private void Update()
+    {
+        if (_playing)
+        {
+            if (!_audio.isPlaying)
+            {
+                Debug.Log(this);
+                PlayerCharacter.Instance.DespawnObject(this);
+            }
+        }
     }
 }

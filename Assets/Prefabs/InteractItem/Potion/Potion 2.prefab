@@ -135,7 +135,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 76
+  <PrefabId>k__BackingField: 78
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 14378343150274389095
   <SceneId>k__BackingField: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   redMat: {fileID: 2100000, guid: 9289d90fa102f484ba06740a47302ae0, type: 2}
   greenMat: {fileID: 2100000, guid: 7d226ba2b91843542a376b98fd287605, type: 2}
   pinkMat: {fileID: 2100000, guid: 14ad18cdca640fb4fb995ddc046a4b1e, type: 2}
+  _audioGameObject: {fileID: 6347241754810884813, guid: 2e6754dd349c6a645a0f00f22198b97e, type: 3}
 --- !u!114 &2894503579553505801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   _audio: {fileID: 5689666135516690527}
   _audioClips:
   - {fileID: 8300000, guid: 4a1a970a8f39c3242bce17a2c5223296, type: 3}
+  _DestroyAfterPlay: 0
 --- !u!82 &5689666135516690527
 AudioSource:
   m_ObjectHideFlags: 0

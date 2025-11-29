@@ -60,7 +60,9 @@ MonoBehaviour:
       data:
         <InteractItem>k__BackingField: {fileID: 3281599330090207928}
         <Price>k__BackingField: 20
+        _SoundSpawn: {fileID: 6347241754810884813, guid: 92a37750de9ac1b438fdb1128423f7f8, type: 3}
         _item: {fileID: 11400000, guid: 9c8eabab69f4e084a8d239345b45b4d6, type: 2}
+        transform: {fileID: 7380993797897878359}
 --- !u!114 &8835264046718627179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,5 +230,10 @@ PrefabInstance:
 --- !u!4 &2045105094014759947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5280f182ae1788d4a8b617e90b1b7e83, type: 3}
+  m_PrefabInstance: {fileID: 2011725032294323168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7380993797897878359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9044806412961212599, guid: 5280f182ae1788d4a8b617e90b1b7e83, type: 3}
   m_PrefabInstance: {fileID: 2011725032294323168}
   m_PrefabAsset: {fileID: 0}
