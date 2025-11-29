@@ -17,6 +17,9 @@ public class PlayerConfigData
     public bool fullScreen = true;
     public int width;
     public int height;
+
+    [Header("Guide")] 
+    public bool guidePassed;
 }
 
 public static class FreeDoomSettingsSaveLoad

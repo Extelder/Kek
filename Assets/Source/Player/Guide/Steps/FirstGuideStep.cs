@@ -7,12 +7,16 @@ public class FirstGuideStep : GuideStep
 {
     [SerializeField] private EnableIndificator _enableIndificator;
     [SerializeField] private InteractItem _interactItem;
-
+    private PlayerConfig _config;
+    
     public override void OnStartClient()
     {
         if(!base.IsServer)
             return;
         base.OnStartClient();
+        // _config = PlayerConfig.Instance;
+        // if (_config.ConfigData.guidePassed)
+        //     return;
         StartStep();
         _interactItem.Interacted += OnInteracted;
     }
