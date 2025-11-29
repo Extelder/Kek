@@ -7,11 +7,9 @@ public class SecondGuideStep : GuideStep
 {
     [SerializeField] private EnableIndificator _enableIndificator;
     [SerializeField] private Ore _ore;
-    
+
     public override void OnStartClient()
     {
-        if(!base.IsServer)
-            return;
         base.OnStartClient();
         _ore.Destroyed += OnDestroyed;
     }
@@ -24,6 +22,8 @@ public class SecondGuideStep : GuideStep
 
     private void OnDestroyed()
     {
+        if (!IsServer)
+            return;
         StopStep();
     }
 

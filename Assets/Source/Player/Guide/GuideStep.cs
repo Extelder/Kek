@@ -6,6 +6,8 @@ using UnityEngine;
 
 public abstract class GuideStep : NetworkBehaviour
 {
+    [SerializeField] private PlayerGuide _guide;
+
     public static event Action<GuideStep> OnSpawned;
 
     public override void OnStartClient()
@@ -18,6 +20,6 @@ public abstract class GuideStep : NetworkBehaviour
 
     public virtual void StopStep()
     {
-        PlayerCharacter.Instance.PlayerGuide.SwitchStep();
+        _guide.SwitchStep();
     }
 }

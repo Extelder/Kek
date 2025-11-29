@@ -15383,7 +15383,6 @@ GameObject:
   - component: {fileID: 1996624997028827962}
   - component: {fileID: 5141690507351948461}
   - component: {fileID: 4580442888730487172}
-  - component: {fileID: 6767672220255195287}
   - component: {fileID: -5256358950320560399}
   - component: {fileID: 8198702721160355421}
   - component: {fileID: -74783182155294016}
@@ -15530,7 +15529,7 @@ MonoBehaviour:
   <CameraHeadBob>k__BackingField: {fileID: 2370595197139838975}
   <PlayerHealth>k__BackingField: {fileID: -5256358950320560399}
   <PlayerStamina>k__BackingField: {fileID: 6562081531379052814}
-  <PlayerGuide>k__BackingField: {fileID: 6767672220255195287}
+  <PlayerGuide>k__BackingField: {fileID: 0}
   <PlayerDialogue>k__BackingField: {fileID: 4754405594093800195}
   <DropPoint>k__BackingField: {fileID: 8950486551078518353}
   <FingerLookAtPoint>k__BackingField: {fileID: 1694590149774310542}
@@ -15763,7 +15762,7 @@ MonoBehaviour:
   - {fileID: 7160809295371563853}
   - {fileID: 3327174935348597493}
   - {fileID: 6562081531379052814}
-  - {fileID: 6767672220255195287}
+  - {fileID: 0}
   - {fileID: 3772147245761073638}
   - {fileID: 537354005271326383}
   - {fileID: 4009499950323168906}
@@ -15880,24 +15879,6 @@ MonoBehaviour:
     width: 0
     height: 0
     guidePassed: 0
---- !u!114 &6767672220255195287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4892829383746930527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7502805d58905a44917f5f74db0d7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 14
-  _addedNetworkObject: {fileID: 1996624997028827962}
-  _networkObjectCache: {fileID: 1996624997028827962}
-  _guideSteps: []
-  _currentStep: 0
-  _config: {fileID: 4580442888730487172}
 --- !u!114 &-5256358950320560399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16119,6 +16100,7 @@ MonoBehaviour:
   _audio: {fileID: 5820116548251335153}
   _audioClips:
   - {fileID: 8300000, guid: 4a1a970a8f39c3242bce17a2c5223296, type: 3}
+  _DestroyAfterPlay: 0
 --- !u!1 &4908910220154872521
 GameObject:
   m_ObjectHideFlags: 0
@@ -18089,6 +18071,7 @@ MonoBehaviour:
   _audio: {fileID: 6373135034554353954}
   _audioClips:
   - {fileID: 0}
+  _DestroyAfterPlay: 0
 --- !u!82 &6373135034554353954
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27061,6 +27044,7 @@ MonoBehaviour:
   _audio: {fileID: 1874866818713218388}
   _audioClips:
   - {fileID: 8300000, guid: dc8d8be09be5c9e47a14b6ee6520c9d1, type: 3}
+  _DestroyAfterPlay: 0
 --- !u!1 &7979072567582694899
 GameObject:
   m_ObjectHideFlags: 0
