@@ -17,14 +17,6 @@ public class PlayerGuide : NetworkBehaviour
     {
         base.OnStartClient();
         _config = PlayerConfig.Instance;
-        if(_config.ConfigData.guidePassed)
-            return;
-        GuideStep.OnSpawned += OnGuideStepSpawned;
-    }
-
-    private void OnGuideStepSpawned(GuideStep step)
-    {
-        _guideSteps.Add(step);
     }
 
     public void SwitchStep()
@@ -35,6 +27,8 @@ public class PlayerGuide : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SwitchStepServer()
     {
+        if(_config.ConfigData.guidePassed)
+            return;
         _currentStep++;
         Switch();
     }
@@ -55,10 +49,5 @@ public class PlayerGuide : NetworkBehaviour
         }
 
         _guideSteps[_currentStep].StartStep();
-    }
-
-    private void OnDisable()
-    {
-        GuideStep.OnSpawned -= OnGuideStepSpawned;
     }
 }

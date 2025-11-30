@@ -14,6 +14,8 @@ public class FourthGuideStep : GuideStep
 
     private void OnActivated()
     {
+        if (!IsServer)
+            return;
         OnStepEnded();
     }
 

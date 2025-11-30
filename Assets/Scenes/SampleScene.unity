@@ -1008,7 +1008,6 @@ MonoBehaviour:
   - {fileID: 835253001}
   - {fileID: 1314119556}
   - {fileID: 275263362}
-  - {fileID: 683338499}
   _currentStep: 0
 --- !u!4 &66125532
 Transform:
@@ -3654,10 +3653,8 @@ GameObject:
   - component: {fileID: 683338490}
   - component: {fileID: 683338494}
   - component: {fileID: 683338495}
-  - component: {fileID: 683338499}
   - component: {fileID: 683338498}
   - component: {fileID: 683338497}
-  - component: {fileID: 683338496}
   m_Layer: 1
   m_Name: DoorAnimationPart
   m_TagString: Untagged
@@ -3893,23 +3890,6 @@ MonoBehaviour:
   _audioClips:
   - {fileID: 8300000, guid: 99b329a09aa4e1549bed1c2909da1738, type: 3}
   _DestroyAfterPlay: 0
---- !u!114 &683338496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683338488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ed733a0c577db448676f69f5cfaa8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 797742497}
-  _networkObjectCache: {fileID: 0}
-  _indicatorOff: {fileID: 683338497}
-  _indicatorOn: {fileID: 683338498}
 --- !u!114 &683338497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3955,24 +3935,6 @@ MonoBehaviour:
     color: {r: 1, g: 0.7668699, b: 0, a: 1}
     width: 32
     height: 32
---- !u!114 &683338499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683338488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac6334796ff09748bb3b06308ceb79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 255
-  _addedNetworkObject: {fileID: 797742497}
-  _networkObjectCache: {fileID: 0}
-  <EnableIndificator>k__BackingField: {fileID: 683338496}
-  _guide: {fileID: 66125531}
-  _interactItem: {fileID: 683338490}
 --- !u!1 &696623903
 GameObject:
   m_ObjectHideFlags: 0

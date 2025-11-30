@@ -14,6 +14,8 @@ public class ThirdGuideStep : GuideStep
 
     private void OnItemAte()
     {
+        if (!IsServer)
+            return;
         OnStepEnded();
     }
 

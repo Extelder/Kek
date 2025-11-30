@@ -8,14 +8,6 @@ public abstract class GuideStep : NetworkBehaviour
 {
     [field :SerializeField] public EnableIndificator EnableIndificator { get; private set; }
     [SerializeField] private PlayerGuide _guide;
-    
-    public static event Action<GuideStep> OnSpawned;
-
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
-        OnSpawned?.Invoke(this);
-    }
 
     public virtual void StartStep()
     {

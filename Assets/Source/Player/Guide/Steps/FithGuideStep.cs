@@ -14,6 +14,8 @@ public class FithGuideStep : GuideStep
 
     private void OnAllPlayersInAction()
     {
+        if (!IsServer)
+                return;
         OnStepEnded();
     }
 
