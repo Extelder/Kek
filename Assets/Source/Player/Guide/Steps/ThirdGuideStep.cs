@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ThirdGuideStep : GuideStep
 {
-    [SerializeField] private EnableIndificator _enableIndificator;
     [SerializeField] private CollectTrigger _collectTrigger;
 
     public override void OnStartClient()
@@ -13,16 +12,9 @@ public class ThirdGuideStep : GuideStep
         _collectTrigger.ItemAte += OnItemAte;
     }
 
-    public override void StartStep()
-    {
-        _enableIndificator.CallEnable(true);
-        Debug.Log("STEP CHANGED");
-    }
-
     private void OnItemAte()
     {
-        StopStep();
-        _enableIndificator.CallEnable(false);
+        OnStepEnded();
     }
 
     private void OnDisable()

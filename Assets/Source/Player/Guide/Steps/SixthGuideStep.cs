@@ -1,30 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstGuideStep : GuideStep
+public class SixthGuideStep : GuideStep
 {
     [SerializeField] private InteractItem _interactItem;
-    private PlayerConfig _config;
 
     public override void OnStartClient()
     {
         base.OnStartClient();
-        _config = PlayerConfig.Instance;
-        if (_config.ConfigData.guidePassed)
-            return;
-        StartStep();
         _interactItem.Interacted += OnInteracted;
     }
 
     private void OnInteracted()
     {
-        StopStep();
+        OnStepEnded();
     }
 
     private void OnDisable()
     {
-        _interactItem.Interacted -= OnInteracted;
+        _interactItem.Interacted += OnInteracted;
     }
 }
