@@ -319,7 +319,6 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: 6333940359791278946}
-  - {fileID: 0}
   - {fileID: 6211798196617642317}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -345,7 +344,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 83
+  <PrefabId>k__BackingField: 87
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 15159108558792062013
   <SceneId>k__BackingField: 0
@@ -480,12 +479,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c0eb99a9ab1574885d6dcc73d0eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 2
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: -2587463661914365665}
   _networkObjectCache: {fileID: -2587463661914365665}
   _audio: {fileID: 5358057549646637814}
   _audioClips:
   - {fileID: 8300000, guid: 1ca88d6ac8fc8474290a39840c8ea906, type: 3}
+  _DestroyAfterPlay: 0
 --- !u!1 &4745420691145370315
 GameObject:
   m_ObjectHideFlags: 0

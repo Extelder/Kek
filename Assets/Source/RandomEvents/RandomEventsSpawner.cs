@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class RandomEventsSpawner : NetworkBehaviour
 {
+    [SerializeField] private StartEventsTrigger _startEventsTrigger;
     [SerializeField] private Generator _generator;
     [SerializeField] private RandomEvent[] _events;
 
@@ -18,6 +19,8 @@ public class RandomEventsSpawner : NetworkBehaviour
     private List<NetworkObject> SpawnedEvents = new List<NetworkObject>();
 
     public static RandomEventsSpawner Instance { get; private set; }
+
+    [SerializeField] private bool _triggered;
 
     public override void OnStartClient()
     {
@@ -32,6 +35,14 @@ public class RandomEventsSpawner : NetworkBehaviour
             SpawningEvents.Add(_events[i]);
         }
 
+        _startEventsTrigger.Triggered += OnTriggered;
+    }
+
+    private void OnTriggered()
+    {
+        if (_triggered)
+            return;
+        _triggered = true;
         StartCoroutine(Spawning());
     }
 
@@ -67,6 +78,7 @@ public class RandomEventsSpawner : NetworkBehaviour
         if (!base.IsServer)
             return;
         _generator.Regenerate -= OnRegenerate;
+        _startEventsTrigger.Triggered -= OnTriggered;
     }
 
     private void OnRegenerate()
@@ -74,6 +86,7 @@ public class RandomEventsSpawner : NetworkBehaviour
         if (!base.IsServer)
             return;
 
+        _triggered = false;
         for (int i = 0; i < SpawnedEvents.Count; i++)
         {
             SpawnedEvents[i].Despawn();
@@ -86,7 +99,5 @@ public class RandomEventsSpawner : NetworkBehaviour
         {
             SpawningEvents.Add(_events[i]);
         }
-
-        StartCoroutine(Spawning());
     }
 }

@@ -94,7 +94,8 @@ public class PlayerDialogue : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerCharacter.Instance.Rigidbody.isKinematic = false;
+        if (PlayerCharacter.Instance != null)
+            PlayerCharacter.Instance.Rigidbody.isKinematic = false;
         if (_character.Binds != null)
             _character.Binds.Character.Interact.started -= TrySkipDialogue;
     }

@@ -421,7 +421,8 @@ MonoBehaviour:
   - {fileID: 5548101162968039602}
   - {fileID: 6708164183587816764}
   InitializedParentNetworkBehaviour: {fileID: 0}
-  InitializedNestedNetworkObjects: []
+  InitializedNestedNetworkObjects:
+  - {fileID: 1425990353134397630}
   RuntimeParentNetworkBehaviour: {fileID: 0}
   RuntimeChildNetworkBehaviours: []
   _isNetworked: 1
@@ -444,7 +445,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 71
+  <PrefabId>k__BackingField: 73
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 13125312253242707459
   <SceneId>k__BackingField: 0
@@ -632,11 +633,74 @@ PrefabInstance:
       propertyPath: WasActiveDuringEdit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: <IsNested>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: <ComponentIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: InitializedParentNetworkBehaviour
+      value: 
+      objectReference: {fileID: 5548101162968039602}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.x
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.z
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Position.x
+      value: 0.39628208
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Position.y
+      value: 0.0005426407
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Position.z
+      value: 3.3119369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.w
+      value: 0.79335415
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.y
+      value: 0.6087605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+--- !u!114 &1425990353134397630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6026651690339436378, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
+  m_PrefabInstance: {fileID: 4641194040942211044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4613263418175443741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 30768463339584761, guid: 2341a8f7a94c1ed40ac704525a244095, type: 3}
