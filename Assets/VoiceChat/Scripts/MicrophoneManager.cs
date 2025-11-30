@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class MicrophoneManager : MonoBehaviour
     public TMP_Dropdown Dropdown;
     [SerializeField] private List<string> AvailableDevices;
 
+    private int _currentMicrophone;
     void Awake()
     {
         if (!instance)
@@ -44,11 +46,20 @@ public class MicrophoneManager : MonoBehaviour
 
         List<OptionData> options = new List<OptionData>();
         AvailableDevices.ForEach(x => options.Add(new OptionData(x)));
-//        Dropdown.AddOptions(options);
+        Dropdown.AddOptions(options);
+        Dropdown.onValueChanged.AddListener((value =>
+        {
+            _currentMicrophone = value;
+        }));
     }
 
     public string GetCurrentDeviceName()
     {
-        return Microphone.devices[0];
+        return Microphone.devices[_currentMicrophone];
+    }
+
+    private void OnDisable()
+    {
+        Dropdown.onValueChanged.RemoveAllListeners();
     }
 }
