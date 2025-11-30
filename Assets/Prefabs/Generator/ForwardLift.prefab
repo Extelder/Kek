@@ -1400,9 +1400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58167fdb415a74c48960583acb4f5d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 0
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 1271336382462244895}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 1271336382462244895}
   _generator: {fileID: 0}
   _spawnPoint: {fileID: 2396288089890858616}
   _block: {fileID: 9080332078470512646, guid: 5884fbc5088395c4f9dcdcc35be90ac3, type: 3}
@@ -1426,9 +1426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e56f5cf5c339a94bb388c9ffe01306e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 1
+  _componentIndexCache: 4
   _addedNetworkObject: {fileID: 1271336382462244895}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 1271336382462244895}
 --- !u!1 &4648840342467114106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,7 +2866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4308630438471123387, guid: 8ab1349e0b068f145bc9ff70e13f3790, type: 3}
       propertyPath: <ComponentIndex>k__BackingField
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4308630438471123387, guid: 8ab1349e0b068f145bc9ff70e13f3790, type: 3}
       propertyPath: InitializedParentNetworkBehaviour
@@ -3406,11 +3406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: <PrefabId>k__BackingField
-      value: 42
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: NetworkBehaviours.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: <AssetPathHash>k__BackingField
@@ -3420,6 +3420,14 @@ PrefabInstance:
       propertyPath: NetworkBehaviours.Array.data[2]
       value: 
       objectReference: {fileID: 286004112125478707}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: NetworkBehaviours.Array.data[3]
+      value: 
+      objectReference: {fileID: 1565242114315481387}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: NetworkBehaviours.Array.data[4]
+      value: 
+      objectReference: {fileID: 3950909745924057293}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: SerializedTransformProperties.Position.x
       value: -29.4
@@ -3434,8 +3442,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: InitializedNestedNetworkObjects.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: InitializedNestedNetworkObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 2900592587556470985}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: InitializedNestedNetworkObjects.Array.data[1]
       value: 

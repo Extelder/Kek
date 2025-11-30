@@ -553,6 +553,7 @@ MonoBehaviour:
   _audioClips:
   - {fileID: 8300000, guid: 90ac8532836ce354d90ba2715999bb86, type: 3}
   - {fileID: 8300000, guid: f39aaae44019b084187981f8be02d9bf, type: 3}
+  _DestroyAfterPlay: 0
 --- !u!82 &2837590793369354256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -867,7 +868,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 100
+  <PrefabId>k__BackingField: 105
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 17257552803110438653
   <SceneId>k__BackingField: 0

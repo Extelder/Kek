@@ -62,7 +62,9 @@ MonoBehaviour:
       data:
         <InteractItem>k__BackingField: {fileID: 5251868966128661909}
         <Price>k__BackingField: 10
+        _SoundSpawn: {fileID: 0}
         _item: {fileID: 11400000, guid: b5f72fa1bba391d4eb5e640f476e6875, type: 2}
+        transform: {fileID: 0}
 --- !u!114 &6897638347386448776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 10
+  <PrefabId>k__BackingField: 11
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 1272020296497786221
   <SceneId>k__BackingField: 0

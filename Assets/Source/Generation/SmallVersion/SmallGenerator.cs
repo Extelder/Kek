@@ -71,6 +71,8 @@ public class SmallGenerator : NetworkBehaviour
                     _generatables[0].gameObject,
                     generatable.SpawnPoints[i].position,
                     Quaternion.LookRotation(generatable.SpawnPoints[i].forward));
+                _currentSpawnedObjects++;
+                return;
             }
 
             _currentSpawnedObjects++;
