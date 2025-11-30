@@ -7,7 +7,16 @@ using UnityEngine;
 public abstract class GuideStep : NetworkBehaviour
 {
     [field :SerializeField] public EnableIndificator EnableIndificator { get; private set; }
-    [SerializeField] private PlayerGuide _guide;
+    [field :SerializeField] public int StepIndex { get; private set; }
+    protected PlayerGuide guide;
+    public static event Action<GuideStep> ItemSpawned;
+    
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        guide = PlayerGuide.Instance;
+        ItemSpawned?.Invoke(this);
+    }
 
     public virtual void StartStep()
     {
@@ -22,6 +31,6 @@ public abstract class GuideStep : NetworkBehaviour
 
     public virtual void StopStep()
     {
-        _guide.SwitchStep();
+        guide.SwitchStep();
     }
 }

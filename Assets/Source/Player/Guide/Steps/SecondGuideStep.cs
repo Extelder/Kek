@@ -17,7 +17,7 @@ public class SecondGuideStep : GuideStep
     {
         if (!IsServer)
             return;
-        StopStep();
+        PlayerGuide.Instance.SwitchStep();
     }
 
     private void OnDisable()
