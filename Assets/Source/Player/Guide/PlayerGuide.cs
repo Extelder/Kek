@@ -16,9 +16,9 @@ public class PlayerGuide : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        // _config = PlayerConfig.Instance;
-        // if(_config.ConfigData.guidePassed)
-        //     return;
+        _config = PlayerConfig.Instance;
+        if(_config.ConfigData.guidePassed)
+            return;
         GuideStep.OnSpawned += OnGuideStepSpawned;
     }
 
@@ -49,8 +49,8 @@ public class PlayerGuide : NetworkBehaviour
     {
         if (_currentStep > _guideSteps.Count - 1)
         {
-            // _config.Save();
-            // _config.ConfigData.guidePassed = true;
+            _config.Save();
+            _config.ConfigData.guidePassed = true;
             return;
         }
 
