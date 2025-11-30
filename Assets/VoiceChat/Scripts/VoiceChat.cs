@@ -5,8 +5,19 @@ using FishNet.Object;
 using FishNet.Connection;
 using FishNet.Transporting; // Channel.Reliable/Unreliable
 
+/// <summary>
+/// Обновлённый VoiceChat:
+/// - 1 сетевой пакет = 1 аудиофрейм (FrameMs)
+/// - seq (ushort) в начале пакета
+/// - anti-burst: не собираем пачки фреймов в одном Update
+/// - простая PLC (повтор последнего фрейма при пропуске)
+/// - оставлена архитектура: PushToTalk/VoiceActivation, Proximity/Global
+/// - плейсхолдеры для Opus (кодек можно вставить в Encode/Decode)
+/// </summary>
 public class VoiceChat : NetworkBehaviour
 {
+
+    [SerializeField] private MicrophoneManager _microphoneManager;
     public enum ChatType { Global, Proximity }
     public ChatType VoiceChatType = ChatType.Global;
 
@@ -29,42 +40,52 @@ public class VoiceChat : NetworkBehaviour
     [Tooltip("Желаемая частота захвата. Если устройство не поддерживает — выберется ближайшая.")]
     public int sampleRate = 16000;
 
-    /* ====== Передача (захват микрофона) ====== */
+    /* ====== Параметры захвата/фреймов ====== */
+    private const int FrameMs = 20;    // 20 ms frame
+    private int frameSamples;          // samples per frame, рассчитывается по micRate
+    private int micRate;
+
+    /* ====== Микрофон захват ====== */
     private string deviceName;
     private AudioClip microphoneClip;
-    private int micRate;               // реальная частота записи
-    private int position;              // позиция чтения из кольца Unity-микрофона
+    private int position = 0;
 
-    private const int FrameMs = 20;    // 20 мс кадр
-    private int frameSamples;          // вычисляется из micRate
-
+    // повторы — чтобы не аллоцировать каждый раз
     private float[] audioFrame;
     private short[] pcm16Frame;
-    private byte[] byteFrame;
+    private byte[] byteFrame; // содержит header + PCM16: [seqLo][seqHi][pcm...]
+    private float[] sampleData; // для voice activation и индикатора
+    private float[] micDataBuffer; // для GetMicInputVolume()
+
+    // последовательный номер пакета на отправителе
+    private ushort outSeq = 0;
 
     private bool canTalk = false;
     private bool previousCanTalk = false;
     private Coroutine transmitRoutine;
 
-    /* ====== Приём (непрерывный стрим) ====== */
-    private const int playbackBufferSeconds = 1; // размер кольца приёма
+    /* ====== Playback (приём/воспроизведение) ====== */
+    private const int playbackBufferSeconds = 1;
     private float[] playbackRing;
-    private int writeHead, readHead, buffered;
+    private int writeHead = 0, readHead = 0, buffered = 0;
     private AudioClip playbackClip;
-    private bool playbackStarted;
+    private bool playbackStarted = false;
     private readonly object playbackLock = new object();
-    private bool playbackInited;
+    private bool playbackInited = false;
 
-    // Временные буферы для распаковки пришедшего пакета
+    // Буферы для распаковки пришедшего пакета
     private float[] recvFloat;
     private short[] recvShort;
 
-    // Кэш трансформов отправителей для проксими-чата
+    // Кэш трансформов отправителей для proximity
     private readonly Dictionary<int, Transform> senderTransformCache = new Dictionary<int, Transform>();
 
-    // Служебные буферы под Voice Activation и визуал индикатор
-    private float[] sampleData;
-    private float[] micDataBuffer;
+    // Для простого PLC — последний принятый фрейм по отправителю
+    private readonly Dictionary<int, short[]> lastFramePerSender = new Dictionary<int, short[]>();
+    private readonly Dictionary<int, ushort> lastSeqPerSender = new Dictionary<int, ushort>();
+
+    // Для индикатора уровня
+    private float[] debugSampleBuffer;
 
     /* =========================
      *      Unity lifecycle
@@ -73,20 +94,17 @@ public class VoiceChat : NetworkBehaviour
     {
         base.OnStartClient();
 
-        // Приём нужно инициализировать у всех (и у владельца, и у наблюдателей)
         if (!playbackInited)
             InitPlayback();
 
-        // Ниже — только логика захвата/отправки у владельца
-        if (!base.IsOwner)
+        if (!IsOwner)
             return;
 
         if (source == null)
             Debug.LogError("[VOICE] AudioSource not assigned!");
 
-        // Выбор устройства: если есть MicrophoneManager — используем его, иначе берём первое
         deviceName = (Microphone.devices.Length > 0) ? Microphone.devices[0] : null;
-        var mm = FindObjectOfType<MicrophoneManager>();
+        var mm =_microphoneManager;
         if (mm != null)
         {
             string fromManager = mm.GetCurrentDeviceName();
@@ -97,15 +115,8 @@ public class VoiceChat : NetworkBehaviour
         if (string.IsNullOrEmpty(deviceName))
             Debug.LogError("[VOICE] No microphone device found!");
 
-        // Подстроим частоту и размеры кадров
         SetupMicRate();
-        frameSamples = Mathf.Max(1, micRate * FrameMs / 1000);
-
-        audioFrame    = new float[frameSamples];
-        pcm16Frame    = new short[frameSamples];
-        byteFrame     = new byte[frameSamples * 2];
-        sampleData    = new float[frameSamples];
-        micDataBuffer = new float[frameSamples];
+        AllocateCaptureBuffers();
 
         if (source != null)
             source.spatialBlend = (VoiceChatType == ChatType.Proximity) ? 1f : 0f;
@@ -116,10 +127,10 @@ public class VoiceChat : NetworkBehaviour
         if (!Activated)
             return;
 
-        // Отслеживаем смену микрофона через менеджер (если есть) — только у владельца
-        if (base.IsOwner)
+        // следим за сменой устройства (у владельца)
+        if (IsOwner)
         {
-            var mm = FindObjectOfType<MicrophoneManager>();
+            var mm = _microphoneManager;
             if (mm != null)
             {
                 string selected = mm.GetCurrentDeviceName();
@@ -128,8 +139,8 @@ public class VoiceChat : NetworkBehaviour
             }
         }
 
-        // Режимы детекции — только у владельца, кто отправляет
-        if (base.IsOwner)
+        // режимы детекции — только у владельца
+        if (IsOwner)
         {
             switch (VoiceDetectionType)
             {
@@ -154,7 +165,6 @@ public class VoiceChat : NetworkBehaviour
                     break;
             }
 
-            // Фронты включения/выключения передачи
             if (!previousCanTalk && canTalk)
                 StartTalking();
             if (previousCanTalk && !canTalk)
@@ -163,13 +173,13 @@ public class VoiceChat : NetworkBehaviour
             previousCanTalk = canTalk;
         }
 
-        // Поддерживаем пространственность у всех
+        // обновление spatialBlend у всех
         if (source != null)
             source.spatialBlend = (VoiceChatType == ChatType.Proximity) ? 1f : 0f;
     }
 
     /* =========================
-     *      МИКРОФОН (захват)
+     *      Микрофон / буферы
      * ========================= */
     private void SetupMicRate()
     {
@@ -177,7 +187,6 @@ public class VoiceChat : NetworkBehaviour
         if (string.IsNullOrEmpty(deviceName))
             return;
 
-        // У некоторых драйверов Unity возвращает 0/0 — трактуем как «без ограничений»
         Microphone.GetDeviceCaps(deviceName, out int min, out int max);
         if (max != 0)
         {
@@ -185,6 +194,20 @@ public class VoiceChat : NetworkBehaviour
             else if (sampleRate > max) micRate = max;
             else micRate = sampleRate;
         }
+
+        frameSamples = Mathf.Max(1, micRate * FrameMs / 1000);
+    }
+
+    private void AllocateCaptureBuffers()
+    {
+        frameSamples = Mathf.Max(1, micRate * FrameMs / 1000);
+        audioFrame    = new float[frameSamples];
+        pcm16Frame    = new short[frameSamples];
+        // header = 2 bytes seq; then pcm16Frame.Length*2 bytes
+        byteFrame     = new byte[2 + frameSamples * 2];
+        sampleData    = new float[frameSamples];
+        micDataBuffer = new float[frameSamples];
+        debugSampleBuffer = new float[frameSamples];
     }
 
     private void StartMicrophone()
@@ -193,13 +216,7 @@ public class VoiceChat : NetworkBehaviour
             return;
 
         SetupMicRate();
-        frameSamples = Mathf.Max(1, micRate * FrameMs / 1000);
-
-        audioFrame    = new float[frameSamples];
-        pcm16Frame    = new short[frameSamples];
-        byteFrame     = new byte[frameSamples * 2];
-        sampleData    = new float[frameSamples];
-        micDataBuffer = new float[frameSamples];
+        AllocateCaptureBuffers();
 
         position = 0;
         microphoneClip = Microphone.Start(deviceName, true, 10, micRate);
@@ -214,7 +231,7 @@ public class VoiceChat : NetworkBehaviour
         microphoneClip = null;
     }
 
-    private void UpdateMicrophone(string newDeviceName)
+    private void UpdateMicrophone(string newDevice)
     {
         if (!string.IsNullOrEmpty(deviceName))
         {
@@ -222,9 +239,8 @@ public class VoiceChat : NetworkBehaviour
             StopMicrophone();
         }
 
-        deviceName = newDeviceName;
-
-        if (base.IsOwner && canTalk)
+        deviceName = newDevice;
+        if (IsOwner && canTalk)
         {
             StartMicrophone();
             StartTalking();
@@ -232,18 +248,13 @@ public class VoiceChat : NetworkBehaviour
     }
 
     /* =========================
-     *         ПЕРЕДАЧА
+     *      Передача
      * ========================= */
     private void StartTalking()
     {
-        if (!base.IsOwner)
-            return;
-
-        if (string.IsNullOrEmpty(deviceName))
-            return;
-
-        if (transmitRoutine != null)
-            StopCoroutine(transmitRoutine);
+        if (!IsOwner) return;
+        if (string.IsNullOrEmpty(deviceName)) return;
+        if (transmitRoutine != null) StopCoroutine(transmitRoutine);
         transmitRoutine = StartCoroutine(TransmitVoice());
     }
 
@@ -256,8 +267,13 @@ public class VoiceChat : NetworkBehaviour
         }
     }
 
+    // Корутин: отправляем ровно один фрейм за итерацию -> предотвращаем burst'ы
     private IEnumerator TransmitVoice()
     {
+        // safety
+        if (microphoneClip == null || string.IsNullOrEmpty(deviceName))
+            yield break;
+
         while (canTalk)
         {
             if (microphoneClip == null)
@@ -266,12 +282,11 @@ public class VoiceChat : NetworkBehaviour
             int micPos = Microphone.GetPosition(deviceName);
             int available = (micPos - position + microphoneClip.samples) % microphoneClip.samples;
 
-            // Отправляем пакетами по frameSamples
-            while (available >= frameSamples)
+            // Если есть хотя бы один полный фрейм — возьмём только один за итерацию
+            if (available >= frameSamples)
             {
                 microphoneClip.GetData(audioFrame, position);
                 position = (position + frameSamples) % microphoneClip.samples;
-                available -= frameSamples;
 
                 // PCM16
                 for (int i = 0; i < frameSamples; i++)
@@ -279,13 +294,20 @@ public class VoiceChat : NetworkBehaviour
                     float v = Mathf.Clamp(audioFrame[i], -1f, 1f);
                     pcm16Frame[i] = (short)(v * short.MaxValue);
                 }
-                System.Buffer.BlockCopy(pcm16Frame, 0, byteFrame, 0, byteFrame.Length);
 
-                // Ненадёжный канал — ниже задержка, нет head-of-line
+                // Записываем seq (2 байта little-endian) + PCM16
+                byteFrame[0] = (byte)(outSeq & 0xFF);
+                byteFrame[1] = (byte)((outSeq >> 8) & 0xFF);
+                System.Buffer.BlockCopy(pcm16Frame, 0, byteFrame, 2, frameSamples * 2);
+
+                // Отправка через сервер->наблюдатели (Unreliable)
                 TransmitAudioServerRpc(byteFrame, Channel.Unreliable);
+
+                outSeq++;
             }
 
-            yield return null; // в следующий кадр
+            // ждать следующий кадр/фрейм — yield null достаточно
+            yield return null;
         }
     }
 
@@ -310,9 +332,8 @@ public class VoiceChat : NetworkBehaviour
     }
 
     /* =========================
-     *            RPC
+     *        RPC / сетка
      * ========================= */
-    // Примечание: в FishNet можно добавить параметр Channel в сигнатуру RPC.
     [ServerRpc(RequireOwnership = false, RunLocally = false)]
     private void TransmitAudioServerRpc(byte[] audioPacket, Channel channel = Channel.Unreliable, NetworkConnection sender = null)
     {
@@ -323,7 +344,7 @@ public class VoiceChat : NetworkBehaviour
     [ObserversRpc(BufferLast = false)]
     private void TransmitAudioObserversRpc(byte[] audioPacket, int senderClientId, Channel channel = Channel.Unreliable)
     {
-        // Не играем собственный звук на том же коннекте
+        // не воспроизводим свой собственный звук (локальный клиент)
         if (NetworkManager != null &&
             NetworkManager.ClientManager != null &&
             NetworkManager.ClientManager.Connection != null &&
@@ -334,25 +355,20 @@ public class VoiceChat : NetworkBehaviour
     }
 
     /* =========================
-     *      ПРИЁМ/ВОСПРОИЗВЕДЕНИЕ
+     *      Приём/воспроизведение
      * ========================= */
     private void InitPlayback()
     {
-        // AudioSource обязателен для воспроизведения; если не задан — создадим
         if (source == null)
             source = gameObject.GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
 
-        // micRate может ещё не быть выставлен у наблюдателя — используем заданный sampleRate
         if (micRate <= 0) micRate = Mathf.Max(8000, sampleRate);
-
         frameSamples = Mathf.Max(1, micRate * FrameMs / 1000);
 
-        int ringSize = Mathf.Max(micRate * playbackBufferSeconds, frameSamples * 6); // небольшой запас поверх окна
-
+        int ringSize = Mathf.Max(micRate * playbackBufferSeconds, frameSamples * 6);
         playbackRing = new float[ringSize];
         writeHead = readHead = buffered = 0;
 
-        // Создаём стримовый клип; используем только OnAudioRead
         playbackClip = AudioClip.Create("VoiceStream", ringSize, 1, micRate, true, OnAudioRead);
         source.clip = playbackClip;
         source.loop = true;
@@ -372,47 +388,97 @@ public class VoiceChat : NetworkBehaviour
             return;
         }
 
-        // На случай гонки: если приём ещё не инициализирован — инициализируем лениво
         if (!playbackInited || playbackRing == null || playbackRing.Length == 0)
             InitPlayback();
 
         if (VoiceChatType == ChatType.Proximity)
         {
             source.maxDistance = proximityRange;
-
             var senderTf = GetSenderTransformCached(senderClientId);
             if (senderTf != null)
             {
                 float dist = Vector3.Distance(transform.position, senderTf.position);
                 if (dist > proximityRange)
                     return;
-                // Для полноценного 3D позиционирования можно двигать отдельный AudioSource к senderTf.position
+                // Для 3D-позиционирования можно создать отдельный AudioSource на позицию senderTf
             }
         }
 
-        int samples = audioPacket.Length / 2;
+        // Минимальная валидация
+        if (audioPacket == null || audioPacket.Length < 2)
+            return;
+
+        // Выделим/рассчитаем размеры
+        int payloadBytes = audioPacket.Length - 2; // первый 2 байта — seq
+        int samples = payloadBytes / 2; // PCM16 -> short -> samples
+
         if (recvShort == null || recvShort.Length != samples) recvShort = new short[samples];
         if (recvFloat == null || recvFloat.Length != samples) recvFloat = new float[samples];
 
-        System.Buffer.BlockCopy(audioPacket, 0, recvShort, 0, audioPacket.Length);
+        // Извлекаем seq
+        ushort seq = (ushort)(audioPacket[0] | (audioPacket[1] << 8));
+
+        // Распаковка PCM16 (начиная с offset 2)
+        System.Buffer.BlockCopy(audioPacket, 2, recvShort, 0, payloadBytes);
         for (int i = 0; i < samples; i++)
             recvFloat[i] = recvShort[i] / (float)short.MaxValue;
 
         lock (playbackLock)
         {
-            // Страховка на всякий
-            if (playbackRing == null || playbackRing.Length == 0)
-                return;
+            // Простая потеря-пакетов обработка:
+            // если пришёл пакет с seq, который НЕ следующий после lastSeq, считаем что некоторые потеряны.
+            bool hadLost = false;
+            if (senderClientId >= 0)
+            {
+                if (lastSeqPerSender.TryGetValue(senderClientId, out ushort lastSeq))
+                {
+                    ushort expected = (ushort)(lastSeq + 1);
+                    if (seq != expected)
+                    {
+                        // потеря(и) — повторим последний фрейм один раз за каждый пропуск (ограничим до 3 повторов чтобы не застрять)
+                        int gap = (seq - expected + 65536) % 65536;
+                        int repeats = Mathf.Clamp(gap, 0, 3);
+                        if (lastFramePerSender.TryGetValue(senderClientId, out short[] lastFrame) && lastFrame != null)
+                        {
+                            for (int r = 0; r < repeats; r++)
+                            {
+                                for (int i = 0; i < lastFrame.Length; i++)
+                                {
+                                    float v = lastFrame[i] / (float)short.MaxValue;
+                                    playbackRing[writeHead] = v;
+                                    writeHead = (writeHead + 1) % playbackRing.Length;
+                                    if (buffered < playbackRing.Length) buffered++;
+                                    else readHead = (readHead + 1) % playbackRing.Length;
+                                }
+                            }
+                            hadLost = repeats > 0;
+                        }
+                    }
+                }
+            }
 
+            // Записываем текущий фрейм в playbackRing
             for (int i = 0; i < samples; i++)
             {
                 playbackRing[writeHead] = recvFloat[i];
                 writeHead = (writeHead + 1) % playbackRing.Length;
                 if (buffered < playbackRing.Length) buffered++;
-                else readHead = (readHead + 1) % playbackRing.Length; // переполнение — дроп старого
+                else readHead = (readHead + 1) % playbackRing.Length; // при переполнении дроп старого
             }
 
-            // Небольшая подушка (3 кадра) перед стартом — сглаживает сетевой джиттер
+            // Сохраняем последний фрейм (для PLC) в формате PCM16 (short[])
+            if (senderClientId >= 0)
+            {
+                if (!lastFramePerSender.TryGetValue(senderClientId, out short[] dst) || dst == null || dst.Length != samples)
+                {
+                    dst = new short[samples];
+                    lastFramePerSender[senderClientId] = dst;
+                }
+                System.Buffer.BlockCopy(audioPacket, 2, dst, 0, samples * 2);
+                lastSeqPerSender[senderClientId] = seq;
+            }
+
+            // Запуск воспроизведения после небольшой подушки
             if (!playbackStarted && buffered >= frameSamples * 3)
             {
                 source.Play();
@@ -421,7 +487,6 @@ public class VoiceChat : NetworkBehaviour
         }
     }
 
-    // PCM callback из AudioClip.Create — Unity спросит данные для проигрывания
     private void OnAudioRead(float[] data)
     {
         lock (playbackLock)
@@ -436,27 +501,24 @@ public class VoiceChat : NetworkBehaviour
                 }
                 else
                 {
-                    data[i] = 0f; // тишина, если буфер пуст (сетевые провалы)
+                    data[i] = 0f; // тишина при пустом буфере
                 }
             }
         }
     }
 
-    // Не используется, но сигнатура допустима, если хочешь следить за позициями
     private void OnAudioSetPosition(int newPosition) { }
 
     /* =========================
-     *           Утилиты
+     *        Утилиты
      * ========================= */
     private Transform GetSenderTransformCached(int clientId)
     {
-        if (clientId < 0)
-            return null;
+        if (clientId < 0) return null;
 
         if (senderTransformCache.TryGetValue(clientId, out var tf) && tf != null)
             return tf;
 
-        // Фоллбек-поиск (лучше заменить на свой реестр игроков)
         var objs = FindObjectsOfType<NetworkObject>();
         foreach (var no in objs)
         {
@@ -469,10 +531,10 @@ public class VoiceChat : NetworkBehaviour
         return null;
     }
 
-    // Для отладочного индикатора уровня входа (0..1) — можно привязать к UI
+    // Индикатор уровня входа (0..1)
     public float GetMicInputVolume()
     {
-        if (!base.IsOwner || microphoneClip == null || string.IsNullOrEmpty(deviceName))
+        if (!IsOwner || microphoneClip == null || string.IsNullOrEmpty(deviceName))
             return 0f;
 
         int micPosition = Microphone.GetPosition(deviceName);
@@ -488,12 +550,12 @@ public class VoiceChat : NetworkBehaviour
         float rms = Mathf.Sqrt(sum / micDataBuffer.Length);
         return Mathf.Clamp01(rms * 50f);
     }
-}
 
-/*
- * Заметки:
- * - Если используешь свой MicrophoneManager, он должен уметь вернуть текущее deviceName.
- * - Канал RPC — Unreliable (UDP-поведение) для голоса; так мы избегаем head-of-line блокировок.
- * - Хоть мы и используем 1-сек. кольцо, стартуем воспроизведение после ~60 мс (3 кадра по 20 мс).
- * - Для продакшена добавь Opus (20 ms frames, VBR, PLC) и sequence-номера пакетов с адаптивной джиттер-подушкой.
- */
+    /* =========================
+     *      Opus / Encoding (placeholders)
+     * ========================= */
+    // Здесь можно подключить Opus: Encode(float[] / short[]) -> byte[] меньшего размера
+    // и на приёме Decode(byte[]) -> short[].
+    // Если интегрируешь Opus, замени момент, где мы формируем byteFrame и где распаковываем на приёме.
+    // Примечание: подпись RPC остаётся byte[], просто payload станет уже закодированным.
+}

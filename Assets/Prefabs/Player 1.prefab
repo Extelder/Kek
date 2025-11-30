@@ -13619,8 +13619,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8046496494915726784}
   m_HandleRect: {fileID: 4133320930669175210}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.27742717
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15947,6 +15947,7 @@ GameObject:
   - component: {fileID: 6562081531379052814}
   - component: {fileID: 3772147245761073638}
   - component: {fileID: 537354005271326383}
+  - component: {fileID: 1358989064334326129}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Untagged
@@ -16656,6 +16657,30 @@ MonoBehaviour:
   _audioClips:
   - {fileID: 8300000, guid: 4a1a970a8f39c3242bce17a2c5223296, type: 3}
   _DestroyAfterPlay: 0
+--- !u!114 &1358989064334326129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892829383746930527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ed8226d477e144cb86620c8cf2d14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1996624997028827962}
+  _networkObjectCache: {fileID: 0}
+  _microphoneManager: {fileID: 6977720800765278241}
+  VoiceChatType: 1
+  VoiceDetectionType: 0
+  Activated: 1
+  PushToTalkKey: 118
+  source: {fileID: 8198702721160355421}
+  proximityRange: 10
+  voiceActivationThreshold: 0.002
+  sampleRate: 16000
 --- !u!1 &4908910220154872521
 GameObject:
   m_ObjectHideFlags: 0
