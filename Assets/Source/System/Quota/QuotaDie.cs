@@ -23,7 +23,8 @@ public class QuotaDie : MonoBehaviour
 
         for (int i = 0; i < _lights.Length; i++)
         {
-            _lights[i].SetActive(false);
+            if (_lights[i] != null)
+                _lights[i].SetActive(false);
         }
 
         StartCoroutine(WaitingForDeath());
