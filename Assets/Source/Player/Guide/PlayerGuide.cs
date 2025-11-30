@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using FishNet.Demo.AdditiveScenes;
 using FishNet.Object;
 using UnityEngine;
@@ -12,11 +13,27 @@ public class PlayerGuide : NetworkBehaviour
     public List<GuideStep> _guideSteps = new List<GuideStep>();
     [SerializeField] private int _currentStep;
     private PlayerConfig _config;
+    
+    public static PlayerGuide Instance { get; private set; }
 
     public override void OnStartClient()
     {
         base.OnStartClient();
+        if (!Instance)
+            Instance = this;
         _config = PlayerConfig.Instance;
+        GuideStep.ItemSpawned += OnItemSpawned;
+    }
+
+    private void OnItemSpawned(GuideStep step)
+    {
+        _guideSteps.Add(step);
+        SortSteps();
+    }
+
+    private void SortSteps()
+    {
+        _guideSteps = _guideSteps.OrderBy(s => s.StepIndex).ToList();
     }
 
     public void SwitchStep()
@@ -49,5 +66,10 @@ public class PlayerGuide : NetworkBehaviour
         }
 
         _guideSteps[_currentStep].StartStep();
+    }
+
+    private void OnDisable()
+    {
+        GuideStep.ItemSpawned -= OnItemSpawned;
     }
 }
