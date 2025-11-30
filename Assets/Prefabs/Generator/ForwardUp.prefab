@@ -1,5 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &338264574728270268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5884358605972279923}
+    m_Modifications:
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: WasActiveDuringEdit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176790957605974905, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_Name
+      value: SlotMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.013807243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.013807243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.013807243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.108
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.3280635
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2589165
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.02011155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9516185
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.16425586
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 18.846
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -149.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 2.833
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+--- !u!4 &5866144675866160560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+  m_PrefabInstance: {fileID: 338264574728270268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1222630799338360367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +298,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4710440589118561372, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1156270577909449537}
+    - targetCorrespondingSourceObject: {fileID: 4710440589118561372, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5866144675866160560}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       insertIndex: -1
