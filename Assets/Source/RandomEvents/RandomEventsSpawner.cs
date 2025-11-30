@@ -11,6 +11,7 @@ public class RandomEventsSpawner : NetworkBehaviour
     [SerializeField] private RandomEvent[] _events;
 
     [SerializeField] private Vector2Int _randomEventsToSpawnRange;
+    [SerializeField] private Vector2 _randomSpawnDelayRange;
 
     private List<RandomEvent> SpawningEvents = new List<RandomEvent>();
 
@@ -31,10 +32,17 @@ public class RandomEventsSpawner : NetworkBehaviour
             SpawningEvents.Add(_events[i]);
         }
 
+        StartCoroutine(Spawning());
+    }
+
+    private IEnumerator Spawning()
+    {
         int toSpawnNumber = Random.Range(_randomEventsToSpawnRange.x, _randomEventsToSpawnRange.y);
 
         for (int i = 0; i < toSpawnNumber; i++)
         {
+            float randomDelay = Random.Range(_randomSpawnDelayRange.x, _randomSpawnDelayRange.y);
+            yield return new WaitForSeconds(randomDelay);
             if (SpawningEvents.Count == 0)
                 continue;
             RandomEvent eventToSpawn = SpawningEvents[Random.Range(0, SpawningEvents.Count - 1)];
@@ -79,16 +87,6 @@ public class RandomEventsSpawner : NetworkBehaviour
             SpawningEvents.Add(_events[i]);
         }
 
-        int toSpawnNumber = Random.Range(_randomEventsToSpawnRange.x, _randomEventsToSpawnRange.y);
-
-        for (int i = 0; i < toSpawnNumber; i++)
-        {
-            RandomEvent eventToSpawn = SpawningEvents[Random.Range(0, SpawningEvents.Count - 1)];
-
-            PlayerCharacter.Instance.ServerSpawnObject(eventToSpawn.gameObject, transform.position,
-                Quaternion.identity);
-
-            SpawningEvents.Remove(eventToSpawn);
-        }
+        StartCoroutine(Spawning());
     }
 }
