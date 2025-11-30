@@ -44,6 +44,12 @@ public class MainMenuManager : MonoBehaviour
         _menuScreen.SetActive(true);
     }
 
+
+    public void CopyID()
+    {
+        GUIUtility.systemCopyBuffer = _lobbyIDTExt.text;
+    }
+
     public static void LobbyEntered(string lobbyName, bool isHost)
     {
         Instance._lobbyTitle.text = lobbyName;
