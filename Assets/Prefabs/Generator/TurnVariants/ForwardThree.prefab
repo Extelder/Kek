@@ -246,6 +246,58 @@ PrefabInstance:
       propertyPath: WasActiveDuringEdit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: <IsNested>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: <ComponentIndex>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: InitializedParentNetworkBehaviour
+      value: 
+      objectReference: {fileID: 4002535635422404112}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.x
+      value: 0.013807243
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.y
+      value: 0.013807243
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Scale.z
+      value: 0.013807243
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Position.x
+      value: -1.3177576
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Position.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Position.z
+      value: 3.0646038
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.w
+      value: 0.99035186
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.x
+      value: 0.06175048
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.y
+      value: 0.123816445
+      objectReference: {fileID: 0}
+    - target: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+      propertyPath: SerializedTransformProperties.Rotation.z
+      value: 0.0077202106
+      objectReference: {fileID: 0}
     - target: {fileID: 3176790957605974905, guid: 64685c093e916d946b91e55d3564592b, type: 3}
       propertyPath: m_Name
       value: SlotMachine
@@ -307,6 +359,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+--- !u!114 &2110801449846665931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 238935555973811291, guid: 64685c093e916d946b91e55d3564592b, type: 3}
+  m_PrefabInstance: {fileID: 2169552098276605584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5459126313928434332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6186110073204104204, guid: 64685c093e916d946b91e55d3564592b, type: 3}
@@ -590,12 +653,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: InitializedNestedNetworkObjects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: InitializedNestedNetworkObjects.Array.data[0]
       value: 
       objectReference: {fileID: 2900592587556470985}
+    - target: {fileID: 3226521526342173385, guid: b34657a1358428641877b5be6ff2b345, type: 3}
+      propertyPath: InitializedNestedNetworkObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 2110801449846665931}
     - target: {fileID: 3339526539374436052, guid: b34657a1358428641877b5be6ff2b345, type: 3}
       propertyPath: m_Name
       value: ForwardThree

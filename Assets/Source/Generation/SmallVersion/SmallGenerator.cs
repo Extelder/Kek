@@ -21,6 +21,8 @@ public class SmallGenerator : NetworkBehaviour
 
     [SerializeField] private SmallGeneratable[] _generatables;
 
+    private List<Transform> _spawnPoints = new List<Transform>();
+
     private bool _surfaceGenerated;
 
     public override void OnStartClient()
@@ -54,14 +56,20 @@ public class SmallGenerator : NetworkBehaviour
     {
         for (int i = 0; i < generatable.SpawnPoints.Length; i++)
         {
+            if (_spawnPoints.Contains(generatable.SpawnPoints[i]))
+                continue;
+
+            _spawnPoints.Add(generatable.SpawnPoints[i]);
             if (_currentSpawnedObjects > _maxToSpawn)
             {
                 PlayerCharacter.Instance.ServerSpawnObject(_block, generatable.SpawnPoints[i].position,
                     Quaternion.identity);
-                if (_surfaceGenerated)
-                    continue;
-                _surfaceGenerated = true;
-                GameObject.FindObjectOfType<NavMeshSurface>().BuildNavMesh();
+                if (!_surfaceGenerated)
+                {
+                    _surfaceGenerated = true;
+                    GameObject.FindObjectOfType<NavMeshSurface>().BuildNavMesh();
+                }
+
                 continue;
             }
 
@@ -72,7 +80,7 @@ public class SmallGenerator : NetworkBehaviour
                     generatable.SpawnPoints[i].position,
                     Quaternion.LookRotation(generatable.SpawnPoints[i].forward));
                 _currentSpawnedObjects++;
-                return;
+                continue;
             }
 
             _currentSpawnedObjects++;
@@ -85,8 +93,6 @@ public class SmallGenerator : NetworkBehaviour
 
     private void OnDisable()
     {
-        if (!base.IsServer)
-            return;
         SmallGeneratable.Spawned -= OnSmallGeneratableSpawned;
         _generator.Regenerate -= OnRegenerate;
     }

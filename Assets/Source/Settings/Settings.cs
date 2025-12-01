@@ -32,12 +32,12 @@ public class Settings : NetworkBehaviour
         if (_settingsCanvas.enabled)
         {
             Time.timeScale = 0;
-            //GameCursor.Instance.Show();
+            GameCursor.Instance.Show();
             StopAllCoroutines();
         }
         else
         {
-            //GameCursor.Instance.Hide();
+            GameCursor.Instance.ToPrevState();
             Time.timeScale = 1;
         }
     }

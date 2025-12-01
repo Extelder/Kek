@@ -21,13 +21,10 @@ public class SmallGeneratable : NetworkBehaviour
     {
         if (!base.IsServer)
             return;
-        if (other.TryGetComponent<SmallGeneratable>(out SmallGeneratable SmallGeneratable))
+        if (other.TryGetComponent<SmallGeneratable>(out SmallGeneratable generatable))
         {
-            if (SmallGeneratable != this)
-            {
-                Despawn();
-                Debug.LogError("Despawn");
-            }
+            Despawn();
+            Debug.LogError("Despawn" + generatable.name);
         }
     }
 }

@@ -10,8 +10,11 @@ public class PlayerSpawnable : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        if (!base.IsOwner)
-            return;
+        Invoke(nameof(SpawnedWithDelay), 1f);
+    }
+
+    private void SpawnedWithDelay()
+    {
         Spawned?.Invoke(gameObject);
     }
 }
