@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
@@ -13,6 +14,8 @@ public abstract class EquipItem : MonoBehaviour
     [SerializeField] private ItemAnimator _animator;
     [SerializeField] private PlayerInventoryItem _playerInventoryItem;
     [SerializeField] private string _actionName;
+
+    public event Action NotEquiped;
 
     private Vector3 _defaultRotation;
     protected bool _equiped;
@@ -42,6 +45,7 @@ public abstract class EquipItem : MonoBehaviour
         }
         else
         {
+            NotEquiped?.Invoke();
             PlayerAnimator.DisableAll();
             PlayerCharacter.Instance.Binds.FindAction(_actionName, true).started -= OnInputReceived;
             PlayerCharacter.Instance.Binds.FindAction(_actionName, true).canceled -= OnInputCanceled;

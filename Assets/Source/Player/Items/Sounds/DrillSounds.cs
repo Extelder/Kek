@@ -12,6 +12,12 @@ public class DrillSounds : MonoBehaviour
     {
         _drill.StartedDrilling += OnStartedDrilling;
         _drill.StoppedDrilling += OnStoppedDrilling;
+        _drill.NotEquiped += OnNotEquiped;
+    }
+
+    private void OnNotEquiped()
+    {
+        _soundPlayPause.Pause(true);
     }
 
     private void OnStoppedDrilling()
@@ -28,5 +34,6 @@ public class DrillSounds : MonoBehaviour
     {
         _drill.StartedDrilling -= OnStartedDrilling;
         _drill.StoppedDrilling -= OnStoppedDrilling;
+        _drill.NotEquiped -= OnNotEquiped;
     }
 }

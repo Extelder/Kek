@@ -12,6 +12,12 @@ public class GuitarSounds : MonoBehaviour
     {
         _guitar.StartedPlayingMusic += OnMusicStartedPlaying;
         _guitar.StoppedPlayingMusic += OnMusicStoppedPlaying;
+        _guitar.NotEquiped += OnNotEquiped;
+    }
+
+    private void OnNotEquiped()
+    {
+        _music.Pause(true);
     }
 
     private void OnMusicStoppedPlaying()
@@ -27,5 +33,7 @@ public class GuitarSounds : MonoBehaviour
     private void OnDisable()
     {
         _guitar.StartedPlayingMusic -= OnMusicStartedPlaying;
+        _guitar.StoppedPlayingMusic -= OnMusicStoppedPlaying;
+        _guitar.NotEquiped -= OnNotEquiped;
     }
 }
