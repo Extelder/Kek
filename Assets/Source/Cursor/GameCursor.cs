@@ -23,13 +23,14 @@ public class GameCursor : MonoBehaviour
             Instance = this;
             return;
         }
-        
+
         Destroy(gameObject);
     }
 
+
     private void Start()
     {
-        Hide();
+//            Hide();
     }
 
     public void ToPrevState()

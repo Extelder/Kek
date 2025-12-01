@@ -11,6 +11,10 @@ public class PlayerSpawnpoint : MonoBehaviour
     private void OnEnable()
     {
         PlayerSpawnable.Spawned += OnPlayerSpawned;
+        if (PlayerCharacter.Instance != null)
+            PlayerCharacter.Instance.PlayerTransform.position =
+                _spawnPoints[Random.Range(0, _spawnPoints.Length)].position +
+                new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(-0.1f, 0.1f));
     }
 
     private void OnPlayerSpawned(GameObject playerObject)
