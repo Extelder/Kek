@@ -111,12 +111,6 @@ public class PlayerMovement : NetworkBehaviour
         _animator.SetLocomotionBlendTreeSpeed(1.5f);
     }
 
-    private void Update()
-    {
-        Debug.LogError(Speed);
-    }
-
-
     public void StopRun()
     {
         if (_running)
