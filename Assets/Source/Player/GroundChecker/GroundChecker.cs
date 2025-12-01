@@ -10,6 +10,7 @@ public class GroundChecker : MonoBehaviour
 {
     public FootStep Foot;
     [SerializeField] private RaycastSettings _raycastSettings;
+    [SerializeField] private Rigidbody rb;
     public bool Detected { get; private set; }
     private void FixedUpdate()
     {
@@ -18,6 +19,7 @@ public class GroundChecker : MonoBehaviour
             _raycastSettings.LayerMask))
         {
             Detected = true;
+            rb.AddForce(Vector3.down * 40f, ForceMode.Acceleration);
             if (hit.collider.TryGetComponent(out BoerCheck boerCheck))
             {
                 Foot = FootStep.iron;
