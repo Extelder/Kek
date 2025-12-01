@@ -28,11 +28,11 @@ public class PlayerStaminaUI : NetworkBehaviour
 
     private void OnStaminaValueChanged(float value)
     {
-        _staminaText.text = $"{value}/{_stamina.MaxValue}";
+        _staminaText.text = $"{value}";
 
         float t = Mathf.Clamp01(value / _stamina.MaxValue);
 
-        Color color = Color.Lerp(Color.red, Color.green, t);
+        Color color = Color.Lerp(Color.red, Color.white, t);
 
         _staminaText.color = color;
     }
