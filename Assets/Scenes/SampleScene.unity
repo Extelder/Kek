@@ -5313,6 +5313,7 @@ GameObject:
   - component: {fileID: 906302577}
   - component: {fileID: 906302576}
   - component: {fileID: 906302575}
+  - component: {fileID: 906302578}
   m_Layer: 0
   m_Name: defaultMaterial.007
   m_TagString: Untagged
@@ -5408,6 +5409,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906302573}
   m_Mesh: {fileID: 2390742331303915586, guid: b43e77400d4630d4b86bb281065e0121, type: 3}
+--- !u!114 &906302578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906302573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7f3c6af877a864ea8ae16c29c5276c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &913934966
 GameObject:
   m_ObjectHideFlags: 0
@@ -8441,6 +8454,7 @@ GameObject:
   - component: {fileID: 1509234338}
   - component: {fileID: 1509234339}
   - component: {fileID: 1509234337}
+  - component: {fileID: 1509234340}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -8523,6 +8537,18 @@ MonoBehaviour:
   _interpolation: 2
   _clientAuthoritative: 1
   _sendToOwner: 0
+--- !u!114 &1509234340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509234335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7f3c6af877a864ea8ae16c29c5276c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1530864466
 GameObject:
   m_ObjectHideFlags: 0
@@ -10124,6 +10150,7 @@ GameObject:
   - component: {fileID: 1791197115}
   - component: {fileID: 1791197114}
   - component: {fileID: 1791197113}
+  - component: {fileID: 1791197116}
   m_Layer: 0
   m_Name: defaultMaterial.010
   m_TagString: Untagged
@@ -10251,6 +10278,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791197111}
   m_Mesh: {fileID: -5914363623645110945, guid: b43e77400d4630d4b86bb281065e0121, type: 3}
+--- !u!114 &1791197116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791197111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7f3c6af877a864ea8ae16c29c5276c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1802805561
 PrefabInstance:
   m_ObjectHideFlags: 0
