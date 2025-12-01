@@ -9,16 +9,16 @@ public class PickAxeSounds : MonoBehaviour
     
     private void OnEnable()
     {
-        _animator.Hitted += OnHitted;
+        _animator.NotHitted += OnNotHitted;
     }
     
-    private void OnHitted()
+    private void OnNotHitted()
     {
         _mixSound.MixOnServer();
     }
 
     private void OnDisable()
     {
-        _animator.Hitted -= OnHitted;
+        _animator.NotHitted -= OnNotHitted;
     }
 }
