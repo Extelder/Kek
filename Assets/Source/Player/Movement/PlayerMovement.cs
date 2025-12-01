@@ -33,7 +33,11 @@ public class PlayerMovement : NetworkBehaviour
     public bool CanFly;
     public float Invert = 1;
 
+    public bool CanRun = true;
+
     public ReactiveProperty<bool> Moving { get; private set; } = new ReactiveProperty<bool>();
+
+    private bool _running;
 
     public override void OnStartClient()
     {
@@ -91,14 +95,37 @@ public class PlayerMovement : NetworkBehaviour
 
     private void OnRunCanceled(InputAction.CallbackContext obj)
     {
+        if (!CanRun)
+            return;
+        _running = false;
         Speed /= _runSpeedMultiplier;
         _animator.SetLocomotionBlendTreeSpeed(1f);
     }
 
     private void OnRunStarted(InputAction.CallbackContext obj)
     {
+        if (!CanRun)
+            return;
+        _running = true;
         Speed *= _runSpeedMultiplier;
         _animator.SetLocomotionBlendTreeSpeed(1.5f);
+    }
+
+    private void Update()
+    {
+        Debug.LogError(Speed);
+    }
+
+
+    public void StopRun()
+    {
+        if (_running)
+        {
+            Speed /= _runSpeedMultiplier;
+            _animator.SetLocomotionBlendTreeSpeed(1f);
+
+            _running = false;
+        }
     }
 
 
