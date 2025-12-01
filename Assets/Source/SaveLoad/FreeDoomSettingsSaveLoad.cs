@@ -20,6 +20,8 @@ public class PlayerConfigData
 
     [Header("Guide")] 
     public bool guidePassed;
+
+    public bool psx = true;
 }
 
 public static class FreeDoomSettingsSaveLoad
