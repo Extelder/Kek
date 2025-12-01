@@ -50,11 +50,6 @@ public class PlayerGuide : NetworkBehaviour
         Switch();
     }
 
-    private void Update()
-    {
-        Debug.Log(_currentStep);
-    }
-
     [ObserversRpc(BufferLast = true)]
     private void Switch()
     {
