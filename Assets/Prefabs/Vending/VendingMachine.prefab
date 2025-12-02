@@ -239,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4719624556769971236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
       type: {class: VendingMachineItem, ns: , asm: Assembly-CSharp}
       data:
         _targetPoint: {fileID: 4334218848824485108}
-        _vendingMachine: {fileID: 0}
+        _vendingMachine: {fileID: 2641216286699011095}
 --- !u!114 &2641216286699011095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,6 +2155,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 445d94ef144a9df438f3d5d7c6cd68fd, type: 3}
+    - target: {fileID: 4223050290130306137, guid: 7ac7bc753af689345a4d746e60325d5f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223050290130306137, guid: 7ac7bc753af689345a4d746e60325d5f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223050290130306137, guid: 7ac7bc753af689345a4d746e60325d5f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5082501604490975863, guid: 7ac7bc753af689345a4d746e60325d5f, type: 3}
       propertyPath: VendingMachine
       value: 

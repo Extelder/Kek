@@ -26,7 +26,7 @@ public class VendingMachine : NetworkBehaviour
     {
         Debug.Log("OnBought");
         _currentBuyable = buyableItemData;
-        _animatorSynchronize.SetAnimatorBoolMulticast(_boolName, true);
+        _animatorSynchronize.SetAnimatorBool(_boolName, true);
         CanBuy = false;
     }
 
@@ -61,7 +61,7 @@ public class VendingMachine : NetworkBehaviour
     private IEnumerator DisableBool()
     {
         yield return new WaitForSeconds(_coolDown);
-        _animatorSynchronize.SetAnimatorBoolMulticast(_boolName, false);
+        _animatorSynchronize.SetAnimatorBool(_boolName, false);
         CanBuy = true;
     }
 }
