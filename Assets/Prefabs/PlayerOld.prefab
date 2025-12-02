@@ -480,12 +480,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b78a45903c4bb4cb8fd5f31a537c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Foot: 0
   _raycastSettings:
     <Origin>k__BackingField: {fileID: 0}
     <MaxDistance>k__BackingField: 0
     <LayerMask>k__BackingField:
       serializedVersion: 2
       m_Bits: 0
+  rb: {fileID: 0}
 --- !u!1 &1258133154209838720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,6 +1753,7 @@ MonoBehaviour:
   _acceleration: 48
   CanFly: 0
   Invert: 1
+  CanRun: 1
 --- !u!114 &6846853085322839939
 MonoBehaviour:
   m_ObjectHideFlags: 0

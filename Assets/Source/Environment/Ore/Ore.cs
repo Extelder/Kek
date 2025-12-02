@@ -60,6 +60,12 @@ public class Ore : HitBox
     private void DestroyOre()
     {
         Destroyed?.Invoke();
+        StartCoroutine(WaitForDespawn());
+    }
+
+    private IEnumerator WaitForDespawn()
+    {
+        yield return new WaitForSeconds(0.5f);
         Despawn();
     }
 }
