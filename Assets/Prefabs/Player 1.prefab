@@ -27941,7 +27941,6 @@ GameObject:
   - component: {fileID: 8567447543441085911}
   - component: {fileID: 8021386958978232363}
   - component: {fileID: 9000092519259243984}
-  - component: {fileID: 6245900678705438469}
   - component: {fileID: 4378120571289483833}
   m_Layer: 7
   m_Name: StaminaText
@@ -28067,23 +28066,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6245900678705438469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935448869925240172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfd87fac64af0324580a2a301517069d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 26
-  _addedNetworkObject: {fileID: 1996624997028827962}
-  _networkObjectCache: {fileID: 1996624997028827962}
-  _healthText: {fileID: 9000092519259243984}
-  _health: {fileID: -5256358950320560399}
 --- !u!114 &4378120571289483833
 MonoBehaviour:
   m_ObjectHideFlags: 0
