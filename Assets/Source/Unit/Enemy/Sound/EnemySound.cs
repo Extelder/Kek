@@ -8,8 +8,6 @@ public class EnemySound : MonoBehaviour
 {
     [SerializeField] private AudioSource _soundsStep;
     [SerializeField] private AudioSource _sounds2;
-    [SerializeField] private AudioSource _sounds3;
-    [SerializeField] private AudioClip[] _soundAttack;
     private bool _move;
     private bool _attack;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PlayerPotions : NetworkBehaviour
     [SerializeField] private float _pinkCooldown;
     [SerializeField] private MixSoundAndPlay _audio;
     [SerializeField] private Transform _modelRoot;
-
+    private bool _baby;
     [ServerRpc(RequireOwnership = false)]
     public void DrinkBlue()
     {
@@ -95,13 +96,32 @@ public class PlayerPotions : NetworkBehaviour
     [ObserversRpc]
     private void DrinkRedObserver()
     {
-        _modelRoot.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        if (_baby)
+        {
+            _baby = false;
+            return;
+        }
+
+        _baby = true;
         StartCoroutine(WaitBaby());
     }
 
     private IEnumerator WaitBaby()
     {
-        yield return new WaitForSeconds(76);
-        _modelRoot.localScale = new Vector3(1f, 1f, 1f);
+        yield return new WaitForSeconds(75);
+        _baby = false;
+    }
+    private void Update()
+    {
+        if (_baby && !(_modelRoot.localScale.x <= 0.4f))
+        {
+            _modelRoot.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+        }
+        else if (!_baby && Mathf.Abs(_modelRoot.localScale.x - 1f) > 0.001f)
+        {
+            Debug.Log(_modelRoot.localScale.x);
+            _modelRoot.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+        }
+
     }
 }
