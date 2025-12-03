@@ -27,11 +27,6 @@ public class MixSoundAndPlay : NetworkBehaviour
     [ObserversRpc]
     private void MixAndPlayObserver()
     {
-        if (_DestroyAfterPlay)
-        {
-            if (!IsServer)
-                return;
-        }
         if (_audio == null)
             return;
         _audio.clip = _audioClips[Random.Range(0, _audioClips.Length)];
