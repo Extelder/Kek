@@ -1,18 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public class RPGProjectile : MonoBehaviour
+public class RPGProjectile : NetworkBehaviour
 {
     [field :SerializeField] public float Damage { get; private set; }
     [SerializeField] private OverlapSettings _overlapSettings;
     [SerializeField] private int _collidersSize;
+    [SerializeField] private float _cooldowmToDespawn;
     [SerializeField] private ParticleSystem _particle;
     private Collider[] _colliders;
-    private void OnCollisionEnter(Collision other)
+    private bool _canExplode = true;
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.collider.TryGetComponent<RPGProjectile>(out RPGProjectile rpgProjectile))
+        if (other.TryGetComponent<RPGProjectile>(out RPGProjectile rpgProjectile))
+            return;
+        if (other == PlayerCharacter.Instance.Collider)
+            return;
+        if (!_canExplode)
             return;
         Explode();
     }
@@ -34,10 +41,30 @@ public class RPGProjectile : MonoBehaviour
 
             if (other.TryGetComponent<PlayerHitBox>(out PlayerHitBox playerHitBox))
             {
-                Debug.Log("PLAYERHITBOX");
                 playerHitBox.TakeDamage(Damage);
             }
         }
+
+        ServerDespawn();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ServerDespawn()
+    {
+        ObseverDespawn();
+    }
+
+    [ObserversRpc]
+    public void ObseverDespawn()
+    {
+        StartCoroutine(Despawning());
+    }
+
+    private IEnumerator Despawning()
+    {
+        yield return new WaitForSeconds(_cooldowmToDespawn);
+        _canExplode = true;
+        Despawn();
     }
 
     private void OnDrawGizmos()
