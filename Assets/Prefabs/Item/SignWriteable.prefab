@@ -715,6 +715,7 @@ GameObject:
   - component: {fileID: 8573548892804783169}
   - component: {fileID: 4590868613468801262}
   - component: {fileID: 1797316858715123170}
+  - component: {fileID: -2391831231704951667}
   m_Layer: 1
   m_Name: SignWriteable
   m_TagString: Untagged
@@ -875,3 +876,15 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
     IsValid: 1
+--- !u!114 &-2391831231704951667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902670832073036224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8867f6054dbe6b4797fb1ecf462a283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
