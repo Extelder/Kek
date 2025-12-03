@@ -31,6 +31,13 @@ public class TransportHAB : NetworkBehaviour
         _locationChanger.StartRegenerate += OnExternalEvent;
     }
 
+    public override void OnStartClient()
+    {
+        if (!base.IsServer)
+            return;
+        _locationChanger.StartRegenerate -= OnExternalEvent;
+    }
+
     private void OnDisable()
     {
         _locationChanger.StartRegenerate -= OnExternalEvent;
@@ -56,12 +63,6 @@ public class TransportHAB : NetworkBehaviour
         MoveToState(_currentStateIndex);
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void SetStateAndMove(int index)
-    {
-        CurrentStateIndex = index;
-        MoveToState(CurrentStateIndex);
-    }
 
     [ObserversRpc]
     private void MoveToState(int index)
