@@ -46,8 +46,7 @@ public class MixSoundAndPlay : NetworkBehaviour
         {
             if (!_audio.isPlaying)
             {
-                Debug.Log(this);
-                PlayerCharacter.Instance.DespawnObject(this);
+                Despawn(gameObject);
             }
         }
     }

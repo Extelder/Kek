@@ -94,7 +94,7 @@ public class PlayerPotions : NetworkBehaviour
     }
 
     [ObserversRpc]
-    private void DrinkRedObserver()
+    private void DrinkRedObserver() 
     {
         if (_baby)
         {
