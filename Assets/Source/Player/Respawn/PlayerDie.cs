@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerDie : NetworkBehaviour
 {
+    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private GameObject _deadLight;
     [SerializeField] private Transform _deadBodySourceBone;
 
@@ -40,7 +41,7 @@ public class PlayerDie : NetworkBehaviour
             _offObjectsWhenDie[i].SetActive(false);
         }
 
-        PlayerCharacter.Instance.Rigidbody.useGravity = false;
+        _rigidbody.useGravity = false;
         _movement.CanFly = true;
         _interact.enabled = false;
 
