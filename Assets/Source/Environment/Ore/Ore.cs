@@ -53,6 +53,8 @@ public class Ore : HitBox
             _modelsOrigin.localScale.y <= _scaleThresholdToDestroy ||
             _modelsOrigin.localScale.z <= _scaleThresholdToDestroy)
         {
+            if (!IsServer)
+                return;
             DestroyOre();
         }
     }
@@ -65,7 +67,7 @@ public class Ore : HitBox
 
     private IEnumerator WaitForDespawn()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         Despawn();
     }
 }
